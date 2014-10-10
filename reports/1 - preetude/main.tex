@@ -9,6 +9,15 @@
 \usepackage[left=2cm, right=2cm, bottom=3cm, top=3cm]{geometry}
 \usepackage{array}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
 \title{Rapport de pré-étude}
 
 \author
@@ -24,7 +33,9 @@
 \date{\today}
 
 \begin{document}
+    \hypersetup{pageanchor=false}
 	\maketitle
+    \hypersetup{pageanchor=true}
     
     \tableofcontents
     \setlength{\parskip}{10pt}
@@ -44,7 +55,7 @@
     \input{input/risques.tex}
 
     \bibliographystyle{plain}
-    \bibliography{input/biblio.bib}
+    \bibliography{input/biblio}
 
 
 \end{document}
