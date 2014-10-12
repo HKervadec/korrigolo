@@ -14,11 +14,11 @@
 			\label{fig:arbre_exemple_1}
 		\end{figure}
 
-		Aussi, le concept original de Schneier intègre la possibilté d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc... Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les noeuds qui en découlent.
+		Aussi, le concept original de Schneier intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc... Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les noeuds qui en découlent.
 
 		Depuis 1999, le concept a évolué grâce à la contribution de personnes ayant étendu et amélioré le concept de Mr Schneier : Barbara Kordy, Sjouke Mauw, Saša Radomirović, Patrick Schweitzer. Ces personnes ont en pareticulier étendu le concept d'arbre d'attaque à celui d'arbre de défense, où sont également reprséntés les defenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but. Un formalisme existe aussi pour ces types d'arbres ADT (Attack Defense Tree), où les défense sont représentées dans des rectangles et liés avec des pointillés. Le même arbre que précédemment avec des défenses ressemble à la figure \ref{fig:arbre_exemple_2}.
 
-		\begin{figure}
+		\begin{figure}[h!]
             \begin{center}
                 \includegraphics[width=0.8\textwidth]{figure/Entrer_dans_un_magasin2.png}
             \end{center}
@@ -36,12 +36,21 @@
 		~~\\
 		\large Logiciels Open-Source :
 		\begin{itemize}
-			\item ADTool
+			\item ADTool : le logiciel sur lequel nous allons travailler
 		\end{itemize}
+
+		Aujourd'hui, les arbres d'attaques tels qu'imaginés par Schneier sont enseignés lors de formations par un grand nombres d'experts en sécurité et utilisés par de nombreuses entreprises Ceci est dû à l'avantage de pouvoir partir du point de vu de l'attaquant et donc de concentrer les efforts de défenses là où ils seront réellement utiles, à l'inverses d'un certain nombres d'autres stratègies de défense qui vont se concentrer seulement sur la défense du point de vue du défenseur, aboutissant forcement à une estimation des dangers incomplète. 
+
+		Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des arbres d'attaque/défense sans toutefois utiliser ceux présent sur le marché. En effet, les solutions logicielles ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcement faciles à mettre en place. Ainsi, il n'est pas possible pour quelqu'un qui n'y a pas été formé de construire un arbre d'attaque/défense même avec un logiciel d'édition dédié.
+
+		Ce qui nous amène au cahier des charges.
 
 		\iffalse{}
 		Biblio :
 		https://www.schneier.com/paper-attacktrees-ddj-ft.html
 		http://www.sciencedirect.com/science/article/pii/S1574013714000100
 		http://logcom.oxfordjournals.org/content/24/1/55
+		http://www.infres.enst.fr/people/leneutre/SECUR/INF941-Intro-securite-2011-12.pdf
+		http://www.labunix.uqam.ca/~gingras_e/Inf4470/Pres_Vulnerabilites.pdf
+		http://tel.archives-ouvertes.fr/docs/00/46/25/34/PDF/these-eric_lacombe.pdf
 		\fi
