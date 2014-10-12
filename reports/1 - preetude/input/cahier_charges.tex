@@ -1,21 +1,40 @@
 \chapter{Cahier des charges}
-    L'objectif principal de ce projet est de réaliser une suite logicielle, permettant à un utilisateur novice dans le domaine des arbres d'attaque défense et de la sécurité en général, d'évaluer les risques d'attaque sur son système.
+    Le but premier de ce projet est de réaliser un outil permettant à un utilisateur novice d'effectuer une analyse sur la sécurité de son système, quelle qu'en soit sa nature. Cette analyse devra ensuite lui permettre de mettre en place les défenses les plus adaptées et les plus "rentables", jusqu'à arriver entière satisfaction du système.
+    
+    L'analyse reposera grandement sur l'utilisation d'arbres d'attaque défense, ainsi que sur un peu de divination pour pouvoir valuer ces putains de feuilles.
+    
+    L'outil prendra la forme d'une suite logicielle, dont les différents composants réaliseront chacun une fonctionnalité précise et devront interagir ensemble.
+    
+    Avec ce choix (de design modulaire), nous réaliserons donc plusieurs outils qui feront une chose, mais qui le feront bien, plutôt que faire un seul gros blob qui essayera de tout faire de manière médiocre et dont la souplesse n'aura d'égale que celle d'une enclume.
+    
+    Ce design modulaire peut permettre de réutiliser certains outils dans d'autres contextes, ou encore de remplacer un des logiciel par un autre sans trop de difficulté. 
     
     Notre suite contiendra:
     \begin{itemize}
-    	\item Une bibliothèque de modèles d'attaques existantes.
-        \item Base de valeurs.
         \item D'un guide (plus ou moins interactif) pour partir de zéro, même novice.
-        \item Un editeur d'arbres.
+    	\item Une bibliothèque de modèles d'attaques existantes.
+        \item Une base de valeurs, servant à valuer les feuilles des arbres.
+        \item Un éditeur d'arbres.
     \end{itemize}
     
-    \section{Bibliothèque d'attaques}    
+    \section{Spécifications générales}
+        L'analyse du client sera sauvegardée sous forme de projet. Lorsque l'utilisateur voudra créer une nouvelle analyse, il devra créer un nouveau projet, et répondre à une série de questions, comme le type du système, l'attaquant imaginé, et bien d'autre.
+        
+        Bien que ces paramètres puissent être changés par la suite, ces informations permettront de présélectionner des informations plus pertinentes au cas de l'utilisateur.
+        
+        L'autre utilité serait de générer un arbre de base, basé sur un ou différents modèles, que l'utilisateur pourrait ensuite modifier en fonction de sa situation.
+    
+    \section{Bibliothèque d'attaques}  
         La bibliothèque d'attaques servirait à décrire des cas très généraux, que l'utilisateur pourrait détailler en fonction de sa situation. 
+        
+        Afin de garder les choses lisibles et ne pas surcharger les autres projets, chaque projet stockera sa propre bibliothèque. De plus, cela rendra la copie de projets entre différents ordinateurs plus aisée.
+        
+        La bibliothèque d'attaques du projet sera préchargée de diverses attaques en fonction des réponses de l'utilisateur lors de la création du projet, et pourra par la suite être complétée (ou épurée, c'est tout comme) en ajoutant des modèles de base (stockés par notre application) ou venants de l'internet sauvage.
         
         Dans notre exemple (la STAR), nous pourrons fournir des arbres d'attaque de réseaux de transport communs à toutes les villes de France, que nous pourront ensuite détailler pour la ville de Rennes.
         
     \section{Base de valeurs}
-    	Le but de la base de valeurs serait de fournir d'aider l'utilisateur à valuer ses noeuds, et lui permettre d'enregistrer des valeurs qui reviennent souvent.
+    	Le but de la base de valeurs serait de fournir d'aider l'utilisateur à valuer ses nœuds, et lui permettre d'enregistrer des valeurs qui reviennent souvent.
       
     \section{Guide interactif}
     	Le guide doit être capable d'expliquer à l'utilisateur comment faire son analyse. 
@@ -24,29 +43,23 @@
         
         Chaque notion devra être expliquée de manière claire et concise.
         
-        Découper l'analyse en différentes étapes.        
+        Découper l'analyse en différentes étapes. Une fois que l'utilisateur aura complété une étape, il faudra lui expliquer la suite.
+        
+        Nous pensions faire référence au célèbre trombone magique de Microsoft office, mais, pour des raisons de droit, nous utiliseront à la place une agrafeuse.
         
     \section{\'Editeur d'arbres}
-    	L'éditeur d'arbre sera l'outil AD Tool\footnote{Développé par...}, auquel nous rajouterons quelques fonctionnalités \textbf{(lesquelles?)} pour rendre l'édition des arbres plus souple.
-    
+        Pour l'édition des arbres, nous utiliserons un outil préexistant, à savoir AD Tool\footnote{Qui a été développée par Barbare Kordy (\& cie), notre encadrante).}.
+        
+        Toutefois, quelques modifications seront nécessaire, afin non seulement de rendre l'édition des arbres plus souple, mais aussi et surtout pour pouvoir plus facilement importer et exporter des arbres générés
+        
+        L'objectif en effet serait de faire générer un arbre par notre application mère à partir de différents modèles, pour ensuite demander à l'utilisateur de réaliser les finitions.
     
 	\section{Multiplateforme}
-        Disscuss: Intérêt du multiplateforme.
-
-    	Pro:
-        \begin{itemize}
-            \item Ne limite pas l'utilisateur dans son choix d'OS.
-            \item AD Tool est déjà multiplateforme.
-        \end{itemize}
-
-        Cons:
-        \begin{itemize}
-        	\item Plus technique à réaliser.
-        \end{itemize}
+        Bien que nous allons nous concentrer sur une seule plateforme d'utilisateur (à savoir, Microsoft WINDOZE), nous utiliseront des langages et librairies qui permettront facilement de rendre notre programme multiplateforme par la suite, si jamais on s’ennuie entre la pause café et la pause midi.
 
     \section{License}
-    	GPL? MIT? BSD? WTF?
+    	AD Tool: GPL3
         
-        Déterminer ce que l'on veut pour notre projet.
+        Nous souhaitons garder un logiciel open-source, parce que nous avons l'esprit du partage et souhaitons à l'humanité d'avoir un futur rose et plein d'arcs en ciel.
         
-        Vérifier aussi license de AD Tool.
+        En revanche, les méchants libristes ont mis au point un virus contaminant les applications libres, ce qui fait qu'on risque de devoir se taper la GPL, même si on a pas vraiment vraiment envie. Monde de merde.
