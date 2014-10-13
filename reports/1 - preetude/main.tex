@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper]{article}
 
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{lmodern}
-\usepackage[left=2cm, right=2cm, bottom=3cm, top=3cm]{geometry}
+%\usepackage[left=2cm, right=2cm, bottom=3cm, top=3cm]{geometry}
 \usepackage{array}
 
 \usepackage{hyperref}
@@ -37,9 +37,11 @@
 	\maketitle
     \hypersetup{pageanchor=true}
     
+    \newpage
     \tableofcontents
     \setlength{\parskip}{10pt}
     
+    \newpage
     \input{input/intro.tex}
     
     \input{input/contexte.tex}
@@ -56,6 +58,4 @@
 
     \bibliographystyle{plain}
     \bibliography{input/biblio}
-
-
 \end{document}
