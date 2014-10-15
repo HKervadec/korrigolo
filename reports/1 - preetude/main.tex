@@ -6,8 +6,9 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{lmodern}
-%\usepackage[left=2cm, right=2cm, bottom=3cm, top=3cm]{geometry}
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
 \usepackage{array}
+\usepackage{pdfpages}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -34,7 +35,8 @@
 
 \begin{document}
     \hypersetup{pageanchor=false}
-	\maketitle
+	%\maketitle
+    \includepdf{figure/couv.pdf}
     \hypersetup{pageanchor=true}
     
     \newpage
