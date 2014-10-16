@@ -33,15 +33,26 @@
 
 \date{\today}
 
+\newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
+
 \begin{document}
     \hypersetup{pageanchor=false}
 	%\maketitle
-    \includepdf{figure/couv.pdf}
+    \includepdf[pages=1]{figure/couv.pdf}
     \hypersetup{pageanchor=true}
     
     \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    
+    \newpage
+    % \setcounter{tocdepth}{2}
     \tableofcontents
     \setlength{\parskip}{10pt}
+    
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
     
     \newpage
     \input{input/intro.tex}
@@ -60,4 +71,11 @@
 
     \bibliographystyle{plain}
     \bibliography{input/biblio}
+
+    % Manoucherie incoming
+    \pagevierge
+    \ifthenelse{\isodd{\thepage}}
+    {\pagevierge}
+    {}
+    \includepdf[pages=2]{figure/couv.pdf}
 \end{document}
