@@ -11,7 +11,7 @@
 
 		Enfin, le modèle des arbres d'attaques intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc... Ces valeurs permettent alors de quantifier le "poids" du noeud dans l'arbre vis-à-vis de l'attaquant.  Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les noeuds qui en découlent (par exemple, le poids d'un noeud OU peut avoir le poids minimal parmi ces noeuds inférieurs, tandis que dans le cas d'un noeud ET son poids sera leur somme), ce qui peut servir à l'attaquant pour choisir une stratègie d'attaque plutôt qu'une autre au vu de ses ressources.
 
-		L'arbre de la Figure \ref{fig:arbre_exemple_1} illustre ce formalisme : 
+		L'arbre de la Figure \ref{fig:arbre_exemple_1} illustre ce formalisme : Objectif final à la racine, actions aux feuilles, et noeuds conjonctifs (besoin de la carte ET du code) et disjonctifs (par borne OU par internet) 
 
 		\begin{figure}
 			\begin{center}
@@ -21,7 +21,7 @@
 			\label{fig:arbre_exemple_1}
 		\end{figure}
 
-		Depuis 1999, le concept a évolué grâce à la contribution de personnes ayant étendu et amélioré le concept de Schneier. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d'arbre d'attaques et de défenses, aussi appelé Attack-Defense-Tree (ADTree), où sont également représentés les defenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but. Les défenses sont traditionnellement représentés par des rectangles. Le même cas que précédemment pour lequel des défense auraient été mises en place pourrait correspondre à la Figure \ref{fig:arbre_exemple_2}.
+		Depuis 1999, le concept a évolué grâce à la contribution de personnes ayant étendu et amélioré le concept de Schneier. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d'arbre d'attaques et de défenses, aussi appelé Attack-Defense-Tree (ADTree), où sont également représentés les defenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but. Les défenses sont traditionnellement représentés par des rectangles. Le même cas que précédemment pour lequel des défense auraient été mises en place pourrait correspondre à la Figure \ref{fig:arbre_exemple_2} : Pour accéder au compte l'attaquant à besoin de désactiver l'authentificateur, MEME en possession du login ET du mot de passe
 
         \begin{figure}[h!]
             \begin{center}
