@@ -33,25 +33,25 @@
 
 <<<<<<< HEAD
 	\section{Implémentations des ADTree}
-		Plusieurs logiciels implémentant le concept des arbres d'attaques ou des ADTree ont été développés. Voici les principaux :
+		Plusieurs logiciels implémentant le concept des arbres d'attaques ou des ADTree ont été développés. Exemples :
         
         {\large Logiciels propriétaires :}
         \begin{itemize}
-            \item SecurlTree
-            \item ATTACKTREE+
+            \item SecurlTree : logiciel de création et d'analyse d'arbres d'attaques développé par la société Amenaza
+            \item ATTACKTREE+ : logiciel de création et d'analyse d'arbres d'attaques développé par la société Isograph
         \end{itemize}
         ~~\\
         {\large Logiciels Open-Source :}
         \begin{itemize}
-            \item ADTool : le logiciel sur lequel nous allons travailler
+            \item ADTool : Logiciel développé par une équipe de chercheur de l'université du Luxembourg pour la modélisation d'ADTrees (le logiciel avec lequel nous allons travailler)
         \end{itemize}
 ~~
 
-        Aujourd'hui, les arbres d'attaques tels qu'imaginés par Schneier sont enseignés lors de formations par un grand nombres d'experts en sécurité et utilisés par de nombreuses entreprises Ceci est dû à l'avantage de pouvoir partir du point de vu de l'attaquant et donc de concentrer les efforts de défenses là où ils seront réellement utiles, à l'inverses d'un certain nombres d'autres stratègies de défense qui vont se concentrer seulement sur la défense du point de vue du défenseur, aboutissant forcement à une estimation des dangers incomplète. 
+        Aujourd'hui, les arbres d'attaques tels qu'introduits par Schneier sont utilisés par de nombreuses entreprises. Ceci est dû à l'avantage de pouvoir partir du point de vu de l'attaquant et donc de concentrer les efforts de défenses là où ils seront le plus utiles, à l'inverses d'un certain nombres d'autres stratègies de défense qui vont se concentrer seulement sur la défense du point de vue du défenseur (par exemple les arbres de défaillance), aboutissant forcement à une estimation des dangers incomplète. 
 
-        Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des arbres d'attaque/défense sans toutefois utiliser ceux présent sur le marché. En effet, les solutions logicielles ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcement faciles à mettre en place. Ainsi, il n'est pas possible pour quelqu'un qui n'y a pas été formé de construire un arbre d'attaque/défense même avec un logiciel d'édition dédié.
+        Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des arbres d'attaque/défense sans toutefois utiliser ceux présent sur le marché. En effet, les solutions logicielles ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcement faciles à mettre en place. De plus, le nombre de logiciels implémentant les ADTree est assez réduit en comparaison de ceux implémentant les arbres d'attaques. Ceci étant, le développement peut être laborieux même en utilisant un logiciel dédié comme ADTool pour plusieurs raisons : le logiciel n'intégre pas d'arbres génériques ce qui ralonge le développement et oblige de modéliser plusieurs fois la même partie d'arbre, ne permet pas non plus de gérer la quantification de manière dynamique selon qui est l'attaquant, etc.
 
-        Ce qui nous amène au cahier des charges.
+        Un grand nombre d'amélioration est donc possible : Ce qui nous amène au cahier des charges.
 
         % Biblio :
         % https://www.schneier.com/paper-attacktrees-ddj-ft.html
