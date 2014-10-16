@@ -1,30 +1,42 @@
 \section{Cahier des charges}
-    Le but premier de ce projet est de réaliser un outil permettant à un utilisateur novice d'effectuer une analyse sur la sécurité de son système, quelle qu'en soit sa nature. Cette analyse devra ensuite lui permettre de mettre en place les défenses les plus adaptées et les plus "rentables", jusqu'à obtention d'un système dont la sécurité le satisfait pleinement.
+    Le but premier de ce projet est de réaliser un outil permettant à un utilisateur (potentiellement) novice d'effectuer une analyse sur la sécurité de son système, quelle qu'en soit sa nature. Cette analyse devra ensuite lui permettre de mettre en place les défenses les plus adaptées et les plus "rentables", jusqu'à obtention d'un système dont la sécurité le satisfait pleinement.
     
-    L'analyse reposera grandement sur l'utilisation d'arbres d'attaque défense, ainsi que sur un peu de divination pour pouvoir valuer les feuilles des arbres.
+    L'analyse reposera grandement sur l'utilisation d'arbres d'attaque--défense, mais aussi sur une expertise (extérieure ou non) pour pouvoir valuer les feuilles des arbres\footnote{C'est d'ailleurs à cet endroit qu'un utilisateur novice rencontrera le plus de difficulté.}.
     
-    L'outil prendra la forme d'une suite logicielle, dont les différents composants réaliseront chacun une fonctionnalité précise et devront interagir ensemble.
-    
-    Avec ce choix (de design modulaire), nous réaliserons donc plusieurs outils qui feront une seule chose, mais qui le feront bien, plutôt que faire un seul gros blob qui essayera de tout faire de manière médiocre et dont la souplesse n'aura d'égale que celle d'une enclume.
-    
-    Ce design modulaire peut permettre de réutiliser certains outils dans d'autres contextes, ou encore de remplacer un des logiciel par un autre sans trop de difficulté. 
-    
-    Notre suite contiendra:
+    L'outil prendra la forme d'une suite logicielle, dont les différents composants réaliseront chacun une fonctionnalité précise et devront interagir ensemble, et listé ci dessous:
     \begin{itemize}
-        \item D'un guide (plus ou moins interactif) pour partir de zéro, même novice.
-    	\item Une bibliothèque de modèles d'attaques existantes.
-        %\item Une base de valeurs, servant à valuer les feuilles des arbres.
-        \item Un éditeur d'arbres.
+    	\item Une bibliothèque de modèles d'attaques existantes (détaillé dans la sous-section \ref{subsec:biblio_atk}).
+        \item Un guide (plus ou moins interactif) pour partir de zéro, même novice (sous-section \ref{subsec:guide_inter}).
+        \item Un éditeur d'arbres (sous-section \ref{subsec:edit_arbre}).
     \end{itemize}
-    
+
     \subsection{Spécifications générales}
+        \label{subsec:spec_gen}
         L'analyse du client sera sauvegardée sous forme de projet. Lorsque l'utilisateur voudra créer une nouvelle analyse, il devra créer un nouveau projet, et répondre à une série de questions, comme le type du système, l'attaquant imaginé, et bien d'autre.
         
-        Bien que ces paramètres puissent être changés par la suite, ces informations permettront de présélectionner des informations plus pertinentes au cas de l'utilisateur.
+        Ces informations permettront de présélectionner des modèles plus pertinents au cas de l'utilisateur, et pourront par exemple nous servir à générer un arbre de base. L'utilisateur pourrait alors l'éditer pour obtenir un arbre d'attaque correspondant à sa situation.
+    
+    \subsection{Architecture}
+        Nous avons décidé de partir sur une architecture modèlaire, où une application mère, qui servira de chef d'orchestre, sera chargé de lancer les différents composants, chacun spécifique à une tache en particulier. % Trop long, reformuler.
+        Un ébauche de l'architecture envisagée est disponible figure \ref{fig:archi}.
+
+        \begin{figure}
+            \begin{center}
+                \includegraphics[width=1\textwidth]{figure/archi.pdf}
+            \end{center}
+            \caption{Différents composants interviendront pour éditer le fichier projet.}
+            \label{fig:archi}
+        \end{figure}
+
+        % Reformuler ce merdier
+        La spécialisation des composants nous permettra d'optenir une architecture logicielle plus propre, qui facilitera le développement: chaque partie sera indépendante des autres, et les choix techniques de l'une ne limiteront pas une autre.
+
+        Avec ce choix d'architecture modulaire, nous réaliserons donc plusieurs outils spécialisés, mais qui le feront bien, plutôt que faire une seule grosse application qui fera tout de manière médiocre et dont l'architecture rendra toute modification très difficile.
         
-        L'autre utilité serait de générer un arbre de base, basé sur un ou différents modèles, que l'utilisateur pourrait ensuite modifier en fonction de sa situation.
+        De plus, cette architecture peut potentiellement nous permettre de réutiliser certains outils dans d'autres contextes, ou encore de remplacer un des logiciel par un autre sans trop de difficulté. 
     
     \subsection{Bibliothèque d'attaques}  
+        \label{subsec:biblio_atk}
         La bibliothèque d'attaques servirait à décrire des cas très généraux, que l'utilisateur pourrait détailler en fonction de sa situation. 
         
         Afin de garder les choses lisibles et ne pas surcharger les autres projets, chaque projet stockera sa propre bibliothèque. De plus, cela rendra la copie de projets entre différents ordinateurs plus aisée.
@@ -32,11 +44,9 @@
         La bibliothèque d'attaques du projet sera préchargée de diverses attaques en fonction des réponses de l'utilisateur lors de la création du projet, et pourra par la suite être complétée (ou épurée, c'est tout comme) en ajoutant des modèles de base (stockés par notre application) ou venants de l'internet sauvage.
         
         Dans notre exemple (la STAR), nous pourrons fournir des arbres d'attaque de réseaux de transport communs à toutes les villes de France, que nous pourront ensuite détailler pour la ville de Rennes.
-        
-    %\section{Base de valeurs}
-    	%Le but de la base de valeurs serait de fournir d'aider l'utilisateur à valuer ses nœuds, et lui permettre d'enregistrer des valeurs qui reviennent souvent.
       
     \subsection{Guide interactif}
+        \label{subsec:guide_inter}
     	Le guide doit être capable d'expliquer à l'utilisateur comment faire son analyse. 
         
         Il pourra par exemple poser une série de questions à l'utilisateur, afin de générer un arbre dit "de base" sur lequel l'utilisateur pourra commencer son analyse.
@@ -45,10 +55,11 @@
         
         Découper l'analyse en différentes étapes. Une fois que l'utilisateur aura complété une étape, il faudra lui expliquer la suite.
         
-        Nous pensions faire référence au célèbre trombone magique de Microsoft office, mais, pour des raisons de droit, nous utiliseront à la place une agrafeuse.
+        Nous pensions faire référence au célèbre trombone magique de Microsoft Office, mais, pour des raisons de droit, nous utiliseront à la place une agrafeuse.
         
     \subsection{\'Editeur d'arbres}
-        Pour l'édition des arbres, nous utiliserons un outil préexistant, à savoir AD Tool\footnote{Qui a été développée par Barbare Kordy (\& cie), notre encadrante.}.
+        \label{subsec:edit_arbre}
+        Pour l'édition des arbres, nous utiliserons un outil préexistant, à savoir AD Tool\cite{adtool_paper}.  
         
         Toutefois, quelques modifications seront nécessaire, afin non seulement de rendre l'édition des arbres plus souple, mais aussi et surtout pour pouvoir plus facilement importer et exporter des arbres générés
         
@@ -58,7 +69,7 @@
         Bien que nous allons nous concentrer sur une seule plateforme d'utilisateur (à savoir, Microsoft WINDOZE), nous utiliseront des langages et librairies qui permettront facilement de rendre notre programme multiplateforme par la suite, si jamais on s’ennuie entre la pause café et la pause midi.
 
     \subsection{License}
-    	AD Tool: GPL3
+    	ADTool: GPL3
         
         Nous souhaitons garder un logiciel open-source, parce que nous avons l'esprit du partage et souhaitons à l'humanité d'avoir un futur rose et plein d'arcs en ciel.
         
