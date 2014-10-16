@@ -15,34 +15,17 @@
 
 		\begin{figure}
 			\begin{center}
-				\includegraphics[width=0.8\textwidth]{figure/Entrer_dans_un_magasin.png}
+				\includegraphics[width=0.8\textwidth]{figure/exemple1_rapport.png}
 			\end{center}
 			\caption{Exemple d'arbre d'attaques}
 			\label{fig:arbre_exemple_1}
 		\end{figure}
 
 		Depuis 1999, le concept a évolué grâce à la contribution de personnes ayant étendu et amélioré le concept de Schneier. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d'arbre d'attaques et de défenses, aussi appelé Attack-Defense-Tree (ADTree), où sont également représentés les defenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but. Le même cas que précédemment pour lequel des défense auraient été mises en place correspond à la Figure \ref{fig:arbre_exemple_2}.
-=======
-        Lors de ces recherches, Mr Schneier a retenu un formalisme prècis : Une représentation des menaces sous la forme d'arbres. Ces arbres sont réalisés en se posant la question suivant : Si je veux atteindre tel objectif, qu'est ce que cela pré-suppose que j'accomplisse d'abord ? Pour cela, on représente l'objectif final en haut de l'arbre, et l'on ajoute en descendant dans l'arbre les objectifs intermédiaires (noeuds) plus simples à réaliser, qui nous garantissent l'accomplissement de l'objectif principal. L'on fait ensuite découler de ces objectifs intermédiaires d'autres objectifs les validant, etc... jusqu'à avoir en bas de l'arbre des actions simples (feuilles). Ensuite, il suffit de descendre dans l'arbre à partir d'un noeud pour savoir quelles sont les combinaisons d'actions possibles à effectuer pour atteindre le noeud. 
-
-        L'arbre de la figure \ref{fig:arbre_exemple_1} illustre ce formalisme : 
-
-        \begin{figure}
-            \begin{center}
-                \includegraphics[width=1\textwidth]{figure/Entrer_dans_un_magasin.png}
-            \end{center}
-            \caption{C'est tres bien}
-            \label{fig:arbre_exemple_1}
-        \end{figure}
-
-        Aussi, le concept original de Schneier intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc... Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les noeuds qui en découlent.
-
-        Depuis 1999, le concept a évolué grâce à la contribution de personnes ayant étendu et amélioré le concept de Mr Schneier : Barbara Kordy, Sjouke Mauw, Saša Radomirović, Patrick Schweitzer. Ces personnes ont en pareticulier étendu le concept d'arbre d'attaque à celui d'arbre de défense, où sont également reprséntés les defenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but. Un formalisme existe aussi pour ces types d'arbres ADT (Attack Defense Tree), où les défense sont représentées dans des rectangles et liés avec des pointillés. Le même arbre que précédemment avec des défenses ressemble à la figure \ref{fig:arbre_exemple_2}.
->>>>>>> origin/master
 
         \begin{figure}[h!]
             \begin{center}
-                \includegraphics[width=1\textwidth]{figure/Entrer_dans_un_magasin2.png}
+                \includegraphics[width=1\textwidth]{figure/exemple2_rapport.png}
             \end{center}
             \caption{ADTree}
             \label{fig:arbre_exemple_2}
@@ -51,10 +34,6 @@
 <<<<<<< HEAD
 	\section{Implémentations des ADTree}
 		Plusieurs logiciels implémentant le concept des arbres d'attaque ou des ADT ont été développés. Voici les principaux :
-=======
-    \subsection{Implémentations des ADT}
-        Plusieurs logiciels implémentant le concept des ADT ont été développés. Voici les principaux :
->>>>>>> origin/master
         
         {\large Logiciels propriétaires :}
         \begin{itemize}
