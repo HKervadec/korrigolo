@@ -36,8 +36,8 @@
 \newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
 
 \begin{document}
+    % Ouh c'est sale.
     \hypersetup{pageanchor=false}
-	%\maketitle
     \includepdf[pages=1]{figure/couv.pdf}
     \hypersetup{pageanchor=true}
     
@@ -46,7 +46,8 @@
     \mbox{}
     
     \newpage
-    % \setcounter{tocdepth}{2}
+    % A decommenter pour la release
+    \setcounter{tocdepth}{2}
     \tableofcontents
     \setlength{\parskip}{10pt}
     
@@ -68,6 +69,10 @@
     \input{input/plannif.tex}
     
     \input{input/risques.tex}
+
+
+    % a eviter
+    \nocite{*}
 
     \bibliographystyle{plain}
     \bibliography{input/biblio}

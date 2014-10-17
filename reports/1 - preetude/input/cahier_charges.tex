@@ -16,11 +16,11 @@
         
         Ces informations permettront de présélectionner des modèles plus pertinents au cas de l'utilisateur, et pourront par exemple servir à générer un arbre de base. L'utilisateur pourrait alors l'éditer pour obtenir un arbre d'attaque correspondant à sa situation.
 
-        % Verifier ce que je raconte.
-        La valuation des valeurs est déjà prise en charge par ADTool. Toutefois, elle ne permet pas de changer aisement de "type" de valuation. Le projet devrait donc stocker les valeurs des arbres, et pouvoir permettre de changer facilement de valuation (passer du coût au temps, par exemple).
+        % Vérifier ce que je raconte.
+        La valuation des valeurs est déjà prise en charge par ADTool. Toutefois, elle ne permet pas de changer aisément de "type" de valuation. Le projet devrait donc stocker les valeurs des arbres, et pouvoir permettre de changer facilement de valuation (passer du coût au temps, par exemple).
     
     \subsection{Architecture}
-        Nous avons décidé de partir sur une architecture modèlaire, où une application mère, qui servira de chef d'orchestre, sera chargé de lancer les différents composants, chacun spécifique à une tache en particulier. % Trop long, reformuler.
+        Nous avons décidé de partir sur une architecture modulaire, où une application mère, qui servira de chef d'orchestre, sera chargé de lancer les différents composants, chacun spécifique à une tache en particulier. % Trop long, reformuler.
         Un ébauche de l'architecture envisagée est disponible figure \ref{fig:archi}.
 
         \begin{figure}
@@ -32,7 +32,7 @@
         \end{figure}
 
         % Reformuler ce merdier
-        La spécialisation des composants nous permettra d'optenir une architecture logicielle plus propre, qui facilitera le développement: chaque partie sera indépendante des autres, et les choix techniques de l'une ne limiteront pas une autre.
+        La spécialisation des composants nous permettra d’obtenir une architecture logicielle plus propre, qui facilitera le développement: chaque partie sera indépendante des autres, et les choix techniques de l'une ne limiteront pas une autre.
 
         Avec ce choix d'architecture modulaire, nous réaliserons donc plusieurs outils spécialisés, mais qui le feront bien, plutôt que faire une seule grosse application qui fera tout de manière médiocre et dont l'architecture rendra toute modification très difficile.
         
@@ -52,7 +52,7 @@
         \label{subsec:guide_inter}
         Le guide doit être capable d'expliquer à l'utilisateur comment faire son analyse. Celle ci sera découpée en plusieurs étapes (en fonction d'une méthode générique que nous auront précédemment présélectionnée).
 
-        Afin de s'adapter à l'expertise de l'utilisateur (allant de novice à expert), son niveau de verbosité pourra être réglé.
+        Son niveau de verbosité pourra être adapté en fonction de l'expertise de l'utilisateur, allant par exemple de novice à expert. % Supprimer répétition.
         
         Il pourra par exemple poser une série de questions à l'utilisateur, afin de générer un arbre dit "de base" sur lequel l'utilisateur pourra commencer son analyse.
         
@@ -68,12 +68,7 @@
 
         L'objectif en effet serait de faire générer un arbre par notre application mère à partir de différents modèles, pour ensuite demander à l'utilisateur de réaliser les finitions.
     
-    \subsection{Multiplateforme}
-        Nous allons dans un premier temps nous concentrer sur une seule plateforme, à savoir Microsoft Windows. Ainsi, nous n'auront pas à gérer les difficultés de l'écriture de programmes multi-plateformes, nous laissant le champ libre pour nous occuper uniquement des fonctionnalités de notre application.
+    \subsection{Multiplate-forme}
+        Nous allons dans un premier temps nous concentrer sur une seule plate-forme, à savoir Microsoft Windows. Ainsi, nous n'auront pas à gérer les difficultés de l'écriture de programmes multiplate-formes, nous laissant le champ libre pour nous occuper uniquement des fonctionnalités de notre application.
 
-        Toutefois, afin de ne pas tuer dans l'oeuf un éventuel portage ultérieur, nous nous éforcerons de choisir des technologies disponibles pour tout les systèmes d'exploitation, afin de minimiser le travail nécessaire.
-
-    \subsection{License}
-        Nous souhaitons créer une application open-source, permettant à chacun de reprendre notre projet pour l'améliorer, ou juste prendre certains composants.
-
-        Le choix de la license n'a pas encore été fixé, mais nous risquons de partir sur une GPL. Ceci est dû aux caractéristiques de virus de la GPL.
+        Toutefois, afin de ne pas tuer dans l’œuf un éventuel portage ultérieur, nous nous éforcerons de choisir des technologies disponibles pour tout les systèmes d'exploitation, afin de minimiser le travail nécessaire.
