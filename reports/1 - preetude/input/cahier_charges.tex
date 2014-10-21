@@ -1,4 +1,5 @@
 \section{Cahier des charges}
+    \label{sec:cahier}
     % Preciser utilisateur
     % Connais deja concept arbre d'attaque
     % Responsable securite d'une entite
@@ -6,32 +7,38 @@
 
     % Structure reflete niveau importance
 
-    En plus de réaliser l'étude de la sécurité du réseau STAR, un autre objectif de ce projet est de réaliser un outil permettant à un utilisateur (potentiellement novice) d'effectuer une analyse sur la sécurité de son système, quelle qu'en soit sa nature\footnote{L'analyse du réseau STAR nous servira donc essentiellement d'exemple pour réaliser notre second objectif.}. Cette analyse devra ensuite lui permettre de mettre en place les défenses les plus adaptées et les plus "rentables"\footnote{Rentable en fonction du critère choisi: coût pour l'attaquant, temps pour l'attaquant, difficulté nécessaire pour mener l'attaque, etc.}, jusqu'à obtention d'un système dont la sécurité le satisfait pleinement.
-    
-    L'analyse reposera grandement sur l'utilisation d'arbres d'attaque--défense, mais nécessitera une expertise qui ne pourra pas être fournie par le logiciel afin d'être capable de valuer les feuilles des arbres\footnote{C'est d'ailleurs cette étape qui risque de poser le plus de difficultés à un utilisateur novice.}.
-    
-    Les différentes fonctionnalités requises pour notre logiciel sont listées ci dessous.
+    Comme indiqué dans la section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel pouvant assister l'expert en sécurité d'une entreprise. Il devra pouvoir réaliser facilement l'analyse de son système\footnote{La nature du dit système pouvant être très vaste, allant d'une base de donnée à un distributeur de billet, en passant par une prison haute sécurité.}, en utilisant les arbres d'attaque et de défense décrits dans la section \ref{sec:etat_art}.
+
+    Plusieurs fonctionnalités peuvent être rajoutées afin de faciliter l'analyse:
     \begin{itemize}
-        \item Une bibliothèque de modèles d'attaques existantes (détaillé dans la sous-section \ref{subsec:biblio_atk}).
-        \item Un guide (plus ou moins interactif) pour guider l'analyse, même pour un utilisateur novice (sous-section \ref{subsec:guide_inter}). % Reformuler, répétition
-        \item Un éditeur d'arbres (sous-section \ref{subsec:edit_arbre}).
-        \item Un outil permettant d'alterner facilement entre différents types de comparaison / valuation / fautquejetrouvelemot.
+        \item Trouver le chemin d'attaque optimal en fonction d'une fonction de synthèse, qui utilisera plusieurs types de valuation. Nous détaillerons cette fonctionnalités dans la section \ref{sec:fct_synth}
+        \item Filtrer l'arbre en fonction d'une fourchette de critères. Voir section \ref{sec:filtre}.
+        \item L'utilisation de modèles (d'arbres) généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation. Voir section \ref{sec:modele}
     \end{itemize}
 
-    \subsection{Spécifications générales}
-        \label{subsec:spec_gen}
-        L'analyse de l'utilisateur sera sauvegardée sous forme de projet. Lorsque l'utilisateur voudra faire l'analyse d'un nouveau système, il devra créer un nouveau projet, et répondre à une série de questions, comme par exemple le type du système ou l'attaquant envisagé (en précisant ses moyens à disposition).
-        
-        Ces informations permettront de présélectionner des modèles plus pertinents au cas de l'utilisateur, et pourront par exemple servir à générer un arbre de base. L'utilisateur pourrait alors l'éditer pour obtenir un arbre d'attaque correspondant à sa situation.
+    De plus, l'édition des arbres avec ADTool peut être améliorée, afin d'être plus souple et plus pratique. Nous détaillerons nos futures améliorations dans la section \ref{sec:adtoolpp}.
 
-        % Vérifier ce que je raconte.
-        La valuation des valeurs est déjà prise en charge par ADTool. Toutefois, elle ne permet pas de changer aisément de "type" de valuation. Le projet devrait donc stocker les valeurs des arbres, et pouvoir permettre de changer facilement de valuation (passer du coût financier au temps requis, par exemple).
+    Nous décrirons ensuite la forme et l'architecture de notre logiciel dans la section \ref{sec:archi}.
+
+    \subsection{Fonction de synthèse et chemin optimal}
+        \label{sec:fct_synth}
+
+
+    \subsection{Filtre à critères}
+        \label{sec:filtre}
+
+
+    \subsection{Modèles généraux}
+        \label{sec:modele}
+
+
+    \subsection{Amélioration d'ADTool}
+        \label{sec:adtoolpp}
     
-    \subsection{Architecture}
-        Nous avons décidé de partir sur une architecture modulaire, où une application mère, qui servira de chef d'orchestre, sera chargé de lancer les différents composants, chacun spécifique à une tache en particulier. % Trop long, reformuler.
-        Un ébauche de l'architecture envisagée est disponible figure \ref{fig:archi}.
 
-        % Putain c'est moche
+    \subsection{Architecture}
+        \label{sec:archi}
+
         \begin{figure}
             \begin{center}
                 \includegraphics[width=1\textwidth]{figure/archi.pdf}
@@ -40,52 +47,6 @@
             \label{fig:archi}
         \end{figure}
 
-        % Reformuler ce merdier
-        La spécialisation des composants nous permettra d’obtenir une architecture logicielle plus propre, qui facilitera le développement: chaque partie sera indépendante des autres, et les choix techniques de l'une ne limiteront pas une autre.
-
-        Avec ce choix d'architecture modulaire, nous réaliserons donc plusieurs outils spécialisés, mais qui le feront bien, plutôt que faire une seule grosse application qui fera tout de manière médiocre et dont l'architecture rendra toute modification très difficile.
-        
-        De plus, cette architecture peut potentiellement nous permettre de réutiliser certains outils dans d'autres contextes, ou encore de remplacer un des logiciel par un autre sans trop de difficulté. 
-    
-    \subsection{Bibliothèque d'attaques}  
-        \label{subsec:biblio_atk}
-        La bibliothèque d'attaques servirait à décrire des cas très généraux, que l'utilisateur pourrait détailler en fonction de sa situation. 
-        
-        % En fait on s'en fout ?
-        Afin de garder les choses lisibles et ne pas surcharger les autres projets, chaque projet stockera sa propre bibliothèque. De plus, cela rendra la copie de projets entre différents ordinateurs plus aisée.
-        
-        La bibliothèque d'attaques du projet sera préchargée de diverses attaques en fonction des réponses de l'utilisateur lors de la création du projet, et pourra par la suite être complétée (ou épurée, c'est tout comme) en ajoutant des modèles de base (livrés avec notre application) ou venant d'autres sources (comme Internet, par exemple).
-        
-        Dans notre exemple (la STAR), nous pourrons fournir des arbres d'attaque de réseaux de transport communs à toutes les villes de France, que nous pourront ensuite détailler pour la ville de Rennes.
-      
-    \subsection{Guide interactif}
-        \label{subsec:guide_inter}
-        % Mieux definir
-        % Dire qu'on laisse ouvert
-        % Reformuler
-        Le guide doit être capable d'expliquer à l'utilisateur comment faire son analyse. Celle ci sera découpée en plusieurs étapes (en fonction d'une méthode générique que nous auront précédemment présélectionnée). % Insérer référence ici
-
-        Son niveau de verbosité pourra être adapté en fonction de l'expertise de l'utilisateur, allant par exemple de novice à expert. % Supprimer répétition.
-        
-        Il pourra par exemple poser une série de questions à l'utilisateur, afin de générer un arbre dit "de base" sur lequel l'utilisateur pourra commencer son analyse.
-        
-        Chaque notion devra être expliquée de manière claire et concise.
-
-        % Ouais, non.
-        Nous pensions faire référence au célèbre trombone magique de Microsoft Office, mais, pour des raisons de droit, nous utiliseront à la place une agrafeuse.
-        
-    \subsection{\'Editeur d'arbres}
-        \label{subsec:edit_arbre}
-        Pour l'édition des arbres, nous utiliserons un outil préexistant, à savoir AD Tool~\cite{adtool_paper}.
-        
-        Toutefois, afin de rendre l'édition des arbres plus simple et plus fluide, nous rajouterons quelques fonctionnalités. Celles ci seront pour la plupart en rapport à l'import/export d'arbres.
-
-        L'objectif en effet serait de faire générer un arbre par notre application mère à partir de différents modèles, pour ensuite demander à l'utilisateur de réaliser les finitions.
-    
-    \subsection{Multiplate-forme}
-        Nous allons dans un premier temps nous concentrer sur une seule plate-forme, à savoir Microsoft Windows. Ainsi, nous n'auront pas à gérer les difficultés de l'écriture de programmes multiplate-formes, nous laissant le champ libre pour nous occuper uniquement des fonctionnalités de notre application.
-
-        Toutefois, afin de ne pas tuer dans l’œuf un éventuel portage ultérieur, nous nous éforcerons de choisir des technologies disponibles pour tout les systèmes d'exploitation, afin de minimiser le travail nécessaire.
 
     \subsection{Synthèse}
-        Faire une liste
+        \label{sec:cahier_synthese}
