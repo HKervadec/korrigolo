@@ -17,16 +17,24 @@
             \label{fig:arbre_exemple_1}
         \end{figure}
 
-        Enfin, le modèle des arbres d'attaques intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc. Ces valeurs permettent alors de quantifier le "poids" du nœud dans l'arbre vis-à-vis de l'attaquant.  Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les nœuds parents qui en découlent (par exemple en s'intéressant au coût financier pour l'attaquant, le coût de l'action d'un nœud OU peut prendre la valeur du coût minimal parmi ses nœuds enfants, tandis que dans le cas d'un nœud ET son coût sera leur somme), ce qui peut servir à l'attaquant pour choisir une stratégie d'attaque plutôt qu'une autre au vu de ses ressources.		
+        Enfin, le modèle des arbres d'attaques intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc. Ces valeurs permettent alors de quantifier le "poids" du nœud dans l'arbre vis-à-vis de l'attaquant. Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les nœuds parents qui en découlent, ce qui peut servir à l'attaquant pour choisir une stratégie d'attaque plutôt qu'une autre au vu de ses ressources. La Figure \ref{fig:arbre_exemple_2} par exemple illustre le coût en argent pour l'attaquant. On remarque dans cet exemple que le coût d'un noeud parent disjonctif est le coût minimal parmi ses noeuds enfants, tandis que dans le cas d'un noeud conjonctif le coût en est la somme. Il existe de nombreuses quantifications possibles : probabilité, temps minimal d'exécution, dangerosité, impact, niveau de compétence requis, etc. Chacune de ces quantifications a un mode de calcul propre vis-à-vis des types de noeuds (disjonctifs et conjonctifs), et il est également possible de combiner plusieurs valuations pour en produire de nouvelles. Par exemple l'on peut obtenir la valuation "risque" en multipliant la probabilité de succès de l'attaque et l'impact de l'attaque.
 
-		Depuis 1999, le concept des arbres d'attaque et de défense a évolué grâce à la contribution de personnes ayant étendu et amélioré le modèle de Schneier \cite{ADTreeKordy}. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d’arbre d’attaque et de défense (attack–defense tree ADTree), où sont également représentés les défenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Les défenses sont traditionnellement représentés par des rectangles. Le même cas que précédemment pour lequel des défense auraient été mises en place pourrait correspondre à la figure \ref{fig:arbre_exemple_2} : Pour accéder au compte l'attaquant à besoin de désactiver l'authentificateur, même en possession du login ET du mot de passe.
+        \begin{figure}
+            \begin{center}
+                \includegraphics[width=1\textwidth]{figure/quantification.pdf}
+            \end{center}
+            \caption{Quantification}
+            \label{fig:arbre_exemple_2}
+        \end{figure}
+
+		Depuis 1999, le concept des arbres d'attaque et de défense a évolué grâce à la contribution de personnes ayant étendu et amélioré le modèle de Schneier \cite{ADTreeKordy}. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d’arbre d’attaque et de défense (attack–defense tree ADTree), où sont également représentés les défenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Les défenses sont traditionnellement représentés par des rectangles. Le même cas que précédemment pour lequel des défense auraient été mises en place pourrait correspondre à la Figure \ref{fig:arbre_exemple_3} : Pour accéder au compte l'attaquant à besoin de désactiver l'authentificateur, même en possession du login ET du mot de passe.
 
         \begin{figure}
             \begin{center}
                 \includegraphics[width=1\textwidth]{figure/exemple2_rapport.pdf}
             \end{center}
             \caption{ADTree}
-            \label{fig:arbre_exemple_2}
+            \label{fig:arbre_exemple_3}
         \end{figure}
 
 	\subsection{Implémentations des ADTree}
