@@ -23,11 +23,15 @@
 	        \label{fig:arbre_exemple_1}
         \end{figure}
 
-        La relation entre les fils d'un nœud peut prendre deux formes distinctes : disjonction ou conjonction. La disjonction correspond au cas où la validation d'un seul nœud fils valide le nœud père (opération logique OU, représentée par des traits simples) : par exemple, accéder au compte en banque peut se faire soit par ATM, soit par internet ; une seule des méthodes d'accès suffit. La conjonction quant-à elle correspond à des cas où il faut valider l'ensemble des nœuds enfants pour valider le nœud parent (opération logique ET, représentée par des traits simples reliés entre eux par un arc) : Ainsi pour accéder au compte bancaire de quelqu'un, il faut à la fois son numéro de carte et son code PIN ; la validation d'un seul des deux noeuds enfants n'est pas suffisante pour la validation du noeud parent "accéder compte par ATM". 
+        La relation entre les fils d'un nœud peut prendre deux formes distinctes :
+        \begin{itemize}
+        \item la {\bf disjonction}, qui correspond au cas où la validation d'un seul nœud fils suffit à valider le nœud père. Ceci équivaut à l'opération logique \og OU \fg{}, et est représenté par des traits pleins. Dans notre exemple, accéder au compte en banque de quelqu'un peut se faire soit par un distributeur de billets (DAB), soit par Internet.
+        
+        \item la {\bf conjonction}, qui correspond au cas où la validation de l'ensemble des nœuds fils suffit à valider le nœud père. Ceci équivaut à l'opération logique \og ET \fg{}, et est représentée par des traits pleins reliés par un arc. Par exemple, pour accéder au distributeur de billets, il faut à la fois sa carte et son code PIN.
+         \end{itemize}
 
-        Le formalisme stipule également que si des noeuds enfants doivent être validés dans un ordre précis pour valider le noeud parent, ils seront disposés selon un ordre gauche droite : par exemple, on pourrait considérer que le noeud "obtenir mot de passe" doit être validé avant celui "obtenir login". L'on fait ensuite découler de ces objectifs intermédiaires d'autres objectifs les validant et ainsi de suite, jusqu'à avoir les actions de base aux feuilles de l'arbre (en bas). Ensuite, il suffit de descendre dans l'arbre à partir d'un nœud pour savoir quelles sont les combinaisons d'actions possibles à effectuer pour valider le nœud.
-
-        Enfin, le modèle des arbres d'attaque intègre la possibilité d'associer aux feuilles des valeurs représentatives de diverses informations sur l'accomplissement de l'action : coût, difficulté, probabilité, temps d'exécution, etc. Ces valeurs permettent alors de quantifier le "poids" du nœud dans l'arbre vis-à-vis de l'attaquant. Il est alors possible à partir de ces valeurs de pouvoir quantifier ces mêmes informations pour les nœuds parents qui en découlent, ce qui peut servir à l'attaquant pour choisir une stratégie d'attaque plutôt qu'une autre au vu de ses ressources. La Figure \ref{fig:arbre_exemple_2} par exemple illustre le coût en argent pour l'attaquant. On remarque dans cet exemple que le coût d'un noeud parent disjonctif est le coût minimal parmi ses noeuds enfants, tandis que dans le cas d'un noeud conjonctif le coût en est la somme. Il existe de nombreuses quantifications possibles : probabilité, temps minimal d'exécution, dangerosité, impact, niveau de compétence requis, etc. Chacune de ces quantifications a un mode de calcul propre vis-à-vis des types de noeuds (disjonctifs et conjonctifs), et il est également possible de combiner plusieurs valuations pour en produire de nouvelles. Par exemple, l'on peut obtenir la valuation "risque" en multipliant la probabilité de succès de l'attaque et l'impact de l'attaque.
+	\paragraph{}
+        Enfin, le modèle des arbres d'attaque permet d'associer aux feuilles des valeurs représentant des informations sur l'action : coût, difficulté, probabilité, temps d'exécution, etc. Ces valeurs permettent de quantifier le poids du nœud dans l'arbre. Il est alors possible, à partir de ces données et en utilisant les fonctions appropriées, de les propager au nœud père. Ceci permet à l'attaquant de choisir une stratégie d'attaque plutôt qu'une autre au vu de ses ressources. La Figure \ref{fig:arbre_exemple_2} illustre par exemple le coût monétaire pour l'attaquant. On remarque dans ce cas précis que le coût d'un nœud disjonctif est le coût minimal de ses fils, tandis que le coût d'un nœud conjonctif en est la somme. Chaque quantification a un mode de calcul propre vis-à-vis du types de nœuds (disjonctif ou conjonctif). Il est également possible de combiner plusieurs valuations pour en produire de nouvelles. Par exemple, on peut obtenir la valuation \og risque \fg{}  en multipliant pour l'attaque sa \og probabilité de succès\fg{} par son \og impact\fg{}.
 
         \begin{figure}[htbp]
 	        %\hspace*{-10cm}
@@ -37,7 +41,7 @@
 	        \label{fig:arbre_exemple_2}
         \end{figure}
 
-		Depuis 1999, le concept des arbres d'attaque et de défense a évolué grâce à la contribution de personnes ayant étendu et amélioré le modèle de Schneier \cite{ADTreeKordy}. Ces personnes ont en particulier étendu le concept d'arbre d'attaque à celui d’arbre d’attaque et de défense (attack–defense tree ADTree), où sont également représentés les défenses mises en place et que le potentiel attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Les défenses sont traditionnellement représentés par des rectangles. Le même cas que précédemment pour lequel des défense auraient été mises en place pourrait correspondre à la Figure \ref{fig:arbre_exemple_3} : Pour accéder au compte l'attaquant à besoin de désactiver l'authentificateur, même en possession du login ET du mot de passe.
+		Depuis 1999, le concept des arbres d'attaque a évolué grâce à la contribution de personnes ayant étendu et amélioré le modèle de Schneier \cite{ADTreeKordy}. En particulier, le concept d'arbre d'attaque a été étendu à celui d’arbre d’attaque et de défense (\og attack–defense tree \fg{} en anglais, ou \og ADTree \fg{}). Ce concept amélioré représente également les défenses mises en place que l'attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Par convention, les défenses sont représentées par des rectangles. La Figure \ref{fig:arbre_exemple_3} représente l'exemple précédent auquel des défenses ont été ajoutées.
 
         \begin{figure}[htbp]
         	%\hspace*{-10cm}
@@ -48,7 +52,7 @@
         \end{figure}
 
 	\subsection{Implémentations des ADTree}
-		Plusieurs logiciels implémentant le concept des arbres d'attaques ou des ADTree ont été développés. En voici quelques-uns :
+		Plusieurs logiciels implémentant le concept des arbres d'attaque ou des ADTree ont été développés. Quelques-uns sont listés ci-dessous.
         
         Logiciels propriétaires :
         \begin{itemize}
@@ -62,7 +66,7 @@
         \end{itemize}
 
         \subsubsection{Synthèse}
-            Aujourd'hui, les arbres d'attaque tels qu'introduits par Schneier sont utilisés par de nombreuses entreprises. Les ADTree présentent l'avantage de pouvoir partir du point de vue de l'attaquant et donc de concentrer les efforts de défenses là où ils seront le plus utiles. Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des ADTree sans toutefois utiliser ceux présents sur le marché. En effet, les solutions logicielles sont rares et ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcément faciles à mettre en place. De plus, si il existe tout de même un certain nombre de logiciels implémentant les arbres d'attaques simples, les logiciels implémentant les ADTree sont quant-à eux assez réduits en comparaison. Nous avons pu en identifier un seul : ADTool. 
+            Aujourd'hui, les arbres d'attaque sont utilisés par de nombreuses entreprises. Les ADTree présentent l'avantage de pouvoir partir du point de vue de l'attaquant et donc de concentrer les efforts de défenses là où ils seront les plus utiles. Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des ADTree sans toutefois utiliser ceux présents sur le marché. En effet, les solutions logicielles sont rares et ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcément faciles à mettre en place. De plus, si il existe tout de même un certain nombre de logiciels implémentant les arbres d'attaques simples, les logiciels implémentant les ADTree sont quant-à eux assez réduits en comparaison. Nous avons pu en identifier un seul : ADTool. 
 
             Ceci étant, le développement peut être laborieux même en utilisant un logiciel dédié comme ADTool pour plusieurs raisons : le logiciel n’intègre pas d'arbres génériques ce qui rallonge le développement et oblige de modéliser plusieurs fois la même partie d'arbre, ne permet pas de gérer la quantification de manière dynamique selon qui est l'attaquant, etc. Ces limitations seront décrites plus en profondeurs dans la partie suivante.
 
