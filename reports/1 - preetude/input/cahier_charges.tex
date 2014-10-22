@@ -7,18 +7,18 @@
 
     % Structure reflète niveau importance
 
-    Comme indiqué dans la section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel pouvant assister l'expert en sécurité d'une entreprise. Il devra pouvoir réaliser facilement l'analyse de son système\footnote{La nature du dit système peut être très vaste, allant d'une simple base de donnée à un distributeur de billets.}, en utilisant les arbres d'attaque et de défense décrits dans la section \ref{sec:etat_art}.
+    Comme indiqué dans la section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel pouvant assister l'expert en sécurité d'une entreprise. Il devra pouvoir réaliser facilement l'analyse de son système\footnote{La nature du dit système peut être très vaste, allant d'une simple base de donnée à un distributeur de billets.}, en utilisant les ADTrees décrits dans la section \ref{sec:etat_art}.
 
     Plusieurs fonctionnalités facilitant l'analyse seront développées:
     \begin{itemize}
-        \item Trouver le chemin d'attaque optimal en fonction d'une fonction de synthèse, qui utilisera plusieurs types de valeurs. Nous détaillerons cette fonctionnalités dans la section \ref{sec:fct_synth}
+        \item Trouver le chemin d'attaque optimal selon une fonction de synthèse, qui utilisera plusieurs types de valeurs. Nous détaillerons cette fonctionnalité dans la section \ref{sec:fct_synth}
         \item Filtrer l'arbre en fonction d'une fourchette de critères. Voir section \ref{sec:filtre}.
         \item Utiliser des modèles (d'arbres) généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation. Voir section \ref{sec:modele}
     \end{itemize}
 
     Nous repartirons sur la base d'ADTool pour réaliser notre logiciel, afin de ne pas réécrire l'existant. Toutefois, l'édition des arbres avec ADTool peut être améliorée, afin d'être plus souple et plus pratique. Nous détaillerons nos futures améliorations dans la section \ref{sec:adtoolpp}.
 
-    De plus, bien que ce soit un expert en sécurité qui réalisera l'analyse, celui ci ne sera peut être pas complètement familier avec les arbres d'attaque et de défense. C'est pour cela que notre logiciel intégrera un guide (optionnel) expliquant pas à pas comment réaliser l'analyse. Nous expliquerons son fonctionnement dans la section \ref{sec:guide}
+    De plus, bien que ce soit un expert en sécurité qui réalisera l'analyse, celui-ci ne sera peut être pas complètement familier avec les ADTrees. C'est pour cela que notre logiciel intégrera un guide (optionnel) expliquant pas à pas comment réaliser l'analyse. Nous expliquerons son fonctionnement dans la section \ref{sec:guide}
 
     Pour finir nous décrirons l'architecture de notre logiciel dans la section \ref{sec:archi}.
 
@@ -27,7 +27,7 @@
 
         Avec les outils actuels, il est possible d'utiliser un seul type de valuation à la fois sur un arbre. Pourtant, pouvoir faire une synthèse à partir de plusieurs types peut permettre de rechercher des compromis plus facilement.
 
-        Par exemple, si l'on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, l'on pourrait fournir une fonction telle que \[ synthese(cout, tps) = 2*cout + tps \] 
+        Par exemple, si on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, on pourrait fournir une fonction telle que \[ synthese(cout, tps) = 2*cout + tps \] 
         Avec cette fonction, une nouvelle valuation de l'arbre serait calculée et on pourra ensuite l'élaguer pour garder uniquement les branches permettant d'atteindre l'objectif avec un coût minimal (selon notre fonction de synthèse). 
         L'arbre épuré sera ensuite affiché, et l'utilisateur qui pourra prendre la décision de l'enregistrer comme un nouvel arbre.
 
@@ -47,11 +47,11 @@
     \subsection{Modèles généraux}
         \label{sec:modele}
 
-        L'utilisateur pourra se baser sur des modèles déjà réalisés lors d'autres analyse. Par exemple, pour rester dans notre cas d'étude, on pourrait partir d'un modèle d'attaque générique à n'importe quel réseau de transport public, pour ensuite l'éditer afin de correspondre à la situation rennaise.
+        L'utilisateur pourra se baser sur des modèles déjà réalisés lors d'autres analyse. Par exemple, pour rester dans notre cas d'étude, on pourrait partir d'un modèle générique d'attaque d'un réseau de transport, pour ensuite l'éditer afin de correspondre à la situation rennaise.
 
         Notre logiciel intégrera divers arbres génériques, mais l'utilisateur pourra aussi en importer depuis d'autres sources (internet, clé usb, etc.). Notre logiciel étoffera sa collection de modèles à chaque nouveau modèle importé par l'utilisateur.
 
-        L'utilisateur sera aussi capable de créer ses propres modèles, pour s'en resservir dans d'autres de ses analyses, ou encore pour les publier sur son site internet. Ainsi, un pourrait imaginer à terme un site web regroupant des milliers de modèles réalisés par un réseau d'experts en sécurité.
+        L'utilisateur sera aussi capable de créer ses propres modèles, pour s'en resservir dans d'autres de ses analyses, ou encore pour les publier sur internet. Ainsi, on pourrait imaginer à terme un site web regroupant des milliers de modèles réalisés par un réseau d'experts en sécurité.
 
     \subsection{Amélioration d'ADTool}
         \label{sec:adtoolpp}
@@ -67,7 +67,7 @@
     \subsection{Guide}
         \label{sec:guide}
 
-        L'utilisateur n'étant pas nécessairement complètement familier avec les arbres d'attaque défense, le guide lui permettra de comprendre rapidement comment réaliser ses arbres, et comment il doit réaliser son analyse.
+        L'utilisateur n'étant pas nécessairement familier avec les ADTrees, le guide lui permettra de comprendre rapidement comment réaliser ses arbres, et comment il doit réaliser son analyse.
 
         Notre guide lui fera suivre une méthode générique~\cite{methode_analyse}, découpée en différentes étapes. Une fois que l'une d'entre elle sera complétée, le guide passera à l'étape suivante et expliquera précisément à l'utilisateur comment la réaliser.
         Le guide prendra la forme d'un \og journal de quête \fg, ce qui lui permettra de garder une trace des étapes déjà réalisées.
@@ -77,7 +77,7 @@
     \subsection{Architecture}
         \label{sec:archi}
 
-        L'analyse d'un système sera sauvegardée sous forme de projet. Celui ci contiendra différents arbres utilisé pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet" de la figure \ref{fig:archi}). 
+        L'analyse d'un système sera sauvegardée sous forme de projet. Celui-ci contiendra différents arbres utilisés pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet" de la figure \ref{fig:archi}). 
 
         \begin{figure}
             \begin{center}
