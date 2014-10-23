@@ -4,25 +4,23 @@
 		Nous avons choisis d'employer des outils répondant au mieux à notre cahier des charges tout en s'intégrant bien à notre formation.  Ces différents outils sont décrits ci-après.
     	
     \subsection{ADTool}
-    	Comme mentionné dans la section \ref{sec:cahier}, ADTool fera partie intégrante de notre logiciel. En effet, ADTool est libre et son développement a nécessité un travail conséquent. Il est donc pertinent de ne pas développer notre propre éditeur et afficheur d'ADTrees, mais plutôt d'utiliser ADTool pour qu'il remplisse ces fonctions.
-    
-         
-    \subsection{Outils de gestion de projet}
+    	ADTool est un logiciel libre et son développement a nécessité un travail conséquent. Il est donc pertinent de ne pas développer notre propre éditeur et afficheur d'ADTrees, mais plutôt d'utiliser ADTool pour qu'il remplisse ces fonctions. ADTool fera donc partie intégrante de notre logiciel, comme mentionné dans la Section \ref{sec:cahier}.
+
+	\subsection{Systèmes d'exploitation}
+% check if hoel wrote about windoze
+	   Nous développerons notre application pour {\bf Windows} en raison de sa très grande présence dans les entreprises. Nous souhaitons toutefois garder la porte ouverte à une compatibilité avec Linux et Macintosh, au cas où un futur portage serait envisagé. Ce portage n'est cependant pas notre priorité et reste purement optionnel. Ces considérations nous ont amenés à choisir les langages de programmation décrits ci-après.
+	
+    \subsection{Langages de programmation et environnements de développement intégrés}
+        Pour notre application, l'emploi du {\bf C++} nous parait pertinent. Bien que, de par sa nature, Java permette une compatibilité sur tous les systèmes d'exploitation, nous souhaitons éviter d'utiliser ce langage sur la totalité du projet. En effet, le C++ étant très répandu en entreprise, nous souhaitons nous y confronter. De plus, tant que nous utilisons des librairies standardisées, un portage sur Linux ou Macintosh reste possible. Par conséquent, nous utiliserons {\bf Visual Studio} pour développer en C++, car c'est l'environnement de développement intégré actuellement le plus puissant et le plus utilisé pour ce langage.
+        
+        Enfin, pour les améliorations apportées à ADTool --- qui est écrit en Java --- nous emploierons {\bf IntelliJ IDEA}.
+
+    \subsection{Interfaces graphiques}
+        Toujours dans un souci de compatibilité, notre choix s'est porté sur {\bf Qt} pour l'interface graphique que présentera notre logiciel. En ce qui concerne ADTool, nous considérons que son interface est déjà suffisamment simple et intuitive. Nous ne prévoyons donc pas d'amélioration graphique pour ADTool, car ceci ne présenterait qu'un intérêt limité.
+
+	\subsection{Outils de gestion de projet}
         Pour permettre le versionnement de notre projet, nous avons choisi d'utiliser {\bf Git} \footnote{https://github.com} pour son efficacité et sa simplicité d'utilisation. De plus, il semble s'imposer progressivement dans le monde professionnel, au détriment de Subversion.
         
         Pour le partage de fichiers lourds, la rédaction de notes de réunion, ou plus simplement pour mettre rapidement des idées en commun, nous avons décidé d'utiliser {\bf Google Drive}, que nous préférons à Dropbox, car ce dernier ne permet pas d'écrire simultanément sur un même document.
 
         Enfin, il nous est demandé d'employer {\bf MS Project} comme outil de planification, que nous utiliserons donc pour tenir à jour le planning du projet.
-
-	\subsection{Systèmes d'exploitation}
-	   Comme mentionné précédemment, nous développerons notre application pour {\bf Windows}, en raison de sa très grande présence dans les entreprises. Nous souhaitons cependant garder la porte ouverte à une compatibilité avec Linux et Macintosh, au cas où un futur portage serait envisagé. Ces considérations nous ont amenés à choisir les langages de programmation décrits ci-après.
-	
-    \subsection{Langages de programmation et environnements de développement intégrés}
-        Pour notre application, l'emploi du {\bf C++} nous parait pertinent. Bien que, de par sa nature, Java permette une compatibilité sur tous les systèmes d'exploitation, nous souhaitons éviter d'utiliser ce langage sur la totalité du projet. En effet, le C++ étant très répandu en entreprise, nous souhaitons nous y confronter. De plus, tant que nous utilisons des librairies standardisée, un portage sur Linux ou Macintosh reste possible. Par conséquent, nous utiliserons {\bf Visual Studio} pour développer en C++, car c'est l'environnement de développement intégré actuellement le plus puissant et le plus utilisé  pour ce langage.
-        
-        Enfin, pour les améliorations apportées à ADTool --- qui est écrit en Java --- nous emploierons {\bf IntelliJ IDEA}.
-
-    \subsection{Interfaces graphiques}
-        L'interface graphique de notre suite est primordiale pour garantir une certaine ergonomie à l'utilisateur. Toujours dans un souci de compatibilité, notre choix s'est porté sur {\bf Qt} pour l'interface que présenteront les logiciels de notre suite --- autre que ADTool. 
-        
-        Pour ce dernier, nous considérons que le logiciel est déjà suffisamment simple et intuitif, et qu'y apporter des améliorations graphiques demanderait une charge de travail élevée pour une amélioration minime. Par conséquent, nous ne prévoyons pas de modification de son interface.
