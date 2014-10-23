@@ -34,8 +34,7 @@
 	        \label{fig:arbre_exemple_2}
         \end{figure}
 
-		Le concept des arbres d'attaque a évolué grâce à la contribution de personnes ayant étendu et amélioré le modèle de Schneier \cite{ADTreeKordy}. En particulier, le concept d'arbre d'attaque a été étendu à celui d’arbre d’attaque et de défense (\og attack–defense tree \fg{} en anglais, ou \og ADTree \fg{}). Les ADTrees représentent non seulement les (sous-)objectifs de l'attaquant mais aussi les défenses mises en place et que l'attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Par convention, les défenses sont représentées par des rectangles. La Figure \ref{fig:arbre_exemple_3} représente un ADTree qui étend l'arbre d'attaque précédent avec des défenses.
-
+		Le concept des arbres d'attaque a évolué grâce à la contribution de personnes ayant amélioré le modèle de Schneier \cite{ADTreeKordy}. En particulier, le concept d'arbre d'attaque a été étendu à celui d’arbre d’attaque et de défense (\og attack–defense tree \fg{} en anglais, ou \og ADTree \fg{}). Les ADTrees représentent non seulement les (sous-)objectifs de l'attaquant mais aussi les défenses mises en place et que l'attaquant aura besoin de désactiver pour atteindre son but \cite{ADTreeOxford}. Par convention, les défenses sont représentées par des rectangles. La Figure \ref{fig:arbre_exemple_3} représente un ADTree qui étend l'arbre d'attaque précédent avec des défenses.
         \begin{figure}[h]
 	        \centering
 	        \includegraphics[width=1\textwidth]{figure/exemple2_rapport.pdf}
@@ -43,23 +42,27 @@
 	        \label{fig:arbre_exemple_3}
         \end{figure}
 
-	\subsection{Implémentations des ADTree}
-		Plusieurs logiciels implémentant le concept des arbres d'attaque ou des ADTree ont été développés. Quelques-uns sont listés ci-dessous.
+
+
+        \subsubsection{Support logiciel des ADtrees}
+
+        Aujourd'hui, les arbres d'attaque sont utilisés par de nombreuses entreprises. Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des ADTree sans toutefois utiliser ceux présents sur le marché. En effet, les solutions logicielles sont rares et ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcément faciles à mettre en place. De plus, si il existe tout de même un certain nombre de logiciels implémentant les arbres d'attaques simples, les logiciels implémentant les ADTree sont quant-à eux assez réduits en comparaison. Nous avons pu en identifier un seul : ADTool. 
+
+        Ceci étant, le développement peut être laborieux même en utilisant un logiciel dédié comme ADTool pour plusieurs raisons : le logiciel n’intègre pas d'arbres génériques ce qui rallonge le développement et oblige de modéliser plusieurs fois la même partie d'arbre, ne permet pas de gérer la quantification de manière dynamique selon qui est l'attaquant, etc. Ces limitations seront décrites plus en profondeurs dans la partie suivante.
+
+        Un grand nombre d'améliorations sont donc possibles : ce qui nous amène au cahier des charges.
+
+
+    \subsection{Implémentations des ADTree}
+        Plusieurs logiciels implémentant le concept des arbres d'attaque ou des ADTree ont été développés. Quelques-uns sont listés ci-dessous.
         
         Logiciels propriétaires :
         \begin{itemize}
-	        \item SecurlTree : Logiciel de création et d'analyse d'arbres d'attaque développé par la société Amenaza \cite{SecurlTree}.
-	        \item ATTACKTREE+ : Logiciel de création et d'analyse d'arbres d'attaque développé par la société Isograph \cite{ATTACKTREE+}.
+            \item SecurlTree : Logiciel de création et d'analyse d'arbres d'attaque développé par la société Amenaza \cite{SecurlTree}.
+            \item ATTACKTREE+ : Logiciel de création et d'analyse d'arbres d'attaque développé par la société Isograph \cite{ATTACKTREE+}.
         \end{itemize}
         
         Logiciel Open-Source :
         \begin{itemize}
-        	\item ADTool: Logiciel développé par une équipe de chercheur de l'université du Luxembourg pour la modélisation d'ADTrees. Il s'agit d'un des logiciels que nous allons utiliser (plus de détails dans la Section \ref{sec:outils}) \cite{ADTool}.
+            \item ADTool: Logiciel développé par une équipe de chercheur de l'université du Luxembourg pour la modélisation d'ADTrees. Il s'agit d'un des logiciels que nous allons utiliser (plus de détails dans la Section \ref{sec:outils}) \cite{ADTool}.
         \end{itemize}
-
-        \subsubsection{Synthèse}
-            Aujourd'hui, les arbres d'attaque sont utilisés par de nombreuses entreprises. Les ADTree présentent l'avantage de pouvoir partir du point de vue de l'attaquant et donc de concentrer les efforts de défenses là où ils seront les plus utiles. Cela dit, un grand nombre de ces entreprises développent en interne leur propre logiciel de construction et d'analyse des ADTree sans toutefois utiliser ceux présents sur le marché. En effet, les solutions logicielles sont rares et ne bénéficient pas d'une grande visibilité, peuvent être chères et ne sont pas forcément faciles à mettre en place. De plus, si il existe tout de même un certain nombre de logiciels implémentant les arbres d'attaques simples, les logiciels implémentant les ADTree sont quant-à eux assez réduits en comparaison. Nous avons pu en identifier un seul : ADTool. 
-
-            Ceci étant, le développement peut être laborieux même en utilisant un logiciel dédié comme ADTool pour plusieurs raisons : le logiciel n’intègre pas d'arbres génériques ce qui rallonge le développement et oblige de modéliser plusieurs fois la même partie d'arbre, ne permet pas de gérer la quantification de manière dynamique selon qui est l'attaquant, etc. Ces limitations seront décrites plus en profondeurs dans la partie suivante.
-
-            Un grand nombre d'améliorations sont donc possibles : ce qui nous amène au cahier des charges.
