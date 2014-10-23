@@ -22,30 +22,38 @@
 
     Pour finir nous décrirons l'architecture de notre logiciel dans la section \ref{sec:archi}.
 
+    % Parler de pour Windows
+
     \subsection{Fonction de synthèse et chemin optimal}
         \label{sec:fct_synth}
 
+        % Remplacer outils actuels par ADTool
+
+        % Type valuation -> parametre
         Avec les outils actuels, il est possible d'utiliser un seul type de valuation à la fois sur un arbre. Pourtant, pouvoir faire une synthèse à partir de plusieurs types peut permettre de rechercher des compromis plus facilement.
 
-        Par exemple, si on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, on pourrait fournir une fonction telle que \[ synthese(cout, tps) = 2*cout + tps \] 
-        Avec cette fonction, une nouvelle valuation de l'arbre serait calculée et on pourra ensuite l'élaguer pour garder uniquement les branches permettant d'atteindre l'objectif avec un coût minimal (selon notre fonction de synthèse). 
-        L'arbre épuré sera ensuite affiché, et l'utilisateur qui pourra prendre la décision de l'enregistrer comme un nouvel arbre.
+        Par exemple, si on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, on pourrait fournir une fonction telle que \[ synthese(cout, tps) = 2*cout + tps . \]
+        Avec cette fonction, une nouvelle valuation de l'arbre serait calculée et on pourra ensuite l'élaguer pour garder uniquement les branches permettant d'atteindre l'objectif avec un coût minimal (selon notre fonction de synthèse). % Reformuler "Minimisant fonction synthese"
+        L'arbre épuré sera ensuite affiché, et l'utilisateur pourra prendre la décision de l'enregistrer comme un nouvel arbre.
 
-        Afin d'obtenir le plus grand choix de fonctions possibles, nous donnerons à l'utilisateur la possibilité de combiner les types de valuation de façon linéaire, polynomiale, et aussi d'utiliser des fonctions mathématiques \og standards \fg, comme l'exponentielle, le logarithme ou encore les fonctions trigonométriques.
+        Afin d'obtenir le plus grand choix de fonctions possibles, nous donnerons à l'utilisateur la possibilité de combiner les types de valuation de façon linéaire, polynomiale, et aussi d'utiliser des fonctions mathématiques \og standards \fg, comme l'exponentielle, le logarithme ou encore les fonctions trigonométriques. % etc.
 
     \subsection{Filtre à critères}
         \label{sec:filtre}
 
+        % Utiliser uniquement elaguer
         Une autre fonctionnalité que nous développerons sera le filtre à critères. Les critères consistent en un ensemble de valeurs autorisées pour les types de valuation, et seront gardés uniquement les nœuds respectant ces règles. Cela permettra d'obtenir rapidement les attaques réalisables en fonction de nos ressources, ce qui peut correspondre aux différents attaquants envisagés\footnote{Un étudiant et le Mossad n'auront pas les mêmes moyens financiers ou humains.}.
 
-        Par exemple, supposons qu'il existe trois sous arbres pour atteindre un objectif, avec un coût respectivement de 2596\euro{}, 70333\euro{} et 200\euro{}. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000\euro{}, et qui prennent entre une et deux semaines. Notre filtre supprimera donc les sous arbres B et C, pour garder uniquement le A.
+        Par exemple, supposons qu'il existe trois sous arbres A, B et C pour atteindre un objectif, avec un coût respectivement de 2596 €, 70333 € et 200 €. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000 €, et qui prennent entre une et deux semaines. Notre filtre supprimera donc les sous arbres B et C, pour garder uniquement le A.
 
-        Contrairement à la fonction de synthèse, le nombre de chemins possibles restant n'est pas connu à l'avance. On peut très bien obtenir zéro chemin possible, ou au contraire en obtenir une infinité.
+        Contrairement à la fonction de synthèse, le nombre de chemins possibles restant n'est pas connu à l'avance. On peut très bien obtenir zéro chemin possible, ou au contraire en obtenir une infinité. % Reformuler. supprimer tout arbre ou tout garder
 
-        \`A l'instar des fonctions de synthèse, le résultat sera affiché à l'utilisateur qui décidera ensuite de ce qu'il en fera.
+        \`A l'instar des fonctions de synthèse, le résultat sera affiché à l'utilisateur qui décidera ensuite de ce qu'il en fera. % A reformuler
 
     \subsection{Modèles généraux}
         \label{sec:modele}
+
+        % Manque une phrase d'accroche qui justifie le besoin
 
         L'utilisateur pourra se baser sur des modèles déjà réalisés lors d'autres analyse. Par exemple, pour rester dans notre cas d'étude, on pourrait partir d'un modèle générique d'attaque d'un réseau de transport, pour ensuite l'éditer afin de correspondre à la situation rennaise.
 
@@ -72,10 +80,12 @@
         Notre guide lui fera suivre une méthode générique~\cite{methode_analyse}, découpée en différentes étapes. Une fois que l'une d'entre elle sera complétée, le guide passera à l'étape suivante et expliquera précisément à l'utilisateur comment la réaliser.
         Le guide prendra la forme d'un \og journal de quête \fg, ce qui lui permettra de garder une trace des étapes déjà réalisées.
         
-        Notons que nous ne voulons pas forcer l'utilisateur à suivre une méthode en particulier, et le guide sera donc désactivable afin de ne pas importuner les personnes voulant faire autrement.
+        Notons que nous ne voulons pas forcer l'utilisateur à suivre une méthode en particulier, et le guide sera donc désactivable afin de ne pas importuner les personnes voulant faire autrement. % Implicite
 
     \subsection{Architecture}
         \label{sec:archi}
+
+        % L'archi est presentee sur la figure kkk
 
         L'analyse d'un système sera sauvegardée sous forme de projet. Celui-ci contiendra différents arbres utilisés pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet" de la figure \ref{fig:archi}). 
 
@@ -87,6 +97,7 @@
             \label{fig:archi}
         \end{figure}
 
+        % Eviter commencer par 'cette'
         Cette bibliothèque sera préchargée avec différents modèles à la création du projet. En effet, l'utilisateur devra répondre à une série de questions, qui permettra de sélectionner un sous-ensemble des modèles de la bibliothèque de notre logiciel.
 
         Comme indiqué par la figure \ref{fig:archi}, ADTool sera un composant de notre application. Il servira à la fois à la visualisation et à l'édition des arbres. Ce choix sera détaillé dans la section \ref{sec:outils}.
