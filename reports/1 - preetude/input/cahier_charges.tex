@@ -1,64 +1,43 @@
 \section{Cahier des charges}
     \label{sec:cahier}
-    % Préciser utilisateur
-    % Connais déjà concept arbre d'attaque
-    % Responsable sécurité d'une entité
-    % Préciser dès l'intro
 
-    % Structure reflète niveau importance
+    Comme indiqué dans la Section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel aidant à l'analyse de la sécurité d'un système\footnote{La nature du dit système peut être très vaste, allant d'une simple base de données à un distributeur de billets.}. Destiné aux experts en sécurité des entreprises, notre logiciel utilisera le concept d'ADTrees décrit dans la Section \ref{sec:etat_art}. Il sera destiné uniquement à la plate-forme Microsoft Windows.
 
-    Comme indiqué dans la section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel pouvant assister l'expert en sécurité d'une entreprise. Il devra pouvoir réaliser facilement l'analyse de son système\footnote{La nature du dit système peut être très vaste, allant d'une simple base de donnée à un distributeur de billets.}, en utilisant les ADTrees décrits dans la section \ref{sec:etat_art}.
-
-    Plusieurs fonctionnalités facilitant l'analyse seront développées:
+    Nous repartirons sur la base d'ADTool pour réaliser notre logiciel, afin de ne pas réécrire l'existant. Toutefois, diverses fonctionnalités que nous avons jugés utiles seront développées.
     \begin{itemize}
-        \item Trouver le chemin d'attaque optimal selon une fonction de synthèse, qui utilisera plusieurs types de valeurs. Nous détaillerons cette fonctionnalité dans la section \ref{sec:fct_synth}
-        \item Filtrer l'arbre en fonction d'une fourchette de critères. Voir section \ref{sec:filtre}.
-        \item Utiliser des modèles (d'arbres) généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation. Voir section \ref{sec:modele}
+        \item Trouver le chemin d'attaque optimal selon une fonction de synthèse, qui utilisera plusieurs types de valeurs. Voir Section \ref{sec:fct_synth}
+        \item Filtrer l'arbre en fonction d'une fourchette de critères. Voir Section \ref{sec:filtre}.
+        \item Utiliser des modèles (d'arbres) généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation. Voir Section \ref{sec:modele}
+        \item Améliorer l'édition des arbres avec ADTool, afin de la rendre plus souple et plus pratique. Voir Section \ref{sec:adtoolpp}.
+        \item Créer un guide afin de proposer à l'utilisateur une méthode d'analyse. Voir Section \ref{sec:guide}.
     \end{itemize}
 
-    Nous repartirons sur la base d'ADTool pour réaliser notre logiciel, afin de ne pas réécrire l'existant. Toutefois, l'édition des arbres avec ADTool peut être améliorée, afin d'être plus souple et plus pratique. Nous détaillerons nos futures améliorations dans la section \ref{sec:adtoolpp}.
-
-    De plus, bien que ce soit un expert en sécurité qui réalisera l'analyse, celui-ci ne sera peut être pas complètement familier avec les ADTrees. C'est pour cela que notre logiciel intégrera un guide (optionnel) expliquant pas à pas comment réaliser l'analyse. Nous expliquerons son fonctionnement dans la section \ref{sec:guide}
-
-    Pour finir nous décrirons l'architecture de notre logiciel dans la section \ref{sec:archi}.
-
-    % Parler de pour Windows
+    Pour finir nous décrirons l'architecture de notre logiciel dans la Section \ref{sec:archi}.
 
     \subsection{Fonction de synthèse et chemin optimal}
         \label{sec:fct_synth}
 
-        % Remplacer outils actuels par ADTool
+        Dans la version actuelle d'ADTool, il est possible d'utiliser un seul paramètre à la fois sur un arbre. Pourtant, pouvoir faire une synthèse à partir de différents paramètres peut permettre de rechercher des compromis plus facilement.
+        Par exemple, si on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, on pourrait fournir une fonction définie par \[ synthese(cout, tps) = 2*cout + tps . \]
+        Avec cette fonction, une nouvelle valuation de l'arbre serait calculée et on pourra ensuite l'élaguer pour garder uniquement les branches permettant de minimiser la fonction de synthèse.
+        L'arbre élagué sera ensuite affiché, et l'utilisateur pourra prendre la décision de l'enregistrer comme un nouvel arbre.
 
-        % Type valuation -> parametre
-        Avec les outils actuels, il est possible d'utiliser un seul type de valuation à la fois sur un arbre. Pourtant, pouvoir faire une synthèse à partir de plusieurs types peut permettre de rechercher des compromis plus facilement.
-
-        Par exemple, si on souhaite rechercher l'attaque la moins coûteuse financièrement, sans pour autant sacrifier le temps passé à réaliser notre attaque, on pourrait fournir une fonction telle que \[ synthese(cout, tps) = 2*cout + tps . \]
-        Avec cette fonction, une nouvelle valuation de l'arbre serait calculée et on pourra ensuite l'élaguer pour garder uniquement les branches permettant d'atteindre l'objectif avec un coût minimal (selon notre fonction de synthèse). % Reformuler "Minimisant fonction synthese"
-        L'arbre épuré sera ensuite affiché, et l'utilisateur pourra prendre la décision de l'enregistrer comme un nouvel arbre.
-
-        Afin d'obtenir le plus grand choix de fonctions possibles, nous donnerons à l'utilisateur la possibilité de combiner les types de valuation de façon linéaire, polynomiale, et aussi d'utiliser des fonctions mathématiques \og standards \fg, comme l'exponentielle, le logarithme ou encore les fonctions trigonométriques. % etc.
+        Afin d'obtenir le plus grand choix de fonctions possibles, nous donnerons à l'utilisateur la possibilité de combiner les différents paramètres de façon linéaire, polynomiale, et aussi d'utiliser des fonctions mathématiques \og standards \fg, comme l'exponentielle, le logarithme, etc.
 
     \subsection{Filtre à critères}
         \label{sec:filtre}
 
-        % Utiliser uniquement elaguer
-        Une autre fonctionnalité que nous développerons sera le filtre à critères. Les critères consistent en un ensemble de valeurs autorisées pour les types de valuation, et seront gardés uniquement les nœuds respectant ces règles. Cela permettra d'obtenir rapidement les attaques réalisables en fonction de nos ressources, ce qui peut correspondre aux différents attaquants envisagés\footnote{Un étudiant et le Mossad n'auront pas les mêmes moyens financiers ou humains.}.
+        Une autre fonctionnalité que nous développerons sera le filtre à critères. Les critères consistent en un ensemble de valeurs autorisées pour nos paramètres, et seront gardés uniquement les nœuds respectant ces règles. Cela permettra d'obtenir rapidement les attaques réalisables en fonction des ressources de l'attaquant, nous permettant de modéliser plusieurs attaquants théoriques\footnote{Un étudiant et un syndicat du crime organisé n'auront pas les mêmes moyens financiers ou humains.}.
+        Supposons qu'il existe trois sous arbres A, B et C pour atteindre un objectif, avec un coût respectivement de 2596 €, 70333 € et 200 €. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000 €, et qui prennent moins d'une semaine. Notre filtre supprimera donc les sous arbres B et C, pour garder uniquement le A.
 
-        Par exemple, supposons qu'il existe trois sous arbres A, B et C pour atteindre un objectif, avec un coût respectivement de 2596 €, 70333 € et 200 €. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000 €, et qui prennent entre une et deux semaines. Notre filtre supprimera donc les sous arbres B et C, pour garder uniquement le A.
-
-        Contrairement à la fonction de synthèse, le nombre de chemins possibles restant n'est pas connu à l'avance. On peut très bien obtenir zéro chemin possible, ou au contraire en obtenir une infinité. % Reformuler. supprimer tout arbre ou tout garder
-
-        \`A l'instar des fonctions de synthèse, le résultat sera affiché à l'utilisateur qui décidera ensuite de ce qu'il en fera. % A reformuler
+        L'arbre obtenu à l'issue du filtrage pourra très bien être identique à celui fourni en entrée (toutes les attaques respectent les critères), ou pourra au contraire être vide (ce qui voudrait donc dire qu'aucune attaque n'est réalisable avec les moyens alloués). Ce nouvel arbre sera ensuite affiché à l'utilisateur, qui pourra décider de l'enregistrer comme un nouvel arbre.
 
     \subsection{Modèles généraux}
         \label{sec:modele}
 
-        % Manque une phrase d'accroche qui justifie le besoin
+        Commencer une nouvelle étude peut parfois être difficile. Pouvoir se baser sur des études déjà réalisées pour les adapter à sa situation simplifie grandement la tache. Ainsi, nous donnerons à l'utilisateur la possibilité de partir de modèles d'attaques existantes, qu'il devra ensuite éditer pour que l'arbre corresponde à son système. Dans notre cas d'étude, on pourrait imaginer avoir un modèle générique d'attaque de réseau de transport en commun, pour ensuite l'éditer afin de prendre en compte les spécificités de l'agglomération rennaise et du Star.
 
-        L'utilisateur pourra se baser sur des modèles déjà réalisés lors d'autres analyse. Par exemple, pour rester dans notre cas d'étude, on pourrait partir d'un modèle générique d'attaque d'un réseau de transport, pour ensuite l'éditer afin de correspondre à la situation rennaise.
-
-        Notre logiciel intégrera divers arbres génériques, mais l'utilisateur pourra aussi en importer depuis d'autres sources (internet, clé usb, etc.). Notre logiciel étoffera sa collection de modèles à chaque nouveau modèle importé par l'utilisateur.
-
+        Notre logiciel intégrera divers arbres génériques, mais l'utilisateur pourra aussi en importer depuis d'autres sources (Internet, clé usb, etc.). Notre logiciel étoffera sa collection de modèles à chaque nouveau modèle importé par l'utilisateur.
         L'utilisateur sera aussi capable de créer ses propres modèles, pour s'en resservir dans d'autres de ses analyses, ou encore pour les publier sur internet. Ainsi, on pourrait imaginer à terme un site web regroupant des milliers de modèles réalisés par un réseau d'experts en sécurité.
 
     \subsection{Amélioration d'ADTool}
@@ -69,7 +48,7 @@
             \item Une fonction de couper / copier / coller d'arbres et de sous arbres.
             \item Réaliser des glisser / déposer d'arbres et de sous arbres.
             \item Importer et exporter des arbres dans un grand nombre de formats différents.
-            \item Permettre la représentation d'un arbre avec plusieurs types de valuation à la fois.
+            \item Permettre la représentation d'un arbre avec plusieurs paramètre à la fois.
         \end{itemize}
 
     \subsection{Guide}
@@ -79,15 +58,11 @@
 
         Notre guide lui fera suivre une méthode générique~\cite{methode_analyse}, découpée en différentes étapes. Une fois que l'une d'entre elle sera complétée, le guide passera à l'étape suivante et expliquera précisément à l'utilisateur comment la réaliser.
         Le guide prendra la forme d'un \og journal de quête \fg, ce qui lui permettra de garder une trace des étapes déjà réalisées.
-        
-        Notons que nous ne voulons pas forcer l'utilisateur à suivre une méthode en particulier, et le guide sera donc désactivable afin de ne pas importuner les personnes voulant faire autrement. % Implicite
 
     \subsection{Architecture}
         \label{sec:archi}
 
-        % L'archi est presentee sur la figure kkk
-
-        L'analyse d'un système sera sauvegardée sous forme de projet. Celui-ci contiendra différents arbres utilisés pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet" de la figure \ref{fig:archi}). 
+        L'architecture de notre logiciel est présentée sur la Figure \ref{fig:archi}.   
 
         \begin{figure}
             \begin{center}
@@ -97,14 +72,14 @@
             \label{fig:archi}
         \end{figure}
 
-        % Eviter commencer par 'cette'
-        Cette bibliothèque sera préchargée avec différents modèles à la création du projet. En effet, l'utilisateur devra répondre à une série de questions, qui permettra de sélectionner un sous-ensemble des modèles de la bibliothèque de notre logiciel.
+        Toutes les modifications ne seront pas intégrées directement dans ADTool (seules les modifications de la section \ref{sec:adtoolpp} y seront implémentées). \`A la place, nous auront une application mère, qui se servira d'ADTool comme étant un composant dédié à la visualisation et à l'édition des arbres. 
 
-        Comme indiqué par la figure \ref{fig:archi}, ADTool sera un composant de notre application. Il servira à la fois à la visualisation et à l'édition des arbres. Ce choix sera détaillé dans la section \ref{sec:outils}.
+        L'analyse d'un système sera sauvegardée sous forme de projet. Celui-ci contiendra différents arbres utilisés pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet"). 
+        \`A la création du projet, une série de questions sera posée à l'utilisateur. Les réponses obtenues permettront de sélectionner un sous-ensemble des modèles de la bibliothèque du logiciel, pour les précharger dans la bibliothèque du projet.
 
-        La fonction de synthèse et le filtre seront deux modules différents de l'application. Ils prendront en entrée un arbre du fichier projet (et leurs autres paramètres respectifs), et enverront le résultat à ADTool pour affichage. L'utilisateur décidera ensuite ce qu'il fera de l'arbre généré.
-
-        Le guide supervisera l'ensemble de l'application, et devra fournir des informations et consignes pertinentes à l'utilisateur.
+        Les autres grandes parties de notre application (section \ref{sec:filtre}, \ref{sec:modele} et \ref{sec:guide}) seront implémentée sous forme de modules dédiés à leur tache.
+        La fonction de synthèse et le filtre seront deux modules qui prendront en entrée un arbre du fichier projet (et leurs autres paramètres respectifs), et enverront le résultat à ADTool pour affichage. L'utilisateur décidera ensuite ce qu'il fera de l'arbre généré (sauvegarde, édition, export, etc.).
+        Le guide supervisera l'ensemble de l'application, et devra fournir des informations et consignes pertinentes à l'utilisateur afin de l'aider dans son analyse.
 
         Une ébauche de l'interface se situe figure \ref{fig:interface}. Notons que le guide n'y figure pas, puisqu'il ne sera pas affiché en permanence pour ne pas surcharger l'interface. Il s'agira plutôt d'une fenêtre dédiée qui pourra être ouverte et fermée au besoin.
 
