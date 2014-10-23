@@ -1,18 +1,18 @@
 \section{Cahier des charges}
     \label{sec:cahier}
 
-    Comme indiqué dans la Section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel aidant à l'analyse de la sécurité d'un système\footnote{La nature du dit système peut être très vaste, allant d'une simple base de données à un distributeur de billets.}. Destiné aux experts en sécurité des entreprises, notre logiciel utilisera le concept d'ADTrees décrit dans la Section \ref{sec:etat_art}. Il sera développez pour la plate-forme Microsoft Windows.
+    Comme indiqué dans la Section \ref{sec:objectifs}, notre principal objectif est de réaliser un logiciel aidant à l'analyse de la sécurité d'un système\footnote{La nature du dit système peut être très vaste, allant d'un simple distributeur de billets au réseau de transport de toute une ville.}. Destiné aux experts en sécurité des entreprises, notre logiciel utilisera le concept d'ADTrees décrit dans la Section \ref{sec:etat_art}. Il sera développé pour la plate-forme Microsoft Windows.
 
-    Nous repartirons sur la base d'ADTool pour réaliser notre logiciel, afin de ne pas réécrire l'existant. Toutefois, diverses fonctionnalités que nous avons jugés utiles seront développées.
+    Nous repartirons sur la base d'ADTool pour réaliser notre logiciel, afin de ne pas réécrire l'existant. Toutefois, diverses fonctionnalités que nous avons jugé utiles seront développées :
     \begin{itemize}
-        \item Trouver le chemin d'attaque optimal selon une fonction de synthèse, qui utilisera plusieurs types de valeurs. Voir Section \ref{sec:fct_synth}
-        \item Filtrer l'arbre en fonction d'une fourchette de critères. Voir Section \ref{sec:filtre}.
-        \item Utiliser des modèles (d'arbres) généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation. Voir Section \ref{sec:modele}
-        \item Améliorer l'édition des arbres avec ADTool, afin de la rendre plus souple et plus pratique. Voir Section \ref{sec:adtoolpp}.
-        \item Créer un guide afin de proposer à l'utilisateur une méthode d'analyse. Voir Section \ref{sec:guide}.
+        \item trouver le chemin d'attaque optimal selon une fonction de synthèse, qui utilisera plusieurs types de valeurs (Section \ref{sec:fct_synth}).
+        \item filtrer l'arbre en fonction d'une fourchette de critères (Section \ref{sec:filtre}).
+        \item utiliser des modèles d'arbres généraux que l'utilisateur pourra ensuite modifier en fonction de sa situation (Section \ref{sec:modele}).
+        \item améliorer l'édition des arbres avec ADTool, afin de la rendre plus souple et plus pratique (Section \ref{sec:adtoolpp}).
+        \item créer un guide afin de proposer à l'utilisateur une méthode d'analyse (Section \ref{sec:guide}).
     \end{itemize}
 
-    Pour finir nous décrirons l'architecture de notre logiciel dans la Section \ref{sec:archi}.
+    Pour finir, nous décrirons l'architecture de notre logiciel dans la Section \ref{sec:archi}.
 
     \subsection{Fonction de synthèse et chemin optimal}
         \label{sec:fct_synth}
