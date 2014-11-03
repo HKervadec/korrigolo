@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
+\usepackage{array}
+\usepackage{pdfpages}
+
+\usepackage[gen]{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro{}}
+
+\usepackage{hyperref}
+\hypersetup{    
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{Rapport de spécification}
+
+\author
+{
+	Pierre-Marie {\sc Airiau}\\
+    Valentin {\sc Esmieu}\\
+    Hoel {\sc Kervadec}\\
+    Maud {\sc Leray}\\
+    Florent {\sc Mallard}\\
+    Corentin {\sc Nicole}
+}
+
+\date{\today}
+
+\newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
+
+Rapport de spécification fonctionnelle
+    Français
+    Décrire en détail les spécifications fonctionnelles du prj
+    Première idée architecture logicielle générale
+    décrire les grands modules et leur intéraction
+    Repart travail existant: Doit faire état tests effectués
+    Environ 20 pages
+
+
+\begin{document}
+    % Ouh c'est sale.
+    \hypersetup{pageanchor=false}
+    \includepdf[pages=1]{figure/couv.pdf}
+    \hypersetup{pageanchor=true}
+    
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    
+    \newpage
+    % A decommenter pour la release
+    % \setcounter{tocdepth}{2}
+    \tableofcontents
+    \setlength{\parskip}{10pt}
+    
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    
+    \newpage
+    \input{input/intro.tex}
+
+    % a eviter
+    % \nocite{*}
+
+    \bibliographystyle{plain}
+    \bibliography{input/biblio}
+
+    % Manoucherie incoming
+    \pagevierge
+    \ifthenelse{\isodd{\thepage}}
+    {\pagevierge}
+    {}
+    \includepdf[pages=2]{figure/couv.pdf}
+\end{document}

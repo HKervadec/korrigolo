@@ -27,15 +27,16 @@
     \subsection{Filtre à critères}
         \label{sec:filtre}
 
-        Une autre fonctionnalité que nous développerons sera le filtre à critères. Les critères consistent en un ensemble de valeurs autorisées pour nos paramètres, et seront gardés uniquement les nœuds respectant ces règles. Cela permettra d'obtenir rapidement les attaques réalisables en fonction des ressources de l'attaquant, nous permettant de modéliser plusieurs attaquants théoriques\footnote{Un étudiant et un syndicat du crime organisé n'auront pas les mêmes moyens financiers ou humains.}.
-        Supposons qu'il existe trois sous arbres A, B et C pour atteindre un objectif, avec un coût respectivement de 2596 €, 70333 € et 200 €. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000 €, et qui prennent moins d'une semaine. Notre filtre supprimera donc les sous arbres B et C, pour garder uniquement le A.
+        Une autre fonctionnalité que nous développerons sera le filtre à critères. Les critères consistent en un ensemble de valeurs autorisées pour nos paramètres, et seront gardés uniquement les nœuds respectant ces règles. Ceci permettra d'obtenir rapidement les attaques réalisables en fonction des ressources de l'attaquant, nous permettant de modéliser plusieurs attaquants théoriques\footnote{Un étudiant et un syndicat du crime organisé n'auront pas les mêmes moyens financiers par exemple.}.
+        
+        Supposons qu'il existe trois sous-arbres A, B et C pour atteindre un objectif, avec un coût respectivement de 2596 €, 70333 € et 200 €. Le temps passé à réaliser l'attaque dure 1, 2 et 3 semaines. On voudrait garder uniquement les attaques qui coûtent moins de 30000 €, et qui prennent moins d'une semaine. Notre filtre supprimera donc les sous-arbres B et C, pour garder uniquement le A.
 
-        L'arbre obtenu à l'issue du filtrage pourra très bien être identique à celui fourni en entrée (toutes les attaques respectent les critères), ou pourra au contraire être vide (ce qui voudrait donc dire qu'aucune attaque n'est réalisable avec les moyens alloués). Ce nouvel arbre sera ensuite affiché à l'utilisateur, qui pourra décider de l'enregistrer comme un nouvel arbre.
+        L'arbre obtenu à l'issue du filtrage pourra très bien être identique à celui fourni en entrée (toutes les attaques respectent les critères), ou au contraire être vide (aucune attaque n'est réalisable avec les moyens alloués). Ce nouvel arbre sera ensuite affiché à l'utilisateur, qui pourra décider de l'enregistrer comme un nouvel arbre.
 
     \subsection{Modèles généraux}
         \label{sec:modele}
 
-        Commencer une nouvelle étude peut parfois être difficile. Pouvoir se baser sur des études déjà réalisées pour les adapter à sa situation simplifie grandement la tache. Ainsi, nous donnerons à l'utilisateur la possibilité de partir de modèles d'attaques existantes, qu'il devra ensuite éditer pour que l'arbre corresponde à son système. Dans notre cas d'étude, on pourrait imaginer avoir un modèle générique d'attaque de réseau de transport en commun, pour ensuite l'éditer afin de prendre en compte les spécificités de l'agglomération rennaise et du Star.
+        Commencer une nouvelle étude peut parfois être difficile. Pouvoir se baser sur des études déjà réalisées pour les adapter à sa situation simplifie grandement la tâche. Ainsi, nous donnerons à l'utilisateur la possibilité de partir de modèles d'attaques existantes, qu'il devra ensuite éditer pour que l'arbre corresponde à son système. Dans notre cas d'étude, nous pourrions imaginer avoir un modèle générique d'attaque de réseau de transport en commun, pour ensuite l'éditer afin de prendre en compte les spécificités de l'agglomération rennaise et du STAR.
 
         Notre logiciel intégrera divers arbres génériques, mais l'utilisateur pourra aussi en importer depuis d'autres sources (Internet, clé usb, etc.). Notre logiciel étoffera sa collection de modèles à chaque nouveau modèle importé par l'utilisateur.
         L'utilisateur sera aussi capable de créer ses propres modèles, pour s'en resservir dans d'autres de ses analyses, ou encore pour les publier sur Internet. Ainsi, on pourrait imaginer à terme un site web regroupant des milliers de modèles réalisés par un réseau d'experts en sécurité.
@@ -43,7 +44,7 @@
     \subsection{Amélioration d'ADTool}
         \label{sec:adtoolpp}
 
-        Bien qu'ADTool soit déjà très complet, nous avons identifié plusieurs fonctionnalités qui rendraient la manipulation des arbres plus aisée:
+        Bien qu'ADTool soit déjà très complet, nous avons identifié plusieurs fonctionnalités qui rendraient la manipulation des arbres plus aisée :
         \begin{itemize}
             \item Une fonction de couper / copier / coller d'arbres et de sous-arbres.
             \item Réaliser des glisser / déposer d'arbres et de sous-arbres.
@@ -54,7 +55,7 @@
     \subsection{Guide}
         \label{sec:guide}
 
-        L'utilisateur n'étant pas nécessairement familier avec les ADTrees, le guide lui permettra de comprendre rapidement comment réaliser ses arbres, et comment il doit réaliser son analyse.
+        L'utilisateur n'étant pas nécessairement familier avec les ADTrees, le guide lui permettra de comprendre rapidement comment réaliser ses arbres, et comment réaliser son analyse.
 
         Notre guide lui fera suivre une méthode générique~\cite{methode_analyse}, découpée en différentes étapes. Une fois que l'une d'entre elles sera complétée, le guide passera à l'étape suivante et expliquera précisément à l'utilisateur comment la réaliser.
         Le guide prendra la forme d'un \og journal de quête \fg, ce qui lui permettra de garder une trace des étapes déjà réalisées.
@@ -72,7 +73,7 @@
             \label{fig:archi}
         \end{figure}
 
-        Toutes les modifications ne seront pas intégrées directement dans ADTool (seules les modifications de la section \ref{sec:adtoolpp} y seront implémentées). \`A la place, nous auront une application mère, qui se servira d'ADTool comme étant un composant dédié à la visualisation et à l'édition des arbres. 
+        Toutes les modifications ne seront pas intégrées directement dans ADTool (seules les modifications de la Section \ref{sec:adtoolpp} y seront implémentées). \`A la place, nous auront une application mère, qui se servira d'ADTool comme étant un composant dédié à la visualisation et à l'édition des arbres. 
 
         L'analyse d'un système sera sauvegardée sous forme de projet. Celui-ci contiendra différents arbres utilisés pour l'analyse, ainsi qu'une bibliothèque de modèles que l'utilisateur pourra reprendre à tout moment pour créer un nouvel arbre (groupe "Fichier Projet"). 
         \`A la création du projet, une série de questions sera posée à l'utilisateur. Les réponses obtenues permettront de sélectionner un sous-ensemble des modèles de la bibliothèque du logiciel, pour les précharger dans la bibliothèque du projet.
@@ -81,7 +82,7 @@
         La fonction de synthèse et le filtre seront deux modules qui prendront en entrée un arbre du fichier projet (et leurs autres paramètres respectifs), et enverront le résultat à ADTool pour affichage. L'utilisateur décidera ensuite de ce qu'il fera de l'arbre généré (sauvegarde, édition, export, etc.).
         Le guide supervisera l'ensemble de l'application, et devra fournir des informations et consignes pertinentes à l'utilisateur afin de l'aider dans son analyse.
 
-        Une ébauche de l'interface se situe figure \ref{fig:interface}. Notons que le guide n'y figure pas, puisqu'il ne sera pas affiché en permanence pour ne pas surcharger l'interface. Il s'agira plutôt d'une fenêtre dédiée qui pourra être ouverte et fermée au besoin.
+        Une ébauche de l'interface se situe Figure \ref{fig:interface}. Notons que le guide n'y figure pas, puisqu'il ne sera pas affiché en permanence pour ne pas surcharger l'interface. Il s'agira plutôt d'une fenêtre dédiée qui pourra être ouverte et fermée au besoin.
 
         \begin{figure}
             \begin{center}
