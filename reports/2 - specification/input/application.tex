@@ -42,30 +42,41 @@
 	\subsection{Filtre}
 		\begin{figure}
 			\begin{center}
-				\includegraphics[width=1\textwidth]{figure/filtre.jpg}
+				\includegraphics[width=1\textwidth]{figure/filtre.png}
 			\end{center}
 			\caption{Filtre}
 			\label{fig:filtre}
 		\end{figure}
 
-		Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
 
-		Vestibulum at ipsum sed lorem maximus consectetur at eu tortor. Vestibulum quis fermentum sapien, non luctus enim. Donec tempus metus vitae mollis suscipit. Pellentesque elementum ligula a velit efficitur, at sollicitudin sapien rhoncus. Praesent sed semper nisi. Phasellus iaculis elit nec lacinia mattis. Aenean dignissim quam mattis mollis imperdiet. Nulla sit amet tortor vulputate, aliquet ipsum sed, venenatis odio. Quisque egestas facilisis massa, non rhoncus orci. Ut ut vestibulum mi, pretium pharetra mi. Ut gravida orci et mi sollicitudin viverra. Donec luctus cursus gravida. Maecenas fermentum sem quam, et lacinia dui porttitor ut. Integer ut eros sed sem facilisis vulputate.
+		_ bouton pour ajouter nouveau paramètre sur le filtre (par default : pas de filtre => pas de paramètres) 
+		   -> ajouter ouvre selection de paramétres : menu déroulant précisant les paramètres disponibles.
+		_tous les paramètres ont à coté d’eux deux sections : une de filtre global et une de filtre unitaire. Dans le filtre global sont présentes deux cases, une nommée “min” et une nommée “max”. De même dans le filtre unitaire.
+		_par défaut, les min sont moins l'infini et les max sont l’infini (pas de filtre)
+		_il est possible d’inscrire des valeurs dans les cases “min” et “max” afin de réduire l’intervalle de sélection des branches de l'arbre.
+			=> la section globale permet de conserver les branches de l’arbre dont la valeur totale du paramètre se trouve dans l’intervalle. (ex : entre 500 et 1000 euros au total)
+			=>la section unitaire permet de conserver les branches de l’arbre dont chacune des valeurs de chacune des feuilles se trouve dans l’intervalle. (ex : pas de dépenses de moins de 10 euros et pas de plus de 100 euros)
+		_il est ainsi possible de combiner les critères de sélection (ex : entre 500 et 1000 euros au total et pas de dépenses de moins de 10 euros et pas de plus de 100 euros ; et le temps entre X et Y et ….)
+		_barre de défilement pour les cas de surcharge de paramètres
+		- possibilité d'activer ou désactiver les paramètres ( bouton a cocher)
+		_bouton ``générer'' permet de créer un nouvelle arbre filtré en fonction des paramètres définie. Il est ouvert dans un nouvelle onglet de la section ADTool de l'interface. 
+		- chaque arbre posséde son propre outil filtre. Lors de la génération, le nouvelle arbre posséde un outil filtre vide. 
+		- le nouvel arbre posséde un commentaire : filtre depuis l'arbre X avec paramétre Y, heure, version.
 
-		Mauris rhoncus tempor rhoncus. Vestibulum lacinia tincidunt sem ac auctor. Maecenas a lectus in nisi aliquet feugiat. Sed gravida laoreet maximus. Donec feugiat vestibulum neque sit amet mollis. Maecenas commodo luctus augue et molestie. Maecenas viverra semper massa, blandit commodo lacus blandit a. Proin sed euismod massa. Aenean nec nisl sed nisi mollis congue quis a nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse tincidunt euismod ipsum vitae commodo. Ut dapibus tellus nec libero egestas, eu venenatis dolor fermentum. Donec porttitor erat ante, at tincidunt lacus efficitur vitae. 
-
-	\subsection{\'Editeur de fonction}
+	\subsection{Editeur de fonction}
 		\begin{figure}
 			\begin{center}
-				\includegraphics[width=1\textwidth]{figure/fonction.jpg}
+				\includegraphics[width=1\textwidth]{figure/fonction.png}
 			\end{center}
 			\caption{Fonction}
 			\label{fig:fonction}
 		\end{figure}
 
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus luctus ex, non fringilla nibh laoreet non. Nullam sed enim nec leo dapibus tincidunt. Nulla augue est, cursus tempus tristique eget, venenatis sed leo. Nam eget purus lacinia, porttitor dolor eu, consectetur turpis. Suspendisse sed viverra tellus. Aliquam malesuada sed magna mattis dapibus. Pellentesque eu molestie ligula. Pellentesque dictum ultricies sagittis. Ut semper, est vitae malesuada facilisis, magna velit laoreet lectus, semper suscipit sapien lacus sed nulla.
+		% a repréciser 
+		_Présence d’une zone textuelle pour le nom du nouveau paramètre et d’une autre pour écrire la fonction. Bouton à coté pour valider
+		_présence en dessous d’une zone de rappel des fonctions existantes (historique). A coté de chacune d’entre elles il y a deux boutons : un pour modifier une fonction déjà créée, et un autre pour le supprimer.
+		_bouton “actualiser” en haut pour mettre à jour la liste des fonctions.
 
-		Vestibulum at ipsum sed lorem maximus consectetur at eu tortor. Vestibulum quis fermentum sapien, non luctus enim. Donec tempus metus vitae mollis suscipit. Pellentesque elementum ligula a velit efficitur, at sollicitudin sapien rhoncus. Praesent sed semper nisi. Phasellus iaculis elit nec lacinia mattis. Aenean dignissim quam mattis mollis imperdiet. Nulla sit amet tortor vulputate, aliquet ipsum sed, venenatis odio. Quisque egestas facilisis massa, non rhoncus orci. Ut ut vestibulum mi, pretium pharetra mi. Ut gravida orci et mi sollicitudin viverra. Donec luctus cursus gravida. Maecenas fermentum sem quam, et lacinia dui porttitor ut. Integer ut eros sed sem facilisis vulputate. 
 
 	\subsection{Bibliothèque de modèles}
 		\begin{figure}
@@ -76,11 +87,15 @@
 			\label{fig:biblio}
 		\end{figure}
 
-		Curabitur vehicula sapien eget accumsan venenatis. Nullam sit amet lobortis nunc, nec tempor velit. Mauris eget massa magna. Vestibulum non libero vel eros semper iaculis id sit amet odio. Quisque quis pretium lacus. Duis pellentesque leo eget feugiat placerat. Aliquam vulputate est nulla, et venenatis diam venenatis at. Aenean libero erat, ultrices nec risus vel, volutpat gravida felis. Suspendisse tempus feugiat velit, nec rhoncus felis feugiat vel. Mauris lectus lectus, eleifend et lacinia ut, porttitor at magna. Phasellus ac eros vitae massa porttitor dapibus nec vel dolor.
-
-		Praesent dapibus posuere condimentum. Nullam aliquet sollicitudin dolor, vitae commodo libero gravida sit amet. Donec scelerisque ante ac quam placerat porttitor. Nulla auctor ultrices tempor. Fusce eget nibh justo. Suspendisse eleifend mi sit amet varius malesuada. Donec eleifend et tortor ut egestas. Donec elementum egestas erat, pellentesque consectetur quam blandit at. In a dolor dapibus, tincidunt ipsum sit amet, condimentum elit. Sed pharetra, risus eget iaculis pretium, urna dolor pretium odio, efficitur sodales ipsum mauris vitae libero. Maecenas vulputate neque non volutpat fermentum. Sed semper suscipit ex, suscipit imperdiet nunc porta in. Vivamus volutpat hendrerit dui, eget efficitur sem maximus eget.
-
-		Sed quis ligula eu turpis luctus sollicitudin sed et diam. Curabitur aliquam condimentum leo, sit amet semper nisi ullamcorper quis. Morbi tempor, eros non eleifend ullamcorper, sapien elit tristique dolor, non pretium felis purus in purus. Integer sollicitudin, tellus eu auctor mattis, urna ex fringilla mauris, quis malesuada magna augue ac felis. Mauris maximus cursus ullamcorper. Pellentesque sollicitudin facilisis nisi, sed volutpat risus commodo in. Aenean suscipit lacinia lectus, in venenatis mi viverra a. Vestibulum eget pellentesque leo, sit amet euismod leo. Praesent aliquam hendrerit erat vel auctor. Aliquam a lacinia libero. Nulla posuere sit amet turpis non sagittis. Duis euismod turpis nulla, ut vestibulum mauris tristique at. 
+		- Le logiciel posséde une bibliothéque par défault
+		- la création d'un projet crée une nouvelle bibliothéque, copie de la bibliothéque par défault
+		- la bibliothéque est contenue dans le fichier projet de l'utilisateur. 
+		- Permet un accès facile à tous les arbres stockés
+		- Regroupe les arbres par catégorie (par catégorie d’attaquant, de type d’attaque…), vue en arborescense. 	donner des types aux arbres stockés ?
+		- Permet d’y ajouter des éléments (géré automatiquement lors de la création dans un projet ?) Si non, bouton “ajouter” pour l’arbre courant. 
+		- Retirer des éléments : permet de retirer un élément et mettre à jour la bibliothèque, utile en cas d’arbre faux, ou considéré comme pas assez général pour servir de modèle. (cohérence avec l’ajout d’arbres)
+		- Pouvoir rechercher un arbre dans les modèles généraux (aussi rôle du guide) mais guide facultatif. Série de questions pour pouvoir sélectionner des modèles.
+		- Possibilité d'ajouter des arbres dans la bibliothéque par défault.
 
 	\subsection{Liste d'arbres}
 		\begin{figure}
@@ -91,11 +106,13 @@
 			\label{fig:liste}
 		\end{figure}
 
-		Sed quis ligula eu turpis luctus sollicitudin sed et diam. Curabitur aliquam condimentum leo, sit amet semper nisi ullamcorper quis. Morbi tempor, eros non eleifend ullamcorper, sapien elit tristique dolor, non pretium felis purus in purus. Integer sollicitudin, tellus eu auctor mattis, urna ex fringilla mauris, quis malesuada magna augue ac felis. Mauris maximus cursus ullamcorper. Pellentesque sollicitudin facilisis nisi, sed volutpat risus commodo in. Aenean suscipit lacinia lectus, in venenatis mi viverra a. Vestibulum eget pellentesque leo, sit amet euismod leo. Praesent aliquam hendrerit erat vel auctor. Aliquam a lacinia libero. Nulla posuere sit amet turpis non sagittis. Duis euismod turpis nulla, ut vestibulum mauris tristique at.
-
-		Nulla quis nibh dignissim, blandit justo vel, imperdiet lorem. In quis lacinia dolor. Etiam id lorem vulputate, vestibulum ipsum eu, blandit augue. Nunc consequat orci vitae accumsan vulputate. Praesent euismod ultricies egestas. In et lacus at metus feugiat scelerisque. Nunc maximus, nisi non faucibus tristique, sapien velit pharetra erat, at aliquet orci nulla quis lacus. Nunc pretium tellus in quam dignissim, vitae posuere sem viverra. Nam at libero commodo, pulvinar lacus et, tincidunt dolor. Cras euismod faucibus rhoncus. Curabitur accumsan imperdiet purus eu pellentesque. Cras molestie lectus semper mi bibendum, eu accumsan nulla pharetra. Morbi a odio eu velit luctus aliquet pellentesque at massa. In in tellus metus. Suspendisse tellus diam, condimentum vitae lectus ut, volutpat auctor ipsum. Etiam tellus dui, suscipit eget dapibus eu, rhoncus et purus.
-
-		Curabitur dolor enim, placerat at libero sit amet, aliquam maximus lectus. Nunc maximus nibh sit amet odio tempus maximus. Integer pharetra, nisi quis sollicitudin aliquam, nulla ipsum varius libero, eget faucibus lorem ante eget tellus. Ut mattis risus non vehicula gravida. Aenean vel tempor diam, id posuere neque. Cras sapien tortor, sollicitudin at ullamcorper at, consequat ut ante. Aenean dictum urna vel cursus vestibulum. Nullam sit amet aliquet nibh. Suspendisse quam odio, luctus at lobortis sit amet, pretium in metus. Ut sit amet scelerisque nisi. 
+	- Liste d'arbres générés par l'utilisateur puis sauvegardés sous différentes catégories/sous-catégories (arborescence)
+	- Au départ, une seule catégorie défaut
+	- Création des catégories + possibilité d'affiner en sous-catégories
+	- Suppression d'une catégorie supprime tous les arbres compris dedans
+	- Glisser/déposer les arbres pour les déplacer entre les catégories
+	- Possibilité de supprimer les arbres (renommer aussi ?)
+	- Double-clic pour ouvrir les arbres dans une fenêtre ADTool
 
 	\subsection{Guide}
 		\begin{figure}
@@ -106,22 +123,17 @@
 			\label{fig:guide}
 		\end{figure}
 
-		Quisque aliquam enim vel dui tempor accumsan. Nulla facilisi. Morbi sit amet libero nisi. Nullam vel augue non erat lobortis viverra. Nunc dapibus volutpat lorem eu elementum. Donec ut egestas lorem. Donec fermentum dapibus volutpat. Pellentesque justo libero, dapibus at purus non, facilisis luctus dolor.
+	- À activer dès la création du projet, possibilité de supprimer à tout moment 
+	- SAD peut aussi donner quelques conseils au début, genre raccourcis clavier), avec possibilité de désactiver
+	- Il peut aussi présenter le menu d'accueil du logiciel (Créer nouveau projet, etc)
+	- Donne des indications (genre Ouvre un nouveau projet) avec un bouton Suivant
+	- SAD indique les erreurs (comme celles dans l'éditeur de fonctions), en gros toutes les exceptions levées par le logiciel
 
-		Curabitur vehicula sapien eget accumsan venenatis. Nullam sit amet lobortis nunc, nec tempor velit. Mauris eget massa magna. Vestibulum non libero vel eros semper iaculis id sit amet odio. Quisque quis pretium lacus. Duis pellentesque leo eget feugiat placerat. Aliquam vulputate est nulla, et venenatis diam venenatis at. Aenean libero erat, ultrices nec risus vel, volutpat gravida felis. Suspendisse tempus feugiat velit, nec rhoncus felis feugiat vel. Mauris lectus lectus, eleifend et lacinia ut, porttitor at magna. Phasellus ac eros vitae massa porttitor dapibus nec vel dolor.
-
-		Praesent dapibus posuere condimentum. Nullam aliquet sollicitudin dolor, vitae commodo libero gravida sit amet. Donec scelerisque ante ac quam placerat porttitor. Nulla auctor ultrices tempor. Fusce eget nibh justo. Suspendisse eleifend mi sit amet varius malesuada. Donec eleifend et tortor ut egestas. Donec elementum egestas erat, pellentesque consectetur quam blandit at. In a dolor dapibus, tincidunt ipsum sit amet, condimentum elit. Sed pharetra, risus eget iaculis pretium, urna dolor pretium odio, efficitur sodales ipsum mauris vitae libero. Maecenas vulputate neque non volutpat fermentum. Sed semper suscipit ex, suscipit imperdiet nunc porta in. Vivamus volutpat hendrerit dui, eget efficitur sem maximus eget.
-
-		Sed quis ligula eu turpis luctus sollicitudin sed et diam. Curabitur aliquam condimentum leo, sit amet semper nisi ullamcorper quis. Morbi tempor, eros non eleifend ullamcorper, sapien elit tristique dolor, non pretium felis purus in purus. Integer sollicitudin, tellus eu auctor mattis, urna ex fringilla mauris, quis malesuada magna augue ac felis. Mauris maximus cursus ullamcorper. Pellentesque sollicitudin facilisis nisi, sed volutpat risus commodo in. Aenean suscipit lacinia lectus, in venenatis mi viverra a. Vestibulum eget pellentesque leo, sit amet euismod leo. Praesent aliquam hendrerit erat vel auctor. Aliquam a lacinia libero. Nulla posuere sit amet turpis non sagittis. Duis euismod turpis nulla, ut vestibulum mauris tristique at.
-
-		Nulla quis nibh dignissim, blandit justo vel, imperdiet lorem. In quis lacinia dolor. Etiam id lorem vulputate, vestibulum ipsum eu, blandit augue. Nunc consequat orci vitae accumsan vulputate. Praesent euismod ultricies egestas. In et lacus at metus feugiat scelerisque. Nunc maximus, nisi non faucibus tristique, sapien velit pharetra erat, at aliquet orci nulla quis lacus. Nunc pretium tellus in quam dignissim, vitae posuere sem viverra. Nam at libero commodo, pulvinar lacus et, tincidunt dolor. Cras euismod faucibus rhoncus. Curabitur accumsan imperdiet purus eu pellentesque. Cras molestie lectus semper mi bibendum, eu accumsan nulla pharetra. Morbi a odio eu velit luctus aliquet pellentesque at massa. In in tellus metus. Suspendisse tellus diam, condimentum vitae lectus ut, volutpat auctor ipsum. Etiam tellus dui, suscipit eget dapibus eu, rhoncus et purus.
-
-		Curabitur dolor enim, placerat at libero sit amet, aliquam maximus lectus. Nunc maximus nibh sit amet odio tempus maximus. Integer pharetra, nisi quis sollicitudin aliquam, nulla ipsum varius libero, eget faucibus lorem ante eget tellus. Ut mattis risus non vehicula gravida. Aenean vel tempor diam, id posuere neque. Cras sapien tortor, sollicitudin at ullamcorper at, consequat ut ante. Aenean dictum urna vel cursus vestibulum. Nullam sit amet aliquet nibh. Suspendisse quam odio, luctus at lobortis sit amet, pretium in metus. Ut sit amet scelerisque nisi. 
-
-	\subsection{\'Editeur d'arbres}
+	\subsection{\'Éditeur d'arbres}
 		Attention: on ne parlera ici que de l'intéraction entre l'éditeur et les différents modules, pas de l'éditeur en lui même.
 		Voir la section \ref{sec:adtool} pour voir nos améliorations.
 
-		Nullam vestibulum nulla vel odio sagittis laoreet. Cras sit amet leo sit amet massa egestas fringilla. Integer mattis enim nec sollicitudin vulputate. Nunc ut fermentum orci. Donec congue fringilla arcu id dapibus. Mauris aliquam vestibulum nisi, et euismod lacus convallis ut. Nullam nec justo a odio pretium aliquet. Vestibulum commodo porta enim. Vivamus consectetur, metus et aliquet accumsan, sem augue efficitur sem, id placerat metus odio a mauris. Donec id auctor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi felis diam, accumsan condimentum fringilla id, ultrices a neque. Vivamus sit amet odio quis nisi cursus congue sed vel magna. Pellentesque ac elit dapibus, feugiat massa vitae, ultrices massa. Cras quis turpis interdum, facilisis elit viverra, sollicitudin sem.
-
-		Quisque aliquam enim vel dui tempor accumsan. Nulla facilisi. Morbi sit amet libero nisi. Nullam vel augue non erat lobortis viverra. Nunc dapibus volutpat lorem eu elementum. Donec ut egestas lorem. Donec fermentum dapibus volutpat. Pellentesque justo libero, dapibus at purus non, facilisis luctus dolor. 
+		- Utilisation d'ADTool imbriqué dans l'IHM
+		- Une instance d'ADTool par arbre (possibilité d'ouvrir plusieurs onglets) : modèles, filtres, etc
+		- Chaque modification dans ADTool entraine une mise à jour de SAD
+		- Sauvegarde des fichiers par ADTool : ne pas laisser le choix du fichier, laisser seulement le fichier projet (en gros, l'arborescence d'arbres)
