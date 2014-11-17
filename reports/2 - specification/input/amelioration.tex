@@ -1,5 +1,26 @@
 \section{Amélioration}
 
+	Dans le but de simplifier l'expérience de l'utilisateur nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celle-ci n'apporte pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celle qui simplifie l'édition de l'arbre par l’intermédiaire d'AdTools et qui se traduiront pas une modification de ce logiciel et celle qui intégré à NOM_DU_LOGICIEL qui simplifieront la navigation entre les différents arbres, qu'ils soit réalisé par l'utilisateur lui-même ou importé comme modèle. 
+
+
+
+	\subsection{Liste d'arbres}.
+
+		ADTool ne permet d'ouvrir qu'un seul arbre à la fois. Cette limitation est particulièrement handicapante. Par exemple, l'utilisateur ne peut pas ouvrir deux versions d'un même arbre pour les comparer. Nous logiciel rendras donc possible l'ouverture de plusieurs onglets possédant chacun un arbre différent. 
+
+		Cette fonctionnalité induit la possibilité pour l'utilisateur de manipuler un grands nombres d'arbres dans le cadre d'un même projet. Le module \emph{Liste d'arbres} fournira à l'utilisateur une représentation de la liste des arbres de son projet sous forme d'arborescence. Il s'agira d'un dock disponible sur le coté du logiciel.
+
+		\begin{itemize}
+			\item Liste d'arbres générés par l'utilisateur puis sauvegardés sous différentes catégories/sous-catégories (arborescence)
+			\item Au départ, une seule catégorie défaut
+			\item  Création des catégories + possibilité d'affiner en sous-catégories
+			\item Suppression d'une catégorie supprime tous les arbres compris dedans
+			\item bouton “actualiser” en haut pour mettre à jour la liste des fonctions.
+			\item Glisser/déposer les arbres pour les déplacer entre les catégories
+			\item Possibilité de supprimer les arbres (renommer aussi ?)
+			\item Double-clic pour ouvrir les arbres dans une fenêtre ADTool.\ldots
+		\end{itemize}
+		
 
 	\subsection{Bibliothèque de modèles}
 
@@ -17,19 +38,6 @@
 		\end{itemize}
 		
 
-	\subsection{Liste d'arbres}
-
-		\begin{itemize}
-			\item Liste d'arbres générés par l'utilisateur puis sauvegardés sous différentes catégories/sous-catégories (arborescence)
-			\item Au départ, une seule catégorie défaut
-			\item  Création des catégories + possibilité d'affiner en sous-catégories
-			\item Suppression d'une catégorie supprime tous les arbres compris dedans
-			\item bouton “actualiser” en haut pour mettre à jour la liste des fonctions.
-			\item Glisser/déposer les arbres pour les déplacer entre les catégories
-			\item Possibilité de supprimer les arbres (renommer aussi ?)
-			\item Double-clic pour ouvrir les arbres dans une fenêtre ADTool.\ldots
-		\end{itemize}
-		
 	\subsection{Éditeur d'arbres}
 
 		Attention: on ne parlera ici que de l'intéraction entre l'éditeur et les différents modules, pas de l'éditeur en lui même.
