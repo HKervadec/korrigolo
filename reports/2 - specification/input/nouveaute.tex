@@ -4,10 +4,71 @@
 
 
 	\subsection{Optimiseur}
+		% Justifier utilité
+		% Présentation fonctionnalité
+		% Parler algo
+		% Exemple
+		
+		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il ne peut pas facilement identifier le chemin le moins couteux (selon un paramètre donné).
+		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		
+		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel.
+		Pouvoir identifier automatiquement le chemin optimal ferait ainsi gagner beaucoup de temps à l'expert.
+		
+		L'optimiseur prendrait donc en entrée:
+		\begin{itemize}
+			\item un arbre provenant du projet ;
+			\item le paramètre à prendre en compte ;
+			\item le critère ($min$ ou $max$).
+		\end{itemize}
+		
+		Nous optiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
+		L'utilisateur pourra ensuite le traiter comme un tout nouvel arbre, en fonction de son besoin.
+		
+		Nous allons maintenant détailler l'algorithme utilisé. Il s'agira d'une fontion récursive.
 
-		Mauris rhoncus tempor rhoncus. Vestibulum lacinia tincidunt sem ac auctor. Maecenas a lectus in nisi aliquet feugiat. Sed gravida laoreet maximus. Donec feugiat vestibulum neque sit amet mollis. Maecenas commodo luctus augue et molestie. Maecenas viverra semper massa, blandit commodo lacus blandit a. Proin sed euismod massa. Aenean nec nisl sed nisi mollis congue quis a nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse tincidunt euismod ipsum vitae commodo. Ut dapibus tellus nec libero egestas, eu venenatis dolor fermentum. Donec porttitor erat ante, at tincidunt lacus efficitur vitae.
+		\begin{lstlisting}
+opti(racine, param, crit):
+	l_fils = fils(racine)
 
-		Vivamus elit urna, suscipit et nisi in, semper fringilla elit. In euismod cursus nunc quis tincidunt. Phasellus efficitur eleifend lacus, et pellentesque risus rhoncus vel. Phasellus in euismod lorem. Nam pulvinar aliquam metus a scelerisque. Etiam eget lectus ut felis porta ullamcorper. Aenean commodo at augue id pulvinar. Nunc efficitur elit est, id placerat sapien sodales nec. Etiam finibus at lacus nec viverra. Integer at vulputate mauris. Maecenas eget magna id tellus imperdiet finibus et in purus. Integer placerat ipsum a dui pellentesque, in lobortis lorem lobortis. In hac habitasse platea dictumst. 
+	if vide(l_fils):
+		return
+
+	if mode(racine) == ou:
+		v = param(l_fils[0])
+
+		for n in l_fils[1:]:
+			v = crit(v, param(n))
+
+		for n in l_fils:
+			if param(n) != v:
+				delete(n) // will delete subtree as well
+	
+	for n in fils(racine):
+		opti(n, param, crit)
+		\end{lstlisting}
+
+		L'algorithme modifiera l'arbre en l'état (c'est pour cela que nous le ferons travailler sur une copie de l'arbre).
+		\begin{itemize}
+			\item \verb|racine| correspond au noeud à partir duquel nous élaguerons l'arbre.
+			\item \verb|param| est une fonction renvoyant une valeur pour un noeud donné.
+			\item \verb|crit| est une fonction prenant en paramètre deux valeurs et renvoie la valeur à \og garder \fg.
+			\item \verb|fils| est une fonction renvoyant une liste de noeuds, correspondants aux fils du noeud passé en paramètre.
+		\end{itemize}
+		Ainsi, pour lancer l'optimisation, nous appelerons \verb|opti| avec la racine de l'arbre en paramètre.
+
+		*Je vais chanter une petite chanson pour l'autostoppeur*
+
+		Par exemple, prenons l'arbre .........
+		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=1\textwidth]{figure/arbre_post_opti.jpg}
+			\caption{L'attaque idéale est ainsi facilement lisible.}
+			\label{fig:arbre_post_opti}
+		\end{figure}
+
 
 	\subsection{Filtre}
 		\begin{figure}
@@ -40,7 +101,7 @@
 		  \end{itemize}
 
 
-	\subsection{Fonction de synthése}
+	\subsection{Fonction de synthèse}
 		\begin{figure}
 			\begin{center}
 				\includegraphics[width=0.25\textwidth]{figure/fonction.png}
