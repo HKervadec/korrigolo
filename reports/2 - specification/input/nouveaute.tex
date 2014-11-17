@@ -79,26 +79,33 @@ opti(racine, param, crit):
 			\label{fig:filtre}
 		\end{figure}
 
+		A l'heure actuelle, l'analyse d'arbre de grandes tailles à l'aide d'ADTool est difficile. En effet, ADTool a été pensé prioritairement pour la modélisation des systèmes sous forme d'ADTrees, et moins pour leurs analyses. ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation des noeuds de l'arbre. Une limite que présente ADTool est que, une fois le système à protéger complétement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinante car le temps de parcours est trop long. 
 
-		\begin{itemize}
-		  \item bouton pour ajouter nouveau paramètre sur le filtre (par default : pas de filtre => pas de paramètres) 
-			  \begin{itemize}
-			  	 \item ajouter ouvre selection de paramétres : menu déroulant précisant les paramètres disponibles.
-			  \end{itemize}
-		  \item tous les paramètres ont à coté d’eux deux sections : une de filtre global et une de filtre unitaire. Dans le filtre global sont présentes deux cases, une nommée “min” et une nommée “max”. De même dans le filtre unitaire.
-		  \item par défaut, les min sont moins l'infini et les max sont l’infini (pas de filtre)
-		  \item il est possible d’inscrire des valeurs dans les cases “min” et “max” afin de réduire l’intervalle de sélection des branches de l'arbre.
-		  \begin{itemize}
-			  	 \item la section globale permet de conserver les branches de l’arbre dont la valeur totale du paramètre se trouve dans l’intervalle. (ex : entre 500 et 1000 euros au total)
-			  	 \item la section unitaire permet de conserver les branches de l’arbre dont chacune des valeurs de chacune des feuilles se trouve dans l’intervalle. (ex : pas de dépenses de moins de 10 euros et pas de plus de 100 euros)
-		  \end{itemize}
-		  \item il est ainsi possible de combiner les critères de sélection (ex : entre 500 et 1000 euros au total et pas de dépenses de moins de 10 euros et pas de plus de 100 euros ; et le temps entre X et Y et ….)
-		  \item barre de défilement pour les cas de surcharge de paramètres
-		  \item possibilité d'activer ou désactiver les paramètres ( bouton a cocher)
-		  \item bouton ``générer'' permet de créer un nouvelle arbre filtré en fonction des paramètres définie. Il est ouvert dans un nouvelle onglet de la section ADTool de l'interface. 
-		  \item chaque arbre posséde son propre outil filtre. Lors de la génération, le nouvelle arbre posséde un outil filtre vide. 
-		  \item le nouvel arbre posséde un commentaire : filtre depuis l'arbre X avec paramétre Y, heure, version. \ldots
-		  \end{itemize}
+		Le premier besoin qu'aura l'expert lors de l'analyse sera de rendre son arbre plus lisible, donc de le réduire. L'une des 
+
+		En conséquence, l'analyse d'arbres à l'aide d'ADTool se fait principalement à la main, et devient donc impossible lorsque les arbres augmentent de tailles, faute à un support logiciel dédié.
+
+		
+
+		%\begin{itemize}
+		  %\item bouton pour ajouter nouveau paramètre sur le filtre (par default : pas de filtre => pas de paramètres) 
+			 % \begin{itemize}
+			  	% \item ajouter ouvre selection de paramétres : menu déroulant précisant les paramètres disponibles.
+			  %\end{itemize}
+		  %\item tous les paramètres ont à coté d’eux deux sections : une de filtre global et une de filtre unitaire. Dans le filtre global sont présentes deux %cases, une nommée “min” et une nommée “max”. De même dans le filtre unitaire.
+		 % \item par défaut, les min sont moins l'infini et les max sont l’infini (pas de filtre)
+		  %\item il est possible d’inscrire des valeurs dans les cases “min” et “max” afin de réduire l’intervalle de sélection des branches de l'arbre.
+		  %\begin{itemize}
+			  	 %\item la section globale permet de conserver les branches de l’arbre dont la valeur totale du paramètre se trouve dans l’intervalle. (ex %: entre 500 et 1000 euros au total)
+			  	% \item la section unitaire permet de conserver les branches de l’arbre dont chacune des valeurs de chacune des feuilles se trouve dans %l’intervalle. (ex : pas de dépenses de moins de 10 euros et pas de plus de 100 euros)
+		 % \end{itemize}
+		  %\item il est ainsi possible de combiner les critères de sélection (ex : entre 500 et 1000 euros au total et pas de dépenses de moins de 10 euros %et pas de plus de 100 euros ; et le temps entre X et Y et ….)
+		 % \item barre de défilement pour les cas de surcharge de paramètres
+		  %\item possibilité d'activer ou désactiver les paramètres ( bouton a cocher)
+		  %\item bouton ``générer'' permet de créer un nouvelle arbre filtré en fonction des paramètres définie. Il est ouvert dans un nouvelle onglet de la %section ADTool de l'interface. 
+		 % \item chaque arbre posséde son propre outil filtre. Lors de la génération, le nouvelle arbre posséde un outil filtre vide. 
+		  %\item le nouvel arbre posséde un commentaire : filtre depuis l'arbre X avec paramétre Y, heure, version. \ldots
+		  %\end{itemize}
 
 
 	\subsection{Fonction de synthèse}
