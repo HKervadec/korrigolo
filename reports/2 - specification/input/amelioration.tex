@@ -40,7 +40,7 @@
 
 	\subsection{Éditeur d'arbres}
 
-		Attention: on ne parlera ici que de l'intéraction entre l'éditeur et les différents modules, pas de l'éditeur en lui même.
+		Attention: on ne parlera ici que de l'interaction entre l'éditeur et les différents modules, pas de l'éditeur en lui même.
 		Voir la section \ref{sec:adtool} pour voir nos améliorations.
 
 		\begin{itemize}
@@ -53,30 +53,37 @@
 
 	\subsection{Couper copier coller}
 	
-	ADTool ne permet pas ces fonctions, qui pourraient pourtant s'avérer précieuses dans la création des arbres. En effet, dans le cas de l'oubli d'un niveau, on peut souhaiter copier ou couper les fils d'un noeud pour les coller dans un second plus haut dans la généalogie.
-	En conséquence, la sélection d'un noeud entrainera la sélection de ses fils, afin de pouvoir effectuer des transferts rapidement. Nous avons considéré que la sélection de seulement certains noeuds fils n'apportait pas d'amélioration.
-	- Sélection d'un noeud (ça sélectionne aussi ses fils) : repérée par une coloration du noeud sélectionné
-	- Clic droit sur le noeud sélectionné pour le copier/couper ainsi que ses fils
-	- Pour coller on clique droit sur un noeud et cela rajoute l'arbre copié en tant que nouveau fils
-	- On peut le faire entre différentes instances d'ADTool
-	- Sanity check : faire attention au nom des labels
+	ADTool ne permet pas ces fonctions, qui pourraient pourtant s'avérer précieuses dans la création des arbres. En effet, dans le cas de l'oubli d'un niveau, on peut souhaiter copier ou couper les fils d'un nœud pour les coller dans un second plus haut dans la généalogie.
+	En conséquence, la sélection d'un noeud entraînera la sélection de ses fils, afin de pouvoir effectuer des transferts rapidement. Ceci sera automatique, car nous avons considéré que la sélection partielle des nœuds fils n'apportait pas d'amélioration. Le système de raccourcis clavier classique ne sera probablement pas repris, au profit d'une gestion à la souris, et d'un affichage spécial des nœuds copiés.
+
+	Cependant, cette fonction entraîne une nécessité de cohérence. En effet, des nœuds de même nom ne pourront pas être présents, il faudra donc gérer ces cas de figure. L'édition XML abordée ci-dessous sera le plus simple dans ce cas.
+	%- Sélection d'un noeud (ça sélectionne aussi ses fils) : repérée par une coloration du noeud sélectionné
+	%- Clic droit sur le noeud sélectionné pour le copier/couper ainsi que ses fils
+	%- Pour coller on clique droit sur un noeud et cela rajoute l'arbre copié en tant que nouveau fils
+	%- On peut le faire entre différentes instances d'ADTool
+	%- Sanity check : faire attention au nom des labels
 
 	\subsection{Amélioration XML}
 
-	- Ajouter la possibilité d'éditer l'arbre directement en xml. Possibilité de masquer/afficher le bloc xml.
-	- Ajouter noeud père dans l'éditeur texte 
+	Dans sa version actuelle, ADTool affiche systématiquement le fichier XML décrivant l'arbre, et le modifie en temps réel. On peut modifier facilement les labels des nœuds présents, ou changer un opérateur depuis le fichier XML, puis valider afin d'afficher le résultat sous forme d'arbre. Ajouter des nœuds, en supprimer depuis ce fichier n'est pas chose aisée, c'est pourquoi nous souhaitons améliorer l'édition de l'arbre courant depuis la partie XML d'ADTool.
+	L'utilisateur aura également la possibilité de masquer cette partie de l'interface, si le fichier XML ne l'intéresse pas, ou s'il n'est pas à l'aise avec.
+	%- Ajouter la possibilité d'éditer l'arbre directement en xml. Possibilité de masquer/afficher le bloc xml.
+	%- Ajouter nœud père dans l'éditeur texte 
 	
 	\subsection{CTRL-Z}
-
-	- Annulation d'une ou plusieurs des modifications précédentes
-	- Coder une pile d'états avec un curseur qui indique l'état courant
-	- Chaque action entraîne la création d'un nouvel état
+	Pour le moment, effectuer une action est irréversible. Un renommage ou l'ajout d'une feuille est rapide à effectuer, mais supprimer par erreur un nœud peut entraîner un travail énorme. La possibilité de faire un retour à l'état précédent de l'arbre éviterait d'avoir à recommencer ce travail de construction fastidieux. L'implémentation d'une pile circulaire, contenant les N derniers états de l'arbre, rajoutant un état à chaque action, permettra d'annuler facilement les dernières modifications.
+	%- Annulation d'une ou plusieurs des modifications précédentes
+	%- Coder une pile d'états avec un curseur qui indique l'état courant
+	%- Chaque action entraîne la création d'un nouvel état
 	
 	\subsection{Paramètre de synthèse}
-	- ajouter un paramètre de plus de disponible dans AdTool pour les fonctions de synthése.
+	Comme précisé plus haut, ADTool met à notre disposition 6 paramètre de base afin de donner des valuations à l'arbre. Afin de rendre complète la fonction de synthèse que nous souhaitons implémenter, nous serons amenés à ajouter des paramètres de base, permettant de créer des fonctions complètes.
+	%- ajouter un paramètre de plus de disponible dans AdTool pour les fonctions de synthèse.
 		
 	\subsection{Vue globale des paramètres}
-
-	- Pour le moment, un onglet dans ADTool par paramètre (sur l'arbre, seul ce paramètre est apparent)	
-	- Créer un nouvel onglet plus global avec tous les paramètres visibles sous les labels, chaque paramètre d'une couleur différente (légende explicative sur le coté)
-	- Attention à ce que les paramètres ne débordent pas des noeuds, il faut éventuellement élargir les ronds
+	Dans l'état actuel d'ADTool, un seul paramètre est affiché, même si plusieurs paramètres servent à valuer le nœud. En effet, les paramètres ont un onglet propre, et un seul est effectivement affiché. Nous souhaitons créer un onglet général, regroupant tous les paramètres appliqués, afin d'avoir une vision plus globale de l'avancée de notre travail, et ainsi faciliter la création des fonctions de synthèse.
+	Pour une meilleure lisibilité, les différents paramètres auront chacun une couleur différente, accompagnée d'une légende résumant ces couleurs.
+	Nous devrons également gérer la taille des noeuds, pour que les paramètres ne dépassent pas de la bulle.
+ 	%Pour le moment, un onglet dans ADTool par paramètre (sur l'arbre, seul ce paramètre est apparent)	
+	%- Créer un nouvel onglet plus global avec tous les paramètres visibles sous les labels, chaque paramètre d'une couleur différente (légende %explicative sur le coté)
+	%- Attention à ce que les paramètres ne débordent pas des nœuds, il faut éventuellement élargir les ronds
