@@ -121,19 +121,10 @@ ADTool dispose à l'heure actuelle de treize paramètres de base (appelés \text
   \textbf{Paramètre} & \textbf{Valeurs possibles} \\
   \hline
   Difficulty for the proponent (L,M,H) & 
-\begin{itemize}[label=\ding{170},font=\color{magenta},leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Low (L): bas
-\item Medium (M) : moyen
-\item High (H) : élevé
-\end{itemize}
+ Low (bas), Medium (moyen), High (élevé) ou l'infini.
 \\ \hline
 Difficulty for the proponent (L,M,H,E) & 
-\begin{itemize}[label=\ding{170},font=\color{magenta},leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Low (L): bas
-\item Medium (M) : moyen
-\item High (H) : élevé
-\item Extreme (E) : extrême
-\end{itemize}
+Low (bas), Medium (moyen), High (élevé), Extreme (extrême) ou l'infini.
 \\ \hline
 Minimal cost for the proponent (not reusable) & 
 Valeurs réelles positives, ou l'infini.\\ \hline
@@ -166,6 +157,16 @@ Valeurs réelles positives, ou l'infini.\\ \hline
 On voit dans le tableau que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant).
 
 \subsubsection{L'éditeur de paramètres}
+
+L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool. Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres voulus, de la même manière que pour les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
+
+Cette nouvelle fonctionnalité, appelée éditeur de paramètres, prendrait donc en entrée les éléments suivants :
+\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
+\item un arbre provenant du projet ;
+\item les paramètres intervenant dans la synthèse ;
+\item les opérations mathématiques appliquées ;
+\item le nom du paramètre de synthèse généré.
+\end{itemize}
 
 		
 		
