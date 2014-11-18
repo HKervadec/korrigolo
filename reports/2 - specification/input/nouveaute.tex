@@ -1,19 +1,12 @@
 \section{Nouveauté}
 	
-	Les principales nouveauté trop cool de notre logiciels....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
-
+	L'analyse détaillée d'ADtool a permis de mieux se rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, et risquer ainsi de surcharger ce logiciel, nous avons décidé de créer un nouveau logiciel nommé Glasir qui utilisera un éditeur d'arbres. Nous avons ainsi AdTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
 
 	\subsection{Optimiseur}
-		% Justifier utilité
-		% Présentation fonctionnalité
-		% Parler algo
-		% Exemple
 		
-		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il ne peut pas facilement identifier le chemin le moins couteux (selon un paramètre donné).
-		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il n'est pas facile pour lui d'identifier le chemin le moins coûteux selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
-		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel.
-		Pouvoir identifier automatiquement le chemin optimal ferait ainsi gagner beaucoup de temps à l'expert.
+		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
 		
 		L'optimiseur prendrait donc en entrée:
 		\begin{itemize}
@@ -41,7 +34,7 @@ opti(racine, param, crit):
 			v = crit(v, param(n))
 
 		for n in l_fils:
-			if param(n) != v:
+			if not defense(n) and param(n) != v:
 				delete(n) // will delete subtrees as well
 	
 	for n in fils(racine):
@@ -57,9 +50,7 @@ opti(racine, param, crit):
 		\end{itemize}
 		Ainsi, pour lancer l'optimisation, nous appelerons \verb|opti| avec la racine de l'arbre en paramètre.
 
-		*Je vais chanter une petite chanson pour l'autostoppeur*
-
-		Par exemple, prenons l'arbre .........
+		Prenons en exemple l'arbre exemple en annexe.
 		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
 
 		\begin{figure}
