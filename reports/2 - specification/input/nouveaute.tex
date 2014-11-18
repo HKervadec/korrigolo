@@ -1,18 +1,12 @@
 \section{Nouveauté}
 	
-	L'analyse détaillée d'ADtool nous a permis de préciser les fonctionnalités d'analyse qui font défaut à ADTool. Plutôt qu'implémenter ses fonctionnalités directement dans ADTool et ainsi risquer de surcharger ce logiciel nous avons décidé de créer un nouveau logiciel nommé Glasir qui utilise ADTool comme éditeur d'arbre. Nous avons ainsi AdTool qui se charge de la partie \textit{édition des arbres} et notre logiciel qui se charge de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités qui à nos yeux répondent le mieux au besoin d'un expert en sécurité.
+	L'analyse détaillée d'ADtool a permis de mieux se rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, et risquer ainsi de surcharger ce logiciel, nous avons décidé de créer un nouveau logiciel nommé Glasir qui utilisera un éditeur d'arbres. Nous avons ainsi AdTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
 
 	\subsection{Optimiseur}
-		% Justifier utilité
-		% Présentation fonctionnalité
-		% Parler algo
-		% Exemple
 		
-		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il ne peut pas facilement identifier le chemin le moins couteux (selon un paramètre donné).
-		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il n'est pas facile pour lui d'identifier le chemin le moins coûteux selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
-		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel.
-		Pouvoir identifier automatiquement le chemin optimal ferait ainsi gagner beaucoup de temps à l'expert.
+		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
 		
 		L'optimiseur prendrait donc en entrée:
 		\begin{itemize}
