@@ -27,15 +27,11 @@
 
 	\subsection{Amélioration du codage des arbres}
 
-	Tel qu'il existe aujourd'hui, ADTool affiche dans son interface un section nommée \emph{ADTerm Edit}. Celle-ci affiche une représentation de l'arbre sous la forme d'un texte utilisant un langage propre au logiciel. Lors de la modification de l'arbre dans l'éditeur graphique, AdTool modifie le code en temps réel. On peut ainsi modifier facilement les labels des nœuds présents, ou changer un opérateur directement depuis \emph{ADTerm Edit} puis valider afin d'afficher le résultat sous forme d'arbre. 
+	Tel qu'il existe aujourd'hui, ADTool affiche dans son interface une section nommée \emph{ADTerm Edit}. Celle-ci affiche une représentation de l'arbre sous un format texte, en utilisant un langage propre au logiciel. Lors de la modification de l'arbre dans l'éditeur graphique, AdTool met à jour le texte correspondant en temps réel et de manière automatique. L'inverse est également vrai : il est possible de changer les labels des nœuds, ou les opérateurs, directement depuis \emph{ADTerm Edit} puis afin d'afficher le résultat graphiquement (après validation).\\ 
 
-	Mais le langage qui permet de décrire les arbres ne contient pas le nom des autres nœuds que les feuilles. Sur la figure \ref{fig:int_adTool}, on peut constater que le code indique le nom des deux feuilles \textit{Acheter le matériel nécessaire} et \textit{Essayer les clés de chiffrage}, que la conjonction est bien précisé par l'opérateur \textit{ap} mais qu'aucune référence n'est faite au label du nœud parent (\textit{Casser le chiffrage}).
-
-	Pour remédier à ce problème, nous créerons une nouvelle grammaire corrigeant ce défaut.
-
-	%- Ajouter la possibilité d'éditer l'arbre directement en xml. Possibilité de masquer/afficher le bloc xml.
-	%- Ajouter nœud père dans l'éditeur texte 
-
+	Mais le langage qui permet de décrire les arbres sous format texte n'est pas très lisible : par exemple, il ne contient pas le nom des nœuds autres que les feuilles. Sur la figure \ref{fig:int_adTool}, on peut constater que le code indique le nom des deux feuilles \textit{Acheter le matériel nécessaire} et \textit{Essayer les clés de chiffrage}, que la conjonction est bien précisée par l'opérateur \textit{ap}, mais qu'aucune référence n'est faite au label du nœud parent (\textit{Casser le chiffrage}). Pour remédier à ce problème, nous créerons une nouvelle grammaire corrigeant ce défaut afin de rendre l'utilisation de cette fenêtre plus intuitive.\\
+	
+	Cependant, cette représentation des arbres doit rester facultative, l'utilisateur pouvant juger l'interface graphique suffisante pour effectuer des modifications. C'est pour cette raison que nous voulons aussi ajouter la possibilité de masquer la section \emph{ADTerm Edit}, ce qui permettrait de gagner de la place pour afficher les arbres graphiquement.
 
 	% ATTENTION  !! CHANGER CRIPTAGE EN CHIFFFRAGE !!!
 	\begin{figure}
@@ -46,15 +42,11 @@
 	\end{figure}
 	
 	\subsection{CTRL-Z}
-	Pour le moment, effectuer une action est irréversible. Un renommage ou l'ajout d'une feuille est rapide à effectuer, mais supprimer par erreur un nœud peut entraîner un travail énorme. La possibilité de faire un retour à l'état précédent de l'arbre éviterait d'avoir à recommencer ce travail de construction fastidieux. Nous souhaitons créer au moins une sauvegarde de l'état précédent, afin de pouvoir annuler la dernière modification. Si possible, l'implémentation d'une pile circulaire contenant les N derniers états avec un curseur pointant sur l'état courant, permettra de revenir en arrière sans contraintes.
-	%- Annulation d'une ou plusieurs des modifications précédentes
-	%- Coder une pile d'états avec un curseur qui indique l'état courant
-	%- Chaque action entraîne la création d'un nouvel état
+	
+	Pour le moment, effectuer une action sous ADTool est irréversible. Cela n'est pas grave pour certaines actions rapides à effectuer, telles que le renommage d'un nœud. Mais supprimer un nœud (implique la disparition de tous ses nœuds fils s'il y en a) par erreur peut entraîner un travail énorme, et donc une perte de temps. La possibilité de revenir à l'état précédent de l'arbre éviterait d'avoir à refaire ce travail de construction fastidieux. Nous souhaitons créer au moins une sauvegarde de l'état précédent, afin de pouvoir annuler la dernière modification. Si possible, nous envisageons l'implémentation d'une pile circulaire contenant les N derniers états (chaque modification entraînant la création d'un nouvel état) avec un curseur pointant sur l'état courant. Cela permettrait de revenir en arrière sans contraintes.
 
 	\subsection{Vue globale des paramètres}
-	Dans l'état actuel d'ADTool, un seul paramètre est affiché, même si plusieurs paramètres servent à valuer le nœud. En effet, les paramètres ont un onglet propre, et un seul est effectivement affiché. Nous souhaitons créer un onglet général, regroupant tous les paramètres appliqués, afin d'avoir une vision plus globale de l'avancée de notre travail, et ainsi faciliter la création des fonctions de synthèse.
-	Pour une meilleure lisibilité, les différents paramètres auront chacun une couleur différente, accompagnée d'une légende résumant à quoi elles correspondent.
-	Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle. Un tel système est déjà présent dans ADTool afin de gérer les labels, il suffira de l'étendre à l'affichage des paramètres.
- 	%Pour le moment, un onglet dans ADTool par paramètre (sur l'arbre, seul ce paramètre est apparent)	
-	%- Créer un nouvel onglet plus global avec tous les paramètres visibles sous les labels, chaque paramètre d'une couleur différente (légende %explicative sur le coté)
-	%- Attention à ce que les paramètres ne débordent pas des nœuds, il faut éventuellement élargir les ronds
+	
+	Dans l'état actuel d'ADTool, lorsqu'un arbre est valué, un seul paramètre est affiché (le même pour tous les nœuds) même si plusieurs paramètres sont utilisés en réalité. En effet, chaque valuation a un onglet propre, et un dans lequel elle est la seule effectivement affichée sur l'arbre. Nous souhaitons créer un onglet plus général, dans lequel tous les paramètres appliqués peuvent être visibles sur l'arbre. C'est ensuite à l'expert de décider des paramètres qu'il juge utile d'afficher. Cela faciliterait aussi la création des paramètres de synthèse évoqués précédemment.\\
+	
+	Pour une meilleure lisibilité, chaque paramètre aura une couleur différente, et l'arbre sera accompagné d'une légende résumant ce jeu de coloration et ses correspondances. Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle. Un tel système étant déjà présent dans ADTool pour gérer les labels, il suffira de l'étendre à l'affichage des paramètres.
