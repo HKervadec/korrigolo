@@ -1,6 +1,6 @@
 \section{Nouveauté}
 	
-	Les principales nouveauté trop cool de notre logiciels....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
+	Les principales nouveautés trop cool de notre logiciel....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
 
 
 	\subsection{Optimiseur}
@@ -9,7 +9,7 @@
 		% Parler algo
 		% Exemple
 		
-		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de noeuds), il ne peut pas facilement identifier le chemin le moins couteux (selon un paramètre donné).
+		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin le moins coûteux (selon un paramètre donné).
 		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
 		Pourtant, il s'agit d'une méthode systématique, qui peut être implémentée dans notre logiciel.
@@ -22,10 +22,10 @@
 			\item le critère ($min$ ou $max$).
 		\end{itemize}
 		
-		Nous optiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
+		Nous obtiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
 		L'utilisateur pourra ensuite le traiter comme un tout nouvel arbre, en fonction de son besoin.
 		
-		Nous allons maintenant détailler l'algorithme utilisé. Il s'agira d'une fontion récursive.
+		Nous allons maintenant détailler l'algorithme utilisé. Il s'agira d'une fonction récursive.
 
 		\begin{lstlisting}
 opti(racine, param, crit):
@@ -50,12 +50,12 @@ opti(racine, param, crit):
 
 		L'algorithme modifiera l'arbre en l'état (c'est pour cela que nous le ferons travailler sur une copie de l'arbre).
 		\begin{itemize}
-			\item \verb|racine| correspond au noeud à partir duquel nous élaguerons l'arbre.
-			\item \verb|param| est une fonction renvoyant une valeur pour un noeud donné.
+			\item \verb|racine| correspond au nœud à partir duquel nous élaguerons l'arbre.
+			\item \verb|param| est une fonction renvoyant une valeur pour un nœud donné.
 			\item \verb|crit| est une fonction prenant en paramètre deux valeurs et renvoie la valeur à \og garder \fg.
-			\item \verb|fils| est une fonction renvoyant une liste de noeuds, correspondants aux fils du noeud passé en paramètre.
+			\item \verb|fils| est une fonction renvoyant une liste de nœuds, correspondants aux fils du nœud passé en paramètre.
 		\end{itemize}
-		Ainsi, pour lancer l'optimisation, nous appelerons \verb|opti| avec la racine de l'arbre en paramètre.
+		Ainsi, pour lancer l'optimisation, nous appellerons \verb|opti| avec la racine de l'arbre en paramètre.
 
 		*Je vais chanter une petite chanson pour l'autostoppeur*
 
@@ -74,10 +74,10 @@ opti(racine, param, crit):
 
 		A l'heure actuelle, l'analyse d'arbre de grandes tailles à l'aide d'ADTool est difficile. 
 		En effet, ADTool a été pensé prioritairement pour la modélisation des systèmes sous forme d'ADTrees, et moins pour leurs analyses. 
-		ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation multiple des noeuds de l'arbre. 
-		Une des limites d'ADTool est que une fois le système à protéger complétement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinante. Ceci car la recherche doit se faire à la main et devient donc très longue lorsque l'arbre grandit. 
+		ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation multiple des nœuds de l'arbre. 
+		Une des limites d'ADTool est que une fois le système à protéger complètement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinente. Ceci car la recherche doit se faire à la main et devient donc très longue lorsque l'arbre grandit. 
 
-		Dans un certain nombre de cas, l'expert va chercher à se défendre contre un attaquant précis. Dans ces cas, l'expert va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut amener l'expert à ne vouloir conserver que les chemins de l'arbre empruntables par 				l'attaquant en accord ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
+		Dans un certain nombre de cas, l'expert va chercher à se défendre contre un attaquant précis. Dans ces cas, l'expert va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut amener l'expert à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
 
 		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonction dans notre logiciel, sous le nom de \textit{filtre}.
 
@@ -90,9 +90,9 @@ opti(racine, param, crit):
 
 		Le filtre proposera deux types d'intervalles à l'expert pour chacun des paramètres : 
 		L'intervalle global, qui devra être respecté par chacun des chemins conservés dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
-		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des noeuds pour les chemins retenus.
+		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
 
-		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanement.
+		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
 		
 		Après filtrage de l'arbre selon ces critères, l'arbre résultant sera donc seulement celui empruntable par l'attaquant voulant s'en prendre au système à défendre. 
 		
@@ -114,8 +114,8 @@ filtre(racine, rules) :
 \end{lstlisting}
 	
 		Le principe de l'algorithme est récursif.
-		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de noeud de l'arbre.
-		La complexité algorthmique est donc correcte.
+		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de nœud de l'arbre.
+		La complexité algorithmique est donc correcte.
 
 		Un exemple d'interface pour le filtre est présenté ici :
 
