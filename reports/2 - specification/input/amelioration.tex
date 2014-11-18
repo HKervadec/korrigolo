@@ -1,15 +1,15 @@
 \section{Amélioration}
 
 
-	Dans le but de simplifier l'expérience de l'utilisateur, nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celles-ci n'apportent pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celles qui simplifient l'édition de l'arbre par l’intermédiaire d'AdTool, qui se traduiront par une modification de ce logiciel, et celles intégrées à \textbf{Glasir} qui simplifieront la navigation entre les différents arbres (qu'ils soient réalisés par l'utilisateur lui-même ou importés comme modèles). 
+	Dans le but de simplifier l'expérience de l'utilisateur nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celle-ci n'apporte pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celle qui simplifie l'édition de l'arbre par l’intermédiaire d'AdTools et qui se traduiront pas une modification de ce logiciel et celle qui intégré à \textbf{Glasir} qui simplifieront la navigation entre les différents arbres, qu'ils soit réalisé par l'utilisateur lui-même ou importé comme modèle. 
 
 	\subsection{Liste d'arbres}.
 
-	ADTool ne permet d'ouvrir qu'un seul arbre à la fois : cette limitation est particulièrement handicapante. Par exemple, l'utilisateur ne peut pas ouvrir deux versions différentes d'un même arbre pour les comparer. Notre logiciel rendra donc possible l'ouverture simultanée de plusieurs onglets, chacun possédant un arbre différent. 
+	ADTool ne permet d'ouvrir qu'un seul arbre à la fois. Cette limitation est particulièrement handicapante. Par exemple, l'utilisateur ne peut pas ouvrir deux versions d'un même arbre pour les comparer. Nous logiciel rendras donc possible l'ouverture de plusieurs onglets possédant chacun un arbre différent. 
 
-	Cette fonctionnalité induit la possibilité pour l'utilisateur de manipuler un grand nombre d'arbres en simultané dans le cadre d'un même projet. Le module \emph{Liste d'arbres} fournira à l'utilisateur une présentation de la liste des arbres du projet sous forme d'arborescence. Il s'agira d'un dock disponible sur le côté du logiciel. 
+	Cette fonctionnalité induit la possibilité pour l'utilisateur de manipuler un grands nombres d'arbres dans le cadre d'un même projet. Le module \emph{Liste d'arbres} fournira à l'utilisateur une représentation de la liste des arbres de son projet sous forme d'arborescence. Il s'agira d'un dock disponible sur le coté du logiciel. 
 
-	L'utilisateur aura aussi la possibilité de créer des catégories et des sous-catégories d'arbres pour hiérarchiser son projet. La suppression, la création et le renommage d'un arbre seront réalisables directement depuis ce module. 
+	L'utilisateur aura la possibilité de créer des catégories d'arbres pour hiérarchiser son projet. La suppression, la création et le renommage d'un arbre sera réalisable directement depuis ce module. 
 
 	\subsection{Bibliothèque de modèles}
 
@@ -34,7 +34,7 @@
 
 	\subsection{Amélioration du codage des arbres}
 
-	Dans sa version actuelle, ADTool affiche dans son interface un section nommée \emph{ADTerm Edit}. Celle-ci affiche une représentation de l'arbre sous la forme d'un texte utilisant un langage propre au logiciel. Lors de la modification de l'arbre dans l'éditeur graphique, AdTool modifie le code en temps réel. On peut ainsi modifier facilement les labels des nœuds présents, ou changer un opérateur directement depuis \emph{ADTerm Edit} puis valider afin d'afficher le résultat sous forme d'arbre.
+	Dans sa version actuelle, ADTool affiche dans son interface un section nommée \emph{ADTerm Edit}. Celle-ci affiche une représentation de l'arbre sous la forme d'un texte utilisant un langage propre au logiciel. Lors de la modification de l'arbre dans l'éditeur graphique, AdTool modifie le code en temps réel. On peut ainsi modifier facilement les labels des nœuds présents, ou changer un opérateur directement depuis \emph{ADTerm Edit} puis valider afin d'afficher le résultat sous forme d'arbre. 
 
 	Mais le langage qui permet de décrire les arbres ne contient pas le nom des autres nœuds que les feuilles. Sur la figure \ref{fig:int_adTool}, on peut constater que le code indique le nom des deux feuilles \textit{Acheter le matériel nécessaire} et \textit{Essayer les clés de chiffrage}, que la conjonction est bien précisé par l'opérateur \textit{ap} mais qu'aucune référence n'est faite au label du nœud parent (\textit{Casser le chiffrage}).
 
@@ -59,11 +59,11 @@
 	%- Chaque action entraîne la création d'un nouvel état
 	
 	\subsection{Paramètre de synthèse}
-	Comme précisé plus haut, ADTool met à notre disposition treize paramètres de base afin de donner des valuations à l'arbre. Nous souhaitons implémenter un éditeur de fonction le plus opérationnel possible. Nous serons donc amenés à ajouter des paramètres de base qui permettront de créer des fonctions aussi complètes que possible. Des paramètres tels que le coût financier, humain ou le temps nécessaire à la réalisation sont souvent ressortis dans nos exemples d'attaque du réseau STAR. Ceux-ci pourront se combiner afin de réaliser des fonctions dont aurait besoin un expert en sécurité désirant réaliser l'analyse d'un système.
+	Comme précisé plus haut, ADTool met à notre disposition treize paramètres de base afin de donner des valuations à l'arbre. Afin de rendre complète l'éditeur de paramètres que nous souhaitons implémenter, nous serons amenés à ajouter des paramètres de base, permettant de créer des fonctions complètes. Des paramètres tels que le coût financier, humain ou le temps nécessaire à la réalisation sont souvent ressortis dans nos exemples d'attaque du réseau STAR. Ceux-ci pourront se combiner afin de réaliser des fonctions dont aurait besoin un expert en sécurité désirant réaliser l'analyse d'un système.
 	%- ajouter un paramètre de plus de disponible dans AdTool pour les fonctions de synthèse.
 		
 	\subsection{Vue globale des paramètres}
-	Dans l'état actuel d'ADTool, un seul paramètre est affiché, même si plusieurs servent à valuer le nœud. En effet, les paramètres ont un onglet propre, et un seul est effectivement présent à l'écran. Nous souhaitons créer un onglet général, regroupant tous les paramètres appliqués, afin d'avoir une vision plus globale de l'avancée de notre travail. Ceci facilitera la création des fonctions de synthèse pour l'utilisateur de Glasir.
+	Dans l'état actuel d'ADTool, un seul paramètre est affiché, même si plusieurs paramètres servent à valuer le nœud. En effet, les paramètres ont un onglet propre, et un seul est effectivement affiché. Nous souhaitons créer un onglet général, regroupant tous les paramètres appliqués, afin d'avoir une vision plus globale de l'avancée de notre travail, et ainsi faciliter la création des fonctions de synthèse.
 	Pour une meilleure lisibilité, les différents paramètres auront chacun une couleur différente, accompagnée d'une légende résumant à quoi elles correspondent.
 	Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle. Un tel système est déjà présent dans ADTool afin de gérer les labels, il suffira de l'étendre à l'affichage des paramètres.
  	%Pour le moment, un onglet dans ADTool par paramètre (sur l'arbre, seul ce paramètre est apparent)	
