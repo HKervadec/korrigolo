@@ -1,7 +1,6 @@
 \section{Nouveauté}
 	
-	Les principales nouveautés trop cool de notre logiciel....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
-
+	L'analyse détaillée d'ADtool nous a permis de préciser les fonctionnalités d'analyse qui font défaut à ADTool. Plutôt qu'implémenter ses fonctionnalités directement dans ADTool et ainsi risquer de surcharger ce logiciel nous avons décidé de créer un nouveau logiciel nommé Glasir qui utilise ADTool comme éditeur d'arbre. Nous aurons ainsi AdTool qui se chargera de la partie \textit{édition des arbres} et notre logiciel qui se charge de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités qui à nos yeux répondent le mieux au besoin d'un expert en sécurité.
 
 	\subsection{Optimiseur}
 		% Justifier utilité
@@ -41,7 +40,7 @@ opti(racine, param, crit):
 			v = crit(v, param(n))
 
 		for n in l_fils:
-			if param(n) != v:
+			if not defense(n) and param(n) != v:
 				delete(n) // will delete subtrees as well
 	
 	for n in fils(racine):
@@ -57,9 +56,7 @@ opti(racine, param, crit):
 		\end{itemize}
 		Ainsi, pour lancer l'optimisation, nous appellerons \verb|opti| avec la racine de l'arbre en paramètre.
 
-		*Je vais chanter une petite chanson pour l'autostoppeur*
-
-		Par exemple, prenons l'arbre .........
+		Prenons en exemple l'arbre exemple en annexe.
 		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
 
 		\begin{figure}
@@ -90,11 +87,11 @@ opti(racine, param, crit):
 
 		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
 		L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
-		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des noeuds pour les chemins retenus.
+		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
 
 		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
 		
-		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagé. Seuls seront conservés les chemins respectant les intervalles de filtrage.
+		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagué. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
 		L'algorithme du filtre sera selon ce modèle :
 
