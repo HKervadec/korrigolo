@@ -101,9 +101,7 @@ opti(racine, param, crit):
 		\begin{lstlisting}
 
 filtre(racine, rules) :
-
 	for r in rules :
-
 		if not r(racine) :
 			delete (racine AND subtree)
 			return
