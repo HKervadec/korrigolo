@@ -54,9 +54,9 @@ opti(racine, param, crit):
 		Prenons en exemple l'arbre exemple en annexe.
 		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
 
-		\begin{figure}
+		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=0.5\textwidth]{figure/post_optimiseur.pdf}
+			\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
 			\caption{L'attaque idéale est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
@@ -72,27 +72,41 @@ opti(racine, param, crit):
 
 		La fonction de filtrage prendra en entrée : 
 		\begin{itemize}
-		\item L'arbre à filtrer ;
-		\item Les valuations de l'arbre servant de critères pour le filtrage ;
-		\item Les intervalles de sélection sur les différentes valuations.
+			\item L'arbre à filtrer ;
+			\item Les valuations de l'arbre servant de critères pour le filtrage ;
+			\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize}
 
 		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
-		L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
-		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
+		\begin{itemize}
+			\item L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle ;
+			\item L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
+		\end{itemize}
 
 		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
-		
 		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagué. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
-		L'algorithme du filtre sera selon ce modèle :
+		Par exemple, en appliquant un filtre global [0, 500] sur le coût à l'arbre exemple en Annexe, on obtient l'arbre de la figure \ref{fig:arbre_post_filtre}.
+
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=0.75\textwidth]{figure/post_filtre.pdf}
+			\end{center}
+			\caption{Filtre selon le coût pour l'attaquant}
+			\label{fig:arbre_post_filtre}
+		\end{figure}
+
+		On constate que l'arbre élagué par le filtre est beaucoup plus concit. En ayant en tête que l'arbre exemple est de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.   
+
+		D'un point de vue technique, il nous semble intéressant de quelle manière l'arbre sera élagué par le filtre.
+		L'algorithme de filtrage suivra ce modèle :
 
 		\begin{lstlisting}
 
 filtre(racine, rules) :
 	for r in rules :
 		if not r(racine) :
-			delete (racine AND subtree)
+			delete (racine AND subtrees)
 			return
 
 	for n in fils(racine) :
@@ -103,16 +117,6 @@ filtre(racine, rules) :
 		Le principe de l'algorithme est récursif.
 		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de nœud de l'arbre.
 		La complexité algorithmique est donc correcte.
-
-		Un exemple d'interface pour le filtre est présenté ici :
-
-		\begin{figure}[h!]
-			\begin{center}
-				\includegraphics[width=0.35\textwidth]{figure/filtre.png}
-			\end{center}
-			\caption{Filtre}
-			\label{fig:filtre}
-		\end{figure}
 
 \subsection{Paramètres de synthèse}
 
