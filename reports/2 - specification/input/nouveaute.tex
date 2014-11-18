@@ -71,20 +71,13 @@ opti(racine, param, crit):
 
 
 	\subsection{Filtre}
-		\begin{figure}
-			\begin{center}
-				\includegraphics[width=0.25\textwidth]{figure/filtre.png}
-			\end{center}
-			\caption{Filtre}
-			\label{fig:filtre}
-		\end{figure}
 
 		A l'heure actuelle, l'analyse d'arbre de grandes tailles à l'aide d'ADTool est difficile. 
 		En effet, ADTool a été pensé prioritairement pour la modélisation des systèmes sous forme d'ADTrees, et moins pour leurs analyses. 
-		ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation des noeuds de l'arbre. 
-		Une limite que présente ADTool est que, une fois le système à protéger complétement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinante car le temps de parcours est trop long. 
+		ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation multiple des noeuds de l'arbre. 
+		Une des limites d'ADTool est que une fois le système à protéger complétement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinante. Ceci car la recherche doit se faire à la main et devient donc très longue lorsque l'arbre grandit. 
 
-		Dans un certain nombre de cas, l'expert va chercher à se défendre contre un attaquant précis. Dans ces cas, l'expert va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut amener l'expert à ne vouloir conserver que les chemins de l'arbre empruntables par 				l'attaquant. 
+		Dans un certain nombre de cas, l'expert va chercher à se défendre contre un attaquant précis. Dans ces cas, l'expert va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut amener l'expert à ne vouloir conserver que les chemins de l'arbre empruntables par 				l'attaquant en accord ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
 
 		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonction dans notre logiciel, sous le nom de \textit{filtre}.
 
@@ -97,18 +90,41 @@ opti(racine, param, crit):
 
 		Le filtre proposera deux types d'intervalles à l'expert pour chacun des paramètres : 
 		L'intervalle global, qui devra être respecté par chacun des chemins conservés dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
-		L'intervalle unitaire, qui devra être respecté par chacun des noeuds des chemins retenus.
+		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des noeuds pour les chemins retenus.
 
-		Il est possible de combiner les intervalles et les paramètres entre eux 
+		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanement.
+		
+		Après filtrage de l'arbre selon ces critères, l'arbre résultant sera donc seulement celui empruntable par l'attaquant voulant s'en prendre au système à défendre. 
+		
+		L'algorithme du filtre sera selon ce modèle :
 
-		  %\item il est ainsi possible de combiner les critères de sélection (ex : entre 500 et 1000 euros au total et pas de dépenses de moins de 10 euros %et pas de plus de 100 euros ; et le temps entre X et Y et ….)
-		 % \item barre de défilement pour les cas de surcharge de paramètres
-		  %\item possibilité d'activer ou désactiver les paramètres ( bouton a cocher)
-		  %\item bouton ``générer'' permet de créer un nouvelle arbre filtré en fonction des paramètres définie. Il est ouvert dans un nouvelle onglet de la %section ADTool de l'interface. 
-		 % \item chaque arbre posséde son propre outil filtre. Lors de la génération, le nouvelle arbre posséde un outil filtre vide. 
-		  %\item le nouvel arbre posséde un commentaire : filtre depuis l'arbre X avec paramétre Y, heure, version. \ldots
-		  %\end{itemize}
+		\begin{lstlisting}
 
+		filtre(racine, rules) :
+			for r in rules :
+				if not r(racine) :
+					delete (racine AND subtree)
+					return
+				endif
+			endfor
+			for n in fils(racine) :
+				filtre(n, rules)
+			endfor
+		\end{lstlisting}
+	
+		Le principe de l'algorithme est récursif.
+		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de noeud de l'arbre.
+		La complexité algorthmique est donc correcte.
+
+		Un exemple d'interface pour le filtre est présenté ici :
+
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=0.35\textwidth]{figure/filtre.png}
+			\end{center}
+			\caption{Filtre}
+			\label{fig:filtre}
+		\end{figure}
 
 \subsection{Paramètres de synthèse}
 
@@ -156,11 +172,12 @@ Valeurs réelles positives, ou l'infini.\\ \hline
 	\label{tab:DescriptionParam}
 \end{table*}
 
-On voit dans le tableau que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant).
+On voit dans le tableau que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant). % un peu confus. je vois plus un truc du genre : les termes ooponnet et machine designent...
 
 \subsubsection{L'éditeur de paramètres}
 
-L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool. Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres voulus, de la même manière que pour les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
+L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool.Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. % Confus et inutile, juste préciser que l'utilisateur ne peut pas avoir de nouveau paramètres.
+Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres voulus, de la même manière que pour les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
 
 Cette nouvelle fonctionnalité, appelée éditeur de paramètres, prendrait donc en entrée les éléments suivants :
 \begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
@@ -170,6 +187,6 @@ Cette nouvelle fonctionnalité, appelée éditeur de paramètres, prendrait donc
 \item le nom du paramètre de synthèse généré.
 \end{itemize}
 
-		
+% exemples
 		
 
