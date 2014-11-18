@@ -81,29 +81,27 @@ opti(racine, param, crit):
 
 		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonction dans notre logiciel, sous le nom de \textit{filtre}.
 
-		La fonction de filtrage prendra en entré : 
+		La fonction de filtrage prendra en entrée : 
 		\begin{itemize}
 		\item L'arbre à filtrer ;
 		\item Les valuations de l'arbre servant de critères pour le filtrage ;
 		\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize}
 
-		Le filtre proposera deux types d'intervalles à l'expert pour chacun des paramètres : 
-		L'intervalle global, qui devra être respecté par chacun des chemins conservés dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
-		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
+		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
+		L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
+		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des noeuds pour les chemins retenus.
 
 		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
 		
-		Après filtrage de l'arbre selon ces critères, l'arbre résultant sera donc seulement celui empruntable par l'attaquant voulant s'en prendre au système à défendre. 
+		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagé. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
 		L'algorithme du filtre sera selon ce modèle :
 
 		\begin{lstlisting}
 
 filtre(racine, rules) :
-
 	for r in rules :
-
 		if not r(racine) :
 			delete (racine AND subtree)
 			return
