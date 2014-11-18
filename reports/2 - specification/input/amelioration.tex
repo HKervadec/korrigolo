@@ -3,59 +3,26 @@
 
 	Dans le but de simplifier l'expérience de l'utilisateur nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celle-ci n'apporte pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celle qui simplifie l'édition de l'arbre par l’intermédiaire d'AdTools et qui se traduiront pas une modification de ce logiciel et celle qui intégré à \textbf{Glasir} qui simplifieront la navigation entre les différents arbres, qu'ils soit réalisé par l'utilisateur lui-même ou importé comme modèle. 
 
-
-
-
 	\subsection{Liste d'arbres}.
 
-		ADTool ne permet d'ouvrir qu'un seul arbre à la fois. Cette limitation est particulièrement handicapante. Par exemple, l'utilisateur ne peut pas ouvrir deux versions d'un même arbre pour les comparer. Nous logiciel rendras donc possible l'ouverture de plusieurs onglets possédant chacun un arbre différent. 
+	ADTool ne permet d'ouvrir qu'un seul arbre à la fois. Cette limitation est particulièrement handicapante. Par exemple, l'utilisateur ne peut pas ouvrir deux versions d'un même arbre pour les comparer. Nous logiciel rendras donc possible l'ouverture de plusieurs onglets possédant chacun un arbre différent. 
 
-		Cette fonctionnalité induit la possibilité pour l'utilisateur de manipuler un grands nombres d'arbres dans le cadre d'un même projet. Le module \emph{Liste d'arbres} fournira à l'utilisateur une représentation de la liste des arbres de son projet sous forme d'arborescence. Il s'agira d'un dock disponible sur le coté du logiciel.
+	Cette fonctionnalité induit la possibilité pour l'utilisateur de manipuler un grands nombres d'arbres dans le cadre d'un même projet. Le module \emph{Liste d'arbres} fournira à l'utilisateur une représentation de la liste des arbres de son projet sous forme d'arborescence. Il s'agira d'un dock disponible sur le coté du logiciel. 
 
-		\begin{itemize}
-			\item Liste d'arbres générés par l'utilisateur puis sauvegardés sous différentes catégories/sous-catégories (arborescence)
-			\item Au départ, une seule catégorie défaut
-			\item  Création des catégories + possibilité d'affiner en sous-catégories
-			\item Suppression d'une catégorie supprime tous les arbres compris dedans
-			\item bouton “actualiser” en haut pour mettre à jour la liste des fonctions.
-			\item Glisser/déposer les arbres pour les déplacer entre les catégories
-			\item Possibilité de supprimer les arbres (renommer aussi ?)
-			\item Double-clic pour ouvrir les arbres dans une fenêtre ADTool.\ldots
-		\end{itemize}
-		
+	L'utilisateur aura la possibilité de créer des catégories d'arbres pour hiérarchiser son projet. La suppression, la création et le renommage d'un arbre sera réalisable directement depuis ce module. 
 
 	\subsection{Bibliothèque de modèles}
 
-		\begin{itemize}
-			\item Le logiciel posséde une bibliothéque par défault
-			\item la création d'un projet crée une nouvelle bibliothéque, copie de la bibliothéque par défault
-			\item la bibliothéque est contenue dans le fichier projet de l'utilisateur. 
-			\item Permet un accès facile à tous les arbres stockés
-			\item bouton “actualiser” en haut pour mettre à jour la liste des fonctions.
-			\item Regroupe les arbres par catégorie (par catégorie d’attaquant, de type d’attaque…), vue en arborescense. 	donner des types aux arbres stockés ?
-			\item Permet d’y ajouter des éléments (géré automatiquement lors de la création dans un projet ?) Si non, bouton “ajouter” pour l’arbre courant. 
-			\item Retirer des éléments : permet de retirer un élément et mettre à jour la bibliothèque, utile en cas d’arbre faux, ou considéré comme pas assez général pour servir de modèle. (cohérence avec l’ajout d’arbres)
-			\item Pouvoir rechercher un arbre dans les modèles généraux (aussi rôle du guide) mais guide facultatif. Série de questions pour pouvoir sélectionner des modèles.
-			\item Possibilité d'ajouter des arbres dans la bibliothéque par défaut.\ldots
-		\end{itemize}
-		
+
+	La réalisation d'un arbre est un exercice de création. Il n'est pas toujours aisé de créer un arbre de but en blanc. Pour aider l'expert, \emph{Glasir} fournira à l'utilisateur une bibliothèque de modèle. Celle-ci contiendra un ensemble d'arbres génériques. L'utilisateur pourra utiliser ces arbres comme modèle pour créer un nouvel arbre ou directement l'utiliser en l'implémentant. La création d'un nouveau projet créer une copie de la bibliothèque de modèle qui devient modifiable pour l'utilisateur.		
 
 	\subsection{Éditeur d'arbres}
 
-		Attention: on ne parlera ici que de l'interaction entre l'éditeur et les différents modules, pas de l'éditeur en lui même.
-		Voir la section \ref{sec:adtool} pour voir nos améliorations.
+	L'édition des arbres dans \emph{Glasir} se fera par l'intermédiaire d'ADtool. L'ouverture d'un arbre par l'utilisateur provoque le lancement d'une instance d'ADTool contenant cet arbre. Chaque instance d'ADTool étant imbriqué dans l'IHM de \emph{Glasir} sous la forme d'onglet. Dans le but de rendre possible l'interaction entre notre logiciel et ADtool, \emph{Glasir} fera tourner une version d'ADtool modifié. %moyen....
 
-		\begin{itemize}
-			\item  Utilisation d'ADTool imbriqué dans l'IHM
-			\item Une instance d'ADTool par arbre (possibilité d'ouvrir plusieurs onglets) : modèles, filtres, etc
-			\item Chaque modification dans ADTool entraîne une mise à jour de SAD
-			\item Sauvegarde des fichiers par ADTool : ne pas laisser le choix du fichier, laisser seulement le fichier projet (en gros, l'arborescence d'arbres)\ldots
-		\end{itemize}
-
-
-	\subsection{Couper copier coller}
+\subsection{Couper copier coller}
 	
-	ADTool ne permet pas ces fonctions, qui pourraient pourtant s'avérer précieuses dans la création des arbres. En effet, dans le cas de l'oubli d'un nœud père, l'instauration du copier-couper/coller permettra de déplacer facilement les fils concernés de l'ancien au nouveau nœud père.
+	ADTool ne permet pas l'utilisation du couper/copier-coller qui pourraient pourtant s'avérer précieuses lors de la création d'un arbre. Par exemple, dans le cas de l'oubli d'un nœud père, l'instauration de ces fonctionnalités permettra de déplacer facilement les fils concernés de l'ancien au nouveau nœud père.
 	En conséquence, la sélection d'un nœud entraînera la sélection de ses fils, afin de pouvoir effectuer des transferts rapidement. Ceci sera automatique, car nous avons considéré que la sélection partielle des nœuds fils n'apportait pas d'amélioration utile. Le système de raccourcis clavier classique ne sera probablement pas repris, au profit d'une gestion à la souris, et d'un affichage spécial des nœuds copiés.
 
 	Cependant, cette fonction entraîne une nécessité de cohérence. En effet, des nœuds de même nom ne pourront pas être présents, il faudra donc gérer ces cas de figure. L'édition XML abordée ci-dessous sera le plus simple dans ce cas.
@@ -65,12 +32,25 @@
 	%- On peut le faire entre différentes instances d'ADTool
 	%- Sanity check : faire attention au nom des labels
 
-	\subsection{Amélioration XML}
+	\subsection{Amélioration du codage des arbres}
 
-	Dans sa version actuelle, ADTool affiche systématiquement le fichier XML décrivant l'arbre, et le modifie en temps réel. On peut modifier facilement les labels des nœuds présents, ou changer un opérateur depuis le fichier XML, puis valider afin d'afficher le résultat sous forme d'arbre. Ajouter des nœuds ou en supprimer depuis ce fichier n'est en revanche pas chose aisée. C'est pourquoi nous souhaitons améliorer l'édition de l'arbre courant depuis la partie XML d'ADTool.
-	L'utilisateur aura également la possibilité de masquer cette partie de l'interface, si le fichier XML ne l'intéresse pas, ou s'il n'est pas à l'aise avec.
+	Dans sa version actuelle, ADTool affiche dans son interface un section nommée \emph{ADTerm Edit}. Celle-ci affiche une représentation de l'arbre sous la forme d'un texte utilisant un langage propre au logiciel. Lors de la modification de l'arbre dans l'éditeur graphique, AdTool modifie le code en temps réel. On peut ainsi modifier facilement les labels des nœuds présents, ou changer un opérateur directement depuis \emph{ADTerm Edit} puis valider afin d'afficher le résultat sous forme d'arbre. 
+
+	Mais le langage qui permet de décrire les arbres ne contient pas le nom des autres nœuds que les feuilles. Sur la figure \ref{fig:int_adTool}, on peut constater que le code indique le nom des deux feuilles \textit{Acheter le matériel nécessaire} et \textit{Essayer les clés de chiffrage}, que la conjonction est bien précisé par l'opérateur \textit{ap} mais qu'aucune référence n'est faite au label du nœud parent (\textit{Casser le chiffrage}).
+
+	Pour remédier à ce problème, nous créerons une nouvelle grammaire corrigeant ce défaut.
+
 	%- Ajouter la possibilité d'éditer l'arbre directement en xml. Possibilité de masquer/afficher le bloc xml.
 	%- Ajouter nœud père dans l'éditeur texte 
+
+
+	% ATTENTION  !! CHANGER CRIPTAGE EN CHIFFFRAGE !!!
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{figure/interface_adtool.png}
+		\caption{L'interface d'AdTool.}
+		\label{fig:int_adTool}
+	\end{figure}
 	
 	\subsection{CTRL-Z}
 	Pour le moment, effectuer une action est irréversible. Un renommage ou l'ajout d'une feuille est rapide à effectuer, mais supprimer par erreur un nœud peut entraîner un travail énorme. La possibilité de faire un retour à l'état précédent de l'arbre éviterait d'avoir à recommencer ce travail de construction fastidieux. Nous souhaitons créer au moins une sauvegarde de l'état précédent, afin de pouvoir annuler la dernière modification. Si possible, l'implémentation d'une pile circulaire contenant les N derniers états avec un curseur pointant sur l'état courant, permettra de revenir en arrière sans contraintes.
