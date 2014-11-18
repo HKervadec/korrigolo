@@ -40,7 +40,7 @@ opti(racine, param, crit):
 			v = crit(v, param(n))
 
 		for n in l_fils:
-			if param(n) != v:
+			if not defense(n) and param(n) != v:
 				delete(n) // will delete subtrees as well
 	
 	for n in fils(racine):
@@ -56,9 +56,7 @@ opti(racine, param, crit):
 		\end{itemize}
 		Ainsi, pour lancer l'optimisation, nous appelerons \verb|opti| avec la racine de l'arbre en paramètre.
 
-		*Je vais chanter une petite chanson pour l'autostoppeur*
-
-		Par exemple, prenons l'arbre .........
+		Prenons en exemple l'arbre exemple en annexe.
 		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
 
 		\begin{figure}
