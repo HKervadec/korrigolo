@@ -1,6 +1,6 @@
-\section{Nouveautés}
+\section{Nouveauté}
 	
-	Les limites d'ADTool nous conduisent logiquement à créer Glasir, surcouche d'ADTool.
+	Les principales nouveauté trop cool de notre logiciels....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
 
 
 	\subsection{Optimiseur}
@@ -41,7 +41,7 @@ opti(racine, param, crit):
 			v = crit(v, param(n))
 
 		for n in l_fils:
-			if not defense(n) and param(n) != v:
+			if param(n) != v:
 				delete(n) // will delete subtrees as well
 	
 	for n in fils(racine):
@@ -57,12 +57,14 @@ opti(racine, param, crit):
 		\end{itemize}
 		Ainsi, pour lancer l'optimisation, nous appelerons \verb|opti| avec la racine de l'arbre en paramètre.
 
-		Par exemple, prenons l'arbre en annexe.
+		*Je vais chanter une petite chanson pour l'autostoppeur*
+
+		Par exemple, prenons l'arbre .........
 		Si on veut trouver le chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
 
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.4\textwidth]{figure/post_optimiseur.pdf}
+			\includegraphics[width=0.5\textwidth]{figure/post_optimiseur.pdf}
 			\caption{L'attaque idéale est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
@@ -79,20 +81,20 @@ opti(racine, param, crit):
 
 		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonction dans notre logiciel, sous le nom de \textit{filtre}.
 
-		La fonction de filtrage prendra en entré : 
+		La fonction de filtrage prendra en entrée : 
 		\begin{itemize}
 		\item L'arbre à filtrer ;
 		\item Les valuations de l'arbre servant de critères pour le filtrage ;
 		\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize}
 
-		Le filtre proposera deux types d'intervalles à l'expert pour chacun des paramètres : 
-		L'intervalle global, qui devra être respecté par chacun des chemins conservés dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
+		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
+		L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle.
 		L'intervalle unitaire, qui devra être respecté par la valuation de chacun des noeuds pour les chemins retenus.
 
 		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanement.
 		
-		Après filtrage de l'arbre selon ces critères, l'arbre résultant sera donc seulement celui empruntable par l'attaquant voulant s'en prendre au système à défendre. 
+		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagé. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
 		L'algorithme du filtre sera selon ce modèle :
 
@@ -175,16 +177,17 @@ On voit dans le tableau que des termes particuliers sont utilisés pour désigne
 
 \subsubsection{L'éditeur de paramètres}
 
-L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus et ne peut pas en créer d'autres, ce qui limite ses possibilités d'analyse et d'interprétation. En effet, les paramètres déjà existants ne sont pas les seuls pouvant intéresser un expert en sécurité. Nous souhaitons donc rendre possible la création de nouveaux paramètres, à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées à n'importe quel arbre, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
+L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool.Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. % Confus et inutile, juste préciser que l'utilisateur ne peut pas avoir de nouveau paramètres.
+Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres voulus, de la même manière que pour les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
 
-Cette nouvelle fonctionnalité, appelée « Éditeur de paramètres », prendrait donc en entrée les éléments suivants :
-\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm]
+Cette nouvelle fonctionnalité, appelée éditeur de paramètres, prendrait donc en entrée les éléments suivants :
+\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
 \item un arbre provenant du projet ;
 \item les paramètres intervenant dans la synthèse ;
 \item les opérations mathématiques appliquées ;
 \item le nom du paramètre de synthèse généré.
 \end{itemize}
 
-Par exemple, dans notre arbre illustratif disponible en annexe de ce rapport, nous pouvons voir que les deux sous-arbres « Obtenir illégalement des tickets » (sous-arbre A) et « Falsifier des tickets » (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.\\
+% exemples
+		
 
-On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ces risques : la probabilité de succès est donc plus forte. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'utilisateur et entraîner une interprétation très différente. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte tous les deux. C'est ensuite à l'utilisateur de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc.
