@@ -1,6 +1,6 @@
-\section{Nouveauté}
+\section{Nouveautés}
 	
-	Les principales nouveauté trop cool de notre logiciels....	Aliquam finibus est ac cursus cursus. Fusce in libero ut nisi laoreet sodales. Cras vestibulum nec nulla in consequat. In eget lacus ut ipsum placerat ultrices. Nam diam magna, fermentum aliquam libero at, ornare eleifend diam. Sed et mi eget arcu bibendum congue. Vivamus in enim mollis, blandit sem in, hendrerit tellus.
+	Les limites d'ADTool nous conduisent logiquement à créer Glasir, surcouche d'ADTool.
 
 
 	\subsection{Optimiseur}
@@ -128,6 +128,7 @@ filtre(racine, rules) :
 \subsection{Paramètres de synthèse}
 
 \subsubsection{Les paramètres de base d'ADTool}
+\label{subsec:ParamBase}
 
 ADTool dispose à l'heure actuelle de treize paramètres de base (appelés \textit{domains}), que nous allons présenter succinctement ci-dessous. Nous avons repris les noms (en anglais) qui apparaissent dans le logiciel. 
 		
@@ -174,6 +175,7 @@ Valeurs réelles positives, ou l'infini.\\ \hline
 On voit dans le tableau que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant). % un peu confus. je vois plus un truc du genre : les termes ooponnet et machine designent...
 
 \subsubsection{L'éditeur de paramètres}
+\label{subsec:EditParam}
 
 L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus et ne peut pas en créer d'autres, ce qui limite ses possibilités d'analyse et d'interprétation. En effet, les paramètres déjà existants ne sont pas les seuls pouvant intéresser un expert en sécurité. Nous souhaitons donc rendre possible la création de nouveaux paramètres, à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées à n'importe quel arbre, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
 
