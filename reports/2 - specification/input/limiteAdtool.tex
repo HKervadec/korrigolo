@@ -1,7 +1,7 @@
 \section{Les limites d'ADTool}
 	\label{sec:adtool}
 
-	ADTool permet de construire un ADTree sans difficulté. Le logiciel offre la possibilité de créer de nouveaux nœuds, d'éditer leur label et de leur ajouter des fils de façon intuitive et simple. Le choix des opérateurs entre ces nœuds --- conjonction ou disjonction ---  se fait sans effort, et la mise en place de défenses est également réalisable très facilement. 
+	ADTool permet de construire un ADTree sans difficulté. Le logiciel offre la possibilité de créer de nouveaux nœuds, d'éditer leurs labels et de leur ajouter des fils de façon simple et intuitive. Le choix des opérateurs entre ces nœuds --- conjonction ou disjonction ---  se fait sans effort, et la mise en place de défenses est également réalisable très facilement. 
 	
 	\begin{figure}[h]
             \centering
@@ -10,8 +10,7 @@
             \label{fig:arbre_exemple_1}
     \end{figure}
 	
-	
-	Une fois l'arbre établi, il est possible d'ajouter des valuations à chaque feuille\footnote{Une feuille est un nœud n'ayant aucun fils.} de l'arbre selon un paramètre de base, tel que leur coût financier, leur probabilité de réussite, etc. (voir Section \ref{sec::ParamBase}). ADTool se charge ensuite de propager les valuations aux nœuds pères de façon récursive, jusqu'à la racine.
+	Une fois l'arbre établi, il est possible d'ajouter des valuations à chaque feuille\footnote{Une feuille est un nœud n'ayant aucun fils.} de l'arbre selon un paramètre de base, tel que le coût minimal, la probabilité de succès, etc. (voir Section \ref{sec::ParamBase}). ADTool se charge ensuite de propager les valuations aux nœuds pères de façon récursive, jusqu'à la racine.
 	
 	\begin{figure}[h]
             \centering
@@ -20,7 +19,7 @@
             \label{fig:arbre_exemple_1}
     \end{figure}
 	
-	Dans l'exemple de la {\sc Figure} \ref{fig:arbre_exemple_1}, chaque noeud possède une valuation selon le paramètre de base \og difficulté de réalisation \fg{}. Cette valuation peut prendre la valeur L, M, H ou E ((\emph{Low}, \emph{Medium}, \emph{High} ou \emph{Extrem} --- voir Section \ref{sec::ParamBase} pour plus de détails). En éditant la difficulté de réalisation de la feuille \og essayer les clés de chiffrage possibles \fg{}  à \emph{Medium}, la valuation du nœud-père \og casser le chiffrage \fg{} est recalculée pour prendre la valeur \emph{Medium} : en effet, la difficulté de ce nœud conjonctif correspond à la difficulté la plus élevée de ses fils. Puis, à son tour, la valuation du père de ce nœud-père est recalculée à \emph{Middle}, car, étant un nœud disjonctif, sa difficulté de réalisation correspond à la difficulté la plus faible de ses fils.
+	Dans l'exemple de la {\sc Figure} \ref{fig:arbre_exemple_1}, chaque noeud possède une valuation selon le paramètre de base \og difficulté de réalisation \fg{}. Cette valuation peut prendre la valeur L, M, H ou E ((\emph{Low}, \emph{Medium}, \emph{High} ou \emph{Extrem} --- voir Section \ref{sec::ParamBase} pour plus de détails). En éditant la difficulté de réalisation de la feuille \og essayer les clés de chiffrage possibles \fg{}  à \emph{Medium}, la valuation du nœud père \og casser le chiffrage \fg{} est recalculée pour prendre la valeur \emph{Medium} : en effet, la difficulté de ce nœud conjonctif correspond à la difficulté la plus élevée parmi ses fils. Puis, à son tour, la valuation du père de ce nœud-père est recalculée à \emph{Middle}, car, étant un nœud disjonctif, sa difficulté de réalisation correspond à la difficulté la plus faible de ses fils.
 	
 	L'utilisateur n'a donc pas de calcul à faire lui-même pour obtenir la valuation de la racine de son arbre, c'est-à-dire la valuation de son objectif final. Cependant, l'analyse de l'arbre ainsi construit ne va pas plus loin : ADTool ne précise pas d'où provient la valuation d'un nœud. Par conséquent, l'utilisateur n'a aucun moyen de déterminer le \og meilleur chemin \fg{} permettant d'atteindre la racine de l'arbre, par exemple. Il doit donc le déduire manuellement, en devinant comment les valuations se sont propagées. Sachant qu'un arbre atteint très rapidement une taille conséquente, cette opération peut prendre un temps très important, ce qui n'intéresse pas l'utilisateur.
 	
