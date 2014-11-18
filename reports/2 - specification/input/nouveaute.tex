@@ -81,11 +81,11 @@ opti(racine, param, crit):
 
 		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonction dans notre logiciel, sous le nom de \textit{filtre}.
 
-		Le filtre prendra plusieurs paramètres :
+		La fonction de filtrage prendra plusieurs paramètres :
 		\begin{itemize}
 		\item L'abre à filtrer.
-		\item Les paramètres étant des critères pour le filtrage.
-		\item Les intervalles de sélection sur les paramètres.
+		\item Les valuations de l'arbre servant de critères pour le filtrage.
+		\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize}
 
 		Le filtre proposera deux types d'intervalles à l'expert pour chacun des paramètres : 
@@ -100,17 +100,18 @@ opti(racine, param, crit):
 
 		\begin{lstlisting}
 
-		filtre(racine, rules) :
-			for r in rules :
-				if not r(racine) :
-					delete (racine AND subtree)
-					return
-				endif
-			endfor
-			for n in fils(racine) :
-				filtre(n, rules)
-			endfor
-		\end{lstlisting}
+filtre(racine, rules) :
+
+	for r in rules :
+
+		if not r(racine) :
+			delete (racine AND subtree)
+			return
+
+	for n in fils(racine) :
+		filtre(n, rules)
+
+\end{lstlisting}
 	
 		Le principe de l'algorithme est récursif.
 		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de noeud de l'arbre.
