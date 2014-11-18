@@ -42,7 +42,7 @@ opti(racine, param, crit):
 
 		for n in l_fils:
 			if param(n) != v:
-				delete(n) // will delete subtree as well
+				delete(n) // will delete subtrees as well
 	
 	for n in fils(racine):
 		opti(n, param, crit)
@@ -64,7 +64,7 @@ opti(racine, param, crit):
 
 		\begin{figure}
 			\centering
-			\includegraphics[width=1\textwidth]{figure/arbre_post_opti.jpg}
+			\includegraphics[width=0.5\textwidth]{figure/post_optimiseur.pdf}
 			\caption{L'attaque idéale est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
