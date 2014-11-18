@@ -11,12 +11,12 @@
     \end{figure}
 	
 	
-	Une fois l'arbre établi, il est possible d'ajouter des valuations à chaque feuille\footnote{Une feuille est un nœud n'ayant aucun fils.} de l'arbre selon un paramètre de base, tel que leur coût financier, leur probabilité de réussite, etc. (voir Section \ref{sec::ParamBase}). ADTool se charge ensuite de propager les valuations aux nœuds-père de façon récursive, jusqu'à la racine.
+	Une fois l'arbre établi, il est possible d'ajouter des valuations à chaque feuille\footnote{Une feuille est un nœud n'ayant aucun fils.} de l'arbre selon un paramètre de base, tel que leur coût financier, leur probabilité de réussite, etc. (voir Section \ref{sec::ParamBase}). ADTool se charge ensuite de propager les valuations aux nœuds pères de façon récursive, jusqu'à la racine.
 	
 	\begin{figure}[h]
             \centering
             \includegraphics[width=1\textwidth]{figure/adtool_add_values.png}
-            \caption{L'ajout de valuations aux feuilles est simple. Ces valuations se propagent ensuite récursivement aux nœuds-pères.}
+            \caption{L'ajout de valuations aux feuilles est simple. Ces valuations se propagent ensuite récursivement aux nœuds pères.}
             \label{fig:arbre_exemple_1}
     \end{figure}
 	
