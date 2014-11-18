@@ -1,6 +1,6 @@
 \section{Amélioration}
 
-	Dans le but de simplifier l'expérience de l'utilisateur nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celle-ci n'apporte pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celle qui simplifie l'édition de l'arbre par l’intermédiaire d'AdTools et qui se traduiront pas une modification de ce logiciel et celle qui intégré à NOM_DU_LOGICIEL qui simplifieront la navigation entre les différents arbres, qu'ils soit réalisé par l'utilisateur lui-même ou importé comme modèle. 
+		Dans le but de simplifier l'expérience de l'utilisateur nous avons souhaité ajouter certaines fonctionnalités à notre logiciel. Si celle-ci n'apporte pas d'amélioration en terme d'analyse des arbres, elles permettent de faciliter grandement leur modification. Nous distinguerons deux types de modifications : celle qui simplifie l'édition de l'arbre par l’intermédiaire d'AdTools et qui se traduiront pas une modification de ce logiciel et celle qui intégré à NOM\_DU\_LOGICIEL qui simplifieront la navigation entre les différents arbres, qu'ils soit réalisé par l'utilisateur lui-même ou importé comme modèle. 
 
 
 
@@ -71,19 +71,19 @@
 	%- Ajouter nœud père dans l'éditeur texte 
 	
 	\subsection{CTRL-Z}
-	Pour le moment, effectuer une action est irréversible. Un renommage ou l'ajout d'une feuille est rapide à effectuer, mais supprimer par erreur un nœud peut entraîner un travail énorme. La possibilité de faire un retour à l'état précédent de l'arbre éviterait d'avoir à recommencer ce travail de construction fastidieux. L'implémentation d'une pile circulaire, contenant le dernier ou les N derniers états de l'arbre, rajoutant un état à chaque action, permettra d'annuler facilement la ou les dernières modifications.
+	Pour le moment, effectuer une action est irréversible. Un renommage ou l'ajout d'une feuille est rapide à effectuer, mais supprimer par erreur un nœud peut entraîner un travail énorme. La possibilité de faire un retour à l'état précédent de l'arbre éviterait d'avoir à recommencer ce travail de construction fastidieux. Nous souhaitons créer au moins une sauvegarde de l'état précédent, afin de pouvoir annuler la dernière modification. Si possible, l'implémentation d'une pile circulaire contenant les N derniers états avec un curseur pointant sur l'état courant, permettra de revenir en arrière sans contraintes.
 	%- Annulation d'une ou plusieurs des modifications précédentes
 	%- Coder une pile d'états avec un curseur qui indique l'état courant
 	%- Chaque action entraîne la création d'un nouvel état
 	
 	\subsection{Paramètre de synthèse}
-	Comme précisé plus haut, ADTool met à notre disposition 6 paramètres de base afin de donner des valuations à l'arbre. Afin de rendre complète la fonction de synthèse que nous souhaitons implémenter, nous serons amenés à ajouter des paramètres de base, permettant de créer des fonctions complètes. Ceux-ci devront pouvoir se combiner afin de réaliser les fonctions essentielles dont aurait besoin un expert en sécurité désirant réaliser une analyse d'un système.
+	Comme précisé plus haut, ADTool met à notre disposition treize paramètres de base afin de donner des valuations à l'arbre. Afin de rendre complète l'éditeur de paramètres que nous souhaitons implémenter, nous serons amenés à ajouter des paramètres de base, permettant de créer des fonctions complètes. Des paramètres tels que le coût financier, humain ou le temps nécessaire à la réalisation sont souvent ressortis dans nos exemples d'attaque du réseau STAR. Ceux-ci pourront se combiner afin de réaliser des fonctions dont aurait besoin un expert en sécurité désirant réaliser l'analyse d'un système.
 	%- ajouter un paramètre de plus de disponible dans AdTool pour les fonctions de synthèse.
 		
 	\subsection{Vue globale des paramètres}
 	Dans l'état actuel d'ADTool, un seul paramètre est affiché, même si plusieurs paramètres servent à valuer le nœud. En effet, les paramètres ont un onglet propre, et un seul est effectivement affiché. Nous souhaitons créer un onglet général, regroupant tous les paramètres appliqués, afin d'avoir une vision plus globale de l'avancée de notre travail, et ainsi faciliter la création des fonctions de synthèse.
-	Pour une meilleure lisibilité, les différents paramètres auront chacun une couleur différente, accompagnée d'une légende résumant ces couleurs.
-	Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle.
+	Pour une meilleure lisibilité, les différents paramètres auront chacun une couleur différente, accompagnée d'une légende résumant à quoi elles correspondent.
+	Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle. Un tel système est déjà présent dans ADTool afin de gérer les labels, il suffira de l'étendre à l'affichage des paramètres.
  	%Pour le moment, un onglet dans ADTool par paramètre (sur l'arbre, seul ce paramètre est apparent)	
 	%- Créer un nouvel onglet plus global avec tous les paramètres visibles sous les labels, chaque paramètre d'une couleur différente (légende %explicative sur le coté)
 	%- Attention à ce que les paramètres ne débordent pas des nœuds, il faut éventuellement élargir les ronds
