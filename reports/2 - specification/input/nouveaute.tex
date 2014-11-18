@@ -64,10 +64,7 @@ opti(racine, param, crit):
 
 	\subsection{Filtre}
 
-		A l'heure actuelle, l'analyse d'arbre de grandes tailles à l'aide d'ADTool est difficile. 
-		En effet, ADTool a été pensé prioritairement pour la modélisation des systèmes sous forme d'ADTrees, et moins pour leurs analyses. 
-		ADTool met à disposition de l'expert, comme cela a été précisé précédemment, un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la valuation multiple des nœuds de l'arbre. 
-		Une des limites d'ADTool est que une fois le système à protéger complètement représenté sous la forme d'un ADTree, l'arbre peut être trop grand pour que l'expert puisse en retirer une information pertinente. Ceci car la recherche doit se faire à la main et devient donc très longue lorsque l'arbre grandit. 
+		ADTool met à disposition de l'expert un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la possibilité d'appliquer plusieurs valuations aux nœuds de l'arbre. On peut ainsi pour le même arbre créer une valuation sur la probabilité de l'attaque et une autre sur son coût.
 
 		Dans un certain nombre de cas, l'expert va chercher à se défendre contre un attaquant précis. Dans ces cas, l'expert va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut amener l'expert à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
 
