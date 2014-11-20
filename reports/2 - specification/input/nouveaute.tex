@@ -82,27 +82,21 @@
 	\subsection{Filtre}
 		ADTool met à disposition de l'utilisateur un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la possibilité d'appliquer plusieurs valuations aux nœuds de l'arbre. On peut ainsi pour le même arbre créer une valuation sur la probabilité de l'attaque et une autre sur son coût.
 
-		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
+		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc.), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Sa volonté serait donc de pouvoir avoir accès facilement à ces informations.
 
-		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonctionnalité dans notre logiciel, sous le nom de \textit{filtre}. % l'objectif sera de comparer...
+		En l'état, ADTool ne permet que d'afficher l'arbre complet, et de cacher les fils ou ascendant d'un nœud. Nous allons donc implémenter une fonctionnalité permettant de répondre à ce besoin, que nous appellerons \textit{filtre}. L’utilisateur devra définir un critère selon lequel effectuer le filtrage, puis choisir un intervalle dans lequel les valeurs du paramètre devront se situer.
 
-		La fonction de filtrage prendra en entrée : 
+		Ainsi, les entrées de la fonction de filtrage seront les suivantes : 
 		\begin{itemize}
 			\item L'arbre à filtrer ;
 			\item Les valuations de l'arbre servant de critères pour le filtrage ;
 			\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize} % pas assez en évidence ? 
 
-		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
-		\begin{itemize}
-			\item L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle ;
-			\item L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
-		\end{itemize} % REFORMULER
-
-		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
-		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagué. Seuls seront conservés les chemins respectant les intervalles de filtrage.
+		Il sera possible de filtrer l'arbre avec plusieurs paramètres simultanément.
+		L'arbre retourné par la fonction de filtrage sera une copie élaguée de l'arbre original. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
-		Par exemple, en appliquant un filtre global [0, 500] sur le coût à l'arbre exemple en Annexe, on obtient l'arbre de la figure \ref{fig:arbre_post_filtre}.
+		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût \fg à l'arbre exemple en Annexe, on obtient l'arbre de la Figure \ref{fig:arbre_post_filtre}.
 
 		\begin{figure}[h!]
 			\begin{center}
@@ -112,9 +106,9 @@
 			\label{fig:arbre_post_filtre}
 		\end{figure}
 
-		On constate que l'arbre élagué par le filtre est beaucoup plus concit. En ayant en tête que l'arbre exemple est de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.   
+		On constate que l'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.
 
-		D'un point de vue technique, il nous semble intéressant de quelle manière l'arbre sera élagué par le filtre.
+		D'un point de vue technique, il nous semble intéressant d'aborder la manière dont l'arbre sera élagué par le filtre.
 		L'algorithme de filtrage suivra ce modèle :
 
 		\begin{lstlisting}
@@ -131,7 +125,7 @@ filtre(racine, rules) :
 		\end{lstlisting}
 	
 		Le principe de l'algorithme est récursif.
-		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de nœud de l'arbre.
+		Le nombre d'appels sera, au pire, linéaire avec le nombre de nœuds de l'arbre.
 		La complexité algorithmique est donc acceptable.
 
 	\subsection{Optimiseur}
