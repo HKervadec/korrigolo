@@ -1,79 +1,85 @@
 \section{Nouveautés}
-	
 	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, et risquer ainsi de surcharger % préciser explication.
-	ce logiciel, nous avons décidé de créer un nouveau logiciel nommé Glasir qui utilisera un éditeur d'arbres. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
+	ce logiciel, nous avons décidé de créer un nouveau logiciel nommé \glasir qui utilisera un éditeur d'arbres. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
 
-\subsection{Paramètres de synthèse}
+	\subsection{Paramètres de synthèse}
+		\subsubsection{Les paramètres de base d'ADTool}
+			\label{subsec::ParamBase}
 
-\subsubsection{Les paramètres de base d'ADTool}
-\label{subsec::ParamBase}
+			ADTool dispose à l'heure actuelle de treize paramètres de base (appelés \textit{domains}), que nous allons présenter succinctement ci-dessous. Nous avons repris les noms (en anglais) qui apparaissent dans le logiciel. 
+					
+			\begin{table*}[!h]
+				\centering
+				\begin{tabular}{|p{6cm}|p{5cm}|}
+					\hline
+					\textbf{Paramètre} & \textbf{Valeurs possibles} \\
+					\hline
+					Difficulty for the proponent (L,M,H) & 
+						Low (bas), Medium (moyen), High (élevé) ou l'infini.\\ 
+					\hline
+					Difficulty for the proponent (L,M,H,E) & 
+						Low (bas), Medium (moyen), High (élevé), Extreme (extrême) ou l'infini.\\ 
+					\hline
+					Minimal cost for the proponent (not reusable) & 
+						Valeurs réelles positives, ou l'infini.\\ 
+					\hline
+					Minimal skill level needed for the proponent & 
+						Valeurs entières positives, ou l'infini.\\ 
+					\hline
+					Minimal time for the proponent (in parallel) & 
+						Valeurs réelles positives, ou l'infini.\\ 
+					\hline
+					Minimal time for the proponent (sequential) (\textit{temps minimal séquentiel}) & 
+						Valeurs réelles positives, ou l'infini.\\ 
+					\hline
+					Overall maximal power consumption & 
+						Valeurs réelles positives, ou l'infini.\\ 
+					\hline
+					Probability of success &
+						Valeurs réelles entre 0 et 1.\\ 
+					\hline
+					Reachability of the proponent's goal in less than k units (in parallel) & 
+						Valeurs entières de 0 à k. \\ 
+					\hline
+					Reachability of the proponent's goal in less than k units (sequential) & 
+						Valeurs entières de 0 à k. \\ 
+					\hline
+					Satisfiability for the opponent & 
+						Vrai ou faux. \\ 
+					\hline
+					Satisfiability for the proponent & 
+						Vrai ou faux. \\ 
+					\hline
+					Satisfiability of the scenario & 
+						Vrai ou faux. \\
+					\hline
+				\end{tabular}
+				\caption{Description des paramètres}
+				\label{tab:DescriptionParam}
+			\end{table*}
 
-ADTool dispose à l'heure actuelle de treize paramètres de base (appelés \textit{domains}), que nous allons présenter succinctement ci-dessous. Nous avons repris les noms (en anglais) qui apparaissent dans le logiciel. 
-		
-\begin{table*}[!h]
-	\centering
-	\begin{tabular}{|p{6cm}|p{5cm}|}
-  \hline
-  \textbf{Paramètre} & \textbf{Valeurs possibles} \\
-  \hline
-  Difficulty for the proponent (L,M,H) & 
- Low (bas), Medium (moyen), High (élevé) ou l'infini.
-\\ \hline
-Difficulty for the proponent (L,M,H,E) & 
-Low (bas), Medium (moyen), High (élevé), Extreme (extrême) ou l'infini.
-\\ \hline
-Minimal cost for the proponent (not reusable) & 
-Valeurs réelles positives, ou l'infini.\\ \hline
-  Minimal skill level needed for the proponent
-  & Valeurs entières positives, ou l'infini.\\ \hline
-  Minimal time for the proponent (in parallel)
-  & Valeurs réelles positives, ou l'infini.\\ \hline
-  Minimal time for the proponent (sequential) (\textit{temps minimal séquentiel})
-  & Valeurs réelles positives, ou l'infini.\\ \hline
-  Overall maximal power consumption & 
-  Valeurs réelles positives, ou l'infini.\\ \hline
-  Probability of success &
-  Valeurs réelles entre 0 et 1.\\ \hline
-  Reachability of the proponent's goal in less than k units (in parallel)
-  & Valeurs entières de 0 à k. \\ \hline
-  Reachability of the proponent's goal in less than k units (sequential)
-  & Valeurs entières de 0 à k. \\ \hline
-  Satisfiability for the opponent
-  & Vrai ou faux. \\ \hline
-  Satisfiability for the proponent
-  & Vrai ou faux. \\ \hline
-  Satisfiability of the scenario
-  & Vrai ou faux. \\
-  \hline
-\end{tabular}
-	\caption{Description des paramètres}
-	\label{tab:DescriptionParam}
-\end{table*}
+			On voit dans le tableau ci-dessus que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant). % ie la racine de l'arbre représente l'objectif d'un att ( resp defenseur ). 
 
-On voit dans le tableau ci-dessus que des termes particuliers sont utilisés pour désigner les deux parties de l'attaque : l'attaquant et le défenseur. En effet, ADTool permet de se mettre à la place de l'un ou de l'autre. Ainsi, le terme \textit{proponent} désigne l'attaquant (respectivement le défenseur) si on désire son point de vue. L'adversaire (\textit{opponent}) est alors le défenseur (respectivement l'attaquant). % ie la racine de l'arbre représente l'objectif d'un att ( resp defenseur ). 
+		\subsubsection{L'éditeur de paramètres}
+			\label{subsec::EditParam}
 
-\subsubsection{L'éditeur de paramètres}
-\label{subsec::EditParam}
+			L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool. Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. % Confus et inutile, juste préciser que l'utilisateur ne peut pas avoir de nouveau paramètres.
+			Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres analysés, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
 
-L'utilisateur est actuellement cantonné aux valuations présentées ci-dessus, et ne peut pas en créer d'autres sans passer par le code d'ADTool. Celui-ci étant libre de droits, c'est réalisable mais compliqué, surtout que l'utilisateur n'est pas forcément expérimenté en informatique. % Confus et inutile, juste préciser que l'utilisateur ne peut pas avoir de nouveau paramètres.
-Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres analysés, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
+			Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendrait donc en entrée les éléments suivants :
+			\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
+				\item un arbre provenant du projet ; % quel projet ?
+				\item les paramètres intervenant dans la synthèse ;
+				\item les opérations mathématiques appliquées ;
+				\item le nom du paramètre de synthèse généré.
+			\end{itemize}
 
-Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendrait donc en entrée les éléments suivants :
-\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
-\item un arbre provenant du projet ; % quel projet ?
-\item les paramètres intervenant dans la synthèse ;
-\item les opérations mathématiques appliquées ;
-\item le nom du paramètre de synthèse généré.
-\end{itemize}
+			Par exemple, dans notre arbre illustratif disponible en Annexe de ce rapport, nous pouvons voir que les deux sous-arbres « Obtenir illégalement des tickets » (sous-arbre A) et « Falsifier des tickets » (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.\\ % figure ?
 
-Par exemple, dans notre arbre illustratif disponible en Annexe de ce rapport, nous pouvons voir que les deux sous-arbres « Obtenir illégalement des tickets » (sous-arbre A) et « Falsifier des tickets » (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.\\ % figure ?
+			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ces risques : la probabilité de succès est donc plus forte. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'utilisateur et entraîner une interprétation très différente. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte tous les deux. C'est ensuite à l'utilisateur de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, si l'on décide d'appeler le nouveau paramètre « result », et que l'on estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
 
-On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ces risques : la probabilité de succès est donc plus forte. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'utilisateur et entraîner une interprétation très différente. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte tous les deux. C'est ensuite à l'utilisateur de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, si l'on décide d'appeler le nouveau paramètre « result », et que l'on estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante :\\
-
-result = (minimal cost) + 2 $\times$ (probability of success) % module math.
 
 	\subsection{Filtre}
-
 		ADTool met à disposition de l'utilisateur un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la possibilité d'appliquer plusieurs valuations aux nœuds de l'arbre. On peut ainsi pour le même arbre créer une valuation sur la probabilité de l'attaque et une autre sur son coût.
 
 		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
@@ -122,14 +128,13 @@ filtre(racine, rules) :
 	for n in fils(racine) :
 		filtre(n, rules)
 
-\end{lstlisting}
+		\end{lstlisting}
 	
 		Le principe de l'algorithme est récursif.
 		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de nœud de l'arbre.
 		La complexité algorithmique est donc acceptable.
 
-\subsection{Optimiseur}
-
+	\subsection{Optimiseur}
 		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal (selon un paramètre donné).
 		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		

@@ -1,25 +1,25 @@
-\section{étude de l'existant}
+\section{\'Etude de l'existant}
 	\label{sec:adtool}
 
-% Hierarchiser cette partie
-% Mettre en évidence fct qui manquent 
+	% Hierarchiser cette partie
+	% Mettre en évidence fct qui manquent 
 
 	ADTool permet de construire un ADTree sans difficulté. Le logiciel offre la possibilité de créer de nouveaux nœuds, d'éditer leurs labels et de leur ajouter des fils et des frères de façon simple et intuitive. Le choix des opérateurs entre ces nœuds --- conjonction ou disjonction ---  se fait sans effort, et la mise en place de défenses est également réalisable très facilement. % + figure ?
 	
 	\begin{figure}[h]
-            \centering
-            \includegraphics[width=1\textwidth]{figure/adtool_add_child.png}
-            \caption{La création d'un arbre dans ADTool est simplifiée par des actions accessibles facilement.}
-            \label{fig:arbre_exemple_1}
+        \centering
+        \includegraphics[width=1\textwidth]{figure/adtool_add_child.png}
+        \caption{La création d'un arbre dans ADTool est simplifiée par des actions accessibles facilement.}
+        \label{fig:arbre_exemple_1}
     \end{figure}
 	
 	Une fois l'arbre établi, il est possible d'ajouter des valuations à chaque feuille\footnote{Une feuille est un nœud n'ayant aucun fils.} de l'arbre selon un paramètre de base, tel que le coût minimal, la probabilité de succès, etc. (voir Section \ref{sec::ParamBase}). ADTool se charge ensuite de propager les valuations aux nœuds pères de façon récursive, jusqu'à la racine. % ajout de la liste des paramètres ?
 	
 	\begin{figure}[h]
-            \centering
-            \includegraphics[width=1\textwidth]{figure/adtool_add_values.png}
-            \caption{L'ajout de valuations aux feuilles est simple. Ces valuations se propagent ensuite récursivement à tous les antécédents }
-            \label{fig:arbre_exemple_1}
+        \centering
+        \includegraphics[width=1\textwidth]{figure/adtool_add_values.png}
+        \caption{L'ajout de valuations aux feuilles est simple. Ces valuations se propagent ensuite récursivement à tous les antécédents }
+        \label{fig:arbre_exemple_1}
     \end{figure}
 	
 	Dans l'exemple de la {\sc Figure} \ref{fig:arbre_exemple_1}, chaque noeud possède une valuation selon le paramètre de base \og difficulté de réalisation \fg{}. Cette valuation peut prendre la valeur L, M, H ou E ((\emph{Low}, \emph{Medium}, \emph{High} ou \emph{Extrem} --- voir Section \ref{sec::ParamBase} pour plus de détails). En éditant la difficulté de réalisation de la feuille \og essayer les clés de chiffrage possibles \fg{}  à \emph{Medium}, la valuation du nœud père \og casser le chiffrage \fg{} est recalculée pour prendre la valeur \emph{Medium} : en effet, la difficulté de ce nœud conjonctif correspond à la difficulté la plus élevée parmi ses fils. Puis, à son tour, la valuation du père de ce nœud-père est recalculée à \emph{Middle}, car, étant un nœud disjonctif, sa difficulté de réalisation correspond à la difficulté la plus faible de ses fils.

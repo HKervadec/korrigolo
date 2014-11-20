@@ -13,6 +13,9 @@
 \usepackage{enumitem}
 \usepackage{color}
 
+\usepackage{sidecap}
+\usepackage{pdflscape}
+
 \usepackage{pifont}
 
 \usepackage[gen]{eurosym}
@@ -42,6 +45,7 @@
 \date{\today}
 
 \newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
+\newcommand{\glasir}[0]{Glasir}
 
 % Rapport de spécification fonctionnelle
 %     Français
@@ -64,7 +68,7 @@
     
     \newpage
     % A decommenter pour la release
-    \setcounter{tocdepth}{2}
+    % \setcounter{tocdepth}{2}
     \tableofcontents
     \setlength{\parskip}{10pt}
     
@@ -87,8 +91,14 @@
 
     % On a pas de conclusion :o
 
-    \section{Annexes}
-    \includepdf[angle=90]{figure/pre_optimiseur.pdf}
+    \begin{landscape}
+        \begin{figure}
+            % \centering
+            \includegraphics[height=0.82\textwidth]{figure/pre_optimiseur.pdf}
+            \caption{Toto va a la plage.}
+            \label{fig:pre_optimiseur}
+        \end{figure}
+    \end{landscape}
 
     \bibliographystyle{plain}
     \bibliography{input/biblio}
