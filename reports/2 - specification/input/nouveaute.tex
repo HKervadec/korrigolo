@@ -67,7 +67,7 @@
 			Nous souhaitons donc faciliter la création de nouveaux paramètres à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc). Ces nouvelles valuations pourront ensuite être appliquées aux arbres analysés, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour analyser les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.\\
 
 			Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendrait donc en entrée les éléments suivants :
-			\begin{itemize}[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
+			\begin{itemize}%[label=\ding{170},font=\color{magenta},parsep=0cm,itemsep=0cm, leftmargin=0cm]
 				\item un arbre provenant du projet ; % quel projet ?
 				\item les paramètres intervenant dans la synthèse ;
 				\item les opérations mathématiques appliquées ;
@@ -123,6 +123,11 @@ filtre(racine, rules) :
 		filtre(n, rules)
 
 		\end{lstlisting}
+
+		\begin{itemize}
+			\item \verb|racine| est le point de départ de l'algorithme.
+			\item \verb|rules| est l'ensemble des règles de filtrage (valuation et intervalle).
+		\end{itemize}
 	
 		Le principe de l'algorithme est récursif.
 		Le nombre d'appels sera, au pire, linéaire avec le nombre de nœuds de l'arbre.
@@ -134,7 +139,7 @@ filtre(racine, rules) :
 		
 		Pourtant, la méthode utilisée est systématique. Nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
 		
-		L'optimiseur prendrait donc en entrée:
+		Les entrées de l'optimiseur seraient donc celles-ci :
 		\begin{itemize}
 			\item un arbre provenant du projet ;
 			\item le paramètre à prendre en compte ;
@@ -144,7 +149,7 @@ filtre(racine, rules) :
 		Nous obtiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
 		L'utilisateur pourra ensuite le traiter comme un tout nouvel arbre, en fonction de son besoin.
 		
-		Nous allons maintenant détailler l'algorithme % PK FAIRE ?
+		Nous allons maintenant détailler l'algorithme qui parcourra l'arbre afin d'en extraire le meilleur % PK FAIRE ?
 		.utilisé. Il s'agira d'une fonction récursive.
 
 		\begin{lstlisting}
@@ -175,10 +180,10 @@ opti(racine, param, crit):
 			\item \verb|crit| est une fonction prenant en paramètre deux valeurs et renvoie la valeur à \og garder \fg.
 			\item \verb|fils| est une fonction renvoyant une liste de nœuds, correspondants aux fils du nœud passé en paramètre.
 		\end{itemize}
-		Ainsi, pour lancer l'optimisation, nous appellerons \verb|opti| avec la racine de l'arbre en paramètre.
+		Ainsi, pour lancer l'optimisation, nous appellerons notre fonction \verb|opti| avec la racine de l'arbre en paramètre.
 
 		Prenons en exemple l'arbre exemple en Annexe. % ref Annexe
-		Si on veut trouver un chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
+		Si on veut trouver un chemin optimal avec paramètre \og coût \fg, et en critère la fonction $min$, on obtiendra l'arbre de la Figure \ref{fig:arbre_post_opti}.
 
 		\begin{figure}[h!]
 			\centering
