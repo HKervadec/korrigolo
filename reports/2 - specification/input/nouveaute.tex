@@ -4,45 +4,61 @@
 	ce logiciel, nous avons décidé de créer un nouveau logiciel nommé \glasir qui utilisera un éditeur d'arbres. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
 
 		\subsection{Optimiseur}
-		\label{subsection:optimiseur} 
+		\label{subsection:optimiseur}
+			\subsubsection{Existant et limites}
 		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal (selon un paramètre donné).
 		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
 		Pourtant, la méthode utilisée est systématique. Nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
-		
-		L'optimiseur prendrait donc en entrée:
+
+			\subsubsection{Entrées/sorties}
+		Les entrées de l'optimiseur seraient donc celles-ci :
 		\begin{itemize}
-			\item un arbre provenant du projet ;
-			\item le paramètre à prendre en compte ;
-			\item le critère ($min$ ou $max$).
+			\item Un arbre provenant du projet ;
+			\item Le paramètre à prendre en compte ;
+			\item Le critère ($min$ ou $max$).
 		\end{itemize}
-		
+
 		Nous obtiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
 		L'utilisateur pourra ensuite le traiter comme un tout nouvel arbre, en fonction de son besoin.
-		
-		Nous allons maintenant détailler l'algorithme % PK FAIRE ?
-		.utilisé. Il s'agira d'une fonction récursive.
 
-		\begin{lstlisting}
-opti(racine, param, crit):
-	l_fils = fils(racine)
+		Prenons en exemple l'arbre exemple en Annexe. % ref Annexe
+		Si on veut trouver un chemin optimal avec paramètre \og coût \fg, et en critère la fonction $min$, on obtiendra l'arbre de la Figure \ref{fig:arbre_post_opti}.
 
-	if vide(l_fils):
-		return
+		\begin{figure}[h!]
+			\centering
+				\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
+			\caption{L'attaque optimale est ainsi facilement lisible.}
+			\label{fig:arbre_post_opti}
+		\end{figure}
 
-	if mode(racine) == ou:
-		v = param(l_fils[0])
+			\subsubsection{Algorithmique}
+		Nous allons maintenant détailler l'algorithme qui parcourra l'arbre à la recherche du meilleur chemin. Il s'agira d'une fonction récursive.
 
-		for n in l_fils[1:]:
-			v = crit(v, param(n))
+		\begin{algorithm}
+		\caption{opti}
+		\begin{algorithmic}
+			\STATE{l_fils = fils(racine)}
 
-		for n in l_fils:
-			if not defense(n) and param(n) != v:
-				delete(n) // will delete subtrees as well
-	
-	for n in fils(racine):
-		opti(n, param, crit)
-		\end{lstlisting}
+			\IF{vide(l_fils)}
+				\RETURN
+			\ENDIF
+			\IF{mode(racine) == ou}
+				\STATE v = param(l_fils[0])
+
+				\FOR{n in l_fils[1:]}
+					\STATE v = crit(v, param(n))
+				\ENDFOR
+				\FOR{n in l_fils}
+					\IF{not defense(n) and param(n) != v}
+						\STATE delete(n) // will delete subtrees as well
+					\ENDIF
+				\ENDFOR
+			\FOR{n in fils(racine)}
+				\STATE opti(n, param, crit)
+			\ENDFOR
+		\end{algorithmic}
+		\end{algorithm}
 
 		L'algorithme modifiera l'arbre en l'état (c'est pour cela que nous le ferons travailler sur une copie de l'arbre).
 		\begin{itemize}
@@ -51,45 +67,32 @@ opti(racine, param, crit):
 			\item \verb|crit| est une fonction prenant en paramètre deux valeurs et renvoie la valeur à \og garder \fg.
 			\item \verb|fils| est une fonction renvoyant une liste de nœuds, correspondants aux fils du nœud passé en paramètre.
 		\end{itemize}
-		Ainsi, pour lancer l'optimisation, nous appellerons \verb|opti| avec la racine de l'arbre en paramètre.
 
-		Prenons en exemple l'arbre exemple en Annexe. % ref Annexe
-		Si on veut trouver un chemin optimal, avec en paramètre le coût, et en critère la fonction $min$, on obtiendra l'arbre de la figure \ref{fig:arbre_post_opti}.
-
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
-			\caption{L'attaque optimale est ainsi facilement lisible.}
-			\label{fig:arbre_post_opti}
-		\end{figure}
-
+		Ainsi, pour lancer l'optimisation, nous appellerons notre fonction \verb|opti| avec la racine de l'arbre en paramètre.
+		Ici encore, la fonction est récursive, et la complexité, dans la pire des configurations, est linéaire.
 
 	\subsection{Filtre}
 	\label{subsection:filtre} 
-	
+			\subsubsection{Existant et limites}
 		ADTool met à disposition de l'utilisateur un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la possibilité d'appliquer plusieurs valuations aux nœuds de l'arbre. On peut ainsi pour le même arbre créer une valuation sur la probabilité de l'attaque et une autre sur son coût.
 
-		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Dans ce cas, nous comparerons les ressources de l'attaquant avec les valuations de l'arbre.
+		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Sa volonté serait donc de pouvoir avoir accès facilement à ces informations.
 
-		En l'état, ADTool ne permet pas de faire cette sélection. Nous allons donc implémenter cette fonctionnalité dans notre logiciel, sous le nom de \textit{filtre}. % l'objectif sera de comparer...
+		En l'état, ADTool ne permet que d'afficher l'arbre complet, et de cacher les fils ou ascendant d'un nœud. Nous allons donc implémenter une fonctionnalité permettant de répondre à ce besoin, que nous appellerons \textit{filtre}. L’utilisateur devra définir un critère selon lequel effectuer le filtrage, puis choisir un intervalle dans lequel les valeurs du paramètre devront se situer.
+			
+			\subsubsection{Entrées/sorties}
 
-		La fonction de filtrage prendra en entrée : 
+		Les entrées de la fonction de filtrage seront les suivantes :
 		\begin{itemize}
 			\item L'arbre à filtrer ;
 			\item Les valuations de l'arbre servant de critères pour le filtrage ;
 			\item Les intervalles de sélection sur les différentes valuations.
 		\end{itemize} % pas assez en évidence ? 
-
-		Le filtre proposera deux types d'intervalles à l'expert pour chacune des valuations :
-		\begin{itemize}
-			\item L'intervalle global, qui devra être respecté par chacun des chemins conservés, dans le sens où la valuation du chemin dans son ensemble rentre dans l'intervalle ;
-			\item L'intervalle unitaire, qui devra être respecté par la valuation de chacun des nœuds pour les chemins retenus.
-		\end{itemize} % REFORMULER
-
-		Il est possible de filtrer l'arbre avec plusieurs paramètres simultanément.
-		L'arbre retourné par la fonction de filtrage sera l'arbre d'origine élagué. Seuls seront conservés les chemins respectant les intervalles de filtrage.
 		
-		Par exemple, en appliquant un filtre global [0, 500] sur le coût à l'arbre exemple en Annexe, on obtient l'arbre de la figure \ref{fig:arbre_post_filtre}.
+		Il sera possible de filtrer l'arbre avec plusieurs paramètres simultanément.
+		L'arbre retourné par la fonction de filtrage sera une copie élaguée de l'arbre original. Seuls seront conservés les chemins respectant les intervalles de filtrage.
+
+		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût \fg à l'arbre exemple en Annexe, on obtient l'arbre de la Figure \ref{fig:arbre_post_filtre}.
 
 		\begin{figure}[h!]
 			\begin{center}
@@ -98,27 +101,36 @@ opti(racine, param, crit):
 			\caption{Filtre selon le coût pour l'attaquant}
 			\label{fig:arbre_post_filtre}
 		\end{figure}
+		On constate que l'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.
 
-		On constate que l'arbre élagué par le filtre est beaucoup plus concit. En ayant en tête que l'arbre exemple est de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.   
-
-		D'un point de vue technique, il nous semble intéressant de quelle manière l'arbre sera élagué par le filtre.
+			\subsubsection{Algorithmique}
+		D'un point de vue technique, il nous semble intéressant d'aborder la manière dont l'arbre sera élagué par le filtre.
 		L'algorithme de filtrage suivra ce modèle :
 
-		\begin{lstlisting}
+		\begin{algorithm}
+			\caption{filtre}
+		\begin{algorithmic}
+			\STATE{filtre(racine, rules)}
+				\FOR{r in rules}
+					\IF{not r(racine)}
+						\STATE delete(racine AND subtrees)
+						\RETURN
+					\ENDIF
+				\ENDFOR
+				\FOR{n in fils(racine)}
+					\STATE filtre(n, rules)
+				\ENDFOR
 
-filtre(racine, rules) :
-	for r in rules :
-		if not r(racine) :
-			delete (racine AND subtrees)
-			return
+		\end{algorithmic}
+		\end{algorithm}
 
-	for n in fils(racine) :
-		filtre(n, rules)
-
-		\end{lstlisting}
+		\begin{itemize}
+		 \item \verb|racine| est le point de départ de l'algorithme.
+		 \item \verb|rules| est l'ensemble des règles de filtrage (valuation et intervalle).
+		\end{itemize}
 	
 		Le principe de l'algorithme est récursif.
-		Le nombre d'appel récursif sera, au pire, linéaire avec le nombre de nœud de l'arbre.
+		Le nombre d'appels sera, au pire, linéaire avec le nombre de nœuds de l'arbre.
 		La complexité algorithmique est donc acceptable.
 
 		\subsection{Paramètres de synthèse}
