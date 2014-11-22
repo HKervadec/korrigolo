@@ -38,25 +38,25 @@
 		\begin{algorithm}
 		\caption{opti}
 		\begin{algorithmic}
-			\STATE{l_fils = fils(racine)}
-
-			\IF{vide(l_fils)}
+			\STATE $l_fils \leftarrow fils(racine)$
+			\IF{$vide(l_fils)$}
 				\RETURN
 			\ENDIF
-			\IF{mode(racine) == ou}
-				\STATE v = param(l_fils[0])
-
-				\FOR{n in l_fils[1:]}
-					\STATE v = crit(v, param(n))
+			\IF{$mode(racine) == ou$}
+				\STATE $v \leftarrow param(l_fils[0])$
+				\FOR{$n in l_fils[1:]$}
+					\STATE $v \leftarrow crit(v, param(n))$
 				\ENDFOR
-				\FOR{n in l_fils}
-					\IF{not defense(n) and param(n) != v}
+				\FOR{$n in l_fils$}
+					\IF{$not defense(n) and param(n) != v$}
 						\STATE delete(n) // will delete subtrees as well
 					\ENDIF
 				\ENDFOR
-			\FOR{n in fils(racine)}
-				\STATE opti(n, param, crit)
+			\ENDIF
+			\FOR{$n in fils(racine)$}
+				\STATE $opti(n, param, crit)$
 			\ENDFOR
+
 		\end{algorithmic}
 		\end{algorithm}
 
@@ -94,7 +94,7 @@
 
 		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût \fg à l'arbre exemple en Annexe, on obtient l'arbre de la Figure \ref{fig:arbre_post_filtre}.
 
-		\begin{figure}[h!]
+		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[width=0.75\textwidth]{figure/post_filtre.pdf}
 			\end{center}
