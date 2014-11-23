@@ -1,7 +1,13 @@
 \section{Nouveautés du logiciel}
 
-	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, et risquer ainsi de surcharger % préciser explication.
-	ce logiciel, nous avons décidé de créer un nouveau logiciel nommé \glasir qui utilisera un éditeur d'arbres. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
+	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, nous avons fait le choix de créer un nouveau logiciel nommé \glasir\ qui utilisera un éditeur d'arbres. La décision de créer notre propre logiciel est motivée d'une part par le fait que les fonctionnalités d'analyse implémentés n'intéresseront pas forcement les personnes réalisant la modélisation de l'arbre, et nous ne voulons pas complexifier l'utilisation d'ADTool pour ces personnes. D'autre part, ADTool étant réalisé en Java, implémenter les fonctionnalités d'analyse en C++ comme nous le voulons peut se révéler inutilement complexe. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité. L'architecture de \glasir\ suivra donc le modèle de la Figure \ref{fig:architecture_Glasir}.
+
+		\begin{figure}[h!]
+			\centering
+				\includegraphics[width=0.6\textwidth]{figure/archiGlasir.pdf}
+			\caption{Architecture du logiciel \glasir.}
+			\label{fig:architecture_Glasir}
+		\end{figure}
 
 		\subsection{Optimiseur}
 		\label{subsection:optimiseur}
@@ -35,7 +41,7 @@
 			\subsubsection{Algorithmique}
 		Nous allons maintenant détailler l'algorithme qui parcourra l'arbre à la recherche du meilleur chemin. Il s'agira d'une fonction récursive.
 
-		\begin{algorithm}
+		\begin{algorithm}[h!]
 		\caption{opti}
 		\begin{algorithmic}
 			\STATE $l_fils \leftarrow fils(racine)$
@@ -107,7 +113,7 @@
 		D'un point de vue technique, il nous semble intéressant d'aborder la manière dont l'arbre sera élagué par le filtre.
 		L'algorithme de filtrage suivra ce modèle :
 
-		\begin{algorithm}
+		\begin{algorithm}[h!]
 			\caption{filtre}
 		\begin{algorithmic}
 			\STATE{filtre(racine, rules)}
