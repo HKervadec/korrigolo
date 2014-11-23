@@ -1,17 +1,20 @@
-\section{Nouveautés du logiciel}
+\section{Fonctions d'analyse}
 
-	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, et risquer ainsi de surcharger % préciser explication.
-	ce logiciel, nous avons décidé de créer un nouveau logiciel nommé \glasir qui utilisera un éditeur d'arbres. Nous avons ainsi ADTool qui se chargera de la partie \textit{édition des arbres}, et notre logiciel qui se chargera de la partie \textit{analyse}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
+	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, nous avons fait le choix de créer un nouveau logiciel nommé \glasir\ qui utilisera cet éditeur d'arbres. Deux raisons nous ont poussé à prendre cette décision. La première est de séparer l'analyse et l'édition des ADTrees, afin d'avoir des logiciels dédiés à leur tâche. De plus, cette solution nous permet d'utiliser des technologies différentes de celles d'ADTool, enrichissant ainsi notre formation.  \glasir{} se chargera de la partie \textit{analyse}, et ADTool de la partie \textit{édition des arbres} sous forme de sous-fenêtre de \glasir{}. On peut voir sur la {\sc Figure} \ref{fig:architecture_Glasir} l'intégration d'ADTool dans l'architecture de \glasir{}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
+
+		\begin{figure}[h!]
+			\centering
+				\includegraphics[width=0.6\textwidth]{figure/archiGlasir.pdf}
+			\caption{Architecture du logiciel \glasir.}
+			\label{fig:architecture_Glasir}
+		\end{figure}
 
 		\subsection{Optimiseur}
 		\label{subsection:optimiseur}
-			\subsubsection{Existant et limites}
-		Actuellement, une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal (selon un paramètre donné).
-		Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		Une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
 		Pourtant, la méthode utilisée est systématique. Nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
 
-			\subsubsection{Entrées/sorties}
 		Les entrées de l'optimiseur seraient donc celles-ci :
 		\begin{itemize}
 			\item Un arbre provenant du projet ;
@@ -21,21 +24,32 @@
 
 		Nous obtiendrons en sortie un nouvel arbre (qui sera un sous ensemble de l'arbre d'entrée), contenant le chemin optimal. 
 		L'utilisateur pourra ensuite le traiter comme un tout nouvel arbre, en fonction de son besoin.
-
-		Prenons en exemple l'arbre exemple en Annexe. % ref Annexe
-		Si on veut trouver un chemin optimal avec paramètre \og coût \fg, et en critère la fonction $min$, on obtiendra l'arbre de la Figure \ref{fig:arbre_post_opti}.
-
+		
+		Prenons en exemple l'arbre de la {\sc Figure} \ref{fig:pre_optimiseur}. Si on veut trouver un chemin optimal avec le paramètre \og coût \fg, et en critère la fonction $min$, on obtiendra l'arbre de la {\sc Figure} \ref{fig:arbre_post_opti}.
+		
+	\begin{landscape}
+        \begin{figure}
+            % \centering
+            \includegraphics[height=0.82\textwidth]{figure/pre_optimiseur.pdf}
+            \caption{Toto va a la plage.}
+            \label{fig:pre_optimiseur}
+        \end{figure}
+    	\end{landscape}		
+		
 		\begin{figure}[h!]
 			\centering
 				\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
 			\caption{L'attaque optimale est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
-
-			\subsubsection{Algorithmique}
+		
+		
+    
+		
+		
 		Nous allons maintenant détailler l'algorithme qui parcourra l'arbre à la recherche du meilleur chemin. Il s'agira d'une fonction récursive.
 
-		\begin{algorithm}
+		\begin{algorithm}[h!]
 		\caption{opti}
 		\begin{algorithmic}
 			\STATE $l_fils \leftarrow fils(racine)$
@@ -69,30 +83,25 @@
 		\end{itemize}
 
 		Ainsi, pour lancer l'optimisation, nous appellerons notre fonction \verb|opti| avec la racine de l'arbre en paramètre.
-		Ici encore, la fonction est récursive, et la complexité, dans la pire des configurations, est linéaire.
+		La fonction est récursive et la complexité, dans la pire des configurations, est linéaire.
 
 	\subsection{Filtre}
 	\label{subsection:filtre} 
-			\subsubsection{Existant et limites}
-		ADTool met à disposition de l'utilisateur un certain nombre d'outils pour l'assister dans la modélisation de son système, parmi lesquels se trouve la possibilité d'appliquer plusieurs valuations aux nœuds de l'arbre. On peut ainsi pour le même arbre créer une valuation sur la probabilité de l'attaque et une autre sur son coût.
+		Souvent, l'expert en sécurité va chercher à se défendre contre un attaquant précis. Dans ce cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, etc.), pour ne conserver que les chemins de l'arbre empruntables par l'attaquant.
 
-		Souvent, l'utilisateur va chercher à se défendre contre un attaquant précis. Dans ces cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, personnel humain, etc), ce qui peut l'amener à ne vouloir conserver que les chemins de l'arbre empruntables par l'attaquant en accord avec ses ressources. Sa volonté serait donc de pouvoir avoir accès facilement à ces informations.
-
-		En l'état, ADTool ne permet que d'afficher l'arbre complet, et de cacher les fils ou ascendant d'un nœud. Nous allons donc implémenter une fonctionnalité permettant de répondre à ce besoin, que nous appellerons \textit{filtre}. L’utilisateur devra définir un critère selon lequel effectuer le filtrage, puis choisir un intervalle dans lequel les valeurs du paramètre devront se situer.
-			
-			\subsubsection{Entrées/sorties}
+		Nous allons donc implémenter une fonctionnalité permettant de répondre à ce besoin, que nous appellerons \textit{filtre}. L'expert devra définir un critère selon lequel effectuer le filtrage, puis choisir un intervalle dans lequel les valeurs du paramètre devront se situer.
 
 		Les entrées de la fonction de filtrage seront les suivantes :
 		\begin{itemize}
-			\item L'arbre à filtrer ;
-			\item Les valuations de l'arbre servant de critères pour le filtrage ;
-			\item Les intervalles de sélection sur les différentes valuations.
-		\end{itemize} % pas assez en évidence ? 
+			\item l'arbre à filtrer ;
+			\item les valuations de l'arbre servant de critères pour le filtrage ;
+			\item les intervalles de sélection sur les différentes valuations.
+		\end{itemize}
 		
 		Il sera possible de filtrer l'arbre avec plusieurs paramètres simultanément.
-		L'arbre retourné par la fonction de filtrage sera une copie élaguée de l'arbre original. Seuls seront conservés les chemins respectant les intervalles de filtrage.
+		L'arbre retourné par la fonction de filtrage sera une copie élaguée de l'arbre original. Seuls les chemins respectant les intervalles de filtrage seront conservés.
 
-		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût \fg à l'arbre exemple en Annexe, on obtient l'arbre de la Figure \ref{fig:arbre_post_filtre}.
+		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût \fg à l'arbre de la {\sc Figure} \ref{fig:arbre_post_opti}, on obtient l'arbre de la {\sc Figure} \ref{fig:arbre_post_filtre}.
 
 		\begin{figure}[!h]
 			\begin{center}
@@ -101,13 +110,12 @@
 			\caption{Filtre selon le coût pour l'attaquant}
 			\label{fig:arbre_post_filtre}
 		\end{figure}
-		On constate que l'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de taille très réduite comparée aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.
+		On constate que l'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de taille très réduite comparé aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.
 
-			\subsubsection{Algorithmique}
 		D'un point de vue technique, il nous semble intéressant d'aborder la manière dont l'arbre sera élagué par le filtre.
 		L'algorithme de filtrage suivra ce modèle :
 
-		\begin{algorithm}
+		\begin{algorithm}[h!]
 			\caption{filtre}
 		\begin{algorithmic}
 			\STATE{filtre(racine, rules)}
@@ -146,6 +154,8 @@
 				\item le nom du paramètre de synthèse généré.
 			\end{itemize}
 
+
+			\paragraph{}
 			Par exemple, dans notre arbre illustratif disponible en Annexe de ce rapport, nous pouvons voir que les deux sous-arbres « Obtenir illégalement des tickets » (sous-arbre A) et « Falsifier des tickets » (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.\\ % figure ?
 
 			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ces risques : la probabilité de succès est donc plus forte. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'utilisateur et entraîner une interprétation très différente. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte tous les deux. C'est ensuite à l'utilisateur de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, si l'on décide d'appeler le nouveau paramètre « result », et que l'on estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
