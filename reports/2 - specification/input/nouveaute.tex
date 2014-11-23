@@ -1,16 +1,16 @@
 \section{Fonctions d'analyse}
-
 	L'analyse détaillée d'ADtool a permis de mieux nous rendre compte des fonctionnalités d'analyse qui lui font défaut. Plutôt qu'implémenter ces dernières directement dans ADTool, nous avons fait le choix de créer un nouveau logiciel nommé \glasir{} qui utilisera cet éditeur d'arbres. Deux raisons nous ont poussés à prendre cette décision. La première est de séparer l'analyse et l'édition des ADTrees, afin d'avoir des logiciels dédiés à leur tâche. De plus, cette solution nous permet d'utiliser des technologies différentes de celles d'ADTool, enrichissant ainsi notre formation. \glasir{} se chargera de la partie \textit{analyse}, et ADTool de la partie \textit{édition des arbres} sous forme de sous-fenêtre de \glasir{}. On peut voir sur la {\sc Figure} \ref{fig:architecture_Glasir} l'intégration d'ADTool dans l'architecture de \glasir{}. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
 
-		\begin{figure}[h!]
-			\centering
-				\includegraphics[width=0.6\textwidth]{figure/archiGlasir.pdf}
-			\caption{Architecture du logiciel \glasir.}
-			\label{fig:architecture_Glasir}
-		\end{figure}
+	\begin{figure}[h!]
+		\centering
+			\includegraphics[width=0.8\textwidth]{figure/archiGlasir.pdf}
+		\caption{Architecture du logiciel \glasir.}
+		\label{fig:architecture_Glasir}
+	\end{figure}
 
-		\subsection{Optimiseur}
+	\subsection{Optimiseur}
 		\label{subsection:optimiseur}
+
 		Une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
 		Pourtant, la méthode utilisée est systématique : nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
@@ -26,46 +26,45 @@
 		
 		Prenons en exemple l'arbre de la {\sc Figure} \ref{fig:pre_optimiseur}. Si l'objectif est de trouver un chemin optimal avec le paramètre \og coût minimal \fg{}, et en critère la fonction $min$, on obtient l'arbre de la {\sc Figure} \ref{fig:arbre_post_opti}.
 		
-	\begin{landscape}
-        \begin{figure}
-            % \centering
-            \includegraphics[height=0.82\textwidth]{figure/pre_optimiseur.pdf}
-            \caption{L'arbre avant l'utilisation de l'optimiseur.}
-            \label{fig:pre_optimiseur}
-        \end{figure}
+		\begin{landscape}
+	        \begin{figure}
+	            % \centering
+	            \includegraphics[height=0.82\textwidth]{figure/pre_optimiseur.pdf}
+	            \caption{L'arbre avant l'utilisation de l'optimiseur.}
+	            \label{fig:pre_optimiseur}
+	        \end{figure}
     	\end{landscape}		
 		
 		\begin{figure}[h!]
 			\centering
-				\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
+			\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
 			\caption{L'attaque optimale est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
 	
 		Nous allons maintenant détailler l'algorithme qui parcourra l'arbre à la recherche du chemin optimal.
 		\begin{algorithm}[h!]
-		\caption{opti}
-		\begin{algorithmic}
-			\STATE $l_fils \leftarrow fils(racine)$
-			\IF{$vide(l_fils)$}
-				\RETURN
-			\ENDIF
-			\IF{$mode(racine) == ou$}
-				\STATE $v \leftarrow param(l_fils[0])$
-				\FOR{$n in l_fils[1:]$}
-					\STATE $v \leftarrow crit(v, param(n))$
+			\caption{opti(racine, param, crit)}
+			\begin{algorithmic}
+				\STATE l\_fils = fils(racine)
+				\IF{vide(l\_fils)}
+					\RETURN
+				\ENDIF
+				\IF{mode(racine) == ou}
+					\STATE v = param(l\_fils[0])
+					\FOR{n in l\_fils[1:]}
+						\STATE v = crit(v, param(n))
+					\ENDFOR
+					\FOR{n in l\_fils}
+						\IF{not defense(n) and param(n) != v}
+							\STATE delete(n) // will delete subtrees as well
+						\ENDIF
+					\ENDFOR
+				\ENDIF
+				\FOR{n in fils(racine)}
+					\STATE opti(n, param, crit)
 				\ENDFOR
-				\FOR{$n in l_fils$}
-					\IF{$not defense(n) and param(n) != v$}
-						\STATE delete(n) // will delete subtrees as well
-					\ENDIF
-				\ENDFOR
-			\ENDIF
-			\FOR{$n in fils(racine)$}
-				\STATE $opti(n, param, crit)$
-			\ENDFOR
-
-		\end{algorithmic}
+			\end{algorithmic}
 		\end{algorithm}
 
 		L'algorithme modifiera l'arbre en l'état (c'est pour cela que nous le ferons travailler sur une copie de l'arbre).
@@ -79,7 +78,8 @@
 		Ainsi, pour lancer l'optimisation, nous appellerons notre fonction \verb|opti| avec la racine de l'arbre en paramètre. La fonction utilisée est récursive et la complexité, dans la pire des configurations, est linéaire.
 
 	\subsection{Filtre}
-	\label{subsection:filtre} 
+		\label{subsection:filtre} 
+
 		Souvent, l'expert en sécurité va chercher à se défendre contre un attaquant précis. Dans ce cas, il va chercher à identifier les ressources dont l'attaquant dispose (temps, argent, etc.), pour ne conserver que les chemins de l'arbre empruntables par l'attaquant.
 
 		Nous allons donc implémenter une fonctionnalité permettant de répondre à ce besoin, que nous appellerons \textit{filtre}. L'expert devra définir un critère selon lequel effectuer le filtrage, puis choisir un intervalle dans lequel les valeurs du paramètre devront se situer. Il sera possible de filtrer l'arbre selon plusieurs paramètres à la fois.
@@ -108,9 +108,8 @@
 		D'un point de vue technique, il nous semble intéressant d'aborder la manière dont l'arbre sera élagué par le filtre. L'algorithme de filtrage suivra ce modèle :
 
 		\begin{algorithm}[h!]
-			\caption{filtre}
-		\begin{algorithmic}
-			\STATE{filtre(racine, rules)}
+			\caption{filtre(racine, rules)}
+			\begin{algorithmic}
 				\FOR{r in rules}
 					\IF{not r(racine)}
 						\STATE delete(racine AND subtrees)
@@ -120,21 +119,20 @@
 				\FOR{n in fils(racine)}
 					\STATE filtre(n, rules)
 				\ENDFOR
-
-		\end{algorithmic}
+			\end{algorithmic}
 		\end{algorithm}
 
 		\begin{itemize}
-		 \item \verb|racine| est le point de départ de l'algorithme ;
-		 \item \verb|rules| est l'ensemble des règles de filtrage (valuations et intervalles).
+			\item \verb|racine| est le point de départ de l'algorithme ;
+			\item \verb|rules| est l'ensemble des règles de filtrage (valuations et intervalles).
 		\end{itemize}
 	
 		Le principe de l'algorithme est récursif. Le nombre d'appels sera, au pire, linéaire avec le nombre de nœuds de l'arbre. La complexité algorithmique est donc acceptable.
 
 		\subsection{Paramètres de synthèse}
-		\label{subsection:synthese} 
+			\label{subsection:synthese} 
 
-			L'utilisateur est actuellement cantonné aux paramètres présentés dans la \sc{Section} \ref{sec:adtool} et ne peut pas en créer d'autres, ce qui limite ses possibilités d'analyse. En effet, les paramètres déjà existants ne sont pas les seuls pouvant intéresser un expert en sécurité. Nous souhaitons donc rendre possible la création de nouveaux paramètres, à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc.). Ces nouvelles valuations pourront ensuite être appliquées à n'importe quel arbre, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour évaluer les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.
+			L'utilisateur est actuellement cantonné aux paramètres présentés dans la {\sc{Section}} \ref{sec:adtool} et ne peut pas en créer d'autres, ce qui limite ses possibilités d'analyse. En effet, les paramètres déjà existants ne sont pas les seuls pouvant intéresser un expert en sécurité. Nous souhaitons donc rendre possible la création de nouveaux paramètres, à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc.). Ces nouvelles valuations pourront ensuite être appliquées à n'importe quel arbre, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour évaluer les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.
 
 			Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendrait donc en entrée les éléments suivants :
 			\begin{itemize}
@@ -145,6 +143,6 @@
 			\end{itemize}
 
 			\paragraph{}
-			Par exemple, dans l'arbre de la \sc{Figure} \ref{fig:pre_optimiseur}, nous pouvons voir que les deux sous-arbres \og Obtenir illégalement des tickets \fg{} (sous-arbre A) et \og Falsifier des tickets \fg{} (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.
+			Par exemple, dans l'arbre de la {\sc{Figure}} \ref{fig:pre_optimiseur}, nous pouvons voir que les deux sous-arbres \og Obtenir illégalement des tickets \fg{} (sous-arbre A) et \og Falsifier des tickets \fg{} (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.
 
 			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant, puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées, diminuant fortement la probabilité de succès. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ce risque et d'augmenter la probabilité de succès. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'expert et entraîner deux interprétations très différentes. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte simultanément. C'est ensuite à l'expert de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, s'il décide d'appeler le nouveau paramètre \og result \fg{}, et qu'il estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
