@@ -1,7 +1,9 @@
-\section{\'Etude de l'existant : ADTool}
+\section{ADTool : étude de l'existant}
 	\label{sec:adtool}
 
-	ADTool permet de construire des ADTrees sans difficulté. Le logiciel offre la possibilité de créer de nouveaux nœuds, d'éditer leurs labels et de leur ajouter des fils de façon simple et intuitive. Cette dernière fonctionnalité correspond à l'action \og Add Child \fg{} visible sur la {\sc Figure} \ref{fig:arbre_exemple_1}. Il est aussi possible d'ajouter des frères à un nœud choisi. Le choix des opérateurs entre ces nœuds (conjonction ou disjonction)  se fait rapidement, et la mise en place de défenses est également très facile à réaliser. 
+	ADTool est un logiciel libre permettant aux utilisateurs de modéliser des scénarios d'attaque et de défense sous la forme d'ADTrees. Il est disponible en téléchargement sur Internet (avec ou sans ses dépendances), et il existe aussi une version en ligne. Avant de réfléchir à l'implémentation d'un nouveau logiciel, nous avons étudié le fonctionnement d'ADTool afin de déterminer ses atouts et ses points faibles qui seront explicités dans cette section.
+
+	ADTool permet de construire des ADTrees sans difficulté. Le logiciel offre la possibilité de créer de nouveaux nœuds, d'éditer leurs labels et de leur ajouter des fils de façon simple et intuitive. Cette dernière fonctionnalité correspond à l'action \og Add Child \fg{} visible sur la {\sc Figure} \ref{fig:arbre_exemple_1}. Sur cette même figure, il est montré que les différentes actions s'effectuent de façon pratique par le biais de la souris ou de raccourcis clavier. Il est aussi possible d'ajouter des frères à un nœud choisi. Le choix des opérateurs entre ces nœuds (conjonction ou disjonction)  se fait rapidement, et la mise en place de défenses est également très facile à réaliser. 
 	
 	\begin{figure}[h]
         \centering
@@ -76,6 +78,5 @@
 	\paragraph{Exploitation des valuations} L'utilisateur n'a aucun moyen de déterminer automatiquement le \og meilleur chemin \fg{} permettant d'atteindre la racine de l'arbre selon un paramètre donné. Il doit le trouver manuellement, en analysant la façon dont les valuations se sont propagées. Sachant qu'un arbre atteint très rapidement une taille conséquente, cette opération peut prendre beaucoup de temps et représenter un obstacle pour l'expert.
 
 	\paragraph{Affichage des paramètres} L'analyse de l'arbre est également restreinte par le fait que la valuation d'un nœud (et donc de l'arbre entier) ne peut se faire que selon un seul paramètre à la fois. Il n'est pas possible d'afficher à la fois la \og difficulté \fg{} et le \og temps nécessaire \fg{} à la réalisation d'un nœud, par exemple. Ceci est contraignant car il est parfois difficile de séparer ces deux notions : par exemple, le nœud \og essayer les clés de chiffrage possibles \fg{} est très facile à effectuer (il suffit de taper les clés une-à-une jusqu'à trouver la bonne), mais le temps nécessaire est colossal. ADTool ne permet donc pas d'obtenir une vision complète de l'arbre par combinaison de plusieurs paramètres.
-	 
-	 
-	 
+
+	À l'issue de cette étude d'ADTool, certaines limitations ont été mises en avant car elles rendent l'analyse des arbres édités laborieuse. Comme l'objectif de notre projet est de simplifier ce travail pour un expert en sécurité, nous avons cherché à implémenter des solutions pour combler les lacunes évoquées.

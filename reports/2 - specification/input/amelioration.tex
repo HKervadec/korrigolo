@@ -1,16 +1,16 @@
-\section{Ergonomie}
-	Nous avons également prévu d'implémenter des fonctionnalités plus secondaires, destinées à rendre \glasir{} suffisamment ergonomique pour être utilisé avec confort. Ces fonctionnalités n'apporteront pas de nouveautés en terme d'analyse, mais permettront de faciliter la manipulation des arbres et de rendre \glasir{} simple d'utilisation.	
+\section{Ergonomie du logiciel}
+	Nous avons prévu d'implémenter des fonctionnalités plus secondaires, destinées à rendre \glasir suffisamment ergonomique pour être utilisé avec confort. Ces fonctionnalités n'apporteront pas de nouveautés en terme d'analyse, mais permettront de faciliter la manipulation des arbres dans ADTool et de rendre \glasir simple d'utilisation.	
 
 	\subsection{Ouverture simultanée de plusieurs arbres}
-		Dans sa version actuelle, ADTool ne permet de travailler que sur un seul arbre à la fois. Cette limitation est assez handicapante : par exemple, l'utilisateur ne peut pas ouvrir deux arbres en même temps pour les comparer. \glasir{} permettra donc d'ouvrir plusieurs instances d'ADTool, chacune contenant un arbre. Ces différentes instances se regrouperont sous la forme d'onglets situés dans l'interface de \glasir{}.
+		Dans sa version actuelle, ADTool ne permet de travailler que sur un seul arbre à la fois. Cette limitation est assez handicapante : par exemple, l'utilisateur ne peut pas ouvrir deux arbres en même temps pour les comparer. \glasir permettra donc d'ouvrir plusieurs instances d'ADTool, chacune contenant un arbre. Ces différentes instances se regrouperont sous la forme d'onglets situés dans l'interface de \glasir.
 	
 	\subsection{Hiérarchie des arbres}
-		L'ouverture simultanée de plusieurs arbres induit la possibilité de manipuler un grand nombre d'arbres dans le cadre d'un même projet. \glasir{} fournira donc, dans un dock latéral, une arborescence de dossiers et de sous-dossiers contenant les différents arbres utilisés : l'utilisateur pourra ainsi facilement structurer la hiérarchie de son projet.
+		L'ouverture simultanée de plusieurs arbres induit la possibilité de manipuler un grand nombre d'arbres dans le cadre d'un même projet. \glasir fournira donc, dans un dock latéral, une arborescence de dossiers et de sous-dossiers contenant les différents arbres utilisés : l'utilisateur pourra ainsi facilement structurer la hiérarchie de son projet.
 	
 	\subsection{Bibliothèque de modèles}
-		Il n'est pas forcément facile pour l'utilisateur de créer un arbre à partir de rien. C'est pourquoi \glasir{} fournira une bibliothèque d'arbres génériqes, aidant ainsi l'expert à démarrer son projet. Cette bibliothèque de modèles sera dupliquée pour être propre à chaque nouveau projet, permettant ainsi à l'utilisateur de modifier, compléter ou élaguer les arbres selon ses besoins.
+		Il n'est pas forcément facile pour l'utilisateur de créer un arbre à partir de rien. C'est pourquoi \glasir fournira une bibliothèque d'arbres génériqes, aidant ainsi l'expert à démarrer son projet. Cette bibliothèque de modèles sera dupliquée pour être propre à chaque nouveau projet, permettant ainsi à l'utilisateur de modifier, compléter ou élaguer les arbres selon ses besoins.
 		
-		Si l'utilisateur construit un nouvel arbre qu'il juge pertinent de réutiliser dans un autre projet, il pourra enregistrer cet arbre comme nouveau modèle, qui se rajoutera donc à la bibliothèque. \glasir{} verra ainsi sa bibliothèque de modèles s'étoffer progressivement au cours du temps.
+		Si l'utilisateur construit un nouvel arbre qu'il juge pertinent de réutiliser dans un autre projet, il pourra enregistrer cet arbre comme nouveau modèle, qui se rajoutera donc à la bibliothèque. \glasir verra ainsi sa bibliothèque de modèles s'étoffer progressivement au cours du temps.
 
 	
 	\subsection{Couper/copier/coller}	
@@ -36,7 +36,8 @@
 		Pour le moment, effectuer une action sous ADTool est irréversible. Cela n'est pas grave pour certaines actions rapides à effectuer, telles que le renommage d'un nœud. Mais supprimer un nœud (ce qui implique la disparition de tous ses nœuds fils s'il y en a) par erreur peut entraîner un travail énorme, et donc une perte de temps. La possibilité de revenir à l'état précédent de l'arbre (par le raccourci clavier classique \emph{CTRL+Z}) éviterait d'avoir à refaire ce travail de construction fastidieux. Nous souhaitons créer au moins une sauvegarde de l'état précédent, afin de pouvoir annuler la dernière modification effectuée. Si possible, nous envisageons l'implémentation d'une pile circulaire contenant les N derniers états (chaque modification entraînant la création d'un nouvel état) avec un curseur pointant sur l'état courant. Cela permettrait de revenir en arrière sans contraintes. % préciser qu'on garde les modif et pas les états (sinon pb mémoires)
 
 	\subsection{Vue globale des paramètres}
-		Dans l'état actuel d'ADTool, lorsqu'un arbre est valué, un seul paramètre est affiché (le même pour tous les nœuds) même si plusieurs paramètres sont utilisés en réalité. En effet, chaque valuation a un onglet propre, dans lequel elle est la seule effectivement affichée sur l'arbre.% confus.
-		Nous souhaitons créer un onglet plus général, dans lequel tous les paramètres voulus peuvent être visibles sur l'arbre en simultané. C'est ensuite à l'expert de décider des paramètres qu'il juge utile d'afficher. Cela serait aussi valable pour les paramètres de synthèse évoqués précédemment.\\
+		Dans l'état actuel d'ADTool, lorsqu'un arbre est valué, un seul paramètre est affiché (le même pour tous les nœuds) même si plusieurs paramètres sont utilisés en réalité. En effet, chaque valuation a un onglet propre, dans lequel elle est la seule effectivement affichée sur l'arbre. Nous souhaitons créer un onglet plus général, dans lequel tous les paramètres voulus peuvent être visibles sur l'arbre en simultané. C'est ensuite à l'expert de décider des paramètres qu'il juge utile d'afficher. Cela serait aussi valable pour les paramètres de synthèse évoqués précédemment.
 	
 		Pour une meilleure lisibilité, chaque paramètre aura une couleur différente, et l'arbre sera accompagné d'une légende résumant ce jeu de coloration et ses correspondances. Nous devrons également gérer la taille des nœuds, pour que les paramètres ne dépassent pas de la bulle. Un tel système étant déjà présent dans ADTool pour gérer les labels, il suffira de l'étendre à l'affichage des paramètres.
+
+		Maintenant que nous avons défini les différentes fonctionnalités du logiciel que nous allons créer, il est plus facile de planifier son implémentation.
