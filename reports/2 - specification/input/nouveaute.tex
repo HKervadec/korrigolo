@@ -1,7 +1,7 @@
 \section{Fonctions d'analyse}
 
 	
-	Comme précisé dans la \sc{section}~\ref{section:archi}, \glasir{} est constitué de trois modules principaux pour atteindre son objectif d'aide aux experts en sécurité. Ces modules proposent des fonctionnalités d'analyse des ADTrees qui seront détaillées dans cette section. 
+	Comme précisé dans la {\sc Section} \ref{section:archi}, \glasir{} est constitué de trois modules principaux pour atteindre son objectif d'aide aux experts en sécurité. Ces modules proposent des fonctionnalités d'analyse des ADTrees qui seront détaillées dans cette section. 
 
 
 	\subsection{Optimiseur}
@@ -139,4 +139,4 @@
 
 			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant, puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées, diminuant fortement la probabilité de succès. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ce risque et d'augmenter la probabilité de succès. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'expert et entraîner deux interprétations très différentes. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte simultanément. C'est ensuite à l'expert de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, s'il décide d'appeler le nouveau paramètre \og result \fg{}, et qu'il estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
 
-			Les principaux modules de \glasir étant présentés, la section détailleras l'implémentation de différentes fonctionnalités dans \glasir{} pour le rendre simple et pratique. De plus, elle traiteras des améliorations apportés à ADToool pour le rendre plus ergonomique pour l'utilisateur.
+			Les principaux modules de \glasir{} étant présentés, la prochaine section détaillera l'implémentation de différentes fonctionnalités dans \glasir{} pour le rendre simple et pratique. De plus, elle traitera des améliorations apportées à ADToool pour le rendre plus ergonomique pour l'utilisateur.
