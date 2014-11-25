@@ -6,9 +6,9 @@
 	\subsection{Optimiseur}
 		\label{subsection:optimiseur}
 
-		Une fois que l'expert a obtenu son arbre complet sur ADTool (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		Une fois que l'expert a obtenu son arbre complet avec ADTool (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
 		
-		Pourtant, la méthode utilisée est systématique\footnote{Il suffit de parcourir l'arbre en sens inverse, en partant de la racine.} : nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal fera gagner beaucoup de temps à l'expert, et permettra aussi de limiter les risques d'erreurs.
+		Pourtant, la méthode utilisée est systématique. Il suffit de parcourir l'arbre en partant de la racine et de sélectionner à chaque étage le nœud le plus intéressant. Pouvoir identifier automatiquement le chemin optimal fera gagner beaucoup de temps à l'expert, et permettra aussi de limiter les risques d'erreurs. Ce processus peut donc être implémenté dans \glasir{}. 
 
 		Nous allons donc créer un \textit{optimiseur} afin de répondre à ce besoin.
 		Ses entrées seront donc les suivantes :
