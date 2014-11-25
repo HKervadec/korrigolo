@@ -1,4 +1,7 @@
 \section{Architecture logicielle}
+\label{Section : Archi}
+
+Le dépassement des limitations d'ADTool conduit au développement 
 
 Les nouvelles fonctionnalités, présentées dans les parties suivantes, ne seront pas implémentées directement dans ADTool. Un nouveau logiciel nommé \glasir{}, qui utilisera cet éditeur d'arbres, sera développé pour ce projet. Deux raisons ont motivé cette décision. 
 La première est de séparer l'analyse et l'édition des ADTrees, afin d'avoir des logiciels dédiés à leur tâche. Cette solution permet d'utiliser des technologies différentes de celles d'ADTool, enrichissant ainsi notre formation. \glasir{} se chargera de la partie \textit{analyse}, et ADTool de la partie \textit{édition des arbres} sous forme de sous-fenêtre de \glasir{}. On peut voir sur la {\sc Figure} \ref{fig:architecture_Glasir} l'intégration d'ADTool dans l'architecture de \glasir{}.
