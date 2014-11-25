@@ -14,8 +14,8 @@
 		Nous allons donc créer un \textit{optimiseur} afin de répondre à ce besoin.
 		Ses entrées seront donc les suivantes :
 		\begin{itemize}
-			\item Un arbre provenant du projet ;
-			\item Le paramètre à prendre en compte.
+			\item un arbre provenant du projet ;
+			\item le paramètre à prendre en compte.
 		\end{itemize}
 		Nous obtiendrons en sortie un nouvel arbre (qui sera un sous-graphe de l'arbre d'entrée), contenant le chemin optimal. L'expert pourra ensuite le traiter comme un tout nouvel arbre, en fonction de ses besoins.
 		
@@ -37,7 +37,7 @@
 			\label{fig:arbre_post_opti}
 		\end{figure}
 	
-		L'algorithme parcourant l'arbre à la recherche du chemin idéal est détaillé Algorithme \ref{algo:opti}.
+		L'algorithme parcourant l'arbre à la recherche du chemin idéal est détaillé dans l'Algorithme \ref{algo:opti}.
 		\begin{algorithm}[h!]
 			\caption{opti(racine, param)}
 			\label{algo:opti}
@@ -97,7 +97,7 @@
 		\end{figure}
 		On constate que l'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de taille très réduite comparé aux modélisations de systèmes réels, on comprend bien l'utilité de cette fonctionnalité pour l'expert.
 
-		L'algorithme utilisé est présenté Algorithme \ref{algo:filtre}. 
+		L'algorithme utilisé est l'Algorithme \ref{algo:filtre}. 
 		\begin{algorithm}[h!]
 			\caption{filtre(racine, rules)}
 			\label{algo:filtre}
@@ -126,7 +126,7 @@
 
 			L'expert est actuellement cantonné aux paramètres présentés dans la {\sc{Section}} \ref{sec:adtool} et ne peut pas en créer d'autres, ce qui limite ses possibilités d'analyse. En effet, les paramètres déjà existants ne sont pas les seuls pouvant intéresser un expert en sécurité. Nous souhaitons donc rendre possible la création de nouveaux paramètres, à partir de ceux déjà disponibles et des fonctions mathématiques de base (division, multiplication, min, max, etc.). Ces nouvelles valuations pourront ensuite être appliquées à n'importe quel arbre, de la même manière que les paramètres de base. Elles pourront ainsi être utilisées pour évaluer les arbres selon de nouveaux critères, et si besoin pour les élaguer à l'aide du filtre que nous allons implémenter.
 
-			Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendrait donc en entrée les éléments suivants :
+			Cette nouvelle fonctionnalité, appelée \emph{éditeur de paramètres}, prendra donc en entrée les éléments suivants :
 			\begin{itemize}
 				\item un arbre provenant du projet courant ;
 				\item les paramètres intervenant dans la synthèse ;
