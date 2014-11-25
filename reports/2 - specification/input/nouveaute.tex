@@ -1,6 +1,9 @@
 \section{Fonctions d'analyse}
 
-	Plutôt qu'implémenter les nouvelles fonctionnalités directement dans ADTool, nous avons fait le choix de créer un nouveau logiciel nommé \glasir qui utilisera cet éditeur d'arbres. Deux raisons nous ont poussés à prendre cette décision. La première est de séparer l'analyse et l'édition des ADTrees, afin d'avoir des logiciels dédiés à leur tâche. De plus, cette solution nous permet d'utiliser des technologies différentes de celles d'ADTool, enrichissant ainsi notre formation. \glasir se chargera de la partie \textit{analyse}, et ADTool de la partie \textit{édition des arbres} sous forme de sous-fenêtre de \glasir. On peut voir sur la {\sc Figure} \ref{fig:architecture_Glasir} l'intégration d'ADTool dans l'architecture de \glasir. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité.
+	Plutôt qu'implémenter les nouvelles fonctionnalités directement dans ADTool, nous avons fait le choix de créer un nouveau logiciel nommé \glasir{} qui utilisera cet éditeur d'arbres. Deux raisons nous ont poussés à prendre cette décision. La première est de séparer l'analyse et l'édition des ADTrees, afin d'avoir des logiciels dédiés à leur tâche. De plus, cette solution nous permet d'utiliser des technologies différentes de celles d'ADTool, enrichissant ainsi notre formation. \glasir{} se chargera de la partie \textit{analyse}, et ADTool de la partie \textit{édition des arbres} sous forme de sous-fenêtre de \glasir{}. On peut voir sur la {\sc Figure} \ref{fig:architecture_Glasir} l'intégration d'ADTool dans l'architecture de \glasir. Nous avons choisi d'implémenter trois fonctionnalités principales, qui nous semblent répondre le mieux aux besoins d'un expert en sécurité. Celles-ci seront incluses dans trois modules de \glasir{} : l'optimiseur, le filtre et le paramètre de synthèse. 
+	% changer l'ordre ?
+	% donner un nom au module du paramètre de ssynthése ?
+	% oublier cette histoire de module ?
 
 	\begin{figure}[h!]
 		\centering
@@ -12,7 +15,7 @@
 	\subsection{Optimiseur}
 		\label{subsection:optimiseur}
 
-		Une fois que l'expert a obtenu son arbre complet (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre.
+		Une fois que l'expert a créer son arbre complet dans ADTool (qui peut se composer de plusieurs milliers de nœuds), il ne peut pas facilement identifier le chemin optimal selon un paramètre donné. Il s'agit en effet d'un travail manuel, relativement fastidieux, qui doit être recommencé à chaque modification de l'arbre. 
 		
 		Pourtant, la méthode utilisée est systématique : nous pouvons donc l'automatiser dans notre logiciel. Pouvoir identifier automatiquement le chemin optimal ferait gagner beaucoup de temps à l'utilisateur, et permettrait aussi de limiter les risques d'erreurs.
 
@@ -39,7 +42,7 @@
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.35\textwidth]{figure/post_optimiseur.pdf}
-			\caption{L'attaque optimale est ainsi facilement lisible.}
+			\caption{L'attaque optimale par rapport au coût minimal est ainsi facilement lisible.}
 			\label{fig:arbre_post_opti}
 		\end{figure}
 	
@@ -148,4 +151,4 @@
 
 			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant, puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées, diminuant fortement la probabilité de succès. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ce risque et d'augmenter la probabilité de succès. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'expert et entraîner deux interprétations très différentes. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de paramètres, afin de les prendre en compte simultanément. C'est ensuite à l'expert de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, s'il décide d'appeler le nouveau paramètre \og result \fg{}, et qu'il estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
 
-			Les principales innovations apportées par \glasir étant présentées, la section qui suit apportera des détails concernant les améliorations directement apportées à ADTool. En effet, ce dernier présente quelques défauts de praticité que nous souhaitons corriger.
+			Les principaux modules de \glasir étant présentés, la section détailleras l'implémentation de différentes fonctionnalités dans \glasir{} pour le rendre simple et pratique. De plus, elle traiteras des améliorations apportés à ADToool pour le rendre plus ergonomique pour l'utilisateur.
