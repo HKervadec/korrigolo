@@ -17,7 +17,7 @@
 		\end{itemize}
 		En sortie sera obtenu un nouvel arbre, sous-graphe de l'arbre d'entrée, contenant le chemin optimal. L'expert pourra ensuite le traiter comme un tout nouvel arbre, en fonction de ses besoins.
 		
-		Prenons en exemple l'arbre de la {\sc Figure}~\ref{fig:pre_optimiseur}. Si l'objectif est de trouver un chemin optimal avec le paramètre \og coût minimal \fg{}, et en critère la fonction $min$, le résultat est l'arbre de la {\sc Figure}~\ref{fig:arbre_post_opti}.
+		Prenons en exemple l'arbre de la {\sc Figure}~\ref{fig:pre_optimiseur}. Si l'objectif est de trouver un chemin optimal pour le paramètre \og coût minimal \fg{}, le résultat est l'arbre de la {\sc Figure}~\ref{fig:arbre_post_opti}.
 		
 		\begin{landscape}
 	        \begin{figure}
@@ -65,6 +65,7 @@
 			\item \verb|racine| correspond au nœud à partir duquel l'arbre sera élagué ;
 			\item \verb|param| est une fonction renvoyant une valeur pour un nœud donné ;
 			\item \verb|fils| est une fonction renvoyant la liste des fils du nœud passé en paramètre ;
+			\item \verb|mode| précise si il s'agit d'un nœud disjonctif ou conjonctif ;
 			\item \verb|defense| est une fonction prenant un nœud en entrée et renvoyant un booléen indiquant si il s'agit d'un nœud d'attaque ou de défense.
 		\end{itemize}
 		L'algorithme est récursif et modifie l'arbre en l'état (il est donc obligatoire de travailler sur une copie de l'arbre). 
@@ -85,7 +86,7 @@
 		\end{itemize}
 		L'arbre retourné par la fonction de filtrage sera une copie élaguée de l'arbre original. Seuls les chemins respectant tous les intervalles de filtrage indiqués seront conservés.
 
-		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût minimal \fg{} à l'arbre de la {\sc Figure}~\ref{fig:arbre_post_opti}, l'arbre obtenu est celui de la {\sc Figure}~\ref{fig:arbre_post_filtre}. En effet, il contient uniquement les valeurs comprises dans l'intervalle spécifié. 
+		Par exemple, en appliquant un filtre sur l'intervalle $[0, 500]$ et sur la valuation \og coût minimal \fg{} à l'arbre de la {\sc Figure}~\ref{fig:pre_optimiseur}, l'arbre obtenu est celui de la {\sc Figure}~\ref{fig:arbre_post_filtre}. En effet, il contient uniquement les valeurs comprises dans l'intervalle spécifié. 
 		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[width=0.75\textwidth]{figure/post_filtre.pdf}
@@ -95,14 +96,14 @@
 		\end{figure}
 		L'arbre élagué par le filtre a été considérablement réduit. L'arbre exemple étant de très petite taille comparé aux modélisations de systèmes réels, cette fonctionnalité sera d'une grande aide pour l'expert.
 
-		Nous utiliserons dans ce module l'{\sc Algorithme}~\ref{algo:filtre}. 
+		Nous utiliserons dans ce module l'algorithme~\ref{algo:filtre}. 
 		\begin{algorithm}[h!]
 			\caption{filtre(racine, rules)}
 			\label{algo:filtre}
 			\begin{algorithmic}
 				\FOR{r in rules}
 					\IF{not r(racine)}
-						\STATE delete(racine AND subtrees)
+						\STATE delete(r) // will delete subtrees as well
 						\RETURN
 					\ENDIF
 				\ENDFOR
@@ -112,7 +113,7 @@
 				\ENDFOR
 			\end{algorithmic}
 		\end{algorithm}
-		Cet algorithme est lui aussi récursif, le nombre d'appels sera donc au pire en $\mathcal{O}(n)$.
+		Cet algorithme est lui aussi récursif, et son nombre d'appels sera au pire en $\mathcal{O}(n)$ ($n$ étant toujours le nombre de nœuds de l'arbre).
 		\begin{itemize}
 			\item \verb|racine| est le point de départ de l'algorithme ;
 			\item \verb|rules| est l'ensemble des règles de filtrage (valuations et intervalles).
@@ -133,7 +134,7 @@
 
 			Par exemple, dans l'arbre de la {\sc Figure}~\ref{fig:pre_optimiseur}, les deux sous-arbres \og Obtenir illégalement des tickets \fg{} (sous-arbre A) et \og Falsifier des tickets \fg{} (sous-arbre B) permettent d'atteindre l'objectif final. Il est actuellement possible de les valuer par treize paramètres, nous n'en garderons ici que deux pour simplifier : le coût minimal et la probabilité de succès.
 
-			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant, puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées, diminuant fortement la probabilité de succès. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ce risque et d'augmenter la probabilité de succès. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'expert et entraîner deux interprétations très différentes. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de fonctions, afin de les prendre en compte simultanément. C'est ensuite à l'expert de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, s'il décide d'appeler le nouveau paramètre \og result \fg{}, et qu'il estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
-			La synthèse \og result \fg{} sera désormais disponible pour donner des valuations aux nœuds de n'importe quel arbre, et pourra elle-même être utilisée pour créer d'autres paramètres.
+			On constate rapidement que choisir A implique un coût de réalisation moindre pour l'attaquant, puisqu'il nécessite peu de matériel. Cependant, un vol est toujours risqué, et les chances de se faire arrêter sont élevées, diminuant fortement la probabilité de succès. Opter pour le sous-arbre B, bien que plus cher à réaliser, permet de limiter ce risque et d'augmenter la probabilité de succès. On voit donc que ces deux paramètres, qui ne sont pas liés, peuvent être tous les deux utiles à l'expert et entraîner deux interprétations très différentes. C'est pourquoi il serait intéressant de pouvoir les combiner, grâce à notre éditeur de fonctions, afin de les prendre en compte simultanément. C'est ensuite à l'expert de juger des liens qu'il désire instaurer entre les paramètres : fonctions mathématiques, coefficients, etc. Par exemple, s'il décide d'appeler le nouveau paramètre $result$, et qu'il estime qu'il s'agit du coût auquel on ajoute la probabilité de succès multipliée par deux, on obtient la synthèse suivante : \[ result = (minimal\_cost) + 2 \times (probability\_of\_success).\]
+			La synthèse $result$ sera désormais disponible pour donner des valuations aux nœuds de n'importe quel arbre, et pourra elle-même être utilisée pour créer d'autres paramètres.
 
 			Les principaux modules de \glasir{} étant présentés, la prochaine section détaillera l'implémentation des différentes fonctionnalités dans \glasir{} destinées à le rendre simple et ergonomique. De plus, elle traitera des améliorations apportées à ADTool pour le rendre plus pratique pour l'utilisateur.
