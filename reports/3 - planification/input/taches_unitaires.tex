@@ -1,7 +1,10 @@
 \section{Tâches unitaires}
 	\label{sec:taches_unitaires}
 
-	Les tests unitaires étants réalisés au fûr et à mesure, ils sont prit en compte dans l'estimation du temps nécessaire à la réalisation des tâches.
+	Au cours de nos réunions, nous nous sommes naturellement dirigés vers une méthode agile ressemblant à \og Scrum \fg. Nous nous réunissons une fois par semaine afin de discuter de l'avancement de nos tâches respectives et faire part de nos difficultés. Nous définissons en fonction de cela des tâches à effectuer la semaine suivante. Ainsi, nous avons décidé de livrer trois versions de \glasir{}, dont 2 intermédiaires.
+	Chaque version sera composée de sprints au cours desquels nous nous consacrerons à un sous-ensemble de tâches nécessaires à une version. %whattt ???
+	Nous présentons ci-dessous la composition des livrables. Pour chacun, nous donnerons à la suite la composition des trois sprints que nous avons définis.
+	\footnote{Les tests unitaires étants réalisés au fur et à mesure, ils sont pris en compte dans l'estimation du temps nécessaire à la réalisation des tâches.}
 
 	\subsection{Version intermédiaire 1}
 
@@ -37,6 +40,11 @@
 			\label{fig:taches_units_1}
 		\end{table}
 
+		Pour cette version, les trois sprints seront :
+		\paragraph{Sprint 1} Création de l'IHM de base de \glasir{}, intégration du logiciel ADTool en tant que fenêtre de \glasir{}, possibilité de création d'un nouveau projet et sa sauvegarde, affichage des différents arbres d'un projet dans un dock sous forme d'arborescence.
+		\paragraph{Sprint 2} Reconnaissance d'une formule mathématique par le logiciel ADTool, création d'un paramètre en fonction de l'évaluation de cette formule, et l'amélioration de la représentation des arbres sous forme d'une grammaire au sein d'ADTool.
+		\paragraph{Sprint 3} Affichage de plusieurs paramètres par nœud d'un arbre, possibilité de communication entre le module éditeur de fonction de \glasir{} et la partie création d'un paramètre de synthèse implémentée précédemment dans ADTool. 
+
 	\subsection{Version intermédiaire 2}
 
 		\begin{table}[h]
@@ -65,6 +73,10 @@
 			\label{fig:taches_units_2}
 		\end{table}
 
+		\paragraph{Sprint 4} Implémentation de l'algorithme de filtrage, permettre l'ouverture de plusieurs instance d'ADTool au sein de différents onglet de l'IHM de \glasir{}. 
+		\paragraph{Sprint 5} Affichage du panneau relatif à ce module au sein de l'IHM de \glasir{}. Implémentation de la fonction couper/copier-coller. % ou durant le snd sprint?
+		\paragraph{Sprint 6} Affichage de l'arbre filtré.
+
 	\subsection{Version finale}
 
 		\begin{table}[h]
@@ -92,3 +104,7 @@
 			\caption{Tableau tâches version finale}
 			\label{fig:taches_units_3}
 		\end{table}
+
+		\paragraph{Sprint 7} Implémentation de l'algorithme de l'optimiseur, création d'une bibliothèque de modèles. 
+		\paragraph{Sprint 8} Affichage du panneau de l'optimiseur dans \glasir{}, possibilité d'annuler une action dans ADTool. 
+		\paragraph{Sprint 9} Harmonisation de l'interface et réalisation du packaging.
