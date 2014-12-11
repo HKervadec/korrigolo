@@ -1,10 +1,46 @@
 \section{Risques}
 	\label{sec:risques}
 
+	L'implémentation d'un logiciel comporte toujours des risques. Afin de ne pas nous laisser surprendre par ces derniers, nous avons cherché à lister ceux qui nous venaient à l'esprit. Ils sont répertoriés dans le tableau\ref{fig:risques}, avec les tâches qu'ils concernent. Nous leur avons ajouté les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Enfin, la dernière colonne cite des solutions possibles pour contre les risques énoncés.
+
 	\begin{table}
 		\centering
-		\begin{tabular}{|l|c|c|l|}
-
+		\begin{tabular}{|p{4cm}|l|l|l|p{4cm}|}
+		\hline
+            \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
+            \hline
+            Manque de temps pour tout réaliser & 
+                Toutes & 3 & 3 &
+                Bien s'organiser et respecter les délais\\ 
+            \hline
+            Apparition d'un bug difficile à corriger & 
+                Toutes & 3 & 3 &
+                Tests réguliers\\ 
+            \hline
+            Manque de connaissances techniques & 
+                Toutes & 3 & 3 &
+                Approfondir nos connaissances\\ 
+            \hline
+            Rédaction de la documentation à la fin & 
+                Toutes & 2 & 2 &
+                Rédaction au fur et à mesure du code\\
+            \hline
+            Mauvaise compréhension d'ADTool & 
+                Toutes celles sur ADTool & 2 & 2 &
+                Bien étudier le code d'ADTool et son fonctionnement\\ 
+            \hline
+            Perte de temps sur une tâche secondaire & 
+                Toutes & 2 & 1 &
+                Compter ses heures et faire des checkpoints\\ 
+            \hline
+            Algorithme ralentissant le logiciel & 
+                3.1, 2.2 & 1 & 1 &
+                Optimiser l’algorithme\\ 
+            \hline
+            Échec de l'intégration d'ADTool dans \glasir{} & 
+                1.2 & 1 & 1 &
+                Lancer ADTool séparément\\ 
+            \hline
 		\end{tabular}
 		\caption{Tableau des risques}
 		\label{fig:risques}
