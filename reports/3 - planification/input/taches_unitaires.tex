@@ -1,12 +1,37 @@
 \section{Tâches unitaires}
 	\label{sec:taches_unitaires}
 
+	Les tests unitaires étants réalisés au fûr et à mesure, ils sont prit en compte dans l'estimation du temps nécessaire à la réalisation des tâches.
+
 	\subsection{Version intermédiaire 1}
 
 		\begin{table}
 			\centering
-			\begin{tabular}{|l|l|l|}
+			\begin{tabular}{|c|r|l|c|r|}
+				\hline
+				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+				\hline
 
+				\multirow{5}{*}{\glasir{}} & 1.1 & Créer squelette interface & WPF & xh\\
+				\cline{2-5}
+				 & 1.2 & Gestion des fichiers du projet & C++ & xh\\
+				\cline{2-5}
+				 & 1.3 & Intégrer ADTool dans application & C++, JNI, WPF & xh\\
+				\cline{2-5}
+				 & 1.4 & \'Evaluateur de fonction & C++, Yacc & xh\\
+				\cline{2-5}
+				 & 1.5 & Interface évaluateur & WPF & xh\\
+				\hline
+
+				\multirow{3}{*}{ADTool} & 1.6 & Mise a jours des valeurs & \multirow{3}{*}{Java} & xh\\
+				\cline{2-3} \cline{5-5}
+				 & 1.7 & Refonte du langage des arbres & & xh\\
+				\cline{2-3} \cline{5-5}
+				 & 1.8 & Vue globale des paramètres & & xh\\
+				\hline
+
+				\multicolumn{4}{|l|}{\bf Total} & {\bf 42h}\\
+				\hline
 			\end{tabular}
 			\caption{Tableau tâches version intermédiaire 1}
 			\label{fig:taches_units_1}
@@ -16,8 +41,25 @@
 
 		\begin{table}
 			\centering
-			\begin{tabular}{|l|l|l|}
+			\begin{tabular}{|c|r|l|c|r|}
+				\hline
+				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+				\hline
 
+				\multirow{4}{*}{\glasir{}} & 2.1 & Algorithme de filtrage & C++ & xh\\
+				\cline{2-5}
+				 & 2.2 & Interface filtre & WPF & xh\\
+				\cline{2-5}
+				 & 2.3 & Multiples instances d'ADTool & C++, WPF & xh\\
+				\cline{2-5}
+				 & 2.4 & Affichage de l'arbre filtré & C++, WPF & xh\\
+				\hline
+
+				\multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & xh\\
+				\hline
+
+				\multicolumn{4}{|l|}{\bf Total} & {\bf 42h}\\
+				\hline
 			\end{tabular}
 			\caption{Tableau tâches version intermédiaire 2}
 			\label{fig:taches_units_2}
@@ -27,8 +69,25 @@
 
 		\begin{table}
 			\centering
-			\begin{tabular}{|l|l|l|}
+			\begin{tabular}{|c|r|l|c|r|}
+				\hline
+				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+				\hline
 
+				\multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & xh\\
+				\cline{2-5}
+				 & 3.2 & Bibliothèque de modèles & C++, WPF & xh\\
+				\cline{2-5}
+				 & 3.3 & Harmonisation interface & WPF & xh\\
+				\cline{2-5}
+				 & 3.4 & Packaging & ? & xh\\
+				\hline
+
+				\multirow{1}{*}{ADTool} & 3.5 & Ctrl-z & \multirow{1}{*}{Java} & xh\\
+				\hline
+
+				\multicolumn{4}{|l|}{\bf Total} & {\bf 42h}\\
+				\hline
 			\end{tabular}
 			\caption{Tableau tâches version finale}
 			\label{fig:taches_units_3}
