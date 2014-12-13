@@ -22,116 +22,175 @@
 	Les résultats de ces différentes estimations sont décrits ci-après pour chaque version. Il est à noter que les tests et la rédaction de la documentation sont pris en compte dans l'estimation du temps nécessaire à la réalisation de chacune des tâches.
 	
 
-	\subsubsection{Version 0.1}
-		Huit grandes tâches ont été identifiées pour cette version et sont présentées dans la {\sc Table} \ref{tab:taches_units_1}. 
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|c|r|l|c|r|}
-				\hline
-				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-				\hline
+		\subsubsection{Version 0.1}
+			Huit grandes tâches ont été identifiées pour cette version et sont présentées dans la {\sc Table} \ref{tab:taches_units_1}. 
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|c|r|l|c|r|}
+					\hline
+					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+					\hline
 
-				\multirow{5}{*}{\glasir{}} & 1.1 & Création squelette interface & WPF & 6h\\
-				\cline{2-5}
-				 & 1.2 & Gestion fichiers projet & C++ & 20h\\
-				\cline{2-5}
-				 & 1.3 & Intégration ADTool dans \glasir & JNI & 20h\\
-				\cline{2-5}
-				 & 1.4 & \'Evaluateur de fonction & Java & 12h\\
-				\cline{2-5}
-				 & 1.5 & Interface évaluateur & WPF & 8h\\
-				\hline
+					\multirow{5}{*}{\glasir{}} & 1.1 & Création squelette interface & WPF & 6h\\
+					\cline{2-5}
+					 & 1.2 & Gestion fichiers projet & C++ & 20h\\
+					\cline{2-5}
+					 & 1.3 & Intégration ADTool dans \glasir & JNI & 20h\\
+					\cline{2-5}
+					 & 1.4 & \'Evaluateur de fonction & Java & 12h\\
+					\cline{2-5}
+					 & 1.5 & Interface évaluateur & WPF & 8h\\
+					\hline
 
-				\multirow{3}{*}{ADTool} & 1.6 & Valuation ADTrees & \multirow{3}{*}{Java} & 18h\\
-				\cline{2-3} \cline{5-5}
-				 & 1.7 & Refonte langage des ADTrees & & 16h\\
-				\cline{2-3} \cline{5-5}
-				 & 1.8 & Vue globale des paramètres & & 12h\\
-				\hline
+					\multirow{3}{*}{ADTool} & 1.6 & Valuation ADTrees & \multirow{3}{*}{Java} & 18h\\
+					\cline{2-3} \cline{5-5}
+					 & 1.7 & Refonte langage des ADTrees & & 16h\\
+					\cline{2-3} \cline{5-5}
+					 & 1.8 & Vue globale des paramètres & & 12h\\
+					\hline
 
-				\multicolumn{4}{|l|}{\bf Total} & {\bf 112h}\\
-				\hline
-			\end{tabular}
-			\caption{Tâches associées à la version 0.1.}
-			\label{tab:taches_units_1}
-		\end{table}
-		
-		
-		La réalisation de cette version sera découpée en trois sprints, présentés ci-dessous.\newline
-		\textbf{Sprint 1} Création de l'interface utilisateur de base de \glasir{}, intégration du logiciel ADTool en tant que fenêtre de \glasir{}, possibilité de création d'un nouveau projet et sa sauvegarde, affichage des différents arbres d'un projet dans un dock sous forme d'arborescence.\newline
-		\textbf{Sprint 2} Reconnaissance d'une formule mathématique par le logiciel ADTool, création d'un paramètre en fonction de l'évaluation de cette formule, et l'amélioration de la représentation des arbres sous forme d'une grammaire au sein d'ADTool.\newline
-		\textbf{Sprint 3} Affichage de plusieurs paramètres par nœud d'un arbre, possibilité de communication entre le module éditeur de fonction de \glasir{} et la partie création d'un paramètre de synthèse implémentée précédemment dans ADTool.\newline
+					\multicolumn{4}{|l|}{\bf Total} & {\bf 112h}\\
+					\hline
+				\end{tabular}
+				\caption{Tâches associées à la version 0.1.}
+				\label{tab:taches_units_1}
+			\end{table}
+			
+			
+			La réalisation de cette version sera découpée en trois sprints, présentés ci-dessous.\newline
+			\textbf{Sprint 1} Création de l'interface utilisateur de base de \glasir{}, intégration du logiciel ADTool en tant que fenêtre de \glasir{}, possibilité de création d'un nouveau projet et sa sauvegarde, affichage des différents arbres d'un projet dans un dock sous forme d'arborescence.\newline
+			\textbf{Sprint 2} Reconnaissance d'une formule mathématique par le logiciel ADTool, création d'un paramètre en fonction de l'évaluation de cette formule, et l'amélioration de la représentation des arbres sous forme d'une grammaire au sein d'ADTool.\newline
+			\textbf{Sprint 3} Affichage de plusieurs paramètres par nœud d'un arbre, possibilité de communication entre le module éditeur de fonction de \glasir{} et la partie création d'un paramètre de synthèse implémentée précédemment dans ADTool.\newline
 
 
-	\subsubsection{Version 0.2}
-		Le développement de la version 0.2 est découpé en cinq tâches, visibles dans la {\sc table} \ref{tab:taches_units_2}.
-		\begin{table}[h]
-			\centering
-			\begin{tabular}{|c|r|l|c|r|}
-				\hline
-				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-				\hline
+		\subsubsection{Version 0.2}
+			Le développement de la version 0.2 est découpé en cinq tâches, visibles dans la {\sc table} \ref{tab:taches_units_2}.
+			\begin{table}[h]
+				\centering
+				\begin{tabular}{|c|r|l|c|r|}
+					\hline
+					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+					\hline
 
-				\multirow{4}{*}{\glasir{}} & 2.1 & Algorithme filtrage & C++ & 24h\\
-				\cline{2-5}
-				 & 2.2 & Interface filtre & WPF & 15h\\
-				\cline{2-5}
-				 & 2.3 & Multiples instances d'ADTool & C++, WPF & 20h\\
-				\cline{2-5}
-				 & 2.4 & Affichage arbre filtré & Java, WPF & 16h\\
-				\hline
+					\multirow{4}{*}{\glasir{}} & 2.1 & Algorithme filtrage & C++ & 24h\\
+					\cline{2-5}
+					 & 2.2 & Interface filtre & WPF & 15h\\
+					\cline{2-5}
+					 & 2.3 & Multiples instances d'ADTool & C++, WPF & 20h\\
+					\cline{2-5}
+					 & 2.4 & Affichage arbre filtré & Java, WPF & 16h\\
+					\hline
 
-				\multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & 25h\\
-				\hline
+					\multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & 25h\\
+					\hline
 
-				\multicolumn{4}{|l|}{\bf Total} & {\bf 100h}\\
-				\hline
-			\end{tabular}
-			\caption{Tâches associées à la version 0.2.}
-			\label{tab:taches_units_2}
-		\end{table}
-		
-		Les sprints se composeront de :
-		
-		\textbf{Sprint 4} Implémentation de l'algorithme de filtrage, permettre l'ouverture de plusieurs instances d'ADTool au sein de différents onglets de l'interface de \glasir{}.\newline 
-		\textbf{Sprint 5} Affichage du panneau relatif à ce module au sein de l'interface utilisateur de \glasir{}. Implémentation de la fonction couper/copier-coller.\newline % ou durant le snd sprint?
-		\textbf{Sprint 6} Affichage de l'arbre filtré.
+					\multicolumn{4}{|l|}{\bf Total} & {\bf 100h}\\
+					\hline
+				\end{tabular}
+				\caption{Tâches associées à la version 0.2.}
+				\label{tab:taches_units_2}
+			\end{table}
+			
+			Les sprints se composeront de :
+			
+			\textbf{Sprint 4} Implémentation de l'algorithme de filtrage, permettre l'ouverture de plusieurs instances d'ADTool au sein de différents onglets de l'interface de \glasir{}.\newline 
+			\textbf{Sprint 5} Affichage du panneau relatif à ce module au sein de l'interface utilisateur de \glasir{}. Implémentation de la fonction couper/copier-coller.\newline % ou durant le snd sprint?
+			\textbf{Sprint 6} Affichage de l'arbre filtré.
 
-	\subsubsection{Version 1.0}
-		Quatre tâches ont été identifiées pour la version 1.0 de \glasir{}, regroupées dans la {\sc Table} \ref{tab:taches_units_3}.
-		\begin{table}[h]
-			\centering
-			\begin{tabular}{|c|r|l|c|r|}
-				\hline
-				\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-				\hline
+		\subsubsection{Version 1.0}
+			Quatre tâches ont été identifiées pour la version 1.0 de \glasir{}, regroupées dans la {\sc Table} \ref{tab:taches_units_3}.
+			\begin{table}[h]
+				\centering
+				\begin{tabular}{|c|r|l|c|r|}
+					\hline
+					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+					\hline
 
-				\multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & 30h\\
-				\cline{2-5}
-				 & 3.2 & Bibliothèque de modèles & C++, WPF & 20h\\
-				\cline{2-5}
-				 & 3.3 & Harmonisation interface & WPF & 16h\\
-				\cline{2-5}
-				 & 3.4 & Packaging & ? & 8h\\
-				\hline
+					\multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & 30h\\
+					\cline{2-5}
+					 & 3.2 & Bibliothèque de modèles & C++, WPF & 20h\\
+					\cline{2-5}
+					 & 3.3 & Harmonisation interface & WPF & 16h\\
+					\cline{2-5}
+					 & 3.4 & Packaging & ? & 8h\\
+					\hline
 
-				\multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
-				\hline
+					\multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
+					\hline
 
-				\multicolumn{4}{|l|}{\bf Total} & {\bf 90h}\\
-				\hline
-			\end{tabular}
-			\caption{Tâches associées à la version 1.0.}
-			\label{tab:taches_units_3}
-		\end{table}
-		
-		Les sprints se composeront de :		
-		
-		\textbf{Sprint 7} Implémentation de l'algorithme de l'optimiseur, création d'une bibliothèque de modèles.\newline
-		\textbf{Sprint 8} Affichage du panneau de l'optimiseur dans \glasir{}, possibilité d'annuler une action dans ADTool.\newline
-		\textbf{Sprint 9} Harmonisation de l'interface et réalisation du packaging. \newline
+					\multicolumn{4}{|l|}{\bf Total} & {\bf 90h}\\
+					\hline
+				\end{tabular}
+				\caption{Tâches associées à la version 1.0.}
+				\label{tab:taches_units_3}
+			\end{table}
+			
+			Les sprints se composeront de :		
+			
+			\textbf{Sprint 7} Implémentation de l'algorithme de l'optimiseur, création d'une bibliothèque de modèles.\newline
+			\textbf{Sprint 8} Affichage du panneau de l'optimiseur dans \glasir{}, possibilité d'annuler une action dans ADTool.\newline
+			\textbf{Sprint 9} Harmonisation de l'interface et réalisation du packaging. \newline
 
 		%TODO estimations
+
+
+	\subsection{Risques}
+		\label{subsec:risques}
+
+	%L'implémentation d'un logiciel comporte toujours des risques. Afin de ne pas nous laisser surprendre par ces derniers, nous avons cherché à lister ceux qui nous venaient à l'esprit.
+
+    Pour que notre projet se déroule le mieux possible, nous avons listé certains événements susceptibles de nous faire prendre du retard. Ils sont répertoriés dans le tableau\ref{fig:risques}, avec les tâches qu'ils concernent. Nous leur avons ajouté les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Enfin, la dernière colonne cite des solutions possibles pour contre les risques énoncés.
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{4cm}|l|l|l|p{4cm}|}
+		\hline
+            \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
+            \hline
+            Mauvaise estimation des durées nécessaires aux tâches unitaires & 
+                Toutes & 3 & 3 &
+                Bien s'organiser et respecter les délais\\ 
+            \hline
+            Apparition d'un bug difficile à corriger & 
+                Toutes & 3 & 3 &
+                Faire des tests unitaires\\
+            \hline
+            Difficulté à créer une grammaire & 
+                1.4 & 1 & 2 &
+                Simplifier les expressions à évaluer\\ 
+            \hline
+            Manque de connaissances techniques & 
+                Toutes & 3 & 3 &
+                Approfondir nos connaissances\\ 
+            \hline
+            Rédaction trop tardive de la documentation & 
+                Toutes & 2 & 1 &
+                Commenter le code au fur et à mesure\\
+            \hline
+            Mauvaise compréhension du code d'ADTool & 
+                Toutes celles sur ADTool & 2 & 2 &
+                Bien étudier le code d'ADTool et son fonctionnement\\ 
+            \hline
+            Mauvaise communication entre ADTool et \glasir{} & 
+                1.4, 2.1, 3.1 & 2 & 3 &
+                Bien s'organiser et respecter les délais\\ 
+            \hline
+            Perte de temps sur une tâche secondaire & 
+                Toutes & 2 & 1 &
+                Compter ses heures, faire le point lors des réunions\\ 
+            \hline
+            Algorithme ralentissant le logiciel & 
+                3.1, 2.2 & 1 & 1 &
+                Optimiser l’algorithme\\ 
+            \hline
+            Échec de l'intégration d'ADTool dans \glasir{} & 
+                1.2 & 1 & 3 &
+                Lancer ADTool séparément\\ 
+            \hline
+		\end{tabular}
+		\caption{Tableau des risques}
+		\label{fig:risques}
+	\end{table}
 	
 	\subsection{Organisation du groupe et répartition des tâches}
 		Lors de la phase de développement de \glasir{}, notre groupe de projet sera réduit à trois étudiants : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} et Maud {\sc Leray}. Les trois autres, Florent {\sc Mallard}, Hoel {\sc Kervadec} ainsi que Corentin {\sc Nicole} partiront en effet étudier à l'étranger.
