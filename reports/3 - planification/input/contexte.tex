@@ -1,20 +1,41 @@
 \section{Contexte}
+	\label{sec:contexte}
 
-	\subsection{Besoins et Objectifs}
-	
+	% texte d'intro à rajouter mais pas d'idée :(
+
+	\subsection{Acteurs}
+
+	Ce projet de 4INFO ne concerne pas un large éventail d'acteurs. En effet, nous n'avons pas de client à proprement parler : malgré notre illustration par l'exemple du STAR, le projet sera destiné aux experts en sécurité de façon générale. 
+
+	À l'heure actuelle, notre groupe de projet est constitué de six étudiants. Au second semestre, après le départ à l’étranger de trois d'entre nous, le travail sera donc réparti entre trois développeurs. Comme au premier semestre, la responsabilité de chef de projet sera tour à tour assumée par chacun des membres restants de notre équipe. Enfin, le projet est encadré par deux enseignants à l'INSA de Rennes : Gildas {\sc Avoine} et Barbara {\sc Kordy}, avec lesquels nous avons des réunions hebdomadaires.
+
+	\subsection{Besoins et objectifs}
+
+	Comme présenté auparavant dans les rapports de pré-étude et de spécifications fonctionnelles, ce projet a pour but d'aider les experts en sécurité à modéliser et à analyser des situations d'attaque et/ou de défense. Il sera basé sur la théorie déjà bien établie des ADTrees pour aider à la modélisation et à l'étude de problématiques de sécurité. Le rendu final sera un logiciel nommé \glasir{}, destiné à des experts en sécurité supposés connaître un minimum le principe des ADTrees. L'objectif principal de l'application sera d'aider lesdits experts à exploiter les ADTrees pour obtenir de façon facile et rapide les informations qui les intéressent.
+
+	Le bon fonctionnement de l’application sera vérifié principalement sous Windows, des tests sous d'autres systèmes d'exploitation ne sont pas prévus pour le moment.
+
 	\subsection{Éléments en entrée}
-	
-	\subsection{Rétrospective et calendrier}
-	%intégrer les dates à la rétrospective
+
+	\glasir{} est un tout nouveau projet, dont les finalités ont été exposées dans les deux premiers rapports rendus. Il intégrera tout de même un logiciel déjà existant (ADTool) permettant de représenter les ADTrees sur support informatique. Quelques améliorations seront cependant apportées à ADTool avant son intégration, afin de le rendre plus ergonomique pour l'utilisateur. Les autres modules de \glasir{}, détaillés lors du précédent rapport, seront totalement nouveaux et leur création sera à la charge des trois étudiants restants. Il en est de même pour l'interface graphique du logiciel.
+
+	\subsection{Rétrospective}
+
 	Nous avons déjà rédigé deux rapports dans le cadre de ce projet, nous permettant d'en aborder différents aspects. Leur contenu est brièvement rappelé ci-dessous.
 
 	\paragraph{Rapport de pré-étude} Nous avons commencé ce projet par une étude de l'existant : la théorie des ADTrees ainsi que la découverte d'ADTool, un logiciel permettant d'en créer et d'en manipuler. Nous avons relevé lors de cette étude des lacunes empêchant une analyse poussée des ADTrees. Le contexte (transports en commun, plus particulièrement le STAR) a lui aussi été traité, afin de mieux cerner notre cas d'étude. Nous entendons par \og attaque \fg{} tout événement nuisant au bon fonctionnement du réseau de transport, il est donc apparu que les attaques contre les transports en commun sont assez fréquentes, même si elles ne sont pas toujours volontaires. Suite à cela, nous avons été en mesure de proposer un premier cahier des charges en date du 23 octobre. Ce dernier a été étoffé et précisé dans le second rapport.
 
 	\paragraph{Rapport de spécifications fonctionnelles} Les fonctionnalités du logiciel ont été décrites de façon exhaustive. Cela nous a permis de fournir une première ébauche de l'architecture de \glasir{}, comprenant les dépendances entre les modules, et d'établir les différents liens les unissant. Cela nous a donné une vision plus globale et claire du projet, nous permettant de hiérarchiser les tâches à effectuer. Pour finir, nous avons proposé une planification succincte, développée dans le présent rapport. Celle-ci prévoyait la séparation du développement en de nombreuses versions, et a été remise le 27 novembre.
 
-	Ces rapports nous ont aidé à préciser notre vision du projet, à identifier les modules de la solution que nous apporterons et définir les étapes dans sa réalisation.
+	Ces rapports nous ont aidé à préciser notre vision du projet, à identifier les modules de la solution que nous apporterons et définir les étapes dans sa réalisation. Avant de commencer la planification détaillée du projet, il semble important de rappeler les dates-clés et les périodes importantes associées à ce projet sur l'année.
 
-	Dans le cahier des charges commun à tous les projets, il figure des dates-clés indiquant un rapport à rendre ou une présentation orale. Nous allons donc rappeler ici les échéances que nous devrons respecter. La phase de conception logicielle commencera dès les vacances de Noël le 20 décembre. Un rapport terminera cette phase le 12 février. Une page HTML sera livrée le 2 avril, et le projet final sera livré sur CD-Rom le 28 mai et nous ferons une démonstration de son fonctionnement.
+	\subsection{Calendrier}
+
+	% Dans l'emploi du temps du second semestre de 4INFO, des dates-clés se dégagent pour ce projet, souvent associées à un rendu de rapport ou à une soutenance. La phase de conception (rédaction d'un rapport) doit être terminée pour le 12 février 2015, et sera suivie par la phase de construction du logiciel. Celle-ci devra être achevée pour le 28 mai, date finale des projets (livraison du logiciel et rendu du rapport final). Enfin, ce projet se conclura par une soutenance et une démonstration, entre le 27 et le 29 mai 2015. La documentation du code devra quant à elle être rendue pour le 28 mai 2015.
+
+	% Afin d’aider au déroulement du projet, trois périodes de cours sont bloquées et nous permettront de nous y consacrer intensivement. Les semaines du 15/12/2014, 17/05/2015 et 24/05/2015 seront donc des points culminants dans la réalisation du projet. Les semaines de partiels, venant juste après les vacances, seront en revanche des périodes plus creuses concernant \glasir{}. Cela représente ainsi deux grandes périodes à l’activité restreinte pour le projet : du 12/01/2015 au 18/01/2015 et du 04/05/2015 au 10/05/2014. La gestion du temps attribué à chacun sera détaillée par la suite, dans la {\sc section} \ref{sec:orga}.
+
+	Dans le cahier des charges commun à tous les projets de 4INFO, il figure des dates-clés indiquant un rapport à rendre ou une présentation orale. Nous allons donc rappeler ici les échéances que nous devrons respecter. La phase de conception logicielle commencera dès les vacances de Noël le 20 décembre. Un rapport terminera cette phase le 12 février. Une page HTML sera livrée le 2 avril, et le projet final sera livré sur CD-Rom le 28 mai et nous ferons une démonstration de son fonctionnement.
 	Nous pourrons profiter de semaines \og bloquées\fg{}, pendant lesquelles nous n'aurons aucun cours, pour nous concentrer pleinement à \glasir{}. Les semaines du 18 au 23 mai et du 28 au 28 mai sont donc exemptes de cours. 
 
-Nous allons maintenant décrire la méthode de travail que nous avons décidé d'utiliser, ainsi que l'organisation que nous avons adoptée au sein du groupe.
+	Nous allons maintenant décrire la méthode de travail que nous avons décidé d'utiliser, ainsi que l'organisation que nous avons adoptée au sein du groupe.
