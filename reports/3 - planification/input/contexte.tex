@@ -1,46 +1,40 @@
 \section{Contexte}
-	\label{sec:contexte}
+    \label{sec:contexte}
+    La présente section détaillera les grandes lignes du projet, ses éléments principaux ainsi qu'une brève présentation du travail déjà effctué.
 
-	La présente section détaillera les grandes lignes du projet, ses éléments principaux ainsi qu'une brève présentation du travail déjà effctué.
+    \subsection{Acteurs}
+        Ce projet de 4ème année Informatique (4INFO) concerne un éventail réduit d'acteurs : en effet, il sera destiné aux experts en sécurité de façon générale, et non pas à un client précis. Il sera cependant illustré par l'étude d'un cas particulier : celui du Service des Transports en commun de l'Agglomération Rennaise (STAR).
 
-	\subsection{Acteurs}
+        À l'heure actuelle, notre groupe de projet est constitué de six étudiants. Au second semestre, après le départ à l’étranger de trois d'entre nous, le travail sera donc réparti entre trois développeurs. Comme au premier semestre, la responsabilité de chef de projet sera tour à tour assumée par chacun des membres restants de notre équipe. Enfin, le projet est encadré par deux enseignants à l'INSA de Rennes : Gildas {\sc Avoine} et Barbara {\sc Kordy}, avec lesquels nous avons des réunions hebdomadaires.
 
-	Ce projet de 4ème année Informatique (4INFO) concerne un éventail réduit d'acteurs : en effet, il sera destiné aux experts en sécurité de façon générale, et non pas à un client précis. Il sera cependant illustré par l'étude d'un cas particulier : celui du Service des Transports en commun de l'Agglomération Rennaise (STAR).
+    \subsection{Besoins et objectifs}
+        Comme présenté auparavant dans les rapports de pré-étude %ref
+        et de spécifications fonctionnelles %ref
+        , ce projet a pour but d'aider les experts en sécurité à modéliser et à analyser des situations d'attaque et/ou de défense. Il sera basé sur la théorie déjà bien établie des ADTrees pour aider à la modélisation et à l'étude de problématiques de sécurité. Le rendu final sera un logiciel nommé \glasir{}, destiné à des experts en sécurité supposés connaître un minimum le principe des ADTrees. L'objectif principal de l'application sera d'aider lesdits experts à exploiter les ADTrees pour obtenir de façon facile et rapide les informations qui les intéressent, telles que le chemin le plus coûteux ou le chemin le plus court.
 
-	À l'heure actuelle, notre groupe de projet est constitué de six étudiants. Au second semestre, après le départ à l’étranger de trois d'entre nous, le travail sera donc réparti entre trois développeurs. Comme au premier semestre, la responsabilité de chef de projet sera tour à tour assumée par chacun des membres restants de notre équipe. Enfin, le projet est encadré par deux enseignants à l'INSA de Rennes : Gildas {\sc Avoine} et Barbara {\sc Kordy}, avec lesquels nous avons des réunions hebdomadaires.
+        L'application sera développée et testée sous Windows.
 
-	\subsection{Besoins et objectifs}
+    \subsection{Éléments en entrée}
+        \glasir{} est un tout nouveau projet, dont les finalités ont été exposées dans les deux premiers rapports rendus. Il intégrera tout de même un logiciel déjà existant (ADTool) permettant de représenter les ADTrees sur support informatique. Quelques améliorations seront cependant apportées à ADTool avant son intégration, afin de le rendre plus ergonomique pour l'utilisateur. Les autres modules de \glasir{}, détaillés lors du précédent rapport, seront totalement nouveaux et leur création sera à la charge des trois étudiants qui travailleront sur le projet au second semestre. Il en est de même pour l'interface graphique du logiciel.
 
-	Comme présenté auparavant dans les rapports de pré-étude %ref
-	et de spécifications fonctionnelles %ref
-	, ce projet a pour but d'aider les experts en sécurité à modéliser et à analyser des situations d'attaque et/ou de défense. Il sera basé sur la théorie déjà bien établie des ADTrees pour aider à la modélisation et à l'étude de problématiques de sécurité. Le rendu final sera un logiciel nommé \glasir{}, destiné à des experts en sécurité supposés connaître un minimum le principe des ADTrees. L'objectif principal de l'application sera d'aider lesdits experts à exploiter les ADTrees pour obtenir de façon facile et rapide les informations qui les intéressent, telles que le chemin le plus coûteux ou le chemin le plus court.
+    \subsection{Rétrospective} 
+        Cette sous-section constitue un bref rappel du contenu des deux précédents rapports précédemment rédigés lors de ce projet.
 
-	L'application sera développée et testée sous Windows.
+        \paragraph{Rapport de pré-étude} %ref
+         Nous avons commencé ce projet par une étude de l'existant : la théorie des ADTrees ainsi que la découverte d'ADTool, un logiciel permettant d'en créer et d'en manipuler. Nous avons relevé lors de cette étude des lacunes empêchant une analyse poussée des ADTrees. Le contexte - les attaques contre les transports en commun, plus particulièrement le STAR - a lui aussi été traité, afin de mieux cerner notre cas d'étude. Nous entendons par \og attaque \fg{} tout événement nuisant au bon fonctionnement du réseau de transport, or il est apparu que les attaques contre les transports en commun sont assez fréquentes, même si elles ne sont pas toujours volontaires. Suite à cette phase d'analyse, nous avons été en mesure de proposer un premier cahier des charges en date du 23 octobre. Ce dernier a été étoffé et précisé dans le rapport de spécifications fonctionnelles. %ref
 
-	\subsection{Éléments en entrée}
+        \paragraph{Rapport de spécifications fonctionnelles} %ref
+        Les fonctionnalités du logiciel ont été décrites de façon exhaustive. Ce document a fourni une première ébauche de l'architecture de \glasir{}, comprenant les dépendances entre les modules, et d'établir les différents liens les unissant. Cela nous a donné une vision plus globale et claire du projet, nous permettant de hiérarchiser les tâches à effectuer. Pour finir, nous avons proposé une planification succincte, développée dans le présent rapport. Ce deuxième rapport a quant à lui été remis au rapporteur le 27 novembre.
 
-	\glasir{} est un tout nouveau projet, dont les finalités ont été exposées dans les deux premiers rapports rendus. Il intégrera tout de même un logiciel déjà existant (ADTool) permettant de représenter les ADTrees sur support informatique. Quelques améliorations seront cependant apportées à ADTool avant son intégration, afin de le rendre plus ergonomique pour l'utilisateur. Les autres modules de \glasir{}, détaillés lors du précédent rapport, seront totalement nouveaux et leur création sera à la charge des trois étudiants qui travailleront sur le projet au second semestre. Il en est de même pour l'interface graphique du logiciel.
+        Ces rapports nous ont aidé à préciser notre vision du projet, à identifier les modules de la solution que nous apporterons et définir les étapes dans sa réalisation. Avant de commencer la planification détaillée du projet, il semble important de rappeler les dates-clés et les périodes importantes associées à ce projet sur l'année.
 
-	\subsection{Rétrospective} 
+    \subsection{Calendrier}
+        Dans le cahier des charges commun à tous les projets de 4INFO, il figure des dates-clés indiquant un rapport à rendre ou une présentation orale. Nous allons donc rappeler ici les échéances que nous devrons respecter. La phase de conception logicielle commencera dès les vacances de Noël, le 20 décembre. Elle se terminera le 12 février par un rendu de rapport. Les échéances suivantes du projet seront celles-ci :
 
-	Cette sous-section constitue un bref rappel du contenu des deux précédents rapports précédemment rédigés lors de ce projet.
+        \begin{itemize} 
+            \item une page HTML sera livrée le 2 avril ; 
+            \item le projet final sera rendu sur CD-Rom le 28 mai ; 
+            \item une démonstration sera réalisée, également le 28 mai.
+        \end{itemize}
 
-	\paragraph{Rapport de pré-étude} %ref
-	 Nous avons commencé ce projet par une étude de l'existant : la théorie des ADTrees ainsi que la découverte d'ADTool, un logiciel permettant d'en créer et d'en manipuler. Nous avons relevé lors de cette étude des lacunes empêchant une analyse poussée des ADTrees. Le contexte - les attaques contre les transports en commun, plus particulièrement le STAR - a lui aussi été traité, afin de mieux cerner notre cas d'étude. Nous entendons par \og attaque \fg{} tout événement nuisant au bon fonctionnement du réseau de transport, or il est apparu que les attaques contre les transports en commun sont assez fréquentes, même si elles ne sont pas toujours volontaires. Suite à cette phase d'analyse, nous avons été en mesure de proposer un premier cahier des charges en date du 23 octobre. Ce dernier a été étoffé et précisé dans le rapport de spécifications fonctionnelles. %ref
-
-	\paragraph{Rapport de spécifications fonctionnelles} %ref
-	Les fonctionnalités du logiciel ont été décrites de façon exhaustive. Ce document a fourni une première ébauche de l'architecture de \glasir{}, comprenant les dépendances entre les modules, et d'établir les différents liens les unissant. Cela nous a donné une vision plus globale et claire du projet, nous permettant de hiérarchiser les tâches à effectuer. Pour finir, nous avons proposé une planification succincte, développée dans le présent rapport. Ce deuxième rapport a quant à lui été remis au rapporteur le 27 novembre.
-
-	Ces rapports nous ont aidé à préciser notre vision du projet, à identifier les modules de la solution que nous apporterons et définir les étapes dans sa réalisation. Avant de commencer la planification détaillée du projet, il semble important de rappeler les dates-clés et les périodes importantes associées à ce projet sur l'année.
-
-	\subsection{Calendrier}
-
-	Dans le cahier des charges commun à tous les projets de 4INFO, il figure des dates-clés indiquant un rapport à rendre ou une présentation orale. Nous allons donc rappeler ici les échéances que nous devrons respecter. La phase de conception logicielle commencera dès les vacances de Noël, le 20 décembre. Elle se terminera le 12 février par un rendu de rapport. Les échéances suivantes du projet seront celles-ci :
-
-	\begin{itemize} 
-	\item une page HTML sera livrée le 2 avril ; 
-	\item le projet final sera rendu sur CD-Rom le 28 mai ; 
-	\item une démonstration sera réalisée, également le 28 mai.
-	\end{itemize}
-
-	L'emploi du temps prévoit des semaines \og bloquées\fg{}, pendant lesquelles nous n'aurons pratiquement aucun cours afin de nous concentrer pleinement sur le développement de \glasir{}. Ainsi, les semaines du 18 au 23 mai et du 26 au 29 mai sont donc exemptes de cours.
+        L'emploi du temps prévoit des semaines \og bloquées\fg{}, pendant lesquelles nous n'aurons pratiquement aucun cours afin de nous concentrer pleinement sur le développement de \glasir{}. Ainsi, les semaines du 18 au 23 mai et du 26 au 29 mai sont donc exemptes de cours.

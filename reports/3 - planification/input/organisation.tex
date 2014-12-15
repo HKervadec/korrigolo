@@ -1,200 +1,155 @@
 \section{Organisation}
-	\label{sec:orga}
+    \label{sec:orga}
+    Cette section va à présent décrire la méthode de travail que nous avons décidé d'utiliser, ainsi que l'organisation que nous avons adoptée au sein du groupe.
 
-	Cette section va à présent décrire la méthode de travail que nous avons décidé d'utiliser, ainsi que l'organisation que nous avons adoptée au sein du groupe.
+    \subsection{La méthode SCRUM}
+    \label{subsec:scrum}
+        Afin de définir la méthode de gestion de projet à mettre en place pour la réalisation de \glasir{}, nous avons débattu ensemble des différentes méthodes à notre disposition. A la suite de     nos discussions en réunions, nous nous sommes dirigés vers une méthode agile proche du \og \textsc{scrum} \fg{}. Ce choix s'est fait sur les points qui sont détaillé ci-dessous :
 
-	\subsection{La méthode SCRUM}
-		\label{subsec:scrum}
+        L'organisation des rôles que nous avons mise en place depuis le début du projet se base sur un rôle de \og Coordinateur \fg{}, qui est responsable de la réalisation et du rendu d'un livrable (rapport, version logicielle, etc). Ce rôle tourne à chaque nouveau livrable, de sorte que chacun des membres de l'équipe l'exerce au moins une fois. Le rôle de coordinateur que nous avons défini nous a donc semblé correspondre au rôle de ScrumMaster tel que défini dans la méthode \textsc{scrum}.
 
-	Afin de définir la méthode de gestion de projet à mettre en place pour la réalisation de \glasir{}, nous avons débattu ensemble des différentes méthodes à notre disposition. A la suite de 	nos discussions en réunions, nous nous sommes dirigés vers une méthode agile proche du \og \textsc{scrum} \fg{}. Ce choix s'est fait sur les points qui sont détaillé ci-dessous :
+        Le coordinateur endosse également la responsabilité de Product Owner, qu'il partage avec les encadrants du Projet pour ce qui est de la définition des Objectifs et surtout de l'acceptation des livrables.
 
-	L'organisation des rôles que nous avons mise en place depuis le début du projet se base sur un rôle de \og Coordinateur \fg{}, qui est responsable de la réalisation et du rendu d'un livrable (rapport, version logicielle, etc). Ce rôle tourne à chaque nouveau livrable, de sorte que chacun des membres de l'équipe l'exerce au moins une fois. Le rôle de coordinateur que nous avons défini nous a donc semblé correspondre au rôle de ScrumMaster tel que défini dans la méthode \textsc{scrum}.
+        En place de la mêlée quotidienne du \textsc{scrum}, nous nous réunissons une fois par semaine afin de discuter de l'avancement de nos tâches respectives et faire part de nos difficultés. Nous avons décidé d'adopter un rythme hebdomadaire plutôt que quotidien car nous ne travaillerons pas à temps plein sur le projet et ce rythme nous a donc semblé plus adéquat. Nous définissons en fonction des retours en réunion les éventuels ajustements à effectuer la semaine suivante et dans le reste de la planification.
 
-	Le coordinateur endosse également la responsabilité de Product Owner, qu'il partage avec les encadrants du Projet pour ce qui est de la définition des Objectifs et surtout de l'acceptation des livrables.
+        Enfin, chaque version sera composée de sprints au cours desquels nous nous consacrerons à un sous-ensemble de tâches nécessaires à la réalisation d'une version de \glasir{}. Ces tâches constitueront les Users Stories du projet, et sont détaillées dans la \textsc{sous-section}~\ref{subsec:taches_unitaires}.  
+    
+    \subsection{Tâches unitaires et estimations}
+    \label{subsec:taches_unitaires}
 
-	En place de la mêlée quotidienne du \textsc{scrum}, nous nous réunissons une fois par semaine afin de discuter de l'avancement de nos tâches respectives et faire part de nos difficultés. Nous avons décidé d'adopter un rythme hebdomadaire plutôt que quotidien car nous ne travaillerons pas à temps plein sur le projet et ce rythme nous a donc semblé plus adéquat. Nous définissons en fonction des retours en réunion les éventuels ajustements à effectuer la semaine suivante et dans le reste de la planification.
+        Nous avons décidé de livrer trois versions de \glasir{} : deux intermédiaires et une finale. Ces dernières ont elles-mêmes été divisées en tâches unitaires, décrites dans cette section.
+        
+        Pour déterminer le temps nécessaire à l'accomplissement de chaque tâche, nous avons combiné les méthodes d’estimation \og Analogique \fg{} et \og Expertise \fg{}. En effet, la méthode \og Analogique \fg{} consiste à estimer la durée d'une tâche par analogie avec une tâche similaire déjà effectuée (au sein d'un autre projet par exemple). La méthode \og Expertise \fg{}, quant à elle, repose sur le jugement d'un expert. Bien qu'aucun membre de notre groupe ne puisse réellement se considérer comme tel, nos stages respectifs ont tout de même permis d'apporter des avis constructifs sur l'estimation de la durée des tâches.
+        
+        Les résultats de ces différentes estimations sont décrits ci-après pour chaque version. Il est à noter que les tests et la rédaction de la documentation sont pris en compte dans l'estimation du temps nécessaire à la réalisation de chacune des tâches.
+        
 
-	Enfin, chaque version sera composée de sprints au cours desquels nous nous consacrerons à un sous-ensemble de tâches nécessaires à la réalisation d'une version de \glasir{}. Ces tâches constitueront les Users Stories du projet, et sont détaillées dans la \textsc{sous-section}~\ref{subsec:taches_unitaires}.  
-	
-	\subsection{Tâches unitaires et estimations}
-		\label{subsec:taches_unitaires}
+        \subsubsection{Version 0.1}
+            Huit grandes tâches ont été identifiées pour cette version et sont présentées dans la {\sc Table} \ref{tab:taches_units_1}. 
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
 
-	Nous avons décidé de livrer trois versions de \glasir{} : deux intermédiaires et une finale. Ces dernières ont elles-mêmes été divisées en tâches unitaires, décrites dans cette section.
-	
-	Pour déterminer le temps nécessaire à l'accomplissement de chaque tâche, nous avons combiné les méthodes d’estimation \og Analogique \fg{} et \og Expertise \fg{}. En effet, la méthode \og Analogique \fg{} consiste à estimer la durée d'une tâche par analogie avec une tâche similaire déjà effectuée (au sein d'un autre projet par exemple). La méthode \og Expertise \fg{}, quant à elle, repose sur le jugement d'un expert. Bien qu'aucun membre de notre groupe ne puisse réellement se considérer comme tel, nos stages respectifs ont tout de même permis d'apporter des avis constructifs sur l'estimation de la durée des tâches.
-	
-	Les résultats de ces différentes estimations sont décrits ci-après pour chaque version. Il est à noter que les tests et la rédaction de la documentation sont pris en compte dans l'estimation du temps nécessaire à la réalisation de chacune des tâches.
-	
+                    \multirow{5}{*}{\glasir{}} & 1.1 & Squelette interface & WPF & 6h\\
+                    \cline{2-5}
+                     & 1.2 & Gestion fichiers projet & C++ & 20h\\
+                    \cline{2-5}
+                     & 1.3 & Intégration ADTool dans \glasir & JNI & 20h\\
+                    \cline{2-5}
+                     & 1.4 & \'Evaluateur de fonction & Java & 12h\\
+                    \cline{2-5}
+                     & 1.5 & Interface évaluateur & WPF & 8h\\
+                    \hline
 
-		\subsubsection{Version 0.1}
-			Huit grandes tâches ont été identifiées pour cette version et sont présentées dans la {\sc Table} \ref{tab:taches_units_1}. 
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|c|r|l|c|r|}
-					\hline
-					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-					\hline
+                    \multirow{3}{*}{ADTool} & 1.6 & Valuation ADTrees & \multirow{3}{*}{Java} & 18h\\
+                    \cline{2-3} \cline{5-5}
+                     & 1.7 & Refonte langage des ADTrees & & 16h\\
+                    \cline{2-3} \cline{5-5}
+                     & 1.8 & Vue globale des paramètres & & 12h\\
+                    \hline
 
-					\multirow{5}{*}{\glasir{}} & 1.1 & Squelette interface & WPF & 6h\\
-					\cline{2-5}
-					 & 1.2 & Gestion fichiers projet & C++ & 20h\\
-					\cline{2-5}
-					 & 1.3 & Intégration ADTool dans \glasir & JNI & 20h\\
-					\cline{2-5}
-					 & 1.4 & \'Evaluateur de fonction & Java & 12h\\
-					\cline{2-5}
-					 & 1.5 & Interface évaluateur & WPF & 8h\\
-					\hline
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 112h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées à la version 0.1.}
+                \label{tab:taches_units_1}
+            \end{table}
+            
+            La réalisation de cette version sera découpée en trois sprints, présentés ci-dessous :
 
-					\multirow{3}{*}{ADTool} & 1.6 & Valuation ADTrees & \multirow{3}{*}{Java} & 18h\\
-					\cline{2-3} \cline{5-5}
-					 & 1.7 & Refonte langage des ADTrees & & 16h\\
-					\cline{2-3} \cline{5-5}
-					 & 1.8 & Vue globale des paramètres & & 12h\\
-					\hline
-
-					\multicolumn{4}{|l|}{\bf Total} & {\bf 112h}\\
-					\hline
-				\end{tabular}
-				\caption{Tâches associées à la version 0.1.}
-				\label{tab:taches_units_1}
-			\end{table}
-			
-			
-			La réalisation de cette version sera découpée en trois sprints, présentés ci-dessous :
-
-			\noindent\textbf{Sprint 1} Création de l'interface utilisateur de base de \glasir{}, intégration du logiciel ADTool en tant que fenêtre de \glasir{}, possibilité de création d'un nouveau projet et sa sauvegarde, affichage des différents arbres d'un projet dans un dock sous forme d'arborescence.\newline
-			\textbf{Sprint 2} Reconnaissance d'une formule mathématique par le logiciel ADTool, création d'un paramètre en fonction de l'évaluation de cette formule, et l'amélioration de la représentation des arbres sous forme d'une grammaire au sein d'ADTool.\newline
-			\textbf{Sprint 3} Affichage de plusieurs paramètres par nœud d'un arbre, possibilité de communication entre le module éditeur de fonction de \glasir{} et la partie création d'un paramètre de synthèse implémentée précédemment dans ADTool.\newline
+            \noindent\textbf{Sprint 1} Création de l'interface utilisateur de base de \glasir{}, intégration du logiciel ADTool en tant que fenêtre de \glasir{}, possibilité de création d'un nouveau projet et sa sauvegarde, affichage des différents arbres d'un projet dans un dock sous forme d'arborescence.\newline
+            \textbf{Sprint 2} Reconnaissance d'une formule mathématique par le logiciel ADTool, création d'un paramètre en fonction de l'évaluation de cette formule, et l'amélioration de la représentation des arbres sous forme d'une grammaire au sein d'ADTool.\newline
+            \textbf{Sprint 3} Affichage de plusieurs paramètres par nœud d'un arbre, possibilité de communication entre le module éditeur de fonction de \glasir{} et la partie création d'un paramètre de synthèse implémentée précédemment dans ADTool.\newline
 
 
-		\subsubsection{Version 0.2}
-			Le développement de la version 0.2 est découpé en cinq tâches, visibles dans la {\sc table} \ref{tab:taches_units_2}.
-			\begin{table}[h]
-				\centering
-				\begin{tabular}{|c|r|l|c|r|}
-					\hline
-					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-					\hline
+        \subsubsection{Version 0.2}
+            Le développement de la version 0.2 est découpé en cinq tâches, visibles dans la {\sc table} \ref{tab:taches_units_2}.
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
 
-					\multirow{4}{*}{\glasir{}} & 2.1 & Algorithme filtrage & C++ & 24h\\
-					\cline{2-5}
-					 & 2.2 & Interface filtre & WPF & 15h\\
-					\cline{2-5}
-					 & 2.3 & Multiples instances d'ADTool & C++, WPF & 20h\\
-					\cline{2-5}
-					 & 2.4 & Affichage arbre filtré & Java, WPF & 16h\\
-					\hline
+                    \multirow{4}{*}{\glasir{}} & 2.1 & Algorithme filtrage & C++ & 24h\\
+                    \cline{2-5}
+                     & 2.2 & Interface filtre & WPF & 15h\\
+                    \cline{2-5}
+                     & 2.3 & Multiples instances d'ADTool & C++, WPF & 20h\\
+                    \cline{2-5}
+                     & 2.4 & Affichage arbre filtré & Java, WPF & 16h\\
+                    \hline
 
-					\multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & 25h\\
-					\hline
+                    \multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & 25h\\
+                    \hline
 
-					\multicolumn{4}{|l|}{\bf Total} & {\bf 100h}\\
-					\hline
-				\end{tabular}
-				\caption{Tâches associées à la version 0.2.}
-				\label{tab:taches_units_2}
-			\end{table}
-			
-			Nous avons réparti les tâches en trois sprints :
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 100h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées à la version 0.2.}
+                \label{tab:taches_units_2}
+            \end{table}
+            
+            Nous avons réparti les tâches en trois sprints :
 
-			\noindent\textbf{Sprint 4} Implémentation de l'algorithme de filtrage, permettre l'ouverture de plusieurs instances d'ADTool au sein de différents onglets de l'interface de \glasir{}.\newline 
-			\textbf{Sprint 5} Affichage du panneau relatif à ce module au sein de l'interface utilisateur de \glasir{}. Implémentation de la fonction couper/copier-coller.\newline % ou durant le snd sprint?
-			\textbf{Sprint 6} Affichage de l'arbre filtré.
+            \noindent\textbf{Sprint 4} Implémentation de l'algorithme de filtrage, permettre l'ouverture de plusieurs instances d'ADTool au sein de différents onglets de l'interface de \glasir{}.\newline 
+            \textbf{Sprint 5} Affichage du panneau relatif à ce module au sein de l'interface utilisateur de \glasir{}. Implémentation de la fonction couper/copier-coller.\newline % ou durant le snd sprint?
+            \textbf{Sprint 6} Affichage de l'arbre filtré.
 
-		\subsubsection{Version 1.0}
-			Quatre tâches ont été identifiées pour la version 1.0 de \glasir{}, regroupées dans la {\sc Table} \ref{tab:taches_units_3}.
-			\begin{table}[h]
-				\centering
-				\begin{tabular}{|c|r|l|c|r|}
-					\hline
-					\textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
-					\hline
+        \subsubsection{Version 1.0}
+            Quatre tâches ont été identifiées pour la version 1.0 de \glasir{}, regroupées dans la {\sc Table} \ref{tab:taches_units_3}.
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
 
-					\multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & 30h\\
-					\cline{2-5}
-					 & 3.2 & Bibliothèque de modèles & C++, WPF & 20h\\
-					\cline{2-5}
-					 & 3.3 & Harmonisation interface & WPF & 16h\\
-					\cline{2-5}
-					 & 3.4 & Packaging & ? & 8h\\
-					\hline
+                    \multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & 30h\\
+                    \cline{2-5}
+                     & 3.2 & Bibliothèque de modèles & C++, WPF & 20h\\
+                    \cline{2-5}
+                     & 3.3 & Harmonisation interface & WPF & 16h\\
+                    \cline{2-5}
+                     & 3.4 & Packaging & ? & 8h\\
+                    \hline
 
-					\multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
-					\hline
+                    \multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
+                    \hline
 
-					\multicolumn{4}{|l|}{\bf Total} & {\bf 90h}\\
-					\hline
-				\end{tabular}
-				\caption{Tâches associées à la version 1.0.}
-				\label{tab:taches_units_3}
-			\end{table}
-			
-			Les sprints se composeront de :
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 90h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées à la version 1.0.}
+                \label{tab:taches_units_3}
+            \end{table}
+            
+            Les sprints se composeront de :
 
-			\noindent\textbf{Sprint 7} Implémentation de l'algorithme de l'optimiseur, création d'une bibliothèque de modèles.\newline
-			\textbf{Sprint 8} Affichage du panneau de l'optimiseur dans \glasir{}, possibilité d'annuler une action dans ADTool.\newline
-			\textbf{Sprint 9} Harmonisation de l'interface et réalisation du packaging. \newline
+            \noindent\textbf{Sprint 7} Implémentation de l'algorithme de l'optimiseur, création d'une bibliothèque de modèles.\newline
+            \textbf{Sprint 8} Affichage du panneau de l'optimiseur dans \glasir{}, possibilité d'annuler une action dans ADTool.\newline
+            \textbf{Sprint 9} Harmonisation de l'interface et réalisation du packaging. \newline
 
-		%TODO estimations
-	\subsection{Organisation du groupe et répartition des tâches}
-		Lors de la phase de développement de \glasir{}, notre groupe de projet sera réduit à trois étudiants : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} et Maud {\sc Leray}. Les trois autres, Florent {\sc Mallard}, Hoel {\sc Kervadec} ainsi que Corentin {\sc Nicole}, partiront en effet étudier à l'étranger.
-		
-		Nous comptons donc nous répartir les tâches selon trois composantes générales : Maud L. travaillera principalement sur ADTool, Pierre-Marie A. sur les algorithmes et sur l'interfaçage entre ADTool et \glasir{}, et Valentin E. s'orientera sur l'interface utilisateur de \glasir{}. La {\sc Table} \ref{table:repartition} donne la répartition des tâches plus en détails.
-			
+        %TODO estimations
 
 
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|l|c|r||c|r||c|r|}
-				\hline
-				\multirow{2}{*}{} & \nomRepart{Pierre-Marie A.} & \nomRepart{Valentin E.} & \nomRepartt{Maud L.}\\
-				\cline{2-7}
-				 & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée}\\
-				\hline
-				{\bf Version 0.1} & - & {\bf 38h} & - & {\bf 34h} & - & {\bf 40h}\\
-				 & 1.3 & 10h & 1.1 & 6h & 1.2 & 10h\\
-				 & 1.4 & 12h & 1.2 & 10h & 1.6 & 18h\\
-				 & 1.7 & 16h & 1.3 & 10h & 1.8 & 12h\\
-				 & - & - & 1.5 & 8h & - & -\\
-				\hline
-				{\bf Version 0.2} & - & {\bf 39h} & - & {\bf 33h} & - & {\bf 28h}\\
-				 & 2.1 & 24h & 2.3 & 20h & 2.4 & 16h\\
-				 & 2.2 & 15h & 2.5 & 13h & 2.5 & 12h\\
-				\hline
-				{\bf Version 1.0} & - & {\bf 25h} & - & {\bf 23h} & - & {\bf 42h}\\
-				 & 3.1 & 15h & 3.1 & 15h & 3.2 & 10h\\
-				 & 3.2 & 10h & 3.4 & 8h & 3.3 & 16h\\
-				 & - & - & - & - & 3.5 & 16h\\
-				\hline
-				{\bf Total} & \multicolumn{2}{r||}{{\bf 102h}} & \multicolumn{2}{r||}{{\bf 100h}} & \multicolumn{2}{r|}{{\bf 110h}}\\
-				\hline
-			\end{tabular}
-			\caption{Répartition des tâches, par personne et par version.}
-			\label{table:repartition}
-			\label{tab:repartition}
-		\end{table}
+    \subsection{Risques}
+    \label{subsec:risques}  
+        Dans le but de délivrer ce projet dans les délais, une évaluation des risques a été effectuée. Celle-ci a pour but d'identifier les différents facteurs qui pourraient engendrer des difficultés dans la réalisation des tâches et entraîner ainsi un retard, ou une incapacité à implémenter une partie du cahier des charges. Nous avons associé à chaque élément de cette liste les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
 
 
-	\subsection{Risques}
-		\label{subsec:risques}
-
-	%L'implémentation d'un logiciel comporte toujours des risques. Afin de ne pas nous laisser surprendre par ces derniers, nous avons cherché à lister ceux qui nous venaient à l'esprit.
-
-    % Pour que notre projet se déroule le mieux possible, nous avons listé certains événements susceptibles de nous faire prendre du retard. Ils sont répertoriés dans le tableau\ref{fig:risques}, avec les tâches qu'ils concernent. Nous leur avons ajouté les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Enfin, la dernière colonne cite des solutions possibles pour contre les risques énoncés.
-
-    Dans le but de délivrer ce projet dans les délais, une évaluation des risques a été effectuée. Celle-ci a pour but d'identifier les différents facteurs qui pourraient engendrer des difficultés dans la réalisation des tâches et entraîner ainsi un retard, ou une incapacité à implémenter une partie du cahier des charges. Nous avons associé à chaque élément de cette liste les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
-
-
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{|p{4cm}|l|l|l|p{4cm}|}
-		\hline
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{4cm}|l|l|l|p{4cm}|}
+        	\hline
             \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
             \hline
             Mauvaise estimation des durées nécessaires aux tâches unitaires & 
                 Toutes & 3 & 3 &
-                Bien s'organiser et respecter les délais\\ 
+                Prioriser les tâches restantes\\ 
             \hline
             Apparition d'un bug difficile à corriger & 
                 Toutes & 3 & 3 &
@@ -232,8 +187,43 @@
                 1.2 & 1 & 3 &
                 Lancer ADTool séparément\\ 
             \hline
-		\end{tabular}
-		\caption{Tableau des risques}
-		\label{fig:risques}
-	\end{table}
-	
+        \end{tabular}
+        \caption{Tableau des risques}
+        \label{fig:risques}
+    \end{table}
+    
+    \subsection{Organisation du groupe et répartition des tâches}
+        Lors de la phase de développement de \glasir{}, notre groupe de projet sera réduit à trois étudiants : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} et Maud {\sc Leray}. Les trois autres, Florent {\sc Mallard}, Hoel {\sc Kervadec} ainsi que Corentin {\sc Nicole} partiront en effet étudier à l'étranger.
+        
+        Nous comptons donc nous répartir les tâches selon trois composantes générales : Maud L. travaillera principalement sur ADTool, Pierre-Marie A. sur les algorithmes et sur l'interfaçage entre ADTool et \glasir{}, et Valentin E. s'orientera sur l'interface utilisateur de \glasir{}. La {\sc Table} \ref{table:repartition} donne la répartition des tâches plus en détails.
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|c|r||c|r||c|r|}
+                \hline
+                \multirow{2}{*}{} & \nomRepart{Pierre-Marie A.} & \nomRepart{Valentin E.} & \nomRepartt{Maud L.}\\
+                \cline{2-7}
+                 & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée}\\
+                \hline
+                {\bf Version 0.1} & - & {\bf 38h} & - & {\bf 34h} & - & {\bf 40h}\\
+                 & 1.3 & 10h & 1.1 & 6h & 1.2 & 10h\\
+                 & 1.4 & 12h & 1.2 & 10h & 1.6 & 18h\\
+                 & 1.7 & 16h & 1.3 & 10h & 1.8 & 12h\\
+                 & - & - & 1.5 & 8h & - & -\\
+                \hline
+                {\bf Version 0.2} & - & {\bf 39h} & - & {\bf 33h} & - & {\bf 28h}\\
+                 & 2.1 & 24h & 2.3 & 20h & 2.4 & 16h\\
+                 & 2.2 & 15h & 2.5 & 13h & 2.5 & 12h\\
+                \hline
+                {\bf Version 1.0} & - & {\bf 25h} & - & {\bf 23h} & - & {\bf 42h}\\
+                 & 3.1 & 15h & 3.1 & 15h & 3.2 & 10h\\
+                 & 3.2 & 10h & 3.4 & 8h & 3.3 & 16h\\
+                 & - & - & - & - & 3.5 & 16h\\
+                \hline
+                {\bf Total} & \multicolumn{2}{r||}{{\bf 102h}} & \multicolumn{2}{r||}{{\bf 100h}} & \multicolumn{2}{r|}{{\bf 110h}}\\
+                \hline
+            \end{tabular}
+            \caption{Répartition des tâches, par personne et par version.}
+            \label{table:repartition}
+            \label{tab:repartition}
+        \end{table}
