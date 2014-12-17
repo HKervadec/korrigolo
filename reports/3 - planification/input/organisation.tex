@@ -6,11 +6,11 @@
     \label{subsec:scrum}
         Afin de définir la méthode de gestion de projet à mettre en place pour la réalisation de \glasir{}, nous avons discuté ensemble des différentes méthodes à notre disposition. À la suite de nos réunions, nous nous sommes dirigés vers une méthode agile proche du \og \textsc{scrum} \fg{}. Ce choix s'est fait sur les arguments qui sont détaillés ci-dessous :
 
-        L'organisation des rôles que nous avons mise en place depuis le début du projet est basée sur un rôle de \og coordinateur \fg{}, qui est responsable de la réalisation et du rendu d'un livrable (rapport, version logicielle, etc). Ce rôle est attribué à une nouvelle personne à chaque nouveau livrable, de sorte que chacun des membres de l'équipe l'exerce au moins une fois. Le rôle de coordinateur que nous avons défini nous a donc semblé correspondre au rôle de ScrumMaster tel que défini dans la méthode \textsc{Scrum}.
+        L'organisation des rôles que nous avons mise en place depuis le début du projet est basée sur un rôle de \og coordinateur \fg{}, qui est responsable de la réalisation et du rendu d'un livrable (rapport, version logicielle, etc). Ce rôle est attribué à une nouvelle personne à chaque nouveau livrable, de sorte que chacun des membres de l'équipe l'exerce au moins une fois. Le rôle de coordinateur que nous avons défini nous a donc semblé correspondre au rôle de ScrumMaster tel que défini dans la méthode \textsc{scrum}.
 
         Le coordinateur endosse également la responsabilité de Product Owner, qu'il partage avec les encadrants du projet pour ce qui est de la définition des objectifs et surtout de l'acceptation des livrables.
 
-        Au lieu de la mêlée quotidienne du \textsc{Scrum}, nous nous réunissons une fois par semaine afin de discuter de l'avancement de nos tâches respectives et de faire part de nos difficultés. Nous avons décidé d'adopter un rythme hebdomadaire plutôt que quotidien car nous ne travaillerons pas à temps plein sur le projet : ce rythme nous a donc semblé plus adéquat. Nous définirons en fonction des retours en réunion les éventuels ajustements à effectuer la semaine suivante, ainsi que dans le reste de la planification.
+        Au lieu de la mêlée quotidienne du \textsc{scrum}, nous nous réunissons une fois par semaine afin de discuter de l'avancement de nos tâches respectives et de faire part de nos difficultés. Nous avons décidé d'adopter un rythme hebdomadaire plutôt que quotidien car nous ne travaillerons pas à temps plein sur le projet : ce rythme nous a donc semblé plus adéquat. Nous définirons en fonction des retours en réunion les éventuels ajustements à effectuer la semaine suivante, ainsi que dans le reste de la planification.
 
         Enfin, le développement de chaque version sera composé de sprints au cours desquels nous nous consacrerons à un sous-ensemble de tâches nécessaires à la réalisation d'une version de \glasir{}. Ces tâches constitueront les Users Stories du projet, et sont détaillées dans la \textsc{sous-section}~\ref{subsec:taches_unitaires}.  
     
@@ -114,7 +114,7 @@
                     \cline{2-5}
                      & 3.3 & Harmonisation interface & WPF & 16h\\
                     \cline{2-5}
-                     & 3.4 & Packaging & ? & 8h\\
+                     & 3.4 & Packaging & - & 8h\\
                     \hline
 
                     \multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
@@ -171,7 +171,7 @@
 
     \subsection{Risques}
     \label{subsec:risques}  
-        Afin de délivrer ce projet dans les délais prévus, une évaluation des risques a été effectuée. Celle-ci a pour but d'identifier les différents facteurs qui pourraient engendrer des difficultés dans la réalisation des tâches, telles qu'une incapacité à implémenter une partie du cahier des charges ou un retard dans le planning. Nous avons associé à chaque élément de cette liste les notions de probabilité (Pr) et de criticité (Cr), sur une échelle de 1 à 3 : 1 pour faible, 2 pour moyenne, 3 pour élevée. Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
+        Afin de délivrer ce projet dans les délais prévus, une évaluation des risques a été effectuée. Celle-ci a pour but d'identifier les différents facteurs qui pourraient engendrer des difficultés dans la réalisation des tâches, telles qu'une incapacité à implémenter une partie du cahier des charges ou un retard dans le planning. Nous avons associé à chaque élément de cette liste les notions de probabilité (Pr) et de criticité (Cr). Les valeurs possibles sont les suivantes : L pour \og Low \fg{} (faible), M pour \og Medium \fg{} (moyenne), H pour \og High \fg{} (élevée). Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
 
 
     \begin{table}[H]
@@ -181,43 +181,43 @@
             \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
             \hline
             Mauvaise estimation des durées nécessaires aux tâches unitaires & 
-                Toutes & 3 & 3 &
+                Toutes & H & H &
                 Prioriser les tâches restantes\\ 
             \hline
             Apparition d'un bug difficile à corriger & 
-                Toutes & 3 & 3 &
+                Toutes & H & H &
                 Faire des tests unitaires\\
             \hline
             Difficulté à créer une grammaire & 
-                1.4 & 1 & 2 &
+                1.4 & L & M &
                 Simplifier les expressions à évaluer\\ 
             \hline
             Manque de connaissances techniques & 
-                Toutes & 3 & 3 &
+                Toutes & H & H &
                 Approfondir nos connaissances\\ 
             \hline
             Rédaction trop tardive de la documentation & 
-                Toutes & 2 & 1 &
+                Toutes & M & L &
                 Commenter le code au fur et à mesure\\
             \hline
             Mauvaise compréhension du code d'ADTool & 
-                Toutes celles sur ADTool & 2 & 2 &
+                Toutes celles sur ADTool & M & M &
                 Contacter le développeur d'ADTool\\ 
             \hline
             Mauvaise communication entre ADTool et \glasir{} & 
-                1.4, 2.1, 3.1 & 2 & 3 &
+                1.4, 2.1, 3.1 & M & H &
                 Utiliser le fichier XML lisible par ADTool\\ 
             \hline
             Perte de temps sur une tâche secondaire & 
-                Toutes & 2 & 1 &
+                Toutes & M & L &
                 Compter ses heures, faire le point lors des réunions\\ 
             \hline
             Algorithme ralentissant le logiciel & 
-                3.1, 2.2 & 1 & 1 &
+                3.1, 2.2 & L & L &
                 Optimiser l’algorithme\\ 
             \hline
             Échec de l'intégration d'ADTool dans \glasir{} & 
-                1.2 & 1 & 3 &
+                1.2 & L & H &
                 Lancer ADTool séparément\\ 
             \hline
         \end{tabular}
