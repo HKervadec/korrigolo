@@ -1,0 +1,22 @@
+marquer adtree
+dire disjonctif conjonctif
+
+un seul != au moins un
+hum, fonctionnalité onglet
+montrer ex valuation arbre (propagation)
+
+main dans les poches
+pifometre
+modifier interface Glasir pour voir optimiseur
+préciser cout et temps "pour l'attaquant", "pour le défenseur"
+preciser que le filtre peut être sur "plusieurs" critères possibles
+
+diapo 19 : modèleS
+pas "éditeur" de synthèse
+
+développement de glasir et pas glasir tout court
+"dans les rapports", "avec du travail"
+"des gens" -> des étudiants
+être plus direct et moins tourner autour du pot pour difficultés
+
+
