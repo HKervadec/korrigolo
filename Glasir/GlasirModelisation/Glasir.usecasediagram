@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="03a15e99-47dd-4369-ad68-fbc0ba75f611" name="UMLUseCaseDiagram1" linkedPackageId="822bb3df-8a9d-4801-9d7f-c908ae2f80d5" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="3726fed4-2bf5-4147-bbf4-9dd31eeb84a7">
+      <profileInstance Id="db957881-0de3-44a8-b0b0-f7a56aa3d2d8" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="fcdd5a8d-02ea-4a11-823c-193b9e3c5d86">
+      <profileInstance Id="3788ef41-762c-4ae2-8bbf-89efc486c3f9" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="6156d032-e3a2-4661-a07b-c04881fc1f6b" name="Expert en sécurité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e188723f-e268-4fec-88aa-81e1525ac917" />
+        <targetEnds>
+          <association Id="4f7306cc-a7be-4a90-958f-c4cb3f6c2a57" isDerived="false" sourceEndRoleName="Expert en sécurité" targetEndRoleName="Ouvrir projet existant" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aa229b42-b3ca-42b4-af04-912fbe697172" name="Expert en sécurité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0fc7952f-41ce-4fbc-8459-483a8734386f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6658b0d8-3376-4656-90ba-6215d273b40a" name="Ouvrir projet existant" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e4093410-4651-43b6-a1f9-b68bce1e846a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bf9e7728-01cc-4026-a56b-72bcb94aa0f7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" name="Ouvrir Glasir" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f3d20264-58d0-4ebf-b52e-b04f9390487b" name="Créer arbre(s)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef2f9b16-9705-49bb-9274-2dda34f4ac1c" />
+        <extendedCases>
+          <extend Id="f77704d2-e575-49fc-9762-142c8a99c9b6">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <elementDefinition Id="4527e3de-74b8-46cd-afc8-c9f9194e804e" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="300c8674-b892-4be1-886d-0dea0c1f53c9" name="Utiliser la bibliothèque de modèles" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5624cc4d-616b-4574-9249-f9591f3fb7c3" />
+        <extendedCases>
+          <extend Id="b03aa807-b5f8-4ff4-9954-447c0dd7b3d9">
+            <useCaseMoniker Id="f3d20264-58d0-4ebf-b52e-b04f9390487b" LastKnownName="Créer arbre(s)" />
+            <elementDefinition Id="f1c41c20-a6c7-467c-925b-1e7f42a46ea2" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="53239963-d438-4e29-b260-778fef6ebe80" name="Modifier arbre(s)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="26288838-9373-4f5e-8e1d-f5a9744dee1b" />
+        <extendedCases>
+          <extend Id="e6dc27b3-8b4f-4ed3-afda-7f31c3bf88df">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <elementDefinition Id="39d80da8-ecf5-4079-bd11-cd76d772b8b1" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="580f28c0-2f43-4422-a202-cfc374d6c66c" name="Analyser arbre(s)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4389bc45-c24d-4168-b796-2e6b4437df9c" />
+        <extendedCases>
+          <extend Id="b00bb640-d917-4010-92e9-dfaffad5f00d">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <elementDefinition Id="e23e34eb-5657-4f3d-ae22-366e4d0f4959" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8562594e-93ee-4ff8-bbe5-d0fc52176782" name="Utiliser Filtre" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="85b35a95-13f0-4988-9617-0917d4f8c427" />
+        <extendedCases>
+          <extend Id="ba9fdafa-6dae-4470-bbf8-aa11a2856798">
+            <useCaseMoniker Id="580f28c0-2f43-4422-a202-cfc374d6c66c" LastKnownName="Analyser arbre(s)" />
+            <elementDefinition Id="8bf93740-7fa9-4b3d-972e-5ba38aa9acae" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b3e8e2b8-02f7-40a8-82f2-67a2393bf9b4" name="Utiliser Optimiseur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0d348993-f6d8-47ce-a769-8e424e4bb213" />
+        <extendedCases>
+          <extend Id="44577e09-2106-4c7c-8b6a-d535238f588f">
+            <useCaseMoniker Id="580f28c0-2f43-4422-a202-cfc374d6c66c" LastKnownName="Analyser arbre(s)" />
+            <elementDefinition Id="bfac2c9c-8fee-4b07-afa7-43841b6d7a84" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f60068ac-2e75-434f-a084-8cf04ebeb976" name="Créer nouveaux paramètres" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="80ac8d7a-6bf8-4733-bccd-9ed415b7f05f" />
+        <extendedCases>
+          <extend Id="a946094e-7501-4cf8-8180-13d172102266">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <elementDefinition Id="594a3499-973f-43ca-99a5-d3b38498617d" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="eba604c4-77a2-42c6-8357-e613f7be2d0d">
+            <useCaseMoniker Id="8d5a7841-9b1c-4338-a782-3a281132e7b7" LastKnownName="Utiliser l'éditeur de fonctions " />
+            <elementDefinition Id="a8090342-876f-4dd1-b16b-baf1ca46e30a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8d5a7841-9b1c-4338-a782-3a281132e7b7" name="Utiliser l'éditeur de fonctions " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2029b8d8-b61e-490c-96b1-9b52dc63a62b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3e0f5db6-2ec7-430f-9034-316ddca37733" name="Ouvrir projet existant" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="34fefcfc-6dfb-42a4-bd1b-44da790dd359" />
+        <extendedCases>
+          <extend Id="2c63326d-ecc4-4336-824d-62d9ed804e60">
+            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
+            <elementDefinition Id="02f11d0c-9825-4dc6-b6d9-0862e0a23d56" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="822bb3df-8a9d-4801-9d7f-c908ae2f80d5" name="GlasirModelisation">
+    <elementDefinition Id="2568001e-103f-45a2-8e66-c0154b0209de" />
+  </package>
+</useCaseModelRoot>
