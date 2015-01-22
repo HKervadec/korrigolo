@@ -22,6 +22,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="FonctionEditor.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="FonctionEditor.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>FonctionEditor.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="optim.sequencediagram">
       <SubType>Content</SubType>
     </Content>
