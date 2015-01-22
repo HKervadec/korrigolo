@@ -30,7 +30,7 @@ namespace Glasir
         {
             Process process = new Process();
             process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            process.StartInfo.WorkingDirectory = "C:\\Users\\Valentin\\korrigolo\\Glasir\\Glasir\\bin\\Debug";
+            process.StartInfo.WorkingDirectory = "..\\bin\\Debug";
             process.StartInfo.Arguments = "COUCOU.adt";
             process.Start();
             //int code = clientProcess.ExitCode != 0)
