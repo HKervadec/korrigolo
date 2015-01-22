@@ -26,14 +26,34 @@ namespace Glasir
             InitializeComponent();
         }
 
+        /// <summary>
+        /// launch ADTool
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void launchADTool(object sender, RoutedEventArgs e)
         {
             Process process = new Process();
             process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
             process.StartInfo.WorkingDirectory = "C:\\Users\\Valentin\\korrigolo\\Glasir\\Glasir\\bin\\Debug";
-            process.StartInfo.Arguments = "COUCOU.adt";
+            process.StartInfo.Arguments = "adtree3.adt";
             process.Start();
             //int code = clientProcess.ExitCode != 0)
         }
+
+        public abstract class HwndHost : FrameworkElement, 
+	IDisposable, IWin32Window, IKeyboardInputSink
+
+        /// <summary>
+        /// when you drop (drag'n'drop)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void onDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+
     }
 }

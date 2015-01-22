@@ -3,7 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Launch ADTool" HorizontalAlignment="Left" Margin="246,143,0,0" VerticalAlignment="Top" Width="75" Click="launchADTool"/>
+        <Button Content="Open existing tree" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="150" Click="launchADTool"/>
+        <Button Content="Optimizer" HorizontalAlignment="Left" Margin="410,270,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button Content="Filter" HorizontalAlignment="Left" Margin="410,176,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button Content="Combine" HorizontalAlignment="Left" Margin="410,53,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <TextBlock HorizontalAlignment="Left" Height="83" Margin="32,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"><Run Text="Hierarchie"/><LineBreak/><Run Text="- Arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="- Arbre"/></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="197" Margin="130,76,0,0" VerticalAlignment="Top" Width="238" Drop="onDrop"/>
 
     </Grid>
 </Window>
