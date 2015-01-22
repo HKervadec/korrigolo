@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>optim.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Glasir.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Glasir.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Glasir.usecasediagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="filtre.sequencediagram">
       <SubType>Content</SubType>

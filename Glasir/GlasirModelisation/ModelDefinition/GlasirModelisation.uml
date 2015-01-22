@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="2568001e-103f-45a2-8e66-c0154b0209de"
   name="GlasirModelisation" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -3739,6 +3739,231 @@
       <executionEvent
         Id="3417b1e2-dcfa-4043-abb3-7adcb5b58371"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e188723f-e268-4fec-88aa-81e1525ac917"
+        name="Expert en sécurité"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="bf9e7728-01cc-4026-a56b-72bcb94aa0f7"
+            isDerived="false"
+            sourceEndRoleName="Expert en sécurité"
+            targetEndRoleName="Ouvrir projet existant"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0fc7952f-41ce-4fbc-8459-483a8734386f"
+                  name="Expert en sécurité"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e4093410-4651-43b6-a1f9-b68bce1e846a"
+                  name="Ouvrir projet existant"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ed634741-71c0-4abb-95c8-367d9b2a40e0"
+        name="Créer nouveau projet"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+        name="Ouvrir Glasir"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="43825485-ab06-45e6-a461-eb4dc148bb50">
+            <useCaseMoniker
+              Id="ed634741-71c0-4abb-95c8-367d9b2a40e0"
+              LastKnownName="Créer nouveau projet"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ef2f9b16-9705-49bb-9274-2dda34f4ac1c"
+        name="Créer arbre(s)"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="4527e3de-74b8-46cd-afc8-c9f9194e804e">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5624cc4d-616b-4574-9249-f9591f3fb7c3"
+        name="Utiliser la bibliothèque de modèles"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="f1c41c20-a6c7-467c-925b-1e7f42a46ea2">
+            <useCaseMoniker
+              Id="ef2f9b16-9705-49bb-9274-2dda34f4ac1c"
+              LastKnownName="Créer arbre(s)"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="26288838-9373-4f5e-8e1d-f5a9744dee1b"
+        name="Modifier arbre(s)"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="39d80da8-ecf5-4079-bd11-cd76d772b8b1">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4389bc45-c24d-4168-b796-2e6b4437df9c"
+        name="Analyser arbre(s)"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="e23e34eb-5657-4f3d-ae22-366e4d0f4959">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="85b35a95-13f0-4988-9617-0917d4f8c427"
+        name="Utiliser Filtre"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="8bf93740-7fa9-4b3d-972e-5ba38aa9acae">
+            <useCaseMoniker
+              Id="4389bc45-c24d-4168-b796-2e6b4437df9c"
+              LastKnownName="Analyser arbre(s)"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0d348993-f6d8-47ce-a769-8e424e4bb213"
+        name="Utiliser Optimiseur"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="bfac2c9c-8fee-4b07-afa7-43841b6d7a84">
+            <useCaseMoniker
+              Id="4389bc45-c24d-4168-b796-2e6b4437df9c"
+              LastKnownName="Analyser arbre(s)"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="80ac8d7a-6bf8-4733-bccd-9ed415b7f05f"
+        name="Créer nouveaux paramètres"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="594a3499-973f-43ca-99a5-d3b38498617d">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="a8090342-876f-4dd1-b16b-baf1ca46e30a">
+            <useCaseMoniker
+              Id="2029b8d8-b61e-490c-96b1-9b52dc63a62b"
+              LastKnownName="Utiliser l'éditeur de fonctions "
+              LastKnownLocation="GlasirModelisation.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2029b8d8-b61e-490c-96b1-9b52dc63a62b"
+        name="Utiliser l'éditeur de fonctions "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="34fefcfc-6dfb-42a4-bd1b-44da790dd359"
+        name="Ouvrir projet existant"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="02f11d0c-9825-4dc6-b6d9-0862e0a23d56">
+            <useCaseMoniker
+              Id="60a7b589-3a4b-4012-8b1b-ed79ce7aea57"
+              LastKnownName="Ouvrir Glasir"
+              LastKnownLocation="GlasirModelisation.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
