@@ -51,14 +51,14 @@
       </relativeChildShapes>
     </lifelineShape>
     <lifelineShape Id="0d22cc19-f29e-4305-957a-def56525861f" absoluteBounds="4.3583333333333325, 1, 0.15, 10.039999999105934" visible="true" visualStyleMode="Modified">
-      <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filtre" />
+      <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filter" />
       <relativeChildShapes>
         <umlLifelineHeadShape Id="374d07b4-8c46-47ef-a98d-db74d02bb6e3" absoluteBounds="3.9333333333333327, 0.6, 1, 0.4" customColor="White" visualStyleMode="Modified">
-          <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filtre" />
+          <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filter" />
           <relativeChildShapes />
         </umlLifelineHeadShape>
         <lifelineHoverShape Id="d45a5dee-8422-4d11-9db8-8a2557c6d63c" absoluteBounds="4.3583333333333325, 1, 0, 10">
-          <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filtre" />
+          <lifelineMoniker Id="32cb8d69-9620-4360-8643-f9f52a60afb8" LastKnownName="Filter" />
         </lifelineHoverShape>
         <umlExecutionSpecificationShape Id="6106069c-309c-4883-b59d-cc5632fab52d" absoluteBounds="4.3583333333333325, 5.8699999995529639, 0.15, 0.55" customColor="184, 204, 215" visualStyleMode="Modified">
           <behaviorExecutionSpecificationMoniker Id="e67bccc8-f324-45bc-896d-bc3e8ff823d7" LastKnownName="BehaviorExecutionSpecification4" />
