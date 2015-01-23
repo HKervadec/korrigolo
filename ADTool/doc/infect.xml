@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="conjunctive">
+    <label>infect computer</label>
+    <node refinement="disjunctive">
+      <label>virus on system</label>
+      <node refinement="disjunctive">
+        <label>e-mail with
+attachment</label>
+      </node>
+      <node refinement="disjunctive">
+        <label>USB stick</label>
+      </node>
+      <node refinement="conjunctive" switchRole="yes">
+        <label>antivirus</label>
+        <node refinement="disjunctive">
+          <label>install antivirus</label>
+        </node>
+        <node refinement="disjunctive">
+          <label>run antivirus</label>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>fake antivirus</label>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>execute virus</label>
+    </node>
+  </node>
+</adtree>

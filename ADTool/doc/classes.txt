@@ -1,0 +1,68 @@
+-}  implements
+->  extends
+
+Node-} SimpleNode-> ADTNode -> LblTree
+
+   Node - template for parser
+   
+   SimpleNode - implementation for parser
+        parent, (array) children, id, value(for parser), parser
+   ADTNode - 
+        (static)order, name, type, (vector) children
+   LblTree - used for RTED algorithm
+     tmData
+
+GUI:
+   Frame->MainWindow holds:
+      RootWindow rootWindow
+      dynamicViews
+      lastFocused
+      currentTheme
+
+      View views[4]:
+      - ADTreeView - contains tree in graphical form
+      - ADTermView - contains tree in textual form
+      - ValuationsView - preview of valuations
+      - DetailsView - view of the details
+
+
+Algorith for tree edit distance:
+   ADTermView.parse()
+
+
+
+   LabelDictionary - mapping labels to small integers
+
+Clases to delete:
+   EditPath
+   InfoTree
+   RTED_InfoTree
+
+Messages:
+ ADTreeCanvas.addChild(node) { 
+    ADTreeForGui.addChild(node,child)
+    ADTreeForGui.notifyTreeChanged();
+ }
+ ADTreeForGui {
+  addChild(){
+    ...add node...
+    ADTreeNodeExtentProvider().updateSize(node);
+    ADTreeForGui.notifyTreeChanged();  (  listener.treeChanged(); )
+  }
+  notifySizeChanged() (listener.sizeChanged())
+ }
+ ADTreeCanvas.treeChanged(){
+  recalculateLayotut();( ... repaint() )
+ }
+ DomainCanvas.treeChanged(){
+  ValuationDomain.treeChanged(root)
+  ValuationView.assignCanvas()
+  ADTreeForGui.updateAllSizes() {updateSize for all Nodes; ADTreeForGui.notifySizeChanged()}
+ }
+ ValuationDomain.treeChanged(){
+    valueAssPro.setDefault(true,root.getTerm(),domain)
+    evaluator.reevaluate(root.getTerm(), valueAssPro, valueAssOpp);
+    this.refreshAllValues(root);
+ }
+ ValuationView.assignCanvas(){
+ }

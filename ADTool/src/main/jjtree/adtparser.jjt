@@ -1,0 +1,164 @@
+options {
+  MULTI=false;
+  NODE_DEFAULT_VOID=false;
+  NODE_CLASS="ADTNode";
+}
+
+PARSER_BEGIN(ADTParser)
+package lu.uni.adtool.adtree;
+
+import java.io.StringReader;
+import java.io.Reader;
+/** An ADTerm Grammar. */
+public class ADTParser {
+  /**
+   * Parse a string
+   */
+ public ADTParser(String s) 
+  {
+      this((Reader)(new StringReader(s))); 
+  }
+  /** Main entry point. */
+  public static void main(String args[]) {
+    System.out.println("Reading from standard input...");
+    try {
+      ADTNode n = ADTParser.parse();
+      System.out.println(n.toString());
+      System.out.println("Thank you.");
+    } catch (Exception e) {
+      System.out.println("Oops.");
+      System.out.println(e.getMessage());
+      e.printStackTrace();
+    }
+  }
+}
+
+PARSER_END(ADTParser)
+
+
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+//| <"//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+//| <"/*" (~["*"])* "*" (~["/"] (~["*"])* "*")* "/">
+}
+
+TOKEN : /* Reserved  tokens*/
+{
+     <OO: "oo"|"OO">
+  |  <AO: "ao"|"AO">
+  |  <OP: "op"|"OP">
+  |  <AP: "ap"|"AP">
+  |  <CO: "co"|"CO">
+  |  <CP: "cp"|"CP">
+  |  <COMMA: ",">
+  |  <LPAREN: "(">
+  |  <RPAREN: ")">
+}
+
+TOKEN : /* IDENTIFIERS */
+{
+    <IDENTIFIER: (<FIRST_CHAR> (<LETTER> | <DIGIT> | <SPACE> |<EOL>)*<FIRST_CHAR>) | <FIRST_CHAR> >
+  | <#FIRST_CHAR: <LETTER> | <DIGIT> >
+  | <#LETTER: ["_","a"-"z","A"-"Z","!","?","-","'",";",":","#","]","[","{","}","=","*","/","\\","|","@","^","`","\"","&","$","~",".","<",">","+","%"]>
+  | <#DIGIT: ["0"-"9"]>
+  | <#SPACE: [" "]>
+  | <#EOL: ["\n"]>
+}
+
+
+/** Main production. */
+ADTNode parse() #void : 
+{
+  ADTNode root;
+}
+{
+  root=ADTPro()<EOF>
+  { return root; }
+  |
+  <EOF>
+  { return null; }
+}
+
+
+/** An ADTerm of opponent type. */
+ADTNode ADTOpp() : 
+{
+  Token t;
+}
+{
+  (
+      t=<IDENTIFIER>
+      { 
+        jjtThis.setType(ADTNode.Type.LEAFO);
+        jjtThis.setName(t.image);
+      }
+      |
+        ( <OO>
+        {
+          jjtThis.setType(ADTNode.Type.OO);
+          jjtThis.setName("oo");
+        }
+          |
+          <AO>
+          {
+            jjtThis.setType(ADTNode.Type.AO);
+            jjtThis.setName("ao");
+          }
+        ) 
+        <LPAREN>
+          ADTOpp() ( <COMMA> ADTOpp() )* 
+        <RPAREN>
+      |
+      (<CO> <LPAREN> ADTOpp() <COMMA> ADTPro() <RPAREN>)
+      { 
+        jjtThis.setType(ADTNode.Type.CO);
+        jjtThis.setName("co");
+      }
+
+  )
+  { return jjtThis; }
+}
+
+/** An ADTerm of proponent type. */
+ADTNode ADTPro(): 
+{
+  Token t;
+}
+{
+  (
+     t=<IDENTIFIER>
+     {
+       jjtThis.setType(ADTNode.Type.LEAFP);
+       jjtThis.setName(t.image);
+     }
+     |
+        (  <OP>
+        {
+          jjtThis.setType(ADTNode.Type.OP);
+          jjtThis.setName("op");
+        }
+           | 
+           <AP>
+           {
+             jjtThis.setType(ADTNode.Type.AP);
+             jjtThis.setName("ap");
+           }
+        ) 
+        <LPAREN>
+           ADTPro() 
+           ( <COMMA> ADTPro() )* 
+        <RPAREN>
+     |
+     (<CP> <LPAREN> ADTPro() <COMMA> ADTOpp() <RPAREN>)
+     { 
+       jjtThis.setType(ADTNode.Type.CP);
+       jjtThis.setName("cp");
+     }
+  )
+  {  return jjtThis; }
+}
+
