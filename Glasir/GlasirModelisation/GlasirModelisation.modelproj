@@ -44,12 +44,12 @@
       <DependentUpon>Glasir.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
-    <Content Include="filtre.sequencediagram">
+    <Content Include="filter.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="filtre.sequencediagram.layout">
+    <Content Include="filter.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>filtre.sequencediagram</DependentUpon>
+      <DependentUpon>filter.sequencediagram</DependentUpon>
     </Content>
     <Content Include="ModelDefinition\GlasirModelisation.uml">
       <SubType>Content</SubType>
