@@ -29,7 +29,7 @@ namespace Glasir
             InitializeComponent();
         }
 
-        public Glasir Glasir
+        public BigGlasir Glasir
         {
             get
             {
@@ -48,10 +48,13 @@ namespace Glasir
         private void launchADTool(object sender, RoutedEventArgs e)
         {
             Process process = new Process();
+           
             process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
             process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory() ;
             process.StartInfo.Arguments = "adtree3.adt";
             
+            // add ADTool and adtree3.adt to bin/Debug if this don't work mdfk
+
             process.Start();
         }
 
@@ -65,9 +68,9 @@ namespace Glasir
         {
             Process process = new Process();
             process.StartInfo.FileName = "C:\\Program Files (x86)\\Notepad++\\notepad++.exe";
-            //process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
+            
             process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory() ;
-            //process.StartInfo.Arguments = "adtree3.adt";
+            
             
             process.Start();
 

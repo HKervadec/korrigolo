@@ -9,13 +9,13 @@
   </Class>
   <Class Name="Glasir.MainWindow">
     <Position X="0.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="Glasir" Type="Glasir.Glasir">
+    <AssociationLine Name="Glasir" Type="Glasir.BigGlasir">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.285" Y="-0.265" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAACAAAAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAEACAAAAAAg=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -71,7 +71,7 @@
       <FileName>FunctionEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Glasir.Glasir">
+  <Class Name="Glasir.BigGlasir">
     <Position X="1.75" Y="4" Width="1.5" />
     <AssociationLine Name="Filter" Type="Glasir.Filter" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -87,7 +87,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAACAAAAAAABAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Glasir.cs</FileName>
+      <FileName>BigGlasir.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Filter" />

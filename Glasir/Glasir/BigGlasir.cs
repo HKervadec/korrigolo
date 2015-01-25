@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Glasir
 {
-    public class Glasir
+    public class BigGlasir
     {
-        public Glasir()
+        public BigGlasir()
         {
             throw new System.NotImplementedException();
         }
