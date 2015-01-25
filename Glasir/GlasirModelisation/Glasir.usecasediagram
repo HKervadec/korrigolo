@@ -128,17 +128,6 @@
         </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="c469a278-4159-4392-a1f9-9915fb3390c3" name="Fermer Glasir" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="2a14f9f3-6993-4c6e-ba4d-69c0d8e5e1d7" />
-        <extendedCases>
-          <extend Id="4c7c7a3c-0103-46c8-a070-a0bec4eeab74">
-            <useCaseMoniker Id="cbaac0d2-3e15-48e8-a8e4-34a5d7b3acf0" LastKnownName="Ouvrir Glasir" />
-            <elementDefinition Id="945017df-a80f-4d20-ae88-32e264342a8e" />
-          </extend>
-        </extendedCases>
-      </useCase>
-    </useCaseModelRootHasTypes>
   </packagedElements>
   <package Id="822bb3df-8a9d-4801-9d7f-c908ae2f80d5" name="GlasirModelisation">
     <elementDefinition Id="2568001e-103f-45a2-8e66-c0154b0209de" />
