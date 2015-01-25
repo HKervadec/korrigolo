@@ -1,0 +1,11 @@
+cloner : git clone https://.../korrigolo
+statut : git status
+ajouter le fichier slip.txt situé dans le dossier truc : git add truc/slip.txt
+ajouter tout le dossier culotte : git add culotte/*
+annuler l'ajout du fichier soutif.txt du dossier fringues : git reset fringues/soutif.txt
+commit avec message : git commit -m "message de commit"
+pull : git pull
+push : git push
+
+Pour Glasir : ajouter les fichier .cs et .xaml
+Pour ADTool : ajouter a priori tout le dossier src ; ajouter le pom.xml ; ne pas ajouter le dossier target.
