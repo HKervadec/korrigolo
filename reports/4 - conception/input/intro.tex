@@ -1,23 +1,19 @@
 \section{Introduction}
     \label{sec:intro}
 
-    La sécurisation des systèmes est une problématique majeure de la société moderne. En ce sens, de nombreuses méthodologies ont été développées dans le but d'identifier les risques et de les quantifier~\cite{survey}. C'est avec cet objectif que le concept d'arbres d'attaque et de défense (\og Attack-Defense Trees \fg{} en anglais, ou ADTrees) a vu le jour~\cite{JLC}.
+    Le projet décrit dans ce rapport consiste à développer un logiciel d'analyse informatique des arbres d'attaque et de défense (\og Attack-Defense Trees \fg{} en anglais, ou ADTrees), nommé Glasir, dont le logo est présenté à la {\sc Figure}~\ref{fig:glasir}. Il intègrera entre autres un logiciel libre d'édition d'ADTrees déjà existant, ADTool, qui subira quelques modifications destinées à améliorer son ergonomie. Utilisé dans Glasir pour l'affichage, la création et l'édition des ADTrees, ADTool sera complété par les fonctionnalités d'analyse qui sont les suivantes :
 
-    Lors de la phase de pré-étude, nous avons pu comprendre l’intérêt pratique de la construction des ADTrees. Leur utilisation permet d'identifier de manière précise les différentes attaques possibles contre un système et de les valuer en termes de coût, de probabilité, etc. ADTool (Attack-Defense Tree Tool), un logiciel développé pour l'implémentation de ces arbres sur support informatique, a été étudié pour ce projet~\cite{ADTool}. Lors de sa prise en main, nous avons trouvé que le logiciel présentait quelques limitations. En effet, dans un cas concret d'expertise en sécurité, l'ADTree qui modélisera les attaques possibles sur le système sera parfois de très grande taille. Dans ce cas, il est difficile pour l'expert d'en extraire des informations pertinentes au premier coup d’œil. Or, ADTool ne fournit pas d'outil permettant à l'utilisateur de simplifier l'analyse de l'arbre. 
-
-    L'objectif de ce projet est la réalisation d'un logiciel permettant de dépasser ces limites en fournissant à l'utilisateur, un expert en sécurité, des outils d'analyse des ADTrees. Ce logiciel a été nommé \glasir{} en référence à l'arbre aux feuilles d'or de la mythologie nordique~\cite{vikingCulture}, et nous avons créé son logo visible sur la \textsc{Figure} \ref{fig:glasir}. Il disposera de trois fonctionnalités principales qui ont été détaillées dans le rapport de spécifications fonctionnelles :
     \begin{itemize}
-    	\item le paramètre de synthèse permet d'étendre le nombre de paramètres d'ADTool ;
-    	\item le filtre aide l'utilisateur à ôter de l’arbre les nœuds aux valuations hors d'un intervalle défini ;
-    	\item l'optimiseur sélectionne le meilleur chemin dans l'arbre selon une certaine valuation.
-    \end{itemize}
-    ADTool sera intégré dans une fenêtre au sein du logiciel, en tant qu'éditeur d'ADTrees. 
+    	\item le paramètre de synthèse, qui permet d'étendre le nombre de paramètres d'ADTool ;
+    	\item le filtre, qui aide l'utilisateur à ôter de l’arbre les nœuds aux valuations hors d'un intervalle défini ;
+    	\item l'optimiseur, qui sélectionne le meilleur chemin dans l'arbre selon une certaine valuation.
+    \end{itemize} 
 
-    Ce rapport présente la phase de planification et d'organisation. Dans un premier temps, il rappelle le contexte de ce projet. Ensuite, il détaille la méthode de gestion de projet utilisée, et le partitionnement du développement en tâches unitaires. Enfin, grâce à des diagrammes réalisés avec le logiciel Microsoft Project (souvent appelé MS Project), il précise le séquencement de ces tâches lors du second semestre.
+    Ce rapport de conception logicielle commencera par présenter l'architecture globale de Glasir, à l'aide d'un prototype d'interface et d'un diagramme de cas d'utilisation montrant les différentes actions accessibles à l'utilisateur. Cette présentation sera suivie d'un diagramme de classes général présentant l'architecture interne du logiciel. Enfin, le fonctionnement des modules principaux ainsi sera décrit par différents diagrammes de séquence, avant d'aborder les limites d'utilisation de Glasir.
 
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
-        \includegraphics[height=0.4\textwidth]{figure/glasir.png}
-        \caption{Logo du logiciel \glasir{}.}
+        \includegraphics[height=0.5\textwidth]{figure/glasir.png}
+        \caption{Logo du logiciel Glasir.}
         \label{fig:glasir}
     \end{figure}

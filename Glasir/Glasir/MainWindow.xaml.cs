@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,8 @@ namespace Glasir
         {
             Process process = new Process();
             process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            process.StartInfo.WorkingDirectory = "C:\\Users\\Valentin\\korrigolo\\ADTool";
-            process.StartInfo.Arguments = "adtrees_5_annee\\adtree3.adt";
+            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory() ;
+            process.StartInfo.Arguments = "adtree3.adt";
             
             process.Start();
             //int code = clientProcess.ExitCode != 0)
