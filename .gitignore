@@ -268,3 +268,20 @@ FakesAssemblies/
 *.plg
 # Visual Studio 6 workspace options file
 *.opt
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
