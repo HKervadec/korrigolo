@@ -27,6 +27,17 @@ namespace Glasir
             InitializeComponent();
         }
 
+        public Glasir Glasir
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// launch ADTool
         /// </summary>

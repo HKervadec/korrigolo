@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="2ab644a6-143c-4e3f-a552-8a269813ba69" name="Optimizer" linkedPackageId="a3e542da-9bfd-4eab-af53-f8490c3e1dda" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="2ab644a6-143c-4e3f-a552-8a269813ba69" name="Optimizer" linkedPackageId="a3e542da-9bfd-4eab-af53-f8490c3e1dda" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="416a2f0b-457c-448b-a582-ba066e492595" name="Optimizer" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -104,16 +104,16 @@
               <lifelineMoniker Id="9aab356b-a3f1-4c1a-8858-99be09d4a31a" LastKnownName="Security Expert" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="a68a9856-6246-4cec-a4ee-0018b3579cb4" name="MessageOccurrenceSpecification61">
-            <elementDefinition Id="431c9f57-c20b-4e66-95da-c13832d0ffc6" />
-            <covered>
-              <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="8fe8ff5b-9781-4b74-b65b-f30322e3215b" name="MessageOccurrenceSpecification62">
             <elementDefinition Id="602c0016-f892-4d60-bb1f-dc08e4c67de4" />
             <covered>
               <lifelineMoniker Id="9aab356b-a3f1-4c1a-8858-99be09d4a31a" LastKnownName="Security Expert" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a68a9856-6246-4cec-a4ee-0018b3579cb4" name="MessageOccurrenceSpecification61">
+            <elementDefinition Id="431c9f57-c20b-4e66-95da-c13832d0ffc6" />
+            <covered>
+              <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="fbe049a8-1267-4bd5-b876-1621ed0cb008" name="ExecutionOccurrenceSpecification32">
@@ -197,16 +197,16 @@
               <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="01c99910-54aa-4f20-a72a-7f171a3e40ef" name="MessageOccurrenceSpecification24">
-            <elementDefinition Id="16e22592-bb28-41b2-9a98-55ca3d437ea5" />
-            <covered>
-              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="3799b711-1c9c-4ed4-8b71-14d4163c9084" name="MessageOccurrenceSpecification23">
             <elementDefinition Id="6c87ed17-127e-4b98-8b99-eeacd04a0775" />
             <covered>
               <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="01c99910-54aa-4f20-a72a-7f171a3e40ef" name="MessageOccurrenceSpecification24">
+            <elementDefinition Id="16e22592-bb28-41b2-9a98-55ca3d437ea5" />
+            <covered>
+              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0bf75523-016c-44df-9032-82753d26141f" name="MessageOccurrenceSpecification26">
@@ -271,16 +271,16 @@
               <lifelineMoniker Id="01948ec7-3690-491c-abb1-3db590462296" LastKnownName="ADTool" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="9aaf3b88-d6de-4fbf-a2d7-10acc9467d89" name="MessageOccurrenceSpecification12">
-            <elementDefinition Id="9d74834c-f672-4138-8ebc-d588e00dcda1" />
-            <covered>
-              <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="f01f1e05-107d-4ca4-8ca6-4b705122a2d9" name="MessageOccurrenceSpecification11">
             <elementDefinition Id="ca834d42-fb8f-41d9-ad2a-cf7af3a24521" />
             <covered>
               <lifelineMoniker Id="01948ec7-3690-491c-abb1-3db590462296" LastKnownName="ADTool" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="9aaf3b88-d6de-4fbf-a2d7-10acc9467d89" name="MessageOccurrenceSpecification12">
+            <elementDefinition Id="9d74834c-f672-4138-8ebc-d588e00dcda1" />
+            <covered>
+              <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="5dfc69b4-e2a3-4845-9aea-10729e199f0c" name="ExecutionOccurrenceSpecification6">
@@ -317,6 +317,12 @@
               <lifelineMoniker Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" LastKnownName="Glasir" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="8c9b2971-c07e-40d1-b5f1-769804225526" name="OperandOccurrenceSpecification18">
+            <elementDefinition Id="04b71b7b-13fb-41d1-9225-c924d019e327" />
+            <covered>
+              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="2ca1a9f6-a7f3-49fe-aa93-cb7dadeb2971" name="OperandOccurrenceSpecification20">
             <elementDefinition Id="d04410ba-f056-4052-a8d4-75b3946a8697" />
             <covered>
@@ -333,12 +339,6 @@
             <elementDefinition Id="6c64461c-484e-4ca3-91b2-827943c1efe2" />
             <covered>
               <lifelineMoniker Id="9aab356b-a3f1-4c1a-8858-99be09d4a31a" LastKnownName="Security Expert" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="8c9b2971-c07e-40d1-b5f1-769804225526" name="OperandOccurrenceSpecification18">
-            <elementDefinition Id="04b71b7b-13fb-41d1-9225-c924d019e327" />
-            <covered>
-              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="b1ac80d4-a727-4b76-a756-be7b2379fc77" name="BehaviorExecutionSpecification4">
@@ -464,16 +464,16 @@
               <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="9aa2764a-aa53-4783-8e8b-4ae5a7fe0949" name="MessageOccurrenceSpecification28">
-            <elementDefinition Id="51f13380-078a-484a-a9ca-0df6f5e18617" />
-            <covered>
-              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="39729232-f562-4fd4-b3bc-9c984c605b5f" name="MessageOccurrenceSpecification27">
             <elementDefinition Id="9043c73f-5ce5-4015-96aa-f36df32ef451" />
             <covered>
               <lifelineMoniker Id="d3743a9a-081c-4d51-a362-65b1ce507b69" LastKnownName="Optimizer" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="9aa2764a-aa53-4783-8e8b-4ae5a7fe0949" name="MessageOccurrenceSpecification28">
+            <elementDefinition Id="51f13380-078a-484a-a9ca-0df6f5e18617" />
+            <covered>
+              <lifelineMoniker Id="9307ef5a-ce38-4456-ba6c-42cf73d1aceb" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="36f76348-48ed-4ba9-9d0a-f67c0d95de65" name="MessageOccurrenceSpecification29">
@@ -538,16 +538,16 @@
               <lifelineMoniker Id="14e4b276-26e7-410e-a113-51056c2c2730" LastKnownName="modified XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="e6840ce9-7cde-42db-a2be-c1379edfca86" name="MessageOccurrenceSpecification50">
-            <elementDefinition Id="b6e6dda5-2cc5-4baf-bc4e-af783c1356a6" />
-            <covered>
-              <lifelineMoniker Id="d3743a9a-081c-4d51-a362-65b1ce507b69" LastKnownName="Optimizer" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="67884bb3-83a9-4e13-80d5-8fa4cd77bd82" name="MessageOccurrenceSpecification49">
             <elementDefinition Id="e2165d7c-6ea2-41cc-b8b0-e993187a833d" />
             <covered>
               <lifelineMoniker Id="14e4b276-26e7-410e-a113-51056c2c2730" LastKnownName="modified XML ADTree file" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e6840ce9-7cde-42db-a2be-c1379edfca86" name="MessageOccurrenceSpecification50">
+            <elementDefinition Id="b6e6dda5-2cc5-4baf-bc4e-af783c1356a6" />
+            <covered>
+              <lifelineMoniker Id="d3743a9a-081c-4d51-a362-65b1ce507b69" LastKnownName="Optimizer" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="28035b1c-9806-48f3-ad8a-41d2fe82c159" name="ExecutionOccurrenceSpecification26">
@@ -726,6 +726,9 @@
           </lifeline>
           <lifeline Id="9016abe9-b107-4ae3-b0d7-b06b2eadc3f7" name="Glasir" isActor="false" lifelineDisplayName="Glasir">
             <elementDefinition Id="47310db6-51be-4e7a-b4f3-e6efbfa2375b" />
+            <represents>
+              <propertyMoniker Id="c36bcee2-6af4-4cc6-ac1d-2b230c67ab4d" />
+            </represents>
             <topLevelOccurrences>
               <operandOccurrenceSpecificationMoniker Id="f48a6b14-5288-4d44-82d5-e26a132fe08f" LastKnownName="OperandOccurrenceSpecification13" />
               <executionOccurrenceSpecificationMoniker Id="68d947a9-733d-491c-87de-27b129369820" LastKnownName="ExecutionOccurrenceSpecification31" />
@@ -780,7 +783,7 @@
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="ba40c587-0013-47a2-b5f6-4cb65d8882f7" name="&lt;&lt;create&gt;&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false">
+          <message Id="ba40c587-0013-47a2-b5f6-4cb65d8882f7" name="&lt;&lt;create&gt;&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="+ &lt;&lt;create&gt;&gt;()">
             <elementDefinition Id="e174be4e-4e01-492f-8e91-dc0c5964b72c" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="91230b0d-abab-428b-85d3-4441003cfc61" LastKnownName="MessageOccurrenceSpecification59" />
@@ -798,7 +801,7 @@
               <messageOccurrenceSpecificationMoniker Id="8fe8ff5b-9781-4b74-b65b-f30322e3215b" LastKnownName="MessageOccurrenceSpecification62" />
             </receiveEvent>
           </message>
-          <message Id="255aad5d-89ba-4912-b995-8483af08b4c8" name="open(ADTree)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="255aad5d-89ba-4912-b995-8483af08b4c8" name="open(ADTree)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="+ open(ADTree)">
             <elementDefinition Id="1db7ba1e-97f3-4c7e-8fca-53c1192e5b41" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="7d0812b6-a344-436b-ab09-4f00154e2de7" LastKnownName="MessageOccurrenceSpecification5" />
@@ -861,7 +864,7 @@
               <messageOccurrenceSpecificationMoniker Id="5045a4d4-25a6-4306-af0e-e11121c68be4" LastKnownName="MessageOccurrenceSpecification14" />
             </receiveEvent>
           </message>
-          <message Id="ec840450-43bd-4dd1-a3a9-7409c1e24054" name="optim(param)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="+ optim(param)">
+          <message Id="ec840450-43bd-4dd1-a3a9-7409c1e24054" name="Optimizer(param)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="7fcfc07e-cf00-4487-8ef6-12a701d7c8c6" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="82cfbf4e-195b-4140-9c0e-aa79949bd074" LastKnownName="MessageOccurrenceSpecification15" />
@@ -957,6 +960,12 @@
             <elementDefinition Id="66d0b8a6-f25c-4f01-82a4-b4d2c9549a9c" />
             <type_NamedElement>
               <referencedTypeMoniker Id="b1fb87f3-7752-45af-bea5-bfef42f2ae3f" LastKnownName="Optimizer" />
+            </type_NamedElement>
+          </property>
+          <property Id="c36bcee2-6af4-4cc6-ac1d-2b230c67ab4d" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a8763620-54cd-4550-820b-8a19cd19f4a9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d620ca25-dcdc-4f98-b26a-6bbb74d421b5" LastKnownName="Glasir" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1065,6 +1074,11 @@
     <packageHasNamedElement>
       <referencedType Id="b1fb87f3-7752-45af-bea5-bfef42f2ae3f" name="Optimizer" isAbstract="false" isLeaf="false" cachedFullName="GlasirModelisation::Optimizer">
         <elementDefinition Id="32d6f03f-b092-4001-8adc-69ec85df7460" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d620ca25-dcdc-4f98-b26a-6bbb74d421b5" name="Glasir" isAbstract="false" isLeaf="false" cachedFullName="GlasirModelisation::Glasir">
+        <elementDefinition Id="2f1f08af-7603-439a-bd30-d857ec109b8d" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

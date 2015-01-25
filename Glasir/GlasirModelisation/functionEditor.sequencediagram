@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="48653bf6-9f03-46a9-806e-03260835a7b6" name="FunctionEditor" linkedPackageId="d8f0b802-3887-4596-bf4b-7074020911e1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="48653bf6-9f03-46a9-806e-03260835a7b6" name="FunctionEditor" linkedPackageId="d8f0b802-3887-4596-bf4b-7074020911e1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="b5dcbef0-1d26-4194-b37f-584251e6e7fe" name="FunctionEditor" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -104,16 +104,16 @@
               <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="774acffd-55f5-4d41-bbb5-6e778cb5f0c6" name="MessageOccurrenceSpecification61">
-            <elementDefinition Id="a8e23865-d6c8-4d64-b26a-8c7afdd1adef" />
-            <covered>
-              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0381311b-b686-4e3b-8976-40d380409f5d" name="MessageOccurrenceSpecification62">
             <elementDefinition Id="04ead272-b0d1-40be-99f0-f3db0a2d0df6" />
             <covered>
               <lifelineMoniker Id="a5abe781-d6a4-4878-b274-63f93dc6ec86" LastKnownName="Security Expert" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="774acffd-55f5-4d41-bbb5-6e778cb5f0c6" name="MessageOccurrenceSpecification61">
+            <elementDefinition Id="a8e23865-d6c8-4d64-b26a-8c7afdd1adef" />
+            <covered>
+              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="310c542e-a10d-42b6-aa99-402f4f98983e" name="ExecutionOccurrenceSpecification32">
@@ -197,16 +197,16 @@
               <lifelineMoniker Id="d044bf94-c246-4313-9550-976c9ee60216" LastKnownName="XML ADTree file" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="e91de63e-5356-4500-b4bf-e46ae5cbb57f" name="MessageOccurrenceSpecification23">
-            <elementDefinition Id="384ea8f6-3ae6-49e0-8fff-4e223f2195ec" />
-            <covered>
-              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="4d3d5822-5e0d-4214-9c19-82a720decf5f" name="MessageOccurrenceSpecification24">
             <elementDefinition Id="500c929e-dbe6-480b-b7e1-b25522abd113" />
             <covered>
               <lifelineMoniker Id="d044bf94-c246-4313-9550-976c9ee60216" LastKnownName="XML ADTree file" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e91de63e-5356-4500-b4bf-e46ae5cbb57f" name="MessageOccurrenceSpecification23">
+            <elementDefinition Id="384ea8f6-3ae6-49e0-8fff-4e223f2195ec" />
+            <covered>
+              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="cbfb86b3-dbce-401a-a0d4-47b8a2d94a53" name="MessageOccurrenceSpecification26">
@@ -271,16 +271,16 @@
               <lifelineMoniker Id="33007150-4c17-4f0a-be4f-97e035f19428" LastKnownName="ADTool" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="085be578-cbfb-4ea5-8c84-74d0acc99cdc" name="MessageOccurrenceSpecification12">
-            <elementDefinition Id="2ffabd78-b34d-4051-8dd2-4cd627fb8c31" />
-            <covered>
-              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="ac9a2c5d-0cbd-4c16-bab1-c2d20fbf1ee2" name="MessageOccurrenceSpecification11">
             <elementDefinition Id="7dd815ea-e974-49bc-a8d4-3e4e87d883cd" />
             <covered>
               <lifelineMoniker Id="33007150-4c17-4f0a-be4f-97e035f19428" LastKnownName="ADTool" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="085be578-cbfb-4ea5-8c84-74d0acc99cdc" name="MessageOccurrenceSpecification12">
+            <elementDefinition Id="2ffabd78-b34d-4051-8dd2-4cd627fb8c31" />
+            <covered>
+              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="d8aa1c1e-ac0a-4e14-9947-e66b6ced1e59" name="ExecutionOccurrenceSpecification6">
@@ -317,6 +317,12 @@
               <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="687a2cb3-60de-443a-ba82-b133942b6999" name="OperandOccurrenceSpecification4">
+            <elementDefinition Id="307711d5-c608-4e5c-b937-5d68e8af139a" />
+            <covered>
+              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="34c6df75-482e-4459-81d0-6f7cb9c3f142" name="OperandOccurrenceSpecification2">
             <elementDefinition Id="d68138f9-ab57-4bdb-bcfd-1f134a93c0d9" />
             <covered>
@@ -333,12 +339,6 @@
             <elementDefinition Id="f4b536e8-acde-4b0b-8255-b61114a6a7c7" />
             <covered>
               <lifelineMoniker Id="d044bf94-c246-4313-9550-976c9ee60216" LastKnownName="XML ADTree file" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="687a2cb3-60de-443a-ba82-b133942b6999" name="OperandOccurrenceSpecification4">
-            <elementDefinition Id="307711d5-c608-4e5c-b937-5d68e8af139a" />
-            <covered>
-              <lifelineMoniker Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" LastKnownName="Glasir" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="a7bd6160-cd7e-462e-a52c-c3e96ee44ab0" name="BehaviorExecutionSpecification4">
@@ -464,16 +464,16 @@
               <lifelineMoniker Id="d044bf94-c246-4313-9550-976c9ee60216" LastKnownName="XML ADTree file" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="a2d08e76-50ab-44c9-ab3d-b2a7f7799ad6" name="MessageOccurrenceSpecification27">
-            <elementDefinition Id="ea55d087-507a-4418-9bae-9d920de93245" />
-            <covered>
-              <lifelineMoniker Id="09f9d03d-0124-4f44-9fc9-364a1fb0dcf3" LastKnownName="FunctionEditor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="ba2fe8af-6d77-4693-9ef9-4dd3b177a53b" name="MessageOccurrenceSpecification28">
             <elementDefinition Id="520cf8ab-8aec-436f-8305-4be772a8c13f" />
             <covered>
               <lifelineMoniker Id="d044bf94-c246-4313-9550-976c9ee60216" LastKnownName="XML ADTree file" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a2d08e76-50ab-44c9-ab3d-b2a7f7799ad6" name="MessageOccurrenceSpecification27">
+            <elementDefinition Id="ea55d087-507a-4418-9bae-9d920de93245" />
+            <covered>
+              <lifelineMoniker Id="09f9d03d-0124-4f44-9fc9-364a1fb0dcf3" LastKnownName="FunctionEditor" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="39a1b895-3942-4f57-a003-7c8d8157eb67" name="MessageOccurrenceSpecification29">
@@ -538,16 +538,16 @@
               <lifelineMoniker Id="09f9d03d-0124-4f44-9fc9-364a1fb0dcf3" LastKnownName="FunctionEditor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="a7fb4d62-a835-4547-8b9a-485f1379e24b" name="MessageOccurrenceSpecification49">
-            <elementDefinition Id="e9f1207b-1506-42f6-8854-0b30cd50a161" />
-            <covered>
-              <lifelineMoniker Id="27aee72d-1081-44d0-98bd-d724c2736e3a" LastKnownName="modified XML ADTree file" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="2548d533-ace0-4fee-bc6d-14fbbac176f7" name="MessageOccurrenceSpecification50">
             <elementDefinition Id="a21490ff-5395-4872-8e3f-0988c353031a" />
             <covered>
               <lifelineMoniker Id="09f9d03d-0124-4f44-9fc9-364a1fb0dcf3" LastKnownName="FunctionEditor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a7fb4d62-a835-4547-8b9a-485f1379e24b" name="MessageOccurrenceSpecification49">
+            <elementDefinition Id="e9f1207b-1506-42f6-8854-0b30cd50a161" />
+            <covered>
+              <lifelineMoniker Id="27aee72d-1081-44d0-98bd-d724c2736e3a" LastKnownName="modified XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="1879af1a-7e2c-4fe3-b487-e0b76bf0d18a" name="ExecutionOccurrenceSpecification26">
@@ -726,6 +726,9 @@
           </lifeline>
           <lifeline Id="0373cd33-8cf5-43cd-9ba2-abba2ad99b70" name="Glasir" isActor="false" lifelineDisplayName="Glasir">
             <elementDefinition Id="9f48f8ef-b0bd-427a-8e04-d162e30c679b" />
+            <represents>
+              <propertyMoniker Id="4d676e47-c873-475a-9da8-bb134d5fd5cf" />
+            </represents>
             <topLevelOccurrences>
               <operandOccurrenceSpecificationMoniker Id="b1fc1484-a327-4856-8a36-b34c4f4a719f" LastKnownName="OperandOccurrenceSpecification3" />
               <executionOccurrenceSpecificationMoniker Id="b94d054c-4fa6-4c58-b623-ff30523c7e5d" LastKnownName="ExecutionOccurrenceSpecification31" />
@@ -780,7 +783,7 @@
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="7f0f319c-d405-4579-9d82-6a7c3198cb66" name="&lt;&lt;create&gt;&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false">
+          <message Id="7f0f319c-d405-4579-9d82-6a7c3198cb66" name="&lt;&lt;create&gt;&gt;" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="+ &lt;&lt;create&gt;&gt;()">
             <elementDefinition Id="67beeca4-5ad2-49f8-8556-1a19b0eae75a" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="34d194e8-b887-4f63-ba9f-460f246491ac" LastKnownName="MessageOccurrenceSpecification59" />
@@ -798,7 +801,7 @@
               <messageOccurrenceSpecificationMoniker Id="0381311b-b686-4e3b-8976-40d380409f5d" LastKnownName="MessageOccurrenceSpecification62" />
             </receiveEvent>
           </message>
-          <message Id="731ea3ac-a584-4e9b-891d-fbc760bd53a5" name="open(ADTree)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="731ea3ac-a584-4e9b-891d-fbc760bd53a5" name="open(ADTree)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="+ open(ADTree)">
             <elementDefinition Id="c6742d0f-e56a-4325-acae-70d13df2c512" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="03b14d55-0474-4973-97ed-5d3b333c3cef" LastKnownName="MessageOccurrenceSpecification5" />
@@ -861,7 +864,7 @@
               <messageOccurrenceSpecificationMoniker Id="522b690b-5ff4-4978-830d-3837f0f69972" LastKnownName="MessageOccurrenceSpecification14" />
             </receiveEvent>
           </message>
-          <message Id="f73d4e39-3669-4a8f-815b-22b683a5cf9a" name="function(f)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="+ function(f)">
+          <message Id="f73d4e39-3669-4a8f-815b-22b683a5cf9a" name="FunctionEditor(f)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="cae582d8-082d-43d4-afa6-9f87381aa0a5" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="b2d144c1-0c8c-4982-8697-b590f5350a22" LastKnownName="MessageOccurrenceSpecification15" />
@@ -957,6 +960,12 @@
             <elementDefinition Id="9bdf2aed-e56c-46c1-aecb-a3983bf9742c" />
             <type_NamedElement>
               <referencedTypeMoniker Id="46e2235e-51b9-4e93-8b15-0e9f2414ca0e" LastKnownName="FunctionEditor" />
+            </type_NamedElement>
+          </property>
+          <property Id="4d676e47-c873-475a-9da8-bb134d5fd5cf" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="093f8164-f3e7-4842-8b44-7d5e59ea7fa9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d4a93deb-bd30-4aaf-9da4-4a32d12ee3d8" LastKnownName="Glasir" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1065,6 +1074,11 @@
     <packageHasNamedElement>
       <referencedType Id="46e2235e-51b9-4e93-8b15-0e9f2414ca0e" name="FunctionEditor" isAbstract="false" isLeaf="false" cachedFullName="GlasirModelisation::FunctionEditor">
         <elementDefinition Id="e369799b-b9e0-47a6-8734-424b680f23cd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d4a93deb-bd30-4aaf-9da4-4a32d12ee3d8" name="Glasir" isAbstract="false" isLeaf="false" cachedFullName="GlasirModelisation::Glasir">
+        <elementDefinition Id="5c7ed116-bcad-464f-9a0b-9dcf88900592" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
