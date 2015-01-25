@@ -35,9 +35,9 @@ namespace Glasir
         {
             Process process = new Process();
             process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            process.StartInfo.WorkingDirectory = "C:\\Users\\Valentin\\korrigolo\\Glasir\\Glasir\\bin\\Debug";
-            process.StartInfo.Arguments = "adtree3.adt";
-            IntPtr pede = process.MainWindowHandle;
+            process.StartInfo.WorkingDirectory = "C:\\Users\\Valentin\\korrigolo\\ADTool";
+            process.StartInfo.Arguments = "adtrees_5_annee\\adtree3.adt";
+            
             process.Start();
             //int code = clientProcess.ExitCode != 0)
         }
@@ -55,8 +55,7 @@ namespace Glasir
 
         private void test(object sender, RoutedEventArgs e)
         {
-            ADToolHost ADTool = new ADToolHost(ADToolZone.Height, ADToolZone.Width);
-            ADToolZone.Child = ADTool;
+            
         }
 
         /*
