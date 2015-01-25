@@ -8,4 +8,4 @@ pull : git pull
 push : git push
 
 Pour Glasir : ajouter les fichier .cs et .xaml
-Pour ADTool : ajouter a priori tout le dossier src ; ajouter le pom.xml ; ne pas ajouter le dossier target.
+Pour ADTool : ajouter a priori que les .java modifiés de src, et le pom.
