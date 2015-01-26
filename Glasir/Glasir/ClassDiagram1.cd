@@ -2,18 +2,10 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Glasir.MainWindow">
     <Position X="1.25" Y="2.25" Width="1.5" />
-    <AssociationLine Name="Glasir" Type="Glasir.BigGlasir">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.285" Y="-0.265" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAg=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Glasir" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Glasir.Filter">
     <Position X="4" Y="4" Width="2" />
@@ -34,6 +26,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Glasir.Module">
+    <Position X="6.75" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Module.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.BigGlasir">
@@ -61,13 +60,6 @@
       <Property Name="Optimizer" />
       <Property Name="FunctionEditor" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Glasir.Module">
-    <Position X="6.75" Y="2" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Module.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="Glasir.ADTool">
     <Position X="7.25" Y="9.25" Width="1.5" />

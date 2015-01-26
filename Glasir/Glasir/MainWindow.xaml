@@ -3,13 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Open existing tree" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="150" Click="launchADTool"/>
         <Button Content="Optimize" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button Content="Filter" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button Content="Combine" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <TextBlock HorizontalAlignment="Left" Height="80" Margin="10,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"><Run Text="Hierarchie"/><LineBreak/><Run Text="- Arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="- Arbre"/></TextBlock>
-        
-        
+        <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" FontSize="18" Width="282">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New..." Command="New"/>
+                <MenuItem Header="_Open..." Click="launchADTool"/>
+                <!--<MenuItem Header="_Open..." Command="Open" Click="launchADTool"/>-->
+                <Separator />
+                <MenuItem Header="_Save" Command="Save"/>
+                <MenuItem Header="_Save As..." Command="SaveAs"/>
+                <Separator />
+                <MenuItem Header="_Exit" Command="Close"/>
+            </MenuItem>
+            <MenuItem Header="_Edit" >
+                <MenuItem Header="_Cut" Command="Cut"/>
+                <MenuItem Header="_Copy" Command="Copy"/>
+                <MenuItem Header="_Paste" Command="Paste"/>
+                <Separator />
+                <MenuItem Header="_Revert"/>
+            </MenuItem>
+            <MenuItem Header="_View" />
+            <MenuItem Header="_Window" >
+                <MenuItem Header="Next Window"/>
+                <MenuItem Header="Last Window"/>
+            </MenuItem>
+            <MenuItem Header="_Help" >
+                <MenuItem Header="About Us"/>
+            </MenuItem>
+        </Menu>
+
+
 
     </Grid>
 </Window>
