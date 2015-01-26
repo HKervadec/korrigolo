@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Glasir
 {
-    public class Optimizer : Function
+    public class Optimizer : Module
     {
         public Optimizer()
         {

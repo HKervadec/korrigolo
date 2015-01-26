@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Glasir
 {
-    public class FunctionEditor : Function
+    public class FunctionEditor : Module
     {
         public FunctionEditor()
         {

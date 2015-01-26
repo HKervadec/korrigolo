@@ -5,15 +5,16 @@ using System.Text;
 
 namespace Glasir
 {
-    public class Filter : Function
+    public class Filter : Module
     {
         public Filter()
         {
             throw new System.NotImplementedException();
         }
 
-        public void getModifiedFilterCode()
+        public void filter()
         {
+            //getCode
             throw new System.NotImplementedException();
         }
     }

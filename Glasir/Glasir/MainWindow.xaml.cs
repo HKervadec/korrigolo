@@ -24,45 +24,24 @@ namespace Glasir
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
 
         public BigGlasir Glasir
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            set;
         }
 
-        /// <summary>
-        /// launch ADTool
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void launchADTool(object sender, RoutedEventArgs e)
         {
-            Process process = new Process();
-           
-            process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory() ;
-            process.StartInfo.Arguments = "adtree3.adt";
-            
-            // add ADTool and adtree3.adt to bin/Debug if this don't work mdfk
-
-            process.Start();
+            Glasir.launchADToolInstance();
         }
 
+        
 
 
+        /*
         [DllImport("user32.dll", SetLastError = true)]
         static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
 
         private void niktamer(object sender, RoutedEventArgs e)
         {
@@ -86,6 +65,7 @@ namespace Glasir
 
                
         }
+        */
 
         
 
