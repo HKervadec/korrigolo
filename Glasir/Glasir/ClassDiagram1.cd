@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Glasir.MainWindow">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+    <Position X="1.25" Y="2" Width="1.5" />
     <AssociationLine Name="Glasir" Type="Glasir.BigGlasir">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.285" Y="-0.265" />
@@ -18,21 +18,21 @@
   <Class Name="Glasir.Filter">
     <Position X="4" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Filter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.Optimizer">
     <Position X="7" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Optimizer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.FunctionEditor">
     <Position X="10.25" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,27 +53,51 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AACAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAgAIAAAAA=</HashCode>
+      <HashCode>AACAAEAEAAAAAAAgAAAAAAAAABAAAAAAAAAgAIAAAAA=</HashCode>
       <FileName>BigGlasir.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Filter" />
       <Property Name="Optimizer" />
       <Property Name="FunctionEditor" />
+      <Property Name="templateLibrary" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ADToolInstances" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Glasir.Module">
     <Position X="6.75" Y="2" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Module.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Glasir.ADTool">
-    <Position X="7.25" Y="9.25" Width="1.5" />
+  <Class Name="Glasir.ADToolInstance">
+    <Position X="8.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ADTool.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAABAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>ADToolInstance.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="file" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Glasir.TemplateLibrary">
+    <Position X="2.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateLibrary.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="templates" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Glasir.XMLFile">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>XMLFile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

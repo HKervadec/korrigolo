@@ -24,9 +24,6 @@ namespace Glasir
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public void createResultingADTree(string fileName, string xmlCode)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract XMLFile createResultingXMLFile(string fileName, string xmlCode);
     }
 }

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
+
 
 namespace Glasir
 {
     public class BigGlasir
     {
+        public BigGlasir()
+        {
+            this.ADToolInstances = new List<ADToolInstance>();
+            this.FunctionEditor = new FunctionEditor();
+            this.Optimizer = new Optimizer();
+            this.Filter = new Filter();
+        }
 
         public Filter Filter
         {
@@ -44,10 +48,21 @@ namespace Glasir
             }
         }
 
-        public List<Process> ADToolInstances
+        public List<ADToolInstance> ADToolInstances
         {
             get;
             set;
+        }
+
+        public TemplateLibrary templateLibrary
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
 
 
@@ -58,13 +73,15 @@ namespace Glasir
         public void launchADToolInstance()
         {
             // add ADTool and adtree3.adt to bin/Debug if this don't work mdfk
-            Process process = new Process();
-            process.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-            process.StartInfo.Arguments = "adtree3.adt";
-            process.Start();
             
-            this.ADToolInstances.Add(process);
+
+            ADToolInstance newADToolInstance = new ADToolInstance("adtree3.adt");
+            this.ADToolInstances.Add(newADToolInstance);
+        }
+
+        public void loadTemplate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

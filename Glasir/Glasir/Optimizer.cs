@@ -12,9 +12,15 @@ namespace Glasir
             throw new System.NotImplementedException();
         }
 
-        public void getModifiedOptimCode()
+
+        /// <summary>
+        /// create the resulting tree of the function
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="xmlCode"></param>
+        public override XMLFile createResultingXMLFile(string fileName, string xmlCode)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
