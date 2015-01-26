@@ -36,6 +36,13 @@
       <FileName>FunctionEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Glasir.Module">
+    <Position X="6.75" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Module.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Glasir.BigGlasir">
     <Position X="6.75" Y="6.75" Width="2" />
     <AssociationLine Name="Filter" Type="Glasir.Filter" FixedFromPoint="true" FixedToPoint="true">
@@ -66,15 +73,8 @@
       <Property Name="ADToolInstances" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Glasir.Module">
-    <Position X="6.75" Y="2" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Module.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Glasir.ADToolInstance">
-    <Position X="8.5" Y="8.5" Width="1.5" />
+    <Position X="8.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAABAAAAABAAAAAAAAAA=</HashCode>
       <FileName>ADToolInstance.cs</FileName>

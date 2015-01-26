@@ -1,7 +1,7 @@
 \section{Introduction}
     \label{sec:intro}
 
-    Le projet décrit dans ce rapport consiste à développer un logiciel d'analyse informatique des arbres d'attaque et de défense (\og Attack-Defense Trees \fg{} en anglais, ou ADTrees), nommé Glasir, dont le logo est présenté à la {\sc Figure}~\ref{fig:glasir}. Il intègrera entre autres un logiciel libre d'édition d'ADTrees déjà existant, ADTool, qui subira quelques modifications destinées à améliorer son ergonomie. Utilisé dans Glasir pour l'affichage, la création et l'édition des ADTrees, ADTool sera complété par les fonctionnalités d'analyse qui sont les suivantes :
+    Le projet décrit dans ce rapport consiste à développer un logiciel d'analyse informatique des arbres d'attaque et de défense (\og Attack-Defense Trees \fg{} en anglais, ou ADTrees), nommé Glasir, dont le logo est présenté à la {\sc Figure}~\ref{fig:glasir}. Il intègrera entre autres un outil d'édition d'ADTrees déjà existant, ADTool~\cite{ADTool}, qui subira quelques modifications destinées à améliorer son ergonomie. Utilisé dans Glasir pour l'affichage, la création et l'édition des ADTrees, ADTool sera complété par les fonctionnalités d'analyse suivantes :
 
     \begin{itemize}
     	\item le paramètre de synthèse, qui permet d'étendre le nombre de paramètres d'ADTool ;
@@ -9,7 +9,11 @@
     	\item l'optimiseur, qui sélectionne le meilleur chemin dans l'arbre selon une certaine valuation.
     \end{itemize} 
 
-    Ce rapport de conception logicielle commencera par présenter l'architecture globale de Glasir, à l'aide d'un prototype d'interface et d'un diagramme de cas d'utilisation montrant les différentes actions accessibles à l'utilisateur. Cette présentation sera suivie d'un diagramme de classes général présentant l'architecture interne du logiciel. Enfin, le fonctionnement des modules principaux sera décrit par différents diagrammes de séquence, avant d'aborder les limites d'utilisation de Glasir.
+    Trois rapports ont déjà été rédigés dans le cadre de ce projet, les voici cités dans l'ordre chronologique : pré-étude~\cite{pre_etude}, spécifications fonctionnelles~\cite{spec_fonc} puis planification~\cite{planif}. Ces derniers ont permis de mieux définir les objectifs du logiciel, ainsi que l'organisation de son implémentation. En décembre, nous avons rendu compte de l'état de notre travail par le biais de deux soutenances : l'une consacrée à la gestion du projet et à sa planification, et l'autre plus générale. 
+
+    Le présent rapport de conception logicielle commencera par décrire l'architecture globale de Glasir, à l'aide d'un prototype d'interface et d'un diagramme de cas d'utilisation montrant les différentes actions accessibles à l'utilisateur. Cette présentation sera suivie d'un diagramme de classes général présentant l'architecture interne du logiciel. Enfin, le fonctionnement des modules principaux sera décrit par différents diagrammes de séquence, avant d'aborder les limites d'utilisation de Glasir.
+
+    \vspace{10mm}
 
     \begin{figure}[H]
         \centering
