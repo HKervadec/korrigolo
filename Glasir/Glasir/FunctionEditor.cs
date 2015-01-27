@@ -17,7 +17,7 @@ namespace Glasir
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public override XMLFile createResultingXMLFile(string fileName, string xmlCode)
+        public override XMLFile createResultingFile(string fileName, string xmlCode)
         {
             throw new NotImplementedException();
         }

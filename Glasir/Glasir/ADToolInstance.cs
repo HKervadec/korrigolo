@@ -9,6 +9,12 @@ namespace Glasir
 {
     public class ADToolInstance
     {
+        public static ADToolInstance foregroundInstance
+        {
+            get;
+            set;
+        }
+
         public Process process
         {
             get;

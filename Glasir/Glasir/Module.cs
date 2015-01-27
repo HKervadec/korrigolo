@@ -14,9 +14,9 @@ namespace Glasir
         /// </summary>
         /// <param name="f"></param>
         /// <returns></returns>
-        public string getXmlCode(string filename)
+        public string openFile(XMLFile file)
         {
-            throw new System.NotImplementedException();
+            return file.getXMLCodeFromFile();
         }
 
         /// <summary>
@@ -24,6 +24,6 @@ namespace Glasir
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public abstract XMLFile createResultingXMLFile(string fileName, string xmlCode);
+        public abstract XMLFile createResultingFile(string fileName, string xmlCode);
     }
 }

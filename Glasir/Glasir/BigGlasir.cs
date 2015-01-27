@@ -79,9 +79,30 @@ namespace Glasir
             this.ADToolInstances.Add(newADToolInstance);
         }
 
+        /// <summary>
+        /// load a template
+        /// </summary>
         public void loadTemplate()
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// open a project
+        /// </summary>
+        public void openProject()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// save a project
+        /// </summary>
+        public void saveProject()
+        {
+            throw new System.NotImplementedException();
+        }
+
+
     }
 }

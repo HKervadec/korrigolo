@@ -7,20 +7,27 @@ namespace Glasir
 {
     public class XMLFile
     {
-        public string code
+        
+
+        public string fileName
         {
             get;
             private set;
         }
 
-        public void buildFile()
+        public void buildFile(string xmlCode)
         {
             throw new System.NotImplementedException();
         }
 
         public XMLFile(string xmlCode)
         {
-            this.code = xmlCode;
+            buildFile(xmlCode);
+        }
+
+        public string getXMLCodeFromFile()
+        {
+            throw new NotImplementedException();
         }
 
         

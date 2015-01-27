@@ -17,5 +17,20 @@ namespace Glasir
         {
             throw new NotImplementedException();
         }
+
+        public void loadTemplate()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void browseLibrary()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void deleteTemplate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

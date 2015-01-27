@@ -2,9 +2,14 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Glasir.MainWindow">
     <Position X="1.25" Y="2" Width="1.5" />
-    <AssociationLine Name="Glasir" Type="Glasir.BigGlasir">
+    <AssociationLine Name="Glasir" Type="Glasir.BigGlasir" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="3.233" />
+        <Point X="2" Y="6.562" />
+        <Point X="7" Y="6.562" />
+      </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.285" Y="-0.265" />
+        <Position X="0.294" Y="0.118" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -16,51 +21,73 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Glasir.Filter">
-    <Position X="4" Y="4" Width="2" />
+    <Position X="4.75" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Filter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.Optimizer">
     <Position X="7" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Optimizer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.FunctionEditor">
-    <Position X="10.25" Y="4" Width="2.25" />
+    <Position X="9.25" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.Module">
-    <Position X="6.75" Y="2" Width="2.75" />
+    <Position X="6.75" Y="2" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Module.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.BigGlasir">
-    <Position X="6.75" Y="6.75" Width="2" />
+    <Position X="7" Y="6.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <AssociationLine Name="Filter" Type="Glasir.Filter" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.75" Y="6.75" />
-        <Point X="7.75" Y="6.375" />
-        <Point X="3.625" Y="6.375" />
-        <Point X="3.625" Y="5.127" />
-        <Point X="4" Y="5.127" />
+        <Point X="7.25" Y="6.25" />
+        <Point X="7.25" Y="5.8" />
+        <Point X="5.812" Y="5.8" />
+        <Point X="5.812" Y="5.425" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="FunctionEditor" Type="Glasir.FunctionEditor">
+    <AssociationLine Name="Optimizer" Type="Glasir.Optimizer" FixedToPoint="true">
+      <Path>
+        <Point X="8.188" Y="6.25" />
+        <Point X="8.188" Y="5.425" />
+      </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.307" Y="0.085" />
+        <Position X="0.129" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="FunctionEditor" Type="Glasir.FunctionEditor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.562" Y="6.25" />
+        <Point X="8.562" Y="5.8" />
+        <Point X="10.375" Y="5.8" />
+        <Point X="10.375" Y="5.425" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.115" Y="0.104" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="templateLibrary" Type="Glasir.TemplateLibrary">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.276" Y="0.12" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AACAAEAEAAAAAAAgAAAAAAAAABAAAAAAAAAgAIAAAAA=</HashCode>
+      <HashCode>AACAAEAEAAAAAAAgAAACAAAAAhAAAAAAAAAgAIAAAAA=</HashCode>
       <FileName>BigGlasir.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -74,9 +101,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Glasir.ADToolInstance">
-    <Position X="8.5" Y="9" Width="1.5" />
+    <Position X="9" Y="8.5" Width="1.75" />
+    <AssociationLine Name="file" Type="Glasir.XMLFile">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.221" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAABAAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAIAAABAAAAABAAAAAAAAAA=</HashCode>
       <FileName>ADToolInstance.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -84,9 +116,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Glasir.TemplateLibrary">
-    <Position X="2.5" Y="8.75" Width="1.5" />
+    <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAKAAAAABgAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TemplateLibrary.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -94,9 +126,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Glasir.XMLFile">
-    <Position X="5" Y="9.5" Width="1.5" />
+    <Position X="6.5" Y="8.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAQ=</HashCode>
       <FileName>XMLFile.cs</FileName>
     </TypeIdentifier>
   </Class>
