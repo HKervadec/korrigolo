@@ -1,13 +1,10 @@
 ﻿<Window x:Class="Glasir.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Glasir" Height="700" Width="300">
     <Grid>
-        <Button Content="Optimize" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <Button Content="Filter" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <Button Content="Combine" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <TextBlock HorizontalAlignment="Left" Height="80" Margin="10,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"><Run Text="Hierarchie"/><LineBreak/><Run Text="- Arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="- Arbre"/></TextBlock>
-        <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" FontSize="18" Width="282">
+        <TextBlock HorizontalAlignment="Left" Height="80" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"><Run Text="Hierarchie"/><LineBreak/><Run Text="- Arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="- Arbre"/></TextBlock>
+        <Menu HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" FontSize="18" Width="517">
             <MenuItem Header="_File">
                 <MenuItem Header="_New..." Command="New"/>
                 <MenuItem Header="_Open..." Click="launchADTool"/>
@@ -25,7 +22,6 @@
                 <Separator />
                 <MenuItem Header="_Revert"/>
             </MenuItem>
-            <MenuItem Header="_View" />
             <MenuItem Header="_Window" >
                 <MenuItem Header="Next Window"/>
                 <MenuItem Header="Last Window"/>
@@ -34,6 +30,37 @@
                 <MenuItem Header="About Us"/>
             </MenuItem>
         </Menu>
+
+        <TabControl HorizontalAlignment="Left" Height="497" Margin="10,34,0,0" VerticalAlignment="Top" Width="270">
+            <TabItem Header="FunctionEditor">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Edit" HorizontalAlignment="Left" Margin="167,97,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Enter the function for the parameter you want to add :" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Filter">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox HorizontalAlignment="Left" Height="167" Margin="10,10,0,0" VerticalAlignment="Top" Width="244">
+                        <CheckBox Content="Param1"/>
+                        <CheckBox Content="Param2"/>
+                    </ListBox>
+                    <Button Content="Filter" HorizontalAlignment="Left" Margin="76,209,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Optimize">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Optimize" HorizontalAlignment="Left" Margin="179,83,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="19,83,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem>Param1</ComboBoxItem>
+                        <ComboBoxItem>Param2</ComboBoxItem>
+                        <ComboBoxItem>Param3</ComboBoxItem>
+                        <ComboBoxItem>Param4</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left" Margin="19,36,0,0" TextWrapping="Wrap" Text="Select the parameter you want optimize :" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
 
 
