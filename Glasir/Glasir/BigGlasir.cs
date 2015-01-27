@@ -48,7 +48,7 @@ namespace Glasir
             }
         }
 
-        public List<ADToolInstance> ADToolInstances
+        public System.Collections.Generic.List<ADToolInstance> ADToolInstances
         {
             get;
             set;
