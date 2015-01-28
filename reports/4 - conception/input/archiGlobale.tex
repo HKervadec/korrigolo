@@ -1,12 +1,12 @@
 \section{Architecture globale}
     \label{sec:archiGlobale}
     
-    Afin de mieux fixer les idées quant aux fonctionnalités de Glasir, voici une présentation rapide de son utilisation puis de son interface.
+    Afin de mieux fixer les idées quant aux fonctionnalités de Glasir, voici une présentation rapide de son utilisation et de son interface.
 	    
     \subsection{Diagramme de cas d'utilisation}
     \label{sec:casutil}
     
-    L'utilisateur type de notre outil d'analyse serait un expert en sécurité connaissant déjà le formalisme des ADTrees. C'est donc l'acteur qui a été choisi pour le diagramme de cas d'utilisation de la {\sc Figure}~\ref{fig:use_case}, qui représente l'ensemble des actions possibles à partir de Glasir. Afin de mieux comprendre ce diagramme, un petit rappel sur le formalisme UML s'impose. En effet, les deux termes \og étendre \fg{} et \og inclure \fg{} associés aux différentes flèches ont une signification bien particulière (attention au sens des flèches) :
+    L'utilisateur-type de notre outil d'analyse serait un expert en sécurité connaissant déjà le formalisme des ADTrees. C'est donc l'acteur qui a été choisi pour le diagramme de cas d'utilisation de la {\sc Figure}~\ref{fig:use_case}, qui représente l'ensemble des actions possibles à partir de Glasir. Afin de mieux comprendre ce diagramme, un petit rappel sur le formalisme UML s'impose. En effet, les deux termes \og étendre \fg{} et \og inclure \fg{} associés aux différentes flèches ont une signification bien particulière (attention au sens des flèches) :
 
     \begin{itemize}
     \item A -- \og inclure \fg{} --> B signifie que si A est réalisé, B l'est {\bf forcément} ;
@@ -20,13 +20,13 @@
         \label{fig:use_case}
     \end{figure}
 
-    Les fonctionnalités de Glasir apparaissent donc maintenant clairement : grâce à lui, l'utilisateur pourra effectuer les actions suivantes : 
+    Les fonctionnalités de Glasir apparaissent donc maintenant clairement. Grâce à lui, l'utilisateur pourra effectuer les actions suivantes : 
 
     \begin{itemize}
     \item charger un projet sauvegardé ;
     \item créer de nouveaux ADTrees, en utilisant ou non la bibliothèque de modèles ;
     \item modifier des ADTrees déjà existants ;
-    \item analyser les ADTrees du projet en cours, à la main ou à l'aide du Filtre ou de l'Optimiseur ;
+    \item analyser les ADTrees du projet en cours, à l'aide du Filtre ou de l'Optimiseur ;
     \item créer de nouveaux paramètres pour ADTool par le biais de l'Éditeur de fonctions.
     \end{itemize}  
 
@@ -35,24 +35,22 @@
     \subsection{Prototype d'interface}
     \label{sec:interface}
     
-    L'image ci-dessous présente le prototype d'interface de Glasir :
+    La {\sc Figure}~\ref{fig:interface} représente un prototype d'interface pour Glasir. Ce prototype n'est pas définitif, mais permet de donner un avant-goût de l'organisation générale du programme. 
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[height=0.4\textwidth]{figure/interface.png}
-        \caption{Prototype de l'interface de Glasir (C'est un PROTOTYPE hein!).}
+        \includegraphics[height=0.72\textwidth]{figure/interface.png}
+        \caption{Prototype de l'interface de Glasir.}
         \label{fig:interface}
     \end{figure}
     
-L'interface de Glasir sera paratagée en deux fenêtres principales : celle de Glasir à proprement parlé, à gauche, et celle regroupant les différentes instances d'ADTool à droite. Au sein de l'interface de Glasir, les fonctionnalités du filtre, de l'optimisateur et de l'éditeur de fonctions seront facilement accessibles.
-
-La barre de menu de Glasir permet de créer de nouveaux projets de modélisation et d'analyse d'arbres sous Glasir, de les ouvrir et de les sauvegarder. Elle permet aussi d'utiliser les fonctions classiques d'un logiciel : revert, copy, paste, etc.
-
-Ci-dessous les trois panneaux illustrant les trois fonctionnalités principales de Glasir :
-
-   \begin{figure}[h!]
+    \begin{figure}[h!]
         \centering
-        \includegraphics[height=0.4\textwidth]{figure/ongletsGlasir.png}
-        \caption{Editeur de Fonctions - Filtre - Optimisateur}
-        \label{fig:interface}
+        \includegraphics[height=0.42\textwidth]{figure/ongletsGlasir.png}
+        \caption{Prototype des panneaux permettant d'utiliser les fonctionnalités de Glasir.}
+        \label{fig:panneaux}
     \end{figure}
+    
+L'interface de Glasir sera scindée en deux parties distinctes : la fenêtre de Glasir à proprement parler (située à gauche sur le prototype de la {\sc Figure}~\ref{fig:interface}), et les fenêtres des instances d'ADTool (situées à droite). Au sein de la fenêtre de Glasir, les fonctionnalités du Filtre, de l'Optimiseur et de l'Éditeur de fonctions seront accessibles facilement. La barre de menu (située en haut à gauche sur le prototype de la {\sc Figure}~\ref{fig:interface}) permettra de créer un nouveau projet, d'en charger un déjà existant, ou encore de sauvegarder le projet courant.
+    
+    La {\sc Figure}~\ref{fig:panneaux} illustre également un prototype des panneaux qui permettront d'accéder aux fonctionnalités principales de Glasir. Ces fonctionnalités sont détaillées dans les {\sc Sections}~\ref{sec:diagClass} et \ref{sec:modules}.  
