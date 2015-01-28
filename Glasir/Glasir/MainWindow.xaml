@@ -36,23 +36,38 @@
                 <Grid Background="#FFE5E5E5">
                     <Button Content="Edit" HorizontalAlignment="Left" Margin="167,97,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Enter the function for the parameter you want to add :" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the function for the parameter you want to add :" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Filter">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox HorizontalAlignment="Left" Height="167" Margin="10,10,0,0" VerticalAlignment="Top" Width="244">
-                        <CheckBox Content="Param1"/>
-                        <CheckBox Content="Param2"/>
+                    <ListBox HorizontalAlignment="Left" Height="157" Margin="10,87,0,0" VerticalAlignment="Top" Width="77">
+                        <CheckBox Content="Param1" Height="25" VerticalContentAlignment="Center" />
+                        <CheckBox Content="Param2" Height="25" VerticalContentAlignment="Center"/>
+                        <CheckBox Content="Param3" Height="25" VerticalContentAlignment="Center"/>
+                        <CheckBox Content="Param4" Height="25" VerticalContentAlignment="Center"/>
                     </ListBox>
-                    <Button Content="Filter" HorizontalAlignment="Left" Margin="76,209,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <Button Content="Filter" HorizontalAlignment="Left" Margin="81,272,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="21,66,0,0" TextWrapping="Wrap" Text="Parameter" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="126,66,0,0" TextWrapping="Wrap" Text="min" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="206,66,0,0" TextWrapping="Wrap" Text="max" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="Select the parameters you want to filter with and the corresponding intervals :" VerticalAlignment="Top" Width="218"/>
+                    <ScrollBar HorizontalAlignment="Left" Margin="237,94,0,0" VerticalAlignment="Top" Height="150"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Optimize">
                 <Grid Background="#FFE5E5E5">
                     <Button Content="Optimize" HorizontalAlignment="Left" Margin="179,83,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                     <ComboBox HorizontalAlignment="Left" Margin="19,83,0,0" VerticalAlignment="Top" Width="120">
-                        <ComboBoxItem>Param1</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Param1</ComboBoxItem>
                         <ComboBoxItem>Param2</ComboBoxItem>
                         <ComboBoxItem>Param3</ComboBoxItem>
                         <ComboBoxItem>Param4</ComboBoxItem>
