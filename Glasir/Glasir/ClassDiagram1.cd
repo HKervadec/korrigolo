@@ -5,8 +5,8 @@
     <AssociationLine Name="Glasir" Type="Glasir.BigGlasir" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2" Y="3.233" />
-        <Point X="2" Y="6.562" />
-        <Point X="7" Y="6.562" />
+        <Point X="2" Y="6.433" />
+        <Point X="7" Y="6.433" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.294" Y="0.118" />
@@ -100,6 +100,13 @@
       <Property Name="ADToolInstances" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="Glasir.XMLFile">
+    <Position X="6.5" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAQ=</HashCode>
+      <FileName>XMLFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Glasir.ADToolInstance">
     <Position X="9" Y="8.5" Width="1.75" />
     <AssociationLine Name="file" Type="Glasir.XMLFile">
@@ -124,13 +131,6 @@
     <ShowAsCollectionAssociation>
       <Property Name="templates" />
     </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Glasir.XMLFile">
-    <Position X="6.5" Y="8.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAQ=</HashCode>
-      <FileName>XMLFile.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
