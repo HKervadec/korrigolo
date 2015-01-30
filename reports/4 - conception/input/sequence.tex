@@ -1,9 +1,7 @@
 \section{Description séquentielle des modules}
     \label{sec:modules}
     
-Les diagrammes de séquences présentés dans cette partie ont pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir, à savoir le filtrage, l'optimisation et l'édition de paramètres de synthèse.
-
-Chaque diagramme commence par l'ouverture d'un arbre avec Glasir, représenté par le bloc "Start".
+Les diagrammes de séquences présentés dans cette partie ont pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir : le Filtre, l'Optimiseur et l'Editeur de fonction. Chaque diagramme commence par l'ouverture d'un ADTree dans Glasir, représenté par le bloc \og Start \fg{}.
 
 	\subsection{Filtre}
 
@@ -14,7 +12,7 @@ Chaque diagramme commence par l'ouverture d'un arbre avec Glasir, représenté p
 	        \label{fig:filter}
 	    \end{figure}
 
-Pour réaliser le filtrage d'un arbre, l'expert en sécurité va passer en paramètre au filtre les différents intervalles de filtrage des valuations de l'arbre. Il va ensuite lancer le filtre. Celui-ci va analyser le code XML de l'arbre afin d'obtenir le code XML de l'arbre filtré. Il va alors créer un nouveau fichier XML dans lequel va être inscrit ce code. Et enfin l'arbre filtré va être affiché dans un nouvel onglet d'ADTool.
+Pour réaliser le filtrage d'un ADTree, l'expert en sécurité va définir des intervalles de filtrage sur les valuations de l'ADTree, et les passer en paramètre au Filtre. Ce dernier va alors analyser le code XML de l'ADTree-cible, afin de produire le code XML de l'ADTree-résultat. Ce code va alors permettre de créer un nouveau fichier contenant l'ADTree-résultat, qui sera alors affiché dans une nouvelle instance d'ADTool.
 
 	\subsection{Optimiseur}
 
@@ -25,7 +23,7 @@ Pour réaliser le filtrage d'un arbre, l'expert en sécurité va passer en param
 	        \label{fig:optim}
 	    \end{figure}
 
-Pour réaliser l'optimisation d'un arbre, l'expert en sécurité va passer en paramètre la valuation de l'arbre selon laquelle il veut l'optimiser. Il va ensuite lancer l'optimiseur. Celui-ci va analyser le code XML de l'arbre afin d'obtenir le code XML de l'arbre optimisé. Il va alors créer un nouveau fichier XML dans lequel va être inscrit ce code. Et enfin l'arbre optimisé va être affiché dans un nouvel onglet d'ADTool.
+Pour réaliser l'optimisation d'un ADTree, l'expert en sécurité va sélectionner la valuation de l'ADTree selon laquelle il souhaite l'optimiser. Il va ensuite lancer l'optimiseur, qui va analyser le code XML de l'ADTree-cible afin de produire le code XML de l'ADTree optimisé. Ce code va alors permettre de créer un nouveau fichier contenant l'ADTree optimisé, qui sera alors affiché dans une nouvelle instance d'ADTool.
 
 	\subsection{Éditeur de fonctions}
 
@@ -36,4 +34,4 @@ Pour réaliser l'optimisation d'un arbre, l'expert en sécurité va passer en pa
 	        \label{fig:function}
 	    \end{figure}
 
-Pour ajouter un paramètre de synthèse à l'arbre, l'expert en sécurité va commencer par écrire la fonction de calcul de ce paramètre en fonction des valuations déjà présentes. Il va ensuite lancer l'éditeur de fonctions. Celui-ci va analyser le code XML de l'arbre afin de génerer le code XML de l'arbre avec la valuation supplémentaire. Il va alors créer un nouveau fichier XML dans lequel va être inscrit ce code. Et enfin le nouvel arbre va être affiché dans un nouvel onglet d'ADTool.
+Pour ajouter un nouveau paramètre de valuation à l'ADTree, l'expert en sécurité va commencer par écrire la fonction de calcul de ce paramètre en fonction des valuations déjà présentes. Il va ensuite lancer l'éditeur de fonctions, qui va analyser le code XML de l'ADTree-cible afin de génerer le code XML de l'ADTree avec la valuation supplémentaire. Il va alors créer un nouveau fichier XML dans lequel va être inscrit ce code. Ce code va permettre de créer un nouveau fichier contenant l'ADTree avec la nouvelle valuation, et l'ADTree sera enfin affiché dans une nouvelle instance d'ADTool.
