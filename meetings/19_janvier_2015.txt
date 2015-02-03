@@ -1,0 +1,30 @@
+donner une vision globale pas noyer le lecteur
+on doit définir les décisions, définir le squelette, comment tout s'imbrique
+comment l'interface s'imbrique avec le reste
+définir le format d'échange de données entre les trucs
+donner l'idée générale, encore une fois
+mettre des diagrammes comme en POO (patrons de conception maggle)
+commencer sobrement par interface
+
+questions :
+
+Comment intégrer ADTool ? l'appeler depuis Glasir ? intégrer le code ?
+-> voir comment c'est possible d'un pt de vue communication
+p-e avec la représentation xml
+affichage cash d'un arbre déjà implémentée -> poupoupou, poupoupoulou !
+
+ADTool restera-t-il indépendant de Glasir? 
+
+Licences à l'INSA ? open source ? par rapport à ADTool ?
+est-ce qu'on peut se faire des thunes ? :D
+-> ça fait bien au jury final de montrer qu'on y a pensé
+
+=> réunion 15h40 vendredi avec Piotr !
+
+TP 5è année qui ont fait une bonne partie de notre taf :
+
+1) Construire un ADTree pour : comment paralyser les transports en commun à Rennes ?
+2) Evaluer : cost, time, probability, difficulty
+3) En déduire la meilleure attaque
+4) Ajouter des dépenses
+5) Ré-évaluer les paramètres

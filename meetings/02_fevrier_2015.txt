@@ -1,0 +1,5 @@
+expliquer diagrammes
+refaire conclu
+préciser ordre des domains
+rappeller qu'un adtree est écrit en xml
+modulariser diagramme de séquence

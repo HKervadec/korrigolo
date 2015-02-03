@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f6f5e776-eb42-442e-b0b6-318b7d1af3d9" name="ADToolUMLClassDiagram" linkedPackageId="af6cbc51-b9a5-4205-ad65-3a8c74f6a5a8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="80d100e8-f97e-4e4d-92e9-779481c9ea06">
+      <profileInstance Id="a9c5e002-9ed4-437d-90fb-74e7f0e88b34" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f1cae558-37af-4aad-8a73-4e2321f83730">
+      <profileInstance Id="8fdac558-6cf1-4dd2-8661-3711ac9bafe2" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="860c41a7-06b6-4122-bd0d-2b882af7b8f6" name="Action" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c2fb7170-2adf-4a02-921d-f54e6c9235a1" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="ace4e975-b076-48d3-9946-8d02a4cd766f" name="Undoable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dccb5476-2fde-4901-9695-ebebea9a17cb" />
+        <ownedOperations>
+          <operation Id="e340105e-a941-478b-a71e-aabd8420baab" name="undo" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e55ec26b-4c0e-419f-8a70-b890f7c1ad88" />
+          </operation>
+          <operation Id="6bd39c13-0c68-4fcd-bf27-6852630acd0e" name="redo" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="35746328-4d44-4871-aa1a-d0b5f4df9974" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="af6cbc51-b9a5-4205-ad65-3a8c74f6a5a8" name="GlasirModelisation">
+    <elementDefinition Id="2568001e-103f-45a2-8e66-c0154b0209de" />
+  </package>
+</logicalClassDesignerModel>
