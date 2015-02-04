@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ADToolModel.ADTree">
+    <Position X="7.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADToolModel.AddChildEdit">
+    <Position X="9.75" Y="9.25" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.062" Y="9.25" />
+        <Point X="11.062" Y="9" />
+        <Point X="8.75" Y="9" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>AddChildEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTool">
+    <Position X="7.25" Y="10.75" Width="2" />
+    <AssociationLine Name="addChildEdit" Type="ADToolModel.AddChildEdit" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="11.375" />
+        <Point X="10" Y="11.375" />
+        <Point X="10" Y="11.123" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.107" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="addDomainEdit" Type="ADToolModel.AddDomainEdit" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="11.625" />
+        <Point X="12.938" Y="11.625" />
+        <Point X="12.938" Y="11.123" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.265" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="changeLabelEdit" Type="ADToolModel.ChangeLabelEdit" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="11.5" />
+        <Point X="11.438" Y="11.5" />
+        <Point X="11.438" Y="11.123" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.244" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEAgAABAABCAAABAAAAAAABAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ADTool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="adtree" />
+      <Property Name="addChildEdit" />
+      <Property Name="addDomainEdit" />
+      <Property Name="changeLabelEdit" />
+      <Property Name="historyManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ADToolModel.ChangeLabelEdit">
+    <Position X="11.25" Y="9.25" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="9.25" />
+        <Point X="12.5" Y="8.687" />
+        <Point X="8.75" Y="8.687" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>ChangeLabelEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.AddDomainEdit">
+    <Position X="12.75" Y="9.25" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="9.25" />
+        <Point X="14" Y="8.375" />
+        <Point X="8.75" Y="8.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>AddDomainEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.UndoManager">
+    <Position X="12" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEBAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAgA=</HashCode>
+      <FileName>UndoManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="history" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="ADToolModel.UndoableEdit">
+    <Position X="14.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>UndoableEdit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
