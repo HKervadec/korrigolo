@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ADToolModel.Clipboard">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <AssociationLine Name="owner" Type="ADToolModel.ClipBoardOwner" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="2.684" />
+        <Point X="4.875" Y="2.684" />
+        <Point X="4.875" Y="1.125" />
+        <Point X="3.75" Y="1.125" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="contents" Type="ADToolModel.Transferable" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="2.562" />
+        <Point X="7.125" Y="2.562" />
+        <Point X="7.125" Y="1.184" />
+        <Point X="7.5" Y="1.184" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Clipboard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="contents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="ADToolModel.ClipBoardOwner">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClipBoardOwner.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ADToolModel.Transferable">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Transferable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
