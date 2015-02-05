@@ -34,5 +34,10 @@ namespace ADToolModel
         {
             throw new NotImplementedException();
         }
+
+        public ChangeLabelEdit(ADTree adt)
+        {
+            this.adt = adt;
+        }
     }
 }

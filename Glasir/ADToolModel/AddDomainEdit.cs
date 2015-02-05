@@ -34,5 +34,10 @@ namespace ADToolModel
         {
             throw new NotImplementedException();
         }
+
+        public AddDomainEdit(ADTree adt)
+        {
+            this.adt = adt;
+        }
     }
 }

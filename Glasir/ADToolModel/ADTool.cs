@@ -8,7 +8,7 @@ namespace ADToolModel
     public class ADTool
     {
 
-        public ADTree adtree
+        public List<ADTree> adtrees
         {
             get
             {
@@ -19,7 +19,7 @@ namespace ADToolModel
             }
         }
 
-        public AddChildEdit addChildEdit
+        public HistoryManager historyManager
         {
             get
             {
@@ -30,52 +30,19 @@ namespace ADToolModel
             }
         }
 
-        public AddDomainEdit addDomainEdit
+        public void addChild(ADTree adt)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            historyManager.storeAndExecute(new AddChildEdit(adt));
         }
 
-        public ChangeLabelEdit changeLabelEdit
+        public void changeLabel(ADTree adt)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            historyManager.storeAndExecute(new ChangeLabelEdit(adt));
         }
 
-        public UndoManager historyManager
+        public void addDomain(ADTree adt)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public void addChild()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void changeLabel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void addDomain()
-        {
-            throw new System.NotImplementedException();
+            historyManager.storeAndExecute(new AddDomainEdit(adt));
         }
     }
 }

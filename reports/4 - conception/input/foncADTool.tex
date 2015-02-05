@@ -3,11 +3,11 @@
     Cette section décrit la conception des fonctionnalités qui vont être ajoutées à ADTool afin de le rendre plus ergonomique.
     
     \subsection{Annulation des dernières actions}
-    	CTRL-Z comme illustré sur la {\sc Figure}~{\ref{fig:ctrlz}}.
+    	La {\sc Figure}~{\ref{fig:ctrlz}} illustre l'agencement des classes permettant de réaliser la fonctionnalité d'annulation d'ADTool. Tout d'abord, chaque action annulable possède sa propre classe définissant l'action à exécuter, ainsi que l'action opposée permettant de l'annuler. Par exemple, les actions permettant d'ajouter un nœud-fils, de changer le label d'un nœud ou encore d'ajouter un paramètre possèdent leurs classes respectives \emph{AddChildEdit}, \emph{ChangeLabelEdit} et \emph{AddDomainEdit}. Ces dernières travaillent toutes sur un ADTree, représenté ici par une classe \emph{ADTree} pour simplifier le diagramme. Ces classes implémentent également \emph{UndoableEdit}, l'interface générique d'une action annulable. Enfin, un gestionnaire d'actions \emph{HistoryManager} stocke les actions effectuées dans un attribut, tout en disposant de méthodes permettant d'annuler ces actions dans l'ordre inverse de celui de leur réalisation.
     	
     	\begin{figure}[H]
 	        \centering
-	        \includegraphics[height=0.3\textwidth]{figure/ctrlz.png}
+	        \includegraphics[height=0.8\textwidth]{figure/ctrlz.png}
 	        \caption{Diagramme de classe de l'annulation des dernières actions.}
 	        \label{fig:ctrlz}
 	    \end{figure}
