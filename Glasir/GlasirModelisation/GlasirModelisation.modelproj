@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>functionEditor.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="module.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="module.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>module.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="optim.sequencediagram">
       <SubType>Content</SubType>
     </Content>
