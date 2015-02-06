@@ -23,8 +23,17 @@
 	    \end{figure}
 	    
 	\subsection{Vue globale des paramètres}
-		À faire aussi
+		Cette vue globale permet de présenter un condensé de l'ensemble des paramètres présents sur un ADTree au sein d'un seul onglet. Pour ce faire, il est nécessaire d'appliquer quelques changement d'affichage...
+		
+		Section à continuer !
 	
 	\subsection{Amélioration de la représentation textuelle}
-		À faire également
+		Pour rappel, ADTool dispose d'une zone dans laquelle l'ADTree courant est représenté sous forme textuelle. Cette représentation ne contient que les labels des nœuds n'ayant aucun fils : tous les autres nœuds sont représentés par \emph{op} ou \emph{ap}, selon que ledit nœud soit conjonctif ou disjonctif. Pour améliorer la lisibilité de cette zone textuelle, la représentation doit inclure les labels de ces nœuds. Ceci est réalisé par la modification de deux fichiers d'ADTool :
+		\begin{itemize}
+		\item \emph{ADTNode.java}, la classe représentant un nœud au sein d'un ADTree ;
+		\item \emph{adtparser.jit}, le fichier générant la zone textuelle en elle-même.
+		\end{itemize}
+		
+		À travers ces deux classes, il est possible de faire apparaître les labels des nœuds possédant des fils au sein de la zone textuelle d'ADTool.
+		
 	  
