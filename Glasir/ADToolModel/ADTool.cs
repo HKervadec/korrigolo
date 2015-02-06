@@ -30,6 +30,17 @@ namespace ADToolModel
             }
         }
 
+        public ADTreeTransfertHandler transfertHandler
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public void addChild(ADTree adt)
         {
             historyManager.storeAndExecute(new AddChildEdit(adt));

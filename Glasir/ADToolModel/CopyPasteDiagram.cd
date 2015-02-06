@@ -1,46 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ADToolModel.Clipboard">
-    <Position X="5.25" Y="2.25" Width="1.5" />
-    <AssociationLine Name="owner" Type="ADToolModel.ClipBoardOwner" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.25" Y="2.684" />
-        <Point X="4.875" Y="2.684" />
-        <Point X="4.875" Y="1.125" />
-        <Point X="3.75" Y="1.125" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="contents" Type="ADToolModel.Transferable" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.75" Y="2.562" />
-        <Point X="7.125" Y="2.562" />
-        <Point X="7.125" Y="1.184" />
-        <Point X="7.5" Y="1.184" />
-      </Path>
-    </AssociationLine>
+    <Position X="10" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Clipboard.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="owner" />
+      <Property Name="content" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ADToolModel.ADTreeTransfertHandler">
+    <Position X="8" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAEAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeTransfertHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTool" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <AssociationLine Name="transfertHandler" Type="ADToolModel.ADTreeTransfertHandler" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.469" Y="5.562" />
+        <Point X="10.469" Y="6.875" />
+        <Point X="10" Y="6.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.127" Y="-0.265" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="adtrees" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.688" Y="5.562" />
+        <Point X="10.688" Y="6.406" />
+        <Point X="11.75" Y="6.406" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAAAAAAABAAAAAAABIAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ADTool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="transfertHandler" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="contents" />
+      <Property Name="adtrees" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Interface Name="ADToolModel.ClipBoardOwner">
-    <Position X="2.25" Y="0.75" Width="1.5" />
+  <Class Name="ADToolModel.ADTree">
+    <Position X="11.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClipBoardOwner.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ADTree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ADToolModel.Transferable">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Transferable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ADToolModel.Transferable">
-    <Position X="7.5" Y="0.75" Width="1.5" />
+  <Interface Name="ADToolModel.TransfertHandler">
+    <Position X="8" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Transferable.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAEAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransfertHandler.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

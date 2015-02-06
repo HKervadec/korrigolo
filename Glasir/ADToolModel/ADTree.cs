@@ -5,7 +5,11 @@ using System.Text;
 
 namespace ADToolModel
 {
-    public class ADTree
+    public class ADTree : Transferable
     {
+        public void getTransfertData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

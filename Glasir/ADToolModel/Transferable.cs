@@ -7,5 +7,6 @@ namespace ADToolModel
 {
     public interface Transferable
     {
+        void getTransfertData();
     }
 }

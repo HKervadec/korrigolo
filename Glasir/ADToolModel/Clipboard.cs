@@ -7,26 +7,10 @@ namespace ADToolModel
 {
     public class Clipboard
     {
-        public ClipBoardOwner owner
+        public Transferable content
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public List<Transferable> contents
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }
