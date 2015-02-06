@@ -1,49 +1,26 @@
 \section{Description séquentielle des modules}
     \label{sec:modules}
     
-Le diagramme de séquence présenté dans cette partie a pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir : le Filtre, l'Optimiseur et l'Editeur de fonction. 
+Le diagramme de séquence présenté dans cette section a pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir : le Filtre, l'Optimiseur et l'Editeur de fonction. Pour mieux saisir le fonctionnement de l'un de ces modules, la {\sc Figure}~{\ref{fig:start}} illustre l'ouverture d'un ADTree dans Glasir.
 
-Pour rappel, la lecture d'un diagramme de séquence se fait de haut en bas, suivant un ordre chronologique, et en suivant les flèches, qui correpondent aux méthodes des différentes classes présentées en tête du diagramme. On peut donc suivre de cette manière l'ordre d'activité des différentes classes au cours d'une utilisation donnée, ici celle d'un module de Glasir (le filtre, l'éditeur de fonctions ou l'optimiseur). 
+Pour rappel, la lecture d'un diagramme de séquence se fait de haut en bas, suivant un ordre chronologique, et en suivant les flèches, qui correpondent aux méthodes des différentes classes présentées en tête du diagramme. On peut donc suivre de cette manière l'ordre d'activité des différentes classes au cours d'une utilisation donnée, ici celle d'un module de Glasir (le Filtre, l'Éditeur de fonctions ou l'Optimiseur).
 
-Le diagramme commence par l'ouverture d'un ADTree dans Glasir, représenté par le bloc \og Start \fg{}.
+Ainsi, sur la {\sc Figure}~{\ref{fig:start}}, l'expert en sécurité demande à ouvrir un fichier XML contenant un ADTree dans Glasir. Ce dernier crée alors une instance d'ADTool, qui va chercher le code XML du fichier afin d'afficher l'ADTree.
 
 	    \begin{figure}[H]
 	        \centering
-	        \includegraphics[height=1\textwidth]{figure/moduleSeqDiag.png}
-	        \caption{Diagramme de séquence d'un module.}
-	        \label{fig:module}
+	        \includegraphics[height=0.5\textwidth]{figure/startseqdiag.png}
+	        \caption{Diagramme de séquence du démarrage d'une instance d'ADTool dans Glasir.}
+	        \label{fig:start}
+	    \end{figure}
+	    
+	    La {\sc Figure}~{\ref{fig:moduleseq}} illustre le fonctionnement générique d'un module. L'expert en sécurité spécifie d'abord les paramètres de l'opération que va effectuer le module. Puis, une fois lancé, le module va effectuer des opérations sur le fichier de l'ADTree cible. Un fichier résultat est alors généré puis ouvert dans une nouvelle instance d'ADTool, afin d'être affiché à l'écran. 
+
+	    \begin{figure}[H]
+	        \centering
+	        \includegraphics[height=0.75\textwidth]{figure/moduleSeqDiag.png}
+	        \caption{Diagramme de séquence générique d'un module, qui ne correspond d'ailleurs pas exactement à la description. Il faut légèrement le modifier.}
+	        \label{fig:moduleseq}
 	    \end{figure}
 
-
-%	\subsection{Filtre}
-%
-%	    \begin{figure}[H]
-%	        \centering
-%	        \includegraphics[height=1\textwidth]{figure/Filter.png}
-%	        \caption{Diagramme de séquence du module Filtre.}
-%	        \label{fig:filter}
-%	    \end{figure}
-
-Pour réaliser le filtrage d'un ADTree, l'expert en sécurité va définir des intervalles de filtrage sur les valuations de l'ADTree, et les passer en paramètre au Filtre. Ce dernier va alors analyser le code XML de l'ADTree-cible, afin de produire le code XML de l'ADTree-résultat. Ce code va alors permettre de créer un nouveau fichier contenant l'ADTree-résultat, qui sera alors affiché dans une nouvelle instance d'ADTool.
-
-%	\subsection{Optimiseur}
-%
-%	    \begin{figure}[H]
-%	        \centering
-%	        \includegraphics[height=1\textwidth]{figure/Optim.png}
-%	        \caption{Diagramme de séquence du module Optimiseur.}
-%	        \label{fig:optim}
-%	    \end{figure}
-
-Pour réaliser l'optimisation d'un ADTree, l'expert en sécurité va sélectionner la valuation de l'ADTree selon laquelle il souhaite l'optimiser. Il va ensuite lancer l'optimiseur, qui va analyser le code XML de l'ADTree-cible afin de produire le code XML de l'ADTree optimisé. Ce code va alors permettre de créer un nouveau fichier contenant l'ADTree optimisé, qui sera alors affiché dans une nouvelle instance d'ADTool.
-
-%	\subsection{Éditeur de fonctions}
-%
-%	    \begin{figure}[H]
-%	        \centering
-%	        \includegraphics[height=1\textwidth]{figure/FunctionEditor.png}
-%	        \caption{Diagramme de séquence du module Éditeur de fonctions.}
-%	        \label{fig:function}
-%	    \end{figure}
-
-Pour ajouter un nouveau paramètre de valuation à l'ADTree, l'expert en sécurité va commencer par écrire la fonction de calcul de ce paramètre en fonction des valuations déjà présentes. Il va ensuite lancer l'éditeur de fonctions, qui va analyser le code XML de l'ADTree-cible afin de génerer le code XML de l'ADTree avec la valuation supplémentaire. Il va alors créer un nouveau fichier XML dans lequel va être inscrit ce code. Ce code va permettre de créer un nouveau fichier contenant l'ADTree avec la nouvelle valuation, et l'ADTree sera enfin affiché dans une nouvelle instance d'ADTool.
+Par exemple, dans le cas du Filtre, les paramètres du module sont les intervalles\footnote{ADTool propose des paramètres de valuation tels que le coût d'une attaque (un nombre réel) ou sa faisabilité (un booléen). Bien que certains de ces paramètres soient définis sur un ensemble discret, il est toujours possible de définir une relation d'ordre sur cet ensemble, et donc d'y définir des intervalles.} de filtrage sur les valuations de l'ADTree. Pour l'Editeur de fonctions, le paramètre est la définition de la fonction. Enfin, pour l'Optimiseur, il s'agit du paramètre d'ADTool selon lequel l'expert souhaite optimiser l'ADTree.

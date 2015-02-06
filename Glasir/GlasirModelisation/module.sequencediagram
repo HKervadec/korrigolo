@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ccf60120-d6e6-4a57-bfc3-72f00111583b" name="module" linkedPackageId="f6175055-e2ab-4554-8ccd-79917f20e755" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="6b574c03-861e-4eec-a910-c747374c39ca">
-      <profileInstance Id="9c88fc4a-06d8-4180-be73-d5393280443c" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="42dee580-312f-4926-8a6e-613a2527260a">
-      <profileInstance Id="24504e5f-5fa3-4f82-ace0-f8b0bd9ee2f9" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="ccf60120-d6e6-4a57-bfc3-72f00111583b" name="module" linkedPackageId="f6175055-e2ab-4554-8ccd-79917f20e755" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="ad39aac2-d1c0-46ea-a2d9-2d6d9914c529" name="module" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -188,16 +174,16 @@
               <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="68118fec-fd34-485d-bc4a-334754cfa3c4" name="MessageOccurrenceSpecification60">
-            <elementDefinition Id="733d8c7a-7902-4fa0-b439-f1d71651de60" />
-            <covered>
-              <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="b8461f08-2834-4d48-ba5b-e23d2786a9f0" name="MessageOccurrenceSpecification59">
             <elementDefinition Id="175c4217-9728-45b9-aa3c-0db483f79fdf" />
             <covered>
               <lifelineMoniker Id="a904e859-7c50-4eb3-b92c-3a1f456230d3" LastKnownName="ADToolInstance" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="68118fec-fd34-485d-bc4a-334754cfa3c4" name="MessageOccurrenceSpecification60">
+            <elementDefinition Id="733d8c7a-7902-4fa0-b439-f1d71651de60" />
+            <covered>
+              <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="f4ba18ed-28a8-4e9e-afe8-14d8095c75c0" name="MessageOccurrenceSpecification61">
@@ -246,16 +232,16 @@
               <lifelineMoniker Id="a904e859-7c50-4eb3-b92c-3a1f456230d3" LastKnownName="ADToolInstance" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="31424b73-3b00-4a1f-b8b0-eb3c6d8252e5" name="MessageOccurrenceSpecification7">
-            <elementDefinition Id="c35ea520-3533-44ad-8915-1eb0ffcb4775" />
-            <covered>
-              <lifelineMoniker Id="cd6b45bb-7e3a-4697-92cd-7d03f65c8816" LastKnownName="Glasir" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="b346b87f-09e7-4a0a-8dce-624f395f9dd4" name="MessageOccurrenceSpecification8">
             <elementDefinition Id="ddb81d5e-1fbe-4ca0-86c5-93fe3da442f0" />
             <covered>
               <lifelineMoniker Id="9c45ec24-8f6c-423b-bfb9-1eb5ccd14d8a" LastKnownName="Security Expert" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="31424b73-3b00-4a1f-b8b0-eb3c6d8252e5" name="MessageOccurrenceSpecification7">
+            <elementDefinition Id="c35ea520-3533-44ad-8915-1eb0ffcb4775" />
+            <covered>
+              <lifelineMoniker Id="cd6b45bb-7e3a-4697-92cd-7d03f65c8816" LastKnownName="Glasir" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="669cb68c-a2b2-43c7-9977-096065653054" name="ExecutionOccurrenceSpecification4">
@@ -319,16 +305,16 @@
               <lifelineMoniker Id="43491953-b8cb-47e4-8c74-916fdbe5b253" LastKnownName="Module" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="e99ab289-a932-4a72-b282-2d19c37d048a" name="MessageOccurrenceSpecification13">
-            <elementDefinition Id="a4fad426-56a1-4fe5-b8d6-5c8c255eff15" />
-            <covered>
-              <lifelineMoniker Id="9c45ec24-8f6c-423b-bfb9-1eb5ccd14d8a" LastKnownName="Security Expert" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="8d706355-5e66-49dc-a40a-53b8ddd5d8fa" name="MessageOccurrenceSpecification14">
             <elementDefinition Id="8c7b6657-cc2b-4f80-b108-9ac4eb232781" />
             <covered>
               <lifelineMoniker Id="43491953-b8cb-47e4-8c74-916fdbe5b253" LastKnownName="Module" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e99ab289-a932-4a72-b282-2d19c37d048a" name="MessageOccurrenceSpecification13">
+            <elementDefinition Id="a4fad426-56a1-4fe5-b8d6-5c8c255eff15" />
+            <covered>
+              <lifelineMoniker Id="9c45ec24-8f6c-423b-bfb9-1eb5ccd14d8a" LastKnownName="Security Expert" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="f2e89fa7-1d86-4d2f-9b10-81bbdc6a75fc" name="ExecutionOccurrenceSpecification8">
@@ -427,7 +413,7 @@
               <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
-          <interactionUse Id="338d84f5-ed5d-477a-8f3e-f664f95cf889" name="Traitement module">
+          <interactionUse Id="338d84f5-ed5d-477a-8f3e-f664f95cf889" name="process">
             <elementDefinition Id="985d09c5-1694-461d-b51e-66fac0cf1a91" />
             <coveredLifelines>
               <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
@@ -481,16 +467,16 @@
               <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="b77daad1-ad44-4ed3-bb2a-b27162f60193" name="MessageOccurrenceSpecification66">
-            <elementDefinition Id="eec9a674-2015-4c1e-af61-d8c0f318d52f" />
-            <covered>
-              <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="5669c1f5-8494-4f91-a7f2-306af7c35382" name="MessageOccurrenceSpecification65">
             <elementDefinition Id="b6972646-ee30-4f9f-b85a-509e9d5060e9" />
             <covered>
               <lifelineMoniker Id="533e1fad-0402-4f8b-ac79-793e391e514b" LastKnownName="new XML ADTree file" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b77daad1-ad44-4ed3-bb2a-b27162f60193" name="MessageOccurrenceSpecification66">
+            <elementDefinition Id="eec9a674-2015-4c1e-af61-d8c0f318d52f" />
+            <covered>
+              <lifelineMoniker Id="43add91c-b779-4b5f-9e6f-074ee02cab94" LastKnownName="XML ADTree file" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="80fcec32-6bee-4fd3-858f-514ba6d83fea" name="ExecutionOccurrenceSpecification34">
@@ -735,7 +721,7 @@
               <messageOccurrenceSpecificationMoniker Id="b346b87f-09e7-4a0a-8dce-624f395f9dd4" LastKnownName="MessageOccurrenceSpecification8" />
             </receiveEvent>
           </message>
-          <message Id="e7531bfc-9147-45ff-a96d-ca05fb1576e6" name="passage paramètres p" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false" signatureText="+ params()">
+          <message Id="e7531bfc-9147-45ff-a96d-ca05fb1576e6" name="setParameters()" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false" signatureText="+ params()">
             <elementDefinition Id="797f955f-8391-49c4-a158-0bf3965cd711" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="e99ab289-a932-4a72-b282-2d19c37d048a" LastKnownName="MessageOccurrenceSpecification13" />
@@ -931,5 +917,19 @@
   </packagedElements>
   <package Id="f6175055-e2ab-4554-8ccd-79917f20e755" name="GlasirModelisation">
     <elementDefinition Id="2568001e-103f-45a2-8e66-c0154b0209de" />
+    <profileInstances>
+      <packageHasProfileInstances Id="6b574c03-861e-4eec-a910-c747374c39ca">
+        <profileInstance Id="9c88fc4a-06d8-4180-be73-d5393280443c" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="42dee580-312f-4926-8a6e-613a2527260a">
+        <profileInstance Id="24504e5f-5fa3-4f82-ace0-f8b0bd9ee2f9" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>

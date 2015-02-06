@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="2568001e-103f-45a2-8e66-c0154b0209de"
   name="GlasirModelisation" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -6948,22 +6948,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="733d8c7a-7902-4fa0-b439-f1d71651de60"
-            name="MessageOccurrenceSpecification60">
-            <covered>
-              <lifelineMoniker
-                Id="03c4e9e8-4f2c-4c64-8a1d-c293b7b5a12b"
-                LastKnownName="XML ADTree file"
-                LastKnownLocation="GlasirModelisation.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="175c4217-9728-45b9-aa3c-0db483f79fdf"
             name="MessageOccurrenceSpecification59">
             <covered>
               <lifelineMoniker
                 Id="541ea631-3d33-4666-a381-f09ee118be8b"
                 LastKnownName="ADToolInstance"
+                LastKnownLocation="GlasirModelisation.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="733d8c7a-7902-4fa0-b439-f1d71651de60"
+            name="MessageOccurrenceSpecification60">
+            <covered>
+              <lifelineMoniker
+                Id="03c4e9e8-4f2c-4c64-8a1d-c293b7b5a12b"
+                LastKnownName="XML ADTree file"
                 LastKnownLocation="GlasirModelisation.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -7044,22 +7044,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="c35ea520-3533-44ad-8915-1eb0ffcb4775"
-            name="MessageOccurrenceSpecification7">
-            <covered>
-              <lifelineMoniker
-                Id="c2a207db-2ce6-49b8-8c1c-bb5a0c1c0a5e"
-                LastKnownName="Glasir"
-                LastKnownLocation="GlasirModelisation.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="ddb81d5e-1fbe-4ca0-86c5-93fe3da442f0"
             name="MessageOccurrenceSpecification8">
             <covered>
               <lifelineMoniker
                 Id="fe8213e1-4314-47f1-91f6-c4246f8190b5"
                 LastKnownName="Security Expert"
+                LastKnownLocation="GlasirModelisation.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c35ea520-3533-44ad-8915-1eb0ffcb4775"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="c2a207db-2ce6-49b8-8c1c-bb5a0c1c0a5e"
+                LastKnownName="Glasir"
                 LastKnownLocation="GlasirModelisation.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -7168,21 +7168,6 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="a4fad426-56a1-4fe5-b8d6-5c8c255eff15"
-            name="MessageOccurrenceSpecification13">
-            <event>
-              <sendOperationEventMoniker
-                Id="1ae7375f-73ba-4b24-8a6a-c75c1d5de2bb"
-                LastKnownLocation="GlasirModelisation.uml" />
-            </event>
-            <covered>
-              <lifelineMoniker
-                Id="fe8213e1-4314-47f1-91f6-c4246f8190b5"
-                LastKnownName="Security Expert"
-                LastKnownLocation="GlasirModelisation.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="8c7b6657-cc2b-4f80-b108-9ac4eb232781"
             name="MessageOccurrenceSpecification14">
             <event>
@@ -7194,6 +7179,21 @@
               <lifelineMoniker
                 Id="fc26bcc7-06d5-4dc1-8f6b-d28f33451283"
                 LastKnownName="Module"
+                LastKnownLocation="GlasirModelisation.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a4fad426-56a1-4fe5-b8d6-5c8c255eff15"
+            name="MessageOccurrenceSpecification13">
+            <event>
+              <sendOperationEventMoniker
+                Id="1ae7375f-73ba-4b24-8a6a-c75c1d5de2bb"
+                LastKnownLocation="GlasirModelisation.uml" />
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="fe8213e1-4314-47f1-91f6-c4246f8190b5"
+                LastKnownName="Security Expert"
                 LastKnownLocation="GlasirModelisation.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -7395,7 +7395,7 @@
           </messageOccurrenceSpecification>
           <interactionUse
             Id="985d09c5-1694-461d-b51e-66fac0cf1a91"
-            name="Traitement module">
+            name="process">
             <coveredLifelines>
               <lifelineMoniker
                 Id="03c4e9e8-4f2c-4c64-8a1d-c293b7b5a12b"
@@ -7490,22 +7490,22 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="eec9a674-2015-4c1e-af61-d8c0f318d52f"
-            name="MessageOccurrenceSpecification66">
-            <covered>
-              <lifelineMoniker
-                Id="03c4e9e8-4f2c-4c64-8a1d-c293b7b5a12b"
-                LastKnownName="XML ADTree file"
-                LastKnownLocation="GlasirModelisation.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="b6972646-ee30-4f9f-b85a-509e9d5060e9"
             name="MessageOccurrenceSpecification65">
             <covered>
               <lifelineMoniker
                 Id="ea15cb02-4cf1-4434-abf5-521626aa8c0d"
                 LastKnownName="new XML ADTree file"
+                LastKnownLocation="GlasirModelisation.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="eec9a674-2015-4c1e-af61-d8c0f318d52f"
+            name="MessageOccurrenceSpecification66">
+            <covered>
+              <lifelineMoniker
+                Id="03c4e9e8-4f2c-4c64-8a1d-c293b7b5a12b"
+                LastKnownName="XML ADTree file"
                 LastKnownLocation="GlasirModelisation.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8006,7 +8006,7 @@
           </message>
           <message
             Id="797f955f-8391-49c4-a158-0bf3965cd711"
-            name="passage paramètres p"
+            name="setParameters()"
             messageKind="Complete"
             messageSort="AsynchCall"
             createSelfMessage="false"
