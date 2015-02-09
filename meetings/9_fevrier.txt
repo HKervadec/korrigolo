@@ -1,16 +1,8 @@
-ajouter les algorithmes des modules, ou du moins mentionner qu'on les a déjà mis dans les premiers rapports.
-corriger diagramme figure 2
-changer 'rapide' page 6
 changer figure 3 et figure 4
-page 8 on peut dire que ADTool sauvergarde les ADTree en xml et que c'est pour ça qu'on a choisit le format xml
-manque un 's' page 9
-page 9 "il serait bien d'illustrer avec un exemple" --> mettre une référence vers les algos qu'on a déjà écrits
-page 11 inverser les paragraphes
-commentaires en couleur... 
-\newcommande{\comment}[1]{\textcolor{red}{Commentaire : #1}
+
 p15 changer la représentation textuelle (mettre "noeud décomposé")
 rajouter une image comme à la soutenance, ce sera beaucoup plus clair.
-enlever le 'par exemple' p16
+
 détailler peut-être les attributs et les méthodes des diagrammes (instances d'adtool, adt...)
 
 \begin{figure}[H]
@@ -21,3 +13,5 @@ ou
 \caption{Diagramme de séquence du démarrage d'une instance d'ADTool dans Glasir.}
 \label{fig:start}
 \end{figure}
+
+commentaires en couleur... \newcommande{\comment}[1]{\textcolor{red}{Commentaire : #1}
