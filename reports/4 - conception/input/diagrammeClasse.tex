@@ -1,11 +1,11 @@
 \section{Diagramme de classes}
     \label{sec:diagClass}
     
-    Le diagramme de classes détaillé dans cette section permet de mieux comprendre l'architecture interne de Glasir. Afin de bien saisir ce diagramme, il est nécessaire de rappeler qu'un ADTree est sauvegardé dans un fichier au format XML.
+    Le diagramme de classes détaillé dans cette section permet de mieux comprendre l'architecture interne de Glasir. Afin de bien saisir ce diagramme, il est nécessaire d'indiquer qu'un ADTree est enregistré dans un fichier au format XML\footnote{ADTool permet, de base, d'enregistrer un ADTree dans plusieurs formats, dont le XML : nous avons donc choisi ce format pour pouvoir travailler sur des ADTrees dans Glasir.}.
     
     \subsection{Classe centrale}
     	\label{sec:diagClassCentral}
-    	La classe centrale du diagramme est \emph{BigGlasir}, illustrée sur la {\sc Figure}~\ref{fig:bigglasir}. C'est autour d'elle que s'articule l'ensemble des fonctionnalités de Glasir. \emph{BigGlasir} dispose de méthodes permettant de charger un ADTree depuis la bibliothèque de modèles, de lancer des instances d'ADTool afin d'afficher un ADTree, mais également de créer ou de charger un projet. Cette classe possède également des modules, décrit dans la {\sc Section}~{\ref{sec:diagClassMod}}, une bibliothèque de modèles, décrite dans la {\sc Section}~{\ref{sec:diagClassBib}}, et une liste des instances d'ADTool, décrite dans la {\sc section}~{\ref{sec:diagClassADT}}.
+    	La classe centrale du diagramme est \emph{BigGlasir}, illustrée sur la {\sc Figure}~\ref{fig:bigglasir}. C'est autour d'elle que s'articule l'ensemble des fonctionnalités de Glasir. \emph{BigGlasir} dispose de méthodes permettant de charger un ADTree depuis la bibliothèque de modèles, de lancer des instances d'ADTool afin d'afficher un ADTree, mais également de créer ou de charger un projet. Cette classe possède également des modules, décrits dans la {\sc Section}~{\ref{sec:diagClassMod}}, une bibliothèque de modèles, décrite dans la {\sc Section}~{\ref{sec:diagClassBib}}, et une liste des instances d'ADTool, décrite dans la {\sc section}~{\ref{sec:diagClassADT}}.
     	
     	\begin{figure}[H]
 	        \centering
