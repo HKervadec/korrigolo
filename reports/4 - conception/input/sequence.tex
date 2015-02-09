@@ -1,26 +1,30 @@
 \section{Description séquentielle des modules}
     \label{sec:modules}
     
-Le diagramme de séquence présenté dans cette section a pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir : le Filtre, l'Optimiseur et l'Editeur de fonction. Pour mieux saisir le fonctionnement de l'un de ces modules, la {\sc Figure}~{\ref{fig:start}} illustre l'ouverture d'un ADTree dans Glasir.
-
-Pour rappel, la lecture d'un diagramme de séquence se fait de haut en bas, suivant un ordre chronologique, et en suivant les flèches, qui correpondent aux méthodes des différentes classes présentées en tête du diagramme. On peut donc suivre de cette manière l'ordre d'activité des différentes classes au cours d'une utilisation donnée, ici celle d'un module de Glasir (le Filtre, l'Éditeur de fonctions ou l'Optimiseur).
-
-Ainsi, sur la {\sc Figure}~{\ref{fig:start}}, l'expert en sécurité demande à ouvrir un fichier XML contenant un ADTree dans Glasir. Ce dernier crée alors une instance d'ADTool, qui va chercher le code XML du fichier afin d'afficher l'ADTree.
+Le diagramme de séquence présenté dans cette section a pour objectif d'illustrer le fonctionnement des trois principales fonctionnalités de Glasir : le Filtre, l'Optimiseur et l'Editeur de fonction. Pour rappel, la lecture d'un diagramme de séquence se fait de haut en bas, suivant un ordre chronologique, et en suivant les flèches, qui correpondent aux méthodes des différentes classes présentées en tête du diagramme. On peut donc suivre de cette manière l'ordre d'activité des différentes classes au cours d'une utilisation donnée, ici celle d'un module de Glasir (le Filtre, l'Éditeur de fonctions ou l'Optimiseur).
 
 	    \begin{figure}[H]
 	        \centering
-	        \includegraphics[height=0.5\textwidth]{figure/startseqdiag.png}
+	        \includegraphics[height=0.45\textwidth]{figure/startseqdiag.png}
 	        \caption{Diagramme de séquence du démarrage d'une instance d'ADTool dans Glasir.}
 	        \label{fig:start}
 	    \end{figure}
-	    
-	    La {\sc Figure}~{\ref{fig:moduleseq}} illustre le fonctionnement générique d'un module. L'expert en sécurité spécifie d'abord les paramètres de l'opération que va effectuer le module. Puis, une fois lancé, le module va effectuer des opérations sur le fichier de l'ADTree cible. Un fichier résultat est alors généré puis ouvert dans une nouvelle instance d'ADTool, afin d'être affiché à l'écran. 
+
+Dans un but de synthèse, nous avons représenté le diagramme de séquence du fonctionnement d'un "module", pouvant représenter n'importe laquelle des fonctionnalités de Glasir. Les lègères différences entre chaque module sont détaillées en dessous du diagramme. Pour mieux saisir le fonctionnement de l'un de ces modules, la {\sc Figure}~{\ref{fig:start}} illustre l'ouverture d'un ADTree dans Glasir : l'expert en sécurité demande à ouvrir un fichier XML contenant un ADTree dans Glasir. Ce dernier crée alors une instance d'ADTool, qui va chercher le code XML du fichier afin d'afficher l'ADTree.
+
+	    La {\sc Figure}~{\ref{fig:moduleseq}} illustre le fonctionnement générique d'un module. L'expert en sécurité spécifie d'abord les paramètres de l'opération que va effectuer le module. Puis, une fois lancé, le module va effectuer des opérations sur le fichier de l'ADTree cible. Un fichier résultat au format XML est alors généré puis ouvert dans une nouvelle instance d'ADTool, afin d'être affiché à l'écran. 
 
 	    \begin{figure}[H]
 	        \centering
 	        \includegraphics[height=0.75\textwidth]{figure/moduleSeqDiag.png}
-	        \caption{Diagramme de séquence générique d'un module, qui ne correspond d'ailleurs pas exactement à la description. Il faut légèrement le modifier.}
+	        \caption{Diagramme de séquence générique d'un module.}
 	        \label{fig:moduleseq}
 	    \end{figure}
 
-Par exemple, dans le cas du Filtre, les paramètres du module sont les intervalles\footnote{ADTool propose des paramètres de valuation tels que le coût d'une attaque (un nombre réel) ou sa faisabilité (un booléen). Bien que certains de ces paramètres soient définis sur un ensemble discret, il est toujours possible de définir une relation d'ordre sur cet ensemble, et donc d'y définir des intervalles.} de filtrage sur les valuations de l'ADTree. Pour l'Editeur de fonctions, le paramètre est la définition de la fonction. Enfin, pour l'Optimiseur, il s'agit du paramètre d'ADTool selon lequel l'expert souhaite optimiser l'ADTree.
+Le bloc nommé "process" dans le diagramme de séquence illustre la partie différente de chaque module, tout le reste (ouverture du module avec les paramètres , et création et ouverture du fichier résultat) étant commun à tous les modules :
+
+Dans le cas du Filtre, les paramètres passés à l'appel sont les intervalles\footnote{ADTool propose des paramètres de valuation tels que le coût d'une attaque (un nombre réel) ou sa faisabilité (un booléen). Bien que certains de ces paramètres soient définis sur un ensemble discret, il est toujours possible de définir une relation d'ordre sur cet ensemble, et donc d'y définir des intervalles.} de filtrage sur les valuations de l'ADTree. Le bloc process réalise l'algorithme de filtrage de l'arbre, qui a déjà été présenté dans le rapport de spécifications fonctionnelles~\cite{spec_fonc}, appliqué au contenu du fichier XML de l'arbre à filtrer.
+
+En ce qui concerne l'Editeur de fonctions, les paramètres passés à l'appel sont la formule de calcul du paramètre à définir, et son nom. Le bloc process contient la sèrie de calculs nécessaires à l'attribution des valeurs du nouveaux paramètres à chacun des noeuds de l'arbre.  
+
+Enfin, le paramètre passé lors de l'appel de l'Optimiseur désigne le paramètre de valuation de l'arbre selon lequel l'expert veut réaliser l'optimisation. Le bloc process réalise l'algorithme d'optimisation sur le contenu du fichier XML de l'arbre, qui a déjà été détaillé dans le rapport de spécifications fonctionnelles~\cite{spec_fonc}. 
