@@ -1,26 +1,26 @@
 \section{Architecture globale}
     \label{sec:archiGlobale}
     
-    Afin de mieux fixer les idées quant aux fonctionnalités de Glasir, voici une présentation rapide de son utilisation et de son interface.
+    Afin de mieux fixer les idées quant aux fonctionnalités de Glasir, voici une présentation de son utilisation et de son interface.
 	    
     \subsection{Diagramme de cas d'utilisation}
     \label{sec:casutil}
     
-    L'utilisateur-type de notre outil d'analyse serait un expert en sécurité connaissant déjà le formalisme des ADTrees. C'est donc l'acteur qui a été choisi pour le diagramme de cas d'utilisation de la {\sc Figure}~\ref{fig:use_case}, qui représente l'ensemble des actions possibles à partir de Glasir. Afin de mieux comprendre ce diagramme, un petit rappel sur le formalisme UML s'impose. En effet, les deux termes \og étendre \fg{} et \og inclure \fg{} associés aux différentes flèches ont une signification bien particulière (attention au sens des flèches) :
+    L'utilisateur-type de notre outil d'analyse serait un expert en sécurité connaissant déjà le formalisme des ADTrees. C'est donc l'acteur qui a été choisi pour le diagramme de cas d'utilisation de la {\sc Figure}~\ref{fig:use_case}, qui représente l'ensemble des actions possibles à partir de Glasir. Afin de mieux comprendre ce diagramme, un petit rappel sur le formalisme UML s'impose. En effet, si l'on prend deux évènements A et B, les termes \og étendre \fg{} et \og inclure \fg{} associés aux flèches ont une signification bien particulière :
 
     \begin{itemize}
-    \item[] $ A \stackrel{\text{inclure}}{\longrightarrow} B$ signifie que si $A$ est réalisé, $B$ l'est {\bf forcément} ;
-    \item[] $ B \stackrel{\text{étendre}}{\longrightarrow} A$ signifie que si $A$ est réalisé, $B$ {\bf peut} l'être.
+    \item[] $ A \stackrel{\text{\og inclure \fg{}}}{\longrightarrow} B$ signifie que si $A$ est réalisé, $B$ l'est {\bf forcément} ;
+    \item[] $ B \stackrel{\text{\og étendre \fg{}}}{\longrightarrow} A$ signifie que si $A$ est réalisé, $B$ {\bf peut} l'être mais pas obligatoirement.
     \end{itemize}
 
     \begin{figure}[H]
         \centering
-        \includegraphics[height=0.4\textwidth]{figure/UseCaseDiagram.png}
+        \includegraphics[height=0.5\textwidth]{figure/UseCaseDiagram.png}
         \caption{Diagramme de cas d'utilisation de Glasir.}
         \label{fig:use_case}
     \end{figure}
 
-    Les fonctionnalités de Glasir apparaissent donc maintenant clairement. Grâce à lui, l'utilisateur pourra effectuer les actions suivantes : 
+    Les fonctionnalités de Glasir apparaissent donc maintenant clairement. Grâce à cet outil, l'utilisateur pourra effectuer les actions suivantes : 
 
     \begin{itemize}
     \item charger un projet sauvegardé ;

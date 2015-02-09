@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Glasir" Height="700" Width="300">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="80" Margin="10,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"><Run Text="Hierarchie"/><LineBreak/><Run Text="- Arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="  - sous arbre"/><LineBreak/><Run Text="- Arbre"/></TextBlock>
         <Menu HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" FontSize="18" Width="517">
             <MenuItem Header="_File">
                 <MenuItem Header="_New..." Command="New"/>
@@ -34,9 +33,10 @@
         <TabControl HorizontalAlignment="Left" Height="497" Margin="10,34,0,0" VerticalAlignment="Top" Width="270">
             <TabItem Header="FunctionEditor">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Edit" HorizontalAlignment="Left" Margin="167,97,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the function for the parameter you want to add :" VerticalAlignment="Top"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" Margin="158,151,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,151,0,0" TextWrapping="Wrap" Text="Fonction" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the name and the function for the parameter you want to add :" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Filter">

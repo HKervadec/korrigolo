@@ -26,12 +26,29 @@
 		Cette sous-section reste très vague et est à améliorer. \\ La vue globale permet de présenter un condensé de l'ensemble des paramètres présents sur un ADTree. En effet, actuellement, chaque paramètre est affiché dans un onglet, ce qui ne permet pas d'avoir une vision de toutes les valuations en un seul coup d'œil. Il est donc nécessaire d'appliquer quelques changement d'affichage pour offrir à l'utilisateur un aperçu simple et condensé de toutes les valuations d'un nœud.
 	
 	\subsection{Amélioration de la représentation textuelle}
-		Pour rappel, ADTool dispose d'une zone dans laquelle l'ADTree courant est représenté sous forme textuelle. Cette représentation ne contient que les labels des nœuds n'ayant aucun fils : tous les autres nœuds sont représentés par \emph{op} ou \emph{ap}, selon que ledit nœud soit conjonctif ou disjonctif. Pour améliorer la lisibilité de cette zone textuelle, la représentation doit inclure les labels de ces nœuds. Ceci est réalisé par la modification de deux fichiers d'ADTool :
+
+		Pour rappel, ADTool dispose d'une zone d'édition dans laquelle l'ADTree courant est montré sous forme textuelle. La grammaire employée dans cette fenêtre n'est pas tout à fait complète, et mérite donc d'être améliorée. Pour illustrer cela, nous allons utiliser comme exemple l'ADTree de la {\sc Figure}~\ref{fig:arbre_ex}.
+
+		\begin{figure}[H]
+	        \centering
+	        \includegraphics[height=0.4\textwidth]{figure/tree.png}
+	        \caption{ADTree servant d'exemple pour illustrer l'amélioration de la zone textuelle.}
+	        \label{fig:arbre_ex}
+	    \end{figure}
+
+	    L'ADTree de la {\sc Figure}~\ref{fig:arbre_ex} est ainsi actuellement représenté textuellement dans ADTool par le texte de gauche sur la {\sc Figure}~\ref{fig:grams}. On constate l'absence des labels des nœuds pères des différentes opérations (conjonction ou disjonction). Or, ces labels sont primordiaux pour avoir une bonne compréhension de l'ADTree, et surtout pour avoir la totalité des informations qu'il contient. C'est pourquoi nous souhaiterions les rajouter, d'une façon semblable à celle présentée sur la partie droite de la {\sc Figure}~\ref{fig:grams}.
+
+	    \begin{figure}[H]
+	        \centering
+	        \includegraphics[width=\textwidth]{figure/grams.png}
+	        \caption{La grammaire actuelle (à gauche) et la grammaire améliorée (à droite).}
+	        \label{fig:grams}
+	    \end{figure}
+
+		Pour réaliser ces changements et améliorer la lisibilité de la zone textuelle, il va falloir modifier deux fichiers d'ADTool :
 		\begin{itemize}
 		\item \emph{ADTNode.java}, la classe représentant un nœud au sein d'un ADTree ;
 		\item \emph{adtparser.jit}, le fichier générant la zone textuelle en elle-même.
 		\end{itemize}
 		
-		À travers ces deux fichiers, il est possible de faire apparaître les labels des nœuds possédant des fils au sein de la zone textuelle d'ADTool.
-		
-	  
+		À travers ces deux fichiers, il est possible de modifier la grammaire régissant la représentation textuelle des ADTrees.
