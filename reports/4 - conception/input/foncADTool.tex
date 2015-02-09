@@ -23,7 +23,10 @@
 	    \end{figure}
 	    
 	\subsection{Vue globale des paramètres}
-		Cette sous-section reste très vague et est à améliorer. \\ La vue globale permet de présenter un condensé de l'ensemble des paramètres présents sur un ADTree. En effet, actuellement, chaque paramètre est affiché dans un onglet, ce qui ne permet pas d'avoir une vision de toutes les valuations en un seul coup d'œil. Il est donc nécessaire d'appliquer quelques changement d'affichage pour offrir à l'utilisateur un aperçu simple et condensé de toutes les valuations d'un nœud.
+
+		 La vue globale permet de présenter un condensé de l'ensemble des paramètres présents sur un ADTree. En effet, actuellement, chaque paramètre est affiché dans un onglet, ce qui ne permet pas d'avoir une vision de toutes les valuations en un seul coup d'œil. Il est donc nécessaire d'appliquer quelques changement d'affichage pour offrir à l'utilisateur un aperçu simple et condensé de toutes les valuations d'un nœud.
+	
+		L'affichage d'un ADTree sous ADTool se fait au moyen des fonctions de la classe \emph{ADTreeCanvas}. Ces fonctions utilisent une autre classe de ADTool, \emph{DomainCanvas}, qui gère l'affichage des paramètres. Comme toutes les valuations de chacun des noeuds d'un ADTree sont présentes dans son fichier XML, nous allons gèrer l'affichage simultané de plusieurs paramètres en détectant avec les fonctions de \emph{ADTreeCanvas} le nombre de paramètres de l'ADTree à afficher, et en appelant autant de \emph{DomainCanvas} lors de l'affichage.
 	
 	\subsection{Amélioration de la représentation textuelle}
 
