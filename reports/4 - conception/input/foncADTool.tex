@@ -13,7 +13,7 @@
 	    \end{figure}
     
     \subsection{Couper-copier-coller}
-		La {\sc Figure}~{\ref{fig:copiercoller}} illustre le diagramme de classes permettant de réaliser le couper-copier-coller d'ADTool. Les ADTrees, représentés par la classe \emph{ADTree}, implémentent \emph{Transferable}, l'interface permettant à un élément d'être coupé, copié ou collé. ADTool, schématisé par la classe \emph{ADTool}, se voit doté d'un \emph{ADTreeTransfertHandler}, une classe permettant de réaliser les actions couper-copier-coller en elles-mêmes. \emph{ADTreeTransfertHandler} implémente \emph{TransfertHandler}, l'interface qui permet de gérer un \og presse-papier \fg{}. Ce dernier est représenté par la classe \emph{Clipboard}, et contient l'élément coupé ou copié, c'est-à-dire un ADTree.
+		La {\sc Figure}~{\ref{fig:copiercoller}} illustre le diagramme de classes permettant d'implémenter le couper-copier-coller dans ADTool. Les ADTrees, représentés par la classe \emph{ADTree}, implémentent \emph{Transferable}, l'interface permettant à un élément d'être coupé, copié ou collé. ADTool, schématisé par la classe \emph{ADTool}, se voit doté d'un \emph{ADTreeTransfertHandler}, une classe permettant de réaliser les actions couper-copier-coller en elles-mêmes. \emph{ADTreeTransfertHandler} implémente \emph{TransfertHandler}, l'interface qui permet de gérer un \og presse-papier \fg{}. Ce dernier est représenté par la classe \emph{Clipboard}, et contient l'élément coupé ou copié, c'est-à-dire un ADTree.
     	
     	\begin{figure}[H]
 	        \centering
