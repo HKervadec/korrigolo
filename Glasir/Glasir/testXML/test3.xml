@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>top</label>
+    <node refinement="disjunctive">
+      <label>child1</label>
+      <parameter domainId="MinCost1">20.0</parameter>
+    </node>
+    <node refinement="disjunctive">
+      <label>child2</label>
+      <parameter domainId="MinCost1">50.0</parameter>
+    </node>
+  </node>
+  <domain id="MinCost1">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

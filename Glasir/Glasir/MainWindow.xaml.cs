@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Glasir
 {
@@ -34,6 +35,21 @@ namespace Glasir
         private void launchADTool(object sender, RoutedEventArgs e)
         {
             Glasir.launchADToolInstance();
+        }
+
+        private void xmltest(object sender, RoutedEventArgs e)
+        {
+            XDocument doc = XDocument.Load("../../testXML/test3.xml");
+            //Console.WriteLine(doc);
+            XElement rm = (XElement) doc.FirstNode;
+            XElement rd = (XElement) rm.FirstNode;
+            //Console.WriteLine(rm);
+            //Console.WriteLine(rd);
+            XElement rm2 = (XElement)rm.Element("node");
+            XElement rm3 = (XElement)rm2.Element("node");
+            Console.WriteLine(rm3);
+            rm3.Remove();
+            Console.WriteLine(doc);
         }
 
         

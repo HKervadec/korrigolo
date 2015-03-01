@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Glasir
 {
@@ -15,19 +17,26 @@ namespace Glasir
             private set;
         }
 
-        public void buildFile(string xmlCode)
+        public XDocument xmlcode
         {
-            throw new System.NotImplementedException();
+            get;
+            private set;
         }
 
-        public XMLFile(string xmlCode)
+        public void buildFile(string xmlfile)
         {
-            buildFile(xmlCode);
+            fileName = xmlfile;
+            xmlcode = XDocument.Load(xmlfile);
+        }
+
+        public XMLFile(string xmlfile)
+        {
+            buildFile(xmlfile);
         }
 
         public string getXMLCodeFromFile()
         {
-            throw new NotImplementedException();
+            return xmlcode.ToString();
         }
 
         
