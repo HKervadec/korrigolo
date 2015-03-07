@@ -25,16 +25,30 @@ namespace Glasir
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public BigGlasir Glasir
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public MainWindow()
+        {
+            InitializeComponent();
+            this.Glasir = new BigGlasir();
+        }
+        
+
+        /// <summary>
+        /// new project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void launchADTool(object sender, RoutedEventArgs e)
         {
-            Glasir.launchADToolInstance();
+            this.Glasir.launchADToolInstance();
         }
 
         private void xmltest(object sender, RoutedEventArgs e)
@@ -51,37 +65,6 @@ namespace Glasir
             rm3.Remove();
             Console.WriteLine(doc);
         }
-
-        
-
-
-        /*
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
-        private void niktamer(object sender, RoutedEventArgs e)
-        {
-            Process process = new Process();
-            process.StartInfo.FileName = "C:\\Program Files (x86)\\Notepad++\\notepad++.exe";
-            
-            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory() ;
-            
-            
-            process.Start();
-
-            // Wait for process to be created and enter idle condition
-            process.WaitForInputIdle();
-
-            // Get the main handle
-            IntPtr _appWin = process.MainWindowHandle;
-                
-            // Put it into this form
-            var helper = new WindowInteropHelper(Window.GetWindow(ADToolZone));
-            SetParent(_appWin, helper.Handle);
-
-               
-        }
-        */
 
         
 
