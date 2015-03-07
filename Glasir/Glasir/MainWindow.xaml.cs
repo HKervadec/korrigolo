@@ -53,6 +53,11 @@ namespace Glasir
 
         private void xmltest(object sender, RoutedEventArgs e)
         {
+            XMLFile file = new XMLFile("test3");
+            FunctionEditor functEdit = new FunctionEditor();
+            Console.WriteLine(file.XmlCode);
+            //functEdit.createResultingFile(file);
+            /*
             XDocument doc = XDocument.Load("../../testXML/test3.xml");
             //Console.WriteLine(doc);
             XElement rm = (XElement) doc.FirstNode;
@@ -63,7 +68,7 @@ namespace Glasir
             XElement rm3 = (XElement)rm2.Element("node");
             Console.WriteLine(rm3);
             rm3.Remove();
-            Console.WriteLine(doc);
+            Console.WriteLine(doc);*/
         }
 
         
