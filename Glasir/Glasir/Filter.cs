@@ -9,7 +9,6 @@ namespace Glasir
     {
         public Filter()
         {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>

@@ -39,18 +39,18 @@ namespace Glasir
             proc.StartInfo.Arguments = fileName;
             proc.Start();
             this.process = proc;
-            this.file = getXMLCode(fileName);
+            
         }
 
-        
-        /// <summary>
-        /// return xml code of fileName
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
-        private XMLFile getXMLCode(string fileName)
+        public ADToolInstance()
         {
-            throw new NotImplementedException();
+            Process proc = new Process();
+            proc.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
+            proc.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            proc.Start();
+            this.process = proc;
+            this.file = new XMLFile();
         }
+
     }
 }

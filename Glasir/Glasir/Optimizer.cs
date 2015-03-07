@@ -9,7 +9,7 @@ namespace Glasir
     {
         public Optimizer()
         {
-            throw new System.NotImplementedException();
+            
         }
 
 

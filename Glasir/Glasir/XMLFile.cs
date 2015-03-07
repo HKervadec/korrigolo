@@ -31,6 +31,11 @@ namespace Glasir
             XmlCode = XDocument.Load(path);
         }
 
+        public XMLFile()
+        {
+            // TODO: Complete member initialization
+        }
+
         public string getXMLCodeFromFile()
         {
             return XmlCode.ToString();

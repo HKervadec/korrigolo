@@ -5,9 +5,8 @@
     <Grid>
         <Menu HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" FontSize="18" Width="517">
             <MenuItem Header="_File">
-                <!-- <MenuItem Header="_New project" Command="New"/> -->
-                <MenuItem Header="_Open..." Click="launchADTool"/>
-                <MenuItem Header="_Open project..." Command="Open" Click="launchADTool"/>
+                <MenuItem Header="_New project" Command="New"/>
+                <MenuItem Header="_Open file..." Click="openFile"/>
                 <Separator />
                 <MenuItem Header="_Save" Command="Save"/>
                 <MenuItem Header="_Save As..." Command="SaveAs"/>

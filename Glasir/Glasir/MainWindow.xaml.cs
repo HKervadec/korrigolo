@@ -35,21 +35,11 @@ namespace Glasir
         /// constructor
         /// </summary>
         public MainWindow()
-        {
+        {   
             InitializeComponent();
             this.Glasir = new BigGlasir();
         }
-        
 
-        /// <summary>
-        /// new project
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void launchADTool(object sender, RoutedEventArgs e)
-        {
-            this.Glasir.launchADToolInstance();
-        }
 
         private void xmltest(object sender, RoutedEventArgs e)
         {
@@ -69,6 +59,28 @@ namespace Glasir
             Console.WriteLine(rm3);
             rm3.Remove();
             Console.WriteLine(doc);*/
+        }
+
+        private void openFile(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            // Set filter for file extension and default file extension
+            dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            dlg.DefaultExt = ".adt";
+            dlg.Filter = "ADT Files|*.adt;*.xml|All Files|*.*";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                Glasir.launchADToolInstance(filename);
+            }
         }
 
         

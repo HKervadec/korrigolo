@@ -67,16 +67,21 @@ namespace Glasir
 
 
         /// <summary>
-        /// launch an instance of ADTool containing an ADTree
+        /// launch a default instance of ADTool
         /// </summary>
         /// <returns></returns>
         public void launchADToolInstance()
         {
-            // add ADTool and adtree3.adt to bin/Debug if this don't work mdfk
-            
+            this.ADToolInstances.Add(new ADToolInstance());
+        }
 
-            ADToolInstance newADToolInstance = new ADToolInstance("adtree3.adt");
-            this.ADToolInstances.Add(newADToolInstance);
+        /// <summary>
+        /// launch an instance of ADTool containing an ADTree
+        /// </summary>
+        /// <returns></returns>
+        public void launchADToolInstance(string fileName)
+        {
+            this.ADToolInstances.Add(new ADToolInstance(fileName));
         }
 
         /// <summary>
