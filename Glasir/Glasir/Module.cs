@@ -22,8 +22,8 @@ namespace Glasir
         /// <summary>
         /// create the resulting tree of the function
         /// </summary>
-        /// <param name="fileName"></param>
+        /// <param name="file"></param>
         /// <param name="xmlCode"></param>
-        public abstract XMLFile createResultingFile(string fileName, string xmlCode);
+        public abstract XMLFile createResultingFile(XMLFile file);
     }
 }

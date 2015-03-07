@@ -9,7 +9,7 @@ namespace Glasir
     {
         public FunctionEditor()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         /// <summary>
@@ -17,9 +17,19 @@ namespace Glasir
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public override XMLFile createResultingFile(string fileName, string xmlCode)
+        public override XMLFile createResultingFile(XMLFile file)
         {
-            throw new NotImplementedException();
+
+
+
+
+
+
+
+            string newName = file.FileName+"1";
+            XMLFile resultingFile = new XMLFile(newName);
+            resultingFile.XmlCode.Save("../../Trees/" + newName + ".xml");
+            return resultingFile;
         }
     }
 }
