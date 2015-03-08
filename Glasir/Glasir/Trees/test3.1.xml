@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <adtree>
   <node refinement="disjunctive">
     <label>top</label>
@@ -31,6 +31,10 @@
   </domain>
   <domain id="MinTimeSeq2">
     <class>lu.uni.adtool.domains.predefined.MinTimeSeq</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="minCostTime">
+    <class>lu.uni.adtool.domains.predefined.minCostTime</class>
     <tool>ADTool</tool>
   </domain>
 </adtree>
