@@ -57,15 +57,13 @@ TOKEN : /* Reserved  tokens */
   |  <COMMA: ",">
   |  <LPAREN: "(">
   |  <RPAREN: ")">
-  |  <LACOL: "}">
-  |  <RACOL: "}">
 }
 
 TOKEN : /* IDENTIFIERS */
 {
     <IDENTIFIER: (<FIRST_CHAR> (<LETTER> | <DIGIT> | <SPACE> |<EOL>)*<FIRST_CHAR>) | <FIRST_CHAR> >
   | <#FIRST_CHAR: <LETTER> | <DIGIT> >
-  | <#LETTER: ["_","a"-"z","A"-"Z","!","?","-","'",";",":","#","]","[","=","*","/","\\","|","@","^","`","\"","&","$","~",".","<",">","+","%"]>
+  | <#LETTER: ["_","a"-"z","A"-"Z","!","}","{","?","-","'",";",":","#","]","[","=","*","/","\\","|","@","^","`","\"","&","$","~",".","<",">","+","%"]>
   | <#DIGIT: ["0"-"9"]>
   | <#SPACE: [" "]>
   | <#EOL: ["\n"]>
@@ -99,13 +97,13 @@ ADTNode ADTOpp() :
         jjtThis.setName(t.image);
       }
       |
-        ( <OO> <LACOL> <IDENTIFIER> <RACOL>
+        ( <OO>
         {
           jjtThis.setType(ADTNode.Type.OO);
           jjtThis.setName("oo");
         }
           |
-          <AO> <LACOL> <IDENTIFIER> <RACOL>
+          <AO>
           {
             jjtThis.setType(ADTNode.Type.AO);
             jjtThis.setName("ao");
@@ -138,13 +136,13 @@ ADTNode ADTPro():
        jjtThis.setName(t.image);
      }
      |
-        (  <OP> <LACOL> <IDENTIFIER> <RACOL>
+        (  <OP>
         {
           jjtThis.setType(ADTNode.Type.OP);
           jjtThis.setName("op");
         }
            | 
-           <AP> <LACOL> <IDENTIFIER> <RACOL>
+           <AP>
            {
              jjtThis.setType(ADTNode.Type.AP);
              jjtThis.setName("ap");
