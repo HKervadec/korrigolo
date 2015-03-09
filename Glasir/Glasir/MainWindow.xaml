@@ -10,6 +10,7 @@
                 <MenuItem Header="_Save project" Click="saveProject" />
                 <MenuItem Header="_Save project as..." Click="saveProjectAs"/>
                 <Separator />
+                <MenuItem Header="_New ADTree file" Click="newFile"/>
                 <MenuItem Header="_Open ADTree file..." Click="openFile"/>
                 <Separator />
                 <MenuItem Header="_Exit Glasir" Click="exit" />

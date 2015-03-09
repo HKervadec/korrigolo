@@ -5,7 +5,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Glasir
 {
-    [Serializable]
     public class BigGlasir
     {
         public BigGlasir()
@@ -77,15 +76,7 @@ namespace Glasir
         
 
 
-        /// <summary>
-        /// launch a default instance of ADTool
-        /// </summary>
-        /// <returns></returns>
-        public void launchADToolInstance()
-        {
-            this.ADToolInstances.Add(new ADToolInstance());
-        }
-
+        
         /// <summary>
         /// launch an instance of ADTool containing an ADTree
         /// </summary>
@@ -127,13 +118,14 @@ namespace Glasir
         /// </summary>
         public void saveProject()
         {
-            if (this.projectName == "")
-            {
-
-            }
             Stream fileStream = File.Create(this.projectName);
             BinaryFormatter serializer = new BinaryFormatter();
-            serializer.Serialize(fileStream, "serialized string");
+            foreach (ADToolInstance adt in this.ADToolInstances)
+            {
+                Console.WriteLine(adt.process.StartInfo.Arguments);
+                //serializer.Serialize(fileStream, adt.process.StartInfo.Arguments);
+            }
+            
             fileStream.Close();
         }
 
