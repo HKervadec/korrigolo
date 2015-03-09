@@ -25,7 +25,7 @@ import java.io.Serializable;
 import lu.uni.adtool.Options;
 
 /**
- * Represents a node in the Atack Defense Tree.
+ * Represents a node in the Attack Defense Tree.
  * 
  * @author Piotr Kordy
  * @author Piot Kordy

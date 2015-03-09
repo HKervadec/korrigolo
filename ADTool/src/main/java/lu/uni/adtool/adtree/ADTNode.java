@@ -283,22 +283,22 @@ public class ADTNode extends SimpleNode
     }
     switch (type) {
       case OO:
-        result = currIndent + "oo {" + name + "} (" + eol + result + currIndent + ")";
+        result = currIndent + "oo{" + name + "}(" + eol + result + currIndent + ")";
         break;
       case AO:
-        result = currIndent + "ao {" + name + "} (" + eol + result + currIndent + ")";
+        result = currIndent + "ao{" + name + "}(" + eol + result + currIndent + ")";
         break;
       case OP:
-        result = currIndent + "op {" + name + "} (" + eol + result + currIndent + ")";
+        result = currIndent + "op{" + name + "}(" + eol + result + currIndent + ")";
         break;
       case AP:
-        result = currIndent + "ap {" + name + "} (" + eol + result + currIndent + ")";
+        result = currIndent + "ap{" + name + "}(" + eol + result + currIndent + ")";
         break;
       case CO:
-        result = currIndent + "co (" + eol + result + currIndent + ")";
+        result = currIndent + "co(" + eol + result + currIndent + ")";
         break;
       case CP:
-        result = currIndent + "cp (" + eol + result + currIndent + ")";
+        result = currIndent + "cp(" + eol + result + currIndent + ")";
         break;
       case LEAFO:
         result = currIndent + name;

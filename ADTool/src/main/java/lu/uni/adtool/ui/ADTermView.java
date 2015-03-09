@@ -63,7 +63,7 @@ import lu.uni.adtool.adtree.TokenMgrError;
  */
 public class ADTermView extends JPanel implements TreeChangeListener
 {
-  static final long                serialVersionUID = 17266535905153654L;
+  static final long serialVersionUID = 17266535905153654L;
   public static ADTParser parser = null;
   private ADTNode terms;
   private ADTreeCanvas canvas;
