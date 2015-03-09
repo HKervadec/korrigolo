@@ -48,6 +48,70 @@ namespace Glasir
             functEdit.createResultingFile();
         }
 
+        
+
+
+        private void newProject(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("hueeeheee ça marche pô");
+        }
+
+        private void openProject(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            // Set filter for file extension and default file extension
+            dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            dlg.DefaultExt = ".glpf";
+            dlg.Filter = "Glasir Project Files|*.glpf;|All Files|*.*";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                // Open project
+                Glasir.openProject(dlg.FileName);
+            }
+        }
+
+        
+        private void saveProject(object sender, RoutedEventArgs e)
+        {
+            if (this.Glasir.projectName == "")
+            {
+                this.saveProjectAs(sender, e);
+            }
+            else
+            {
+                this.Glasir.saveProject();
+            }
+        }
+
+        private void saveProjectAs(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            // Set filter for file extension and default file extension
+            dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            dlg.AddExtension = true;
+            dlg.DefaultExt = ".glpf";
+            dlg.Filter = "Glasir Project Files|*.glpf";
+            
+            
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                this.Glasir.projectName = dlg.FileName;
+                this.Title = dlg.SafeFileName + " - Glasir";
+                this.Glasir.saveProject();
+            }
+        }
+
         private void openFile(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
@@ -61,7 +125,6 @@ namespace Glasir
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
 
-            // Get the selected file name and display in a TextBox 
             if (result == true)
             {
                 // Open document 
@@ -70,7 +133,10 @@ namespace Glasir
             }
         }
 
-        
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            this.Glasir.closeInstances();
+        }
 
     }
 }

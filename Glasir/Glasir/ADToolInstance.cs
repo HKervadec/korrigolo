@@ -52,5 +52,12 @@ namespace Glasir
             this.file = new XMLFile();
         }
 
+
+        internal void close()
+        {
+            this.process.Kill();
+            this.process = null;
+            this.file = null;
+        }
     }
 }
