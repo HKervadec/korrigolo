@@ -138,5 +138,10 @@ namespace Glasir
             this.Glasir.closeInstances();
         }
 
+        private void newFile(object sender, RoutedEventArgs e)
+        {
+            this.Glasir.ADToolInstances.Add(new ADToolInstance());
+        }
+
     }
 }

@@ -39,7 +39,7 @@ namespace Glasir
 
         public XMLFile()
         {
-            // TODO: Complete member initialization
+            throw new NotImplementedException();
         }
 
         public string getXMLCodeFromFile()

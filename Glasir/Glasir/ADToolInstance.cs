@@ -51,7 +51,7 @@ namespace Glasir
             this.process = proc;
             this.file = new XMLFile();
         }
-
+        
 
         internal void close()
         {
