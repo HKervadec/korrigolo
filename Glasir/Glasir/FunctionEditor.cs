@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Xml.Linq;
 
 namespace Glasir
@@ -15,13 +18,41 @@ namespace Glasir
             private set;
         }
 
+        public String Function
+        {
+            get;
+            private set;
+        }
+
+        public int FirstParam
+        {
+            get;
+            private set;
+        }
+
+        public int SecondParam
+        {
+            get;
+            private set;
+        }
+
+        public XMLFile File
+        {
+            get;
+            private set;
+        }
+
         public FunctionEditor()
         {
         }
 
-        public FunctionEditor(String name)
+        public FunctionEditor(XMLFile f, String name, String fn, int firstP, int secondP)
         {
+            File = f;
             FunctionName = name;
+            Function = fn;
+            FirstParam = firstP;
+            SecondParam = secondP;
         }
 
         /// <summary>
@@ -29,42 +60,30 @@ namespace Glasir
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public override XMLFile createResultingFile(XMLFile file)
+        public XMLFile createResultingFile()
         {
 
-            XElement fn = (XElement) file.XmlCode.FirstNode;
+            XElement fn = (XElement) File.XmlCode.FirstNode;
+            IEnumerable<XElement> domains = fn.Elements("domain");
+            String domainClass = domains.ElementAt(FirstParam).Element("class").Value;
             fn.Add(new XElement("domain", 
                 new XAttribute("id", FunctionName), 
-                new XElement("class", "lu.uni.adtool.domains.predefined.MinCost"), 
+                new XElement("class", domainClass), 
                 new XElement("tool", "ADTool")));
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
-            //Console.WriteLine(elemRoot);
             searchAndChange(elemRoot);
-
-
-            // tests //
-            /*
-            Console.WriteLine(file.XmlCode);
-            XElement rm = (XElement) file.XmlCode.FirstNode;
-            XElement rd = (XElement) rm.FirstNode;
-            Console.WriteLine("\n");
-            Console.WriteLine(rm);
-            Console.WriteLine("\n");
-            Console.WriteLine(rd);
-            XElement rm2 = (XElement) rm.Element("node");
-            XElement rm3 = (XElement) rm2.Element("node");
-            Console.WriteLine("\n");
-            Console.WriteLine(rm3);
-            rm3.Remove();
-            Console.WriteLine("\n");
-            Console.WriteLine(file.XmlCode);
-            XElement elem = (XElement)elemRoot.Element("parameter");
-            Console.WriteLine(elem);*/
-            // fin tests //
-
-            XMLFile resultFile = file.createResultFile();
+            XMLFile resultFile = File.createResultFile();
             return resultFile;
+        }
+
+        static double Evaluate(string expression)
+        {
+            var loDataTable = new DataTable();
+            var loDataColumn = new DataColumn("Eval", typeof(double), expression);
+            loDataTable.Columns.Add(loDataColumn);
+            loDataTable.Rows.Add(0);
+            return (double)(loDataTable.Rows[0]["Eval"]);
         }
 
         public void searchAndChange(XElement code)
@@ -75,9 +94,21 @@ namespace Glasir
             if (code.Element("node") == null)
             {
                 IEnumerable<XElement> elements = code.Elements("parameter");
-                String a = elements.First().Value;
-                String b = elements.ElementAt(1).Value;
-                code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), (a + b).ToString()));
+                try
+                {
+                    string c = elements.ElementAt(FirstParam).Value;
+                    string d = elements.ElementAt(SecondParam).Value;
+                    double res = Evaluate(c+Function+d);
+                    code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), res.ToString()));
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Unable to convert to a Double.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("is outside the range of a Double.");
+                }
                 Console.WriteLine("a");
                 Console.WriteLine(code);
                 return;
@@ -92,30 +123,8 @@ namespace Glasir
                     searchAndChange(el);
                 }
             }
-            /*
-            Console.WriteLine(code);
-            Console.WriteLine("\n");
-            if (code.Element("node") == null)
-            {
-                IEnumerable<XElement> elements = code.Elements("parameter");
-                String a = elements.First().Value;
-                String b = elements.ElementAt(1).Value;
-                code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), (a + b).ToString()));
-                Console.WriteLine("a");
-                Console.WriteLine(code);
-                return;
-            }
-
-            while (code.NextNode != null)
-            {
-                if (code.Element("node") != null)
-                {
-                    searchAndChange(code.Element("node"));
-                    code = (XElement)code.NextNode;
-                }
-                Console.WriteLine("b");
-                Console.WriteLine(code);
-            }*/
         }
+
+        public override XMLFile createResultingFile(XMLFile file) { return file; }
     }
 }

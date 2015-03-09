@@ -44,8 +44,8 @@ namespace Glasir
         private void functionEdition(object sender, RoutedEventArgs e)
         {
             XMLFile file = new XMLFile("test3");
-            FunctionEditor functEdit = new FunctionEditor("minCostTime");
-            functEdit.createResultingFile(file);
+            FunctionEditor functEdit = new FunctionEditor(file, "minCostTime", "+2*", 0, 1);
+            functEdit.createResultingFile();
         }
 
         private void openFile(object sender, RoutedEventArgs e)

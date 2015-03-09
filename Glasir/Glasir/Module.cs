@@ -25,5 +25,6 @@ namespace Glasir
         /// <param name="file"></param>
         /// <param name="xmlCode"></param>
         public abstract XMLFile createResultingFile(XMLFile file);
+
     }
 }
