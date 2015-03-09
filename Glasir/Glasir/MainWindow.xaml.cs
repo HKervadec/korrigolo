@@ -41,24 +41,11 @@ namespace Glasir
         }
 
 
-        private void xmltest(object sender, RoutedEventArgs e)
+        private void functionEdition(object sender, RoutedEventArgs e)
         {
             XMLFile file = new XMLFile("test3");
-            FunctionEditor functEdit = new FunctionEditor();
-            Console.WriteLine(file.XmlCode);
-            //functEdit.createResultingFile(file);
-            /*
-            XDocument doc = XDocument.Load("../../testXML/test3.xml");
-            //Console.WriteLine(doc);
-            XElement rm = (XElement) doc.FirstNode;
-            XElement rd = (XElement) rm.FirstNode;
-            //Console.WriteLine(rm);
-            //Console.WriteLine(rd);
-            XElement rm2 = (XElement)rm.Element("node");
-            XElement rm3 = (XElement)rm2.Element("node");
-            Console.WriteLine(rm3);
-            rm3.Remove();
-            Console.WriteLine(doc);*/
+            FunctionEditor functEdit = new FunctionEditor("minCostTime");
+            functEdit.createResultingFile(file);
         }
 
         

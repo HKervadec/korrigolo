@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <adtree>
   <node refinement="disjunctive">
     <label>top</label>
@@ -12,17 +12,20 @@
         <label>child1.1</label>
         <parameter domainId="MinCost1">20.0</parameter>
         <parameter domainId="MinTimeSeq2">50.0</parameter>
+        <parameter domainId="minCostTime">20.050.0</parameter>
       </node>
       <node refinement="disjunctive">
         <label>child1.2</label>
         <parameter domainId="MinCost1">40.0</parameter>
         <parameter domainId="MinTimeSeq2">40.0</parameter>
+        <parameter domainId="minCostTime">40.040.0</parameter>
       </node>
     </node>
     <node refinement="disjunctive">
       <label>child2</label>
       <parameter domainId="MinCost1">70.0</parameter>
       <parameter domainId="MinTimeSeq2">60.0</parameter>
+      <parameter domainId="minCostTime">70.060.0</parameter>
     </node>
   </node>
   <domain id="MinCost1">
@@ -31,6 +34,10 @@
   </domain>
   <domain id="MinTimeSeq2">
     <class>lu.uni.adtool.domains.predefined.MinTimeSeq</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="minCostTime">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
     <tool>ADTool</tool>
   </domain>
 </adtree>

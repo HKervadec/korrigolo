@@ -31,6 +31,12 @@ namespace Glasir
             XmlCode = XDocument.Load(path);
         }
 
+        public XMLFile(string xmlfile, XDocument code)
+        {
+            FileName = xmlfile;
+            XmlCode = code;
+        }
+
         public XMLFile()
         {
             // TODO: Complete member initialization
@@ -41,6 +47,13 @@ namespace Glasir
             return XmlCode.ToString();
         }
 
+        public XMLFile createResultFile()
+        {
+            string newName = this.FileName+".1";
+            XMLFile resultingFile = new XMLFile(newName, this.XmlCode);
+            resultingFile.XmlCode.Save("../../Trees/" + newName + ".xml");
+            return resultingFile;
+        }
         
     }
 }
