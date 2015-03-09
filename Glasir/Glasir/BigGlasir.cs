@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Glasir
 {
+    [Serializable]
     public class BigGlasir
     {
         public BigGlasir()
@@ -12,6 +14,13 @@ namespace Glasir
             this.FunctionEditor = new FunctionEditor();
             this.Optimizer = new Optimizer();
             this.Filter = new Filter();
+            this.projectName = "";
+        }
+
+        public string projectName
+        {
+            get;
+            set;
         }
 
         public Filter Filter
@@ -65,6 +74,8 @@ namespace Glasir
             }
         }
 
+        
+
 
         /// <summary>
         /// launch a default instance of ADTool
@@ -92,22 +103,50 @@ namespace Glasir
             throw new System.NotImplementedException();
         }
 
-        /// <summary>
-        /// open a project
-        /// </summary>
-        public void openProject()
+        
+       
+        internal void openProject(string filename)
         {
-            throw new System.NotImplementedException();
+            if (File.Exists(filename))
+            {
+                Stream fileStream = File.OpenRead(filename);
+                BinaryFormatter deserializer = new BinaryFormatter();
+                string resultOfDeserial = (string) deserializer.Deserialize(fileStream);
+                fileStream.Close();
+                Console.WriteLine(resultOfDeserial);
+            }
+            else
+            {
+                Console.WriteLine("Raté.");
+            }
         }
+
 
         /// <summary>
         /// save a project
         /// </summary>
         public void saveProject()
         {
-            throw new System.NotImplementedException();
+            if (this.projectName == "")
+            {
+
+            }
+            Stream fileStream = File.Create(this.projectName);
+            BinaryFormatter serializer = new BinaryFormatter();
+            serializer.Serialize(fileStream, "serialized string");
+            fileStream.Close();
         }
 
-
+        /// <summary>
+        /// close adtool instances
+        /// </summary>
+        internal void closeInstances()
+        {
+            foreach (ADToolInstance adt in ADToolInstances)
+            {
+                adt.close();
+            }
+            this.ADToolInstances = null;
+        }
     }
 }
