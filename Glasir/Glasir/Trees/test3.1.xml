@@ -12,17 +12,20 @@
         <label>child1.1</label>
         <parameter domainId="MinCost1">20.0</parameter>
         <parameter domainId="MinTimeSeq2">50.0</parameter>
+        <parameter domainId="minCostTime">20.050.0</parameter>
       </node>
       <node refinement="disjunctive">
         <label>child1.2</label>
         <parameter domainId="MinCost1">40.0</parameter>
         <parameter domainId="MinTimeSeq2">40.0</parameter>
+        <parameter domainId="minCostTime">40.040.0</parameter>
       </node>
     </node>
     <node refinement="disjunctive">
       <label>child2</label>
       <parameter domainId="MinCost1">70.0</parameter>
       <parameter domainId="MinTimeSeq2">60.0</parameter>
+      <parameter domainId="minCostTime">70.060.0</parameter>
     </node>
   </node>
   <domain id="MinCost1">
@@ -34,7 +37,7 @@
     <tool>ADTool</tool>
   </domain>
   <domain id="minCostTime">
-    <class>lu.uni.adtool.domains.predefined.minCostTime</class>
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
     <tool>ADTool</tool>
   </domain>
 </adtree>

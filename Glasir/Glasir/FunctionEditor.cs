@@ -35,8 +35,14 @@ namespace Glasir
             XElement fn = (XElement) file.XmlCode.FirstNode;
             fn.Add(new XElement("domain", 
                 new XAttribute("id", FunctionName), 
-                new XElement("class", "lu.uni.adtool.domains.predefined."+FunctionName), 
+                new XElement("class", "lu.uni.adtool.domains.predefined.MinCost"), 
                 new XElement("tool", "ADTool")));
+            XElement elemRoot = fn.Element("node");
+            Console.WriteLine("\n");
+            //Console.WriteLine(elemRoot);
+            searchAndChange(elemRoot);
+
+
             // tests //
             /*
             Console.WriteLine(file.XmlCode);
@@ -52,22 +58,64 @@ namespace Glasir
             Console.WriteLine(rm3);
             rm3.Remove();
             Console.WriteLine("\n");
-            Console.WriteLine(file.XmlCode);*/
-            XElement elemRoot = fn.Element("node");
-            while (elemRoot.Element("node") != null)
-            {
-
-                elemRoot = elemRoot.Element("node");
-            }
-            Console.WriteLine(elemRoot);
-            
-            /*
+            Console.WriteLine(file.XmlCode);
             XElement elem = (XElement)elemRoot.Element("parameter");
             Console.WriteLine(elem);*/
             // fin tests //
 
             XMLFile resultFile = file.createResultFile();
             return resultFile;
+        }
+
+        public void searchAndChange(XElement code)
+        {
+            Console.WriteLine(code);
+            Console.WriteLine("\n");
+
+            if (code.Element("node") == null)
+            {
+                IEnumerable<XElement> elements = code.Elements("parameter");
+                String a = elements.First().Value;
+                String b = elements.ElementAt(1).Value;
+                code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), (a + b).ToString()));
+                Console.WriteLine("a");
+                Console.WriteLine(code);
+                return;
+            }
+            else
+            {
+                IEnumerable<XElement> elementsNode = code.Elements("node");
+                foreach (XElement el in elementsNode)
+                {
+                    Console.WriteLine("b");
+                    Console.WriteLine(el);
+                    searchAndChange(el);
+                }
+            }
+            /*
+            Console.WriteLine(code);
+            Console.WriteLine("\n");
+            if (code.Element("node") == null)
+            {
+                IEnumerable<XElement> elements = code.Elements("parameter");
+                String a = elements.First().Value;
+                String b = elements.ElementAt(1).Value;
+                code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), (a + b).ToString()));
+                Console.WriteLine("a");
+                Console.WriteLine(code);
+                return;
+            }
+
+            while (code.NextNode != null)
+            {
+                if (code.Element("node") != null)
+                {
+                    searchAndChange(code.Element("node"));
+                    code = (XElement)code.NextNode;
+                }
+                Console.WriteLine("b");
+                Console.WriteLine(code);
+            }*/
         }
     }
 }
