@@ -99,25 +99,22 @@ ADTNode ADTOpp() :
         jjtThis.setName(t.image);
       }
       |
-        ( <OO>
-        {
-          jjtThis.setType(ADTNode.Type.OO);
-          jjtThis.setName("oo");
-        }
+        ( <OO> <LBRAC>
+                           to=<IDENTIFIER>
+                           {
+                           jjtThis.setType(ADTNode.Type.OO);
+                           jjtThis.setName(to.image);
+                           }
+                       <RBRAC>
           |
-          <AO>
-          {
-            jjtThis.setType(ADTNode.Type.AO);
-            jjtThis.setName("ao");
-          }
+          <AO> <LBRAC>
+                           to=<IDENTIFIER>
+                           {
+                           jjtThis.setType(ADTNode.Type.AO);
+                           jjtThis.setName(to.image);
+                           }
+                       <RBRAC>
         )
-        <LBRAC>
-            to=<IDENTIFIER>
-            {
-            jjtThis.setType(ADTNode.Type.LEAFO);
-            jjtThis.setName(to.image);
-            }
-        <RBRAC>
         <LPAREN>
           ADTOpp() ( <COMMA> ADTOpp() )* 
         <RPAREN>
@@ -146,24 +143,22 @@ ADTNode ADTPro():
        jjtThis.setName(t.image);
      }
      |
-        (  <OP>
-        {
-          jjtThis.setType(ADTNode.Type.OP);
-          jjtThis.setName("op");
-        }
+        (  <OP> <LBRAC>
+                            tp=<IDENTIFIER>
+                            {
+                            jjtThis.setType(ADTNode.Type.OP);
+                            jjtThis.setName(tp.image);
+                            }
+                        <RBRAC>
         |
-        <AP>
-        {
-            jjtThis.setType(ADTNode.Type.AP);
-            jjtThis.setName("ap");
-        }
+        <AP> <LBRAC>
+                        tp=<IDENTIFIER>
+                        {
+                        jjtThis.setType(ADTNode.Type.AP);
+                        jjtThis.setName(tp.image);
+                        }
+                    <RBRAC>
         )
-        <LBRAC>
-            tp=<IDENTIFIER>
-            {
-                jjtThis.setName(tp.image);
-            }
-        <RBRAC>
         <LPAREN>
            ADTPro() 
            ( <COMMA> ADTPro() )* 

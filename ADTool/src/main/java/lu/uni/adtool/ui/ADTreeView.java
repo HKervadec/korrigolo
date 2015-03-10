@@ -40,7 +40,7 @@ public class ADTreeView extends JPanel
   private ADTreeCanvas canvas;
 
   /**
-   * A defeault constructor.
+   * A default constructor.
    * @param newTree new tree
    * @param mainWindow main window of the application
    */
