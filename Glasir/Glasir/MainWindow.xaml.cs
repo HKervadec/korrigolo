@@ -50,33 +50,57 @@ namespace Glasir
 
         
 
-
+        /// <summary>
+        /// create a new project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newProject(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("hueeeheee ça marche pô");
         }
 
+        /// <summary>
+        /// open a specified project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openProject(object sender, RoutedEventArgs e)
         {
-            // Create OpenFileDialog 
+            // close current project
+            closeProject(sender, e);
+
+            // create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            // Set filter for file extension and default file extension
+            // set filter for file extension and default file extension
             dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
             dlg.DefaultExt = ".glpf";
             dlg.Filter = "Glasir Project Files|*.glpf;|All Files|*.*";
 
-            // Display OpenFileDialog by calling ShowDialog method 
+            // display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
 
             if (result == true)
             {
-                // Open project
-                Glasir.openProject(dlg.FileName);
+                if (dlg.FileName.EndsWith(".glpf"))
+                {
+                    // Open project
+                    Glasir.openProject(dlg.FileName);
+                    this.Title = dlg.SafeFileName + " - Glasir";
+                }
+                else
+                {
+                    MessageBox.Show("Only Glasir Project File (.glpf) can be opened.");
+                }
             }
         }
 
-        
+        /// <summary>
+        /// save the current project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveProject(object sender, RoutedEventArgs e)
         {
             if (this.Glasir.projectName == "")
@@ -89,6 +113,11 @@ namespace Glasir
             }
         }
 
+        /// <summary>
+        /// save the project under a specified name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveProjectAs(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
@@ -112,6 +141,38 @@ namespace Glasir
             }
         }
 
+        /// <summary>
+        /// create a new ADT file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newFile(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            dlg.AddExtension = true;
+            dlg.DefaultExt = ".adt";
+            dlg.Filter = "ADT Files|*.adt;*.xml|All Files|*.*";
+            
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                if (dlg.FileName.EndsWith(".adt") || dlg.FileName.EndsWith(".xml"))
+                {
+                    // Open the new file 
+                    Glasir.launchADToolInstance(dlg.FileName);
+                }
+            }
+        }
+
+        /// <summary>
+        /// open an ADTfile
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openFile(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
@@ -127,21 +188,28 @@ namespace Glasir
 
             if (result == true)
             {
-                // Open document 
+                // Open ADT file 
                 string filename = dlg.FileName;
                 Glasir.launchADToolInstance(filename);
             }
         }
 
-        private void exit(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// close all opened instances of ADTool
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void closeProject(object sender, RoutedEventArgs e)
         {
-            this.Glasir.closeInstances();
+            this.Glasir.closeProject();
         }
 
-        private void newFile(object sender, RoutedEventArgs e)
+        private void exit(object sender, RoutedEventArgs e)
         {
-            this.Glasir.ADToolInstances.Add(new ADToolInstance());
+            MessageBox.Show("t-t-t y a une croix rouge en haut à droite pour ça.");
         }
+
+        
 
     }
 }

@@ -98,17 +98,14 @@ namespace Glasir
        
         internal void openProject(string filename)
         {
-            if (File.Exists(filename))
+            Stream fileStream = File.OpenRead(filename);
+            BinaryFormatter deserializer = new BinaryFormatter();
+            List<string> resultOfDeserial = (List<string>) deserializer.Deserialize(fileStream);
+            fileStream.Close();
+            this.projectName = filename;
+            foreach(string adtfile in resultOfDeserial)
             {
-                Stream fileStream = File.OpenRead(filename);
-                BinaryFormatter deserializer = new BinaryFormatter();
-                string resultOfDeserial = (string) deserializer.Deserialize(fileStream);
-                fileStream.Close();
-                Console.WriteLine(resultOfDeserial);
-            }
-            else
-            {
-                Console.WriteLine("Raté.");
+                this.launchADToolInstance(adtfile);
             }
         }
 
@@ -120,11 +117,12 @@ namespace Glasir
         {
             Stream fileStream = File.Create(this.projectName);
             BinaryFormatter serializer = new BinaryFormatter();
+            List<string> adtFiles = new List<string>();
             foreach (ADToolInstance adt in this.ADToolInstances)
             {
-                Console.WriteLine(adt.process.StartInfo.Arguments);
-                //serializer.Serialize(fileStream, adt.process.StartInfo.Arguments);
+                adtFiles.Add(adt.process.StartInfo.Arguments);
             }
+            serializer.Serialize(fileStream, adtFiles);
             
             fileStream.Close();
         }
@@ -132,13 +130,13 @@ namespace Glasir
         /// <summary>
         /// close adtool instances
         /// </summary>
-        internal void closeInstances()
+        internal void closeProject()
         {
             foreach (ADToolInstance adt in ADToolInstances)
             {
                 adt.close();
             }
-            this.ADToolInstances = null;
+            this.ADToolInstances = new List<ADToolInstance>();
         }
     }
 }

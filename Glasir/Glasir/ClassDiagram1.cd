@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Glasir.MainWindow">
-    <Position X="3" Y="2" Width="1.5" />
+    <Position X="1.75" Y="2" Width="1.5" />
     <AssociationLine Name="Glasir" Type="Glasir.BigGlasir">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.294" Y="0.118" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAABAACAAQAQgAAAAAAAAACACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAAAACAAQAQgAAAAAAAAACACAIAEA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -30,9 +30,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.FunctionEditor">
-    <Position X="8.75" Y="4" Width="1.75" />
+    <Position X="9.75" Y="4" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAABAAAAASAAAAAACAgIAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionEditor.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -62,13 +62,7 @@
         <Position X="0.129" Y="0.089" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="FunctionEditor" Type="Glasir.FunctionEditor" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.812" Y="6" />
-        <Point X="7.812" Y="5.675" />
-        <Point X="9.625" Y="5.675" />
-        <Point X="9.625" Y="5.425" />
-      </Path>
+    <AssociationLine Name="FunctionEditor" Type="Glasir.FunctionEditor">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.015" Y="0.362" />
       </MemberNameLabel>
@@ -76,8 +70,8 @@
     <AssociationLine Name="ADToolInstances" Type="Glasir.ADToolInstance" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="8.25" Y="7.933" />
-        <Point X="9.375" Y="7.933" />
-        <Point X="9.375" Y="8.25" />
+        <Point X="9.875" Y="7.933" />
+        <Point X="9.875" Y="8.5" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.077" Y="0.227" />
@@ -108,14 +102,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Glasir.XMLFile">
-    <Position X="6.25" Y="8.25" Width="1.75" />
+    <Position X="6.25" Y="9.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAQABAAAA=</HashCode>
       <FileName>XMLFile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Glasir.ADToolInstance">
-    <Position X="8.75" Y="8.25" Width="1.75" />
+    <Position X="9.25" Y="8.5" Width="1.75" />
     <AssociationLine Name="file" Type="Glasir.XMLFile">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.221" Y="0.06" />

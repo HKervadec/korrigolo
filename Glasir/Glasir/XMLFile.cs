@@ -44,7 +44,7 @@ namespace Glasir
 
         public string getXMLCodeFromFile()
         {
-            return XmlCode.ToString();
+            return XmlCode.ToString(); 
         }
 
         public XMLFile createResultFile()

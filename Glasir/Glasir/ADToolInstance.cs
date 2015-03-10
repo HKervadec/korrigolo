@@ -41,16 +41,6 @@ namespace Glasir
             this.process = proc;
             
         }
-
-        public ADToolInstance()
-        {
-            Process proc = new Process();
-            proc.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
-            proc.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-            proc.Start();
-            this.process = proc;
-            this.file = new XMLFile();
-        }
         
 
         internal void close()
