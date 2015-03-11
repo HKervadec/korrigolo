@@ -57,7 +57,9 @@ namespace Glasir
         /// <param name="e"></param>
         private void newProject(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("hueeeheee ça marche pô");
+            this.closeProject(sender, e);
+            this.Glasir.projectName = "";
+            this.Title = "Untitled project - Glasir";
         }
 
         /// <summary>
@@ -202,6 +204,7 @@ namespace Glasir
         private void closeProject(object sender, RoutedEventArgs e)
         {
             this.Glasir.closeProject();
+            this.Title = "Glasir";
         }
 
         private void exit(object sender, RoutedEventArgs e)
