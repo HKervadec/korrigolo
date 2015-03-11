@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -209,7 +210,12 @@ namespace Glasir
 
         private void exit(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("t-t-t y a une croix rouge en haut à droite pour ça.");
+            this.Close();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            this.Glasir.closeProject();
         }
 
         
