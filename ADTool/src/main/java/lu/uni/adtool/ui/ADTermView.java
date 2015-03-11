@@ -43,10 +43,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 
-import lu.uni.adtool.adtconverter.EulerTree;
-// import lu.uni.adtool.adtconverter.EditPath;
-// import lu.uni.adtool.adtconverter.RTED_InfoTree;
-
+//import lu.uni.adtool.adtconverter.EulerTree;
 
 import lu.uni.adtool.adtree.ADTNode;
 import lu.uni.adtool.adtree.ADTParser;
@@ -235,8 +232,8 @@ public class ADTermView extends JPanel implements TreeChangeListener
         revert.setEnabled(false);
         splitPane.setDividerLocation(0.0);
         errorOutput.setText("");
-        EulerTree et= new EulerTree();
-        et.transferLabels(terms,oldTerms);
+       // EulerTree et= new EulerTree();
+       // et.transferLabels(terms,oldTerms);
         canvas.treeFromTerms(terms);
         canvas.getMainWindow().getStatusBar().report("Validation of terms was successful");
       }
