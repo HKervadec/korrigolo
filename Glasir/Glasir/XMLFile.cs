@@ -24,10 +24,10 @@ namespace Glasir
             private set;
         }
 
-        public XMLFile(string xmlfile)
+        public XMLFile(string path)
         {
-            FileName = xmlfile;
-            string path = "../../Trees/" + FileName +".xml";
+
+            FileName = Path.GetFileNameWithoutExtension(path);
             XmlCode = XDocument.Load(path);
         }
 
@@ -53,6 +53,19 @@ namespace Glasir
             XMLFile resultingFile = new XMLFile(newName, this.XmlCode);
             resultingFile.XmlCode.Save("../../Trees/" + newName + ".xml");
             return resultingFile;
+        }
+
+        public List<String> getDomains()
+        {
+            XElement fn = (XElement) this.XmlCode.FirstNode;
+            IEnumerable<XElement> domains = fn.Elements("domain");
+            int i = domains.Count();
+            List<String> res = new List<String>();
+            for (int j = 0; j < i; j++)
+            {
+                res.Add(domains.ElementAt(j).Attribute("id").Value);
+            }
+            return res;
         }
         
     }

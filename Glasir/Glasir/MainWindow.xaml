@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Untitled project - Glasir" Height="564.8" Width="300"
         >
-    
+
     <Grid>
         <!-- Project -->
         <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" FontSize="12" Width="294" Margin="0,0,-0.4,0">
             <MenuItem Header="_Project">
-                
+
                 <!-- new project -->
                 <MenuItem Header="_New project" Click="newProject" >
                     <MenuItem.Icon>
@@ -18,8 +18,8 @@
 
                 <!-- open project -->
                 <MenuItem Header="_Open project..." Click="openProject" >
-                    <MenuItem.Icon>                        
-                            <Image Source="icons/open_project.png" />                        
+                    <MenuItem.Icon>
+                        <Image Source="icons/open_project.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -36,7 +36,7 @@
                         <Image Source="icons/open_project.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                
+
                 <Separator />
 
                 <!-- new ADT file -->
@@ -52,7 +52,7 @@
                         <Image Source="icons/open_project.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                
+
                 <Separator />
 
                 <!-- close project -->
@@ -67,9 +67,9 @@
                     <MenuItem.Icon>
                         <Image Source="icons/open_project.png" />
                     </MenuItem.Icon>
-                </MenuItem>                
+                </MenuItem>
             </MenuItem>
-            
+
             <!-- other -->
             <MenuItem Header="_Edit" >
                 <MenuItem Header="_Cut" Command="Cut"/>
@@ -88,10 +88,12 @@
         <TabControl HorizontalAlignment="Left" Height="497" Margin="10,34,0,0" VerticalAlignment="Top" Width="270">
             <TabItem Header="FunctionEditor">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="test" HorizontalAlignment="Left" Margin="158,151,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="functionEdition"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,151,0,0" TextWrapping="Wrap" Text="Fonction" VerticalAlignment="Top" Width="120"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the name and the function for the parameter you want to add :" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="test" HorizontalAlignment="Left" Margin="179,187,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="functionEdition"/>
+                    <TextBox Name="FunctionFormula" HorizontalAlignment="Left" Height="23" Margin="93,149,0,0" TextWrapping="Wrap" Text="Fonction" VerticalAlignment="Top" Width="70"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the name, select the parameters you want to combine and the function that will combine them :" VerticalAlignment="Top" Width="243"/>
+                    <TextBox Name="functionName" HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox Name="Param1Editor" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Width="77"/>
+                    <ComboBox Name="Param2Editor" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="168,149,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Filter">

@@ -39,6 +39,7 @@ namespace Glasir
             proc.StartInfo.Arguments = fileName;
             proc.Start();
             this.process = proc;
+            file = new XMLFile(fileName);
             
         }
         

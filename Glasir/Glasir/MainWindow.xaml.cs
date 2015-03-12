@@ -26,6 +26,9 @@ namespace Glasir
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private List<String> domains;
+        
         public BigGlasir Glasir
         {
             get;
@@ -41,12 +44,34 @@ namespace Glasir
             this.Glasir = new BigGlasir();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // LA donnée source "domains" doit être collection
+
+            //Binding par XAML
+            this.Param1Editor.DataContext = this.domains;
+            this.Param2Editor.DataContext = this.domains;
+
+            ////Binding par code
+            //Binding bind = new Binding();
+            //bind.Source = domains;
+            //bind.Mode = BindingMode.OneWay;
+
+            //Définition de ma property à afficher dans la combo
+            Param1Editor.DisplayMemberPath = "Chars";
+            Param2Editor.DisplayMemberPath = "Chars";
+        }
+
 
         private void functionEdition(object sender, RoutedEventArgs e)
         {
-            XMLFile file = new XMLFile("test3");
-            FunctionEditor functEdit = new FunctionEditor(file, "minCostTime", "+2*", 0, 1);
-            functEdit.createResultingFile();
+            XMLFile file = new XMLFile("../../Trees/test3.xml");
+            FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex);
+            XMLFile newfile = functEdit.createResultingFile();
+            Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
+            Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
+            domains = Glasir.ADToolInstances[0].file.getDomains();
+            Window_Loaded(sender, e);
         }
 
         
@@ -195,6 +220,9 @@ namespace Glasir
                 string filename = dlg.FileName;
                 Glasir.launchADToolInstance(filename);
             }
+
+            domains = Glasir.ADToolInstances[0].file.getDomains();
+            Window_Loaded(sender, e);
         }
 
         /// <summary>
@@ -219,6 +247,5 @@ namespace Glasir
         }
 
         
-
     }
 }

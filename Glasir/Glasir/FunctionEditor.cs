@@ -86,6 +86,11 @@ namespace Glasir
             return (double)(loDataTable.Rows[0]["Eval"]);
         }
 
+
+        /*
+         * Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
+         * Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils et ses noeuds frères
+         */
         public void searchAndChange(XElement code)
         {
             Console.WriteLine(code);
