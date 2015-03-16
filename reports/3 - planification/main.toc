@@ -1,0 +1,23 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
+\contentsline {section}{\numberline {2}Contexte}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Acteurs}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Besoins et objectifs}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}\IeC {\'E}l\IeC {\'e}ments en entr\IeC {\'e}e}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}R\IeC {\'e}trospective}{6}{subsection.2.4}
+\contentsline {paragraph}{Rapport de pr\IeC {\'e}-\IeC {\'e}tude}{7}{section*.2}
+\contentsline {paragraph}{Rapport de sp\IeC {\'e}cifications fonctionnelles}{7}{section*.3}
+\contentsline {subsection}{\numberline {2.5}Calendrier}{7}{subsection.2.5}
+\contentsline {section}{\numberline {3}Organisation}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}La m\IeC {\'e}thode SCRUM}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}T\IeC {\^a}ches unitaires et estimations}{8}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Version 0.1}{8}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Version 0.2}{9}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Version 1.0}{10}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Organisation du groupe et r\IeC {\'e}partition des t\IeC {\^a}ches}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Risques}{11}{subsection.3.4}
+\contentsline {section}{\numberline {4}S\IeC {\'e}quencement}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Diagramme de Gantt}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}R\IeC {\'e}partition de la charge de travail}{12}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Utilisation des ressources}{13}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}
