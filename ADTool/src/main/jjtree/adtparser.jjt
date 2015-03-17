@@ -99,7 +99,7 @@ ADTNode ADTOpp() :
         jjtThis.setName(t.image);
       }
       |
-        ( ( <OO> <LBRAC> to=<IDENTIFIER>
+        ( <OO> <LBRAC> to=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OO);
                     jjtThis.setName(to.image);
@@ -109,9 +109,8 @@ ADTNode ADTOpp() :
                   ADTOpp()
                   ( <COMMA> ADTOpp() )*
                 <RPAREN>
-               )
           |
-           ( <AO> <LBRAC> to=<IDENTIFIER>
+          <AO> <LBRAC> to=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.AO);
                     jjtThis.setName(to.image);
@@ -121,7 +120,6 @@ ADTNode ADTOpp() :
                   ADTOpp()
                   ( <COMMA> ADTOpp() )*
                <RPAREN>
-             )
         )
       |
       (<CO> <LPAREN> ADTOpp() <COMMA> ADTPro() <RPAREN>)
@@ -148,7 +146,7 @@ ADTNode ADTPro():
        jjtThis.setName(t.image);
      }
      |
-        ( ( <OP> <LBRAC> tp=<IDENTIFIER>
+        (  <OP> <LBRAC> tp=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OP);
                     jjtThis.setName(tp.image);
@@ -158,9 +156,8 @@ ADTNode ADTPro():
                    ADTPro()
                    ( <COMMA> ADTPro() )*
                  <RPAREN>
-                 )
         |
-        ( <AP> <LBRAC> tp=<IDENTIFIER>
+        <AP> <LBRAC> tp=<IDENTIFIER>
                {
                  jjtThis.setType(ADTNode.Type.AP);
                  jjtThis.setName(tp.image);
@@ -170,7 +167,6 @@ ADTNode ADTPro():
                 ADTPro()
                 ( <COMMA> ADTPro() )*
              <RPAREN>
-             )
         )
      |
      (<CP> <LPAREN> ADTPro() <COMMA> ADTOpp() <RPAREN>)
