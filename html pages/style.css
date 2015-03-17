@@ -1,0 +1,48 @@
+.introduction
+
+{
+
+    color: yellow;
+
+}
+
+body
+
+{
+
+    background-color: blue; /* Le fond de la page sera noir */
+
+    color: white; /* Le texte de la page sera blanc */
+
+}
+
+p
+
+{
+
+    font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+
+}
+@font-face { /* Définition d'une nouvelle police nommée LearningCurveProRegular */
+
+    font-family: 'LearningCurveProRegular';
+
+    src: url('LearningCurve_OT-webfont.eot');
+
+    src: url('LearningCurve_OT-webfont.eot?#iefix') format('embedded-opentype'),
+
+         url('LearningCurve_OT-webfont.woff') format('woff'),
+
+         url('LearningCurve_OT-webfont.ttf') format('truetype'),
+
+         url('LearningCurve_OT-webfont.svg#LearningCurveProRegular') format('svg');
+
+}
+
+h1 /* Utilisation de la police qu'on vient de définir sur les titres */
+
+{
+
+    font-family: 'LearningCurveProRegular', Arial, serif;
+
+}
