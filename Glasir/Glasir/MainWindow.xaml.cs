@@ -219,10 +219,11 @@ namespace Glasir
                 // Open ADT file 
                 string filename = dlg.FileName;
                 Glasir.launchADToolInstance(filename);
+                domains = Glasir.ADToolInstances[0].file.getDomains();
+                Window_Loaded(sender, e);
             }
 
-            domains = Glasir.ADToolInstances[0].file.getDomains();
-            Window_Loaded(sender, e);
+            
         }
 
         /// <summary>
