@@ -46,9 +46,17 @@ namespace Glasir
 
         internal void close()
         {
-            this.process.Kill();
-            this.process = null;
-            this.file = null;
+            try
+            {
+                this.process.Kill();
+                this.process = null;
+                this.file = null;
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
+            
         }
     }
 }

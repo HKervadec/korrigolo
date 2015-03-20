@@ -169,32 +169,7 @@ namespace Glasir
             }
         }
 
-        /// <summary>
-        /// create a new ADT file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void newFile(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
-            dlg.AddExtension = true;
-            dlg.DefaultExt = ".adt";
-            dlg.Filter = "ADT Files|*.adt;*.xml|All Files|*.*";
-            
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                if (dlg.FileName.EndsWith(".adt") || dlg.FileName.EndsWith(".xml"))
-                {
-                    // Open the new file 
-                    Glasir.launchADToolInstance(dlg.FileName);
-                }
-            }
-        }
+        
 
         /// <summary>
         /// open an ADTfile
@@ -245,6 +220,11 @@ namespace Glasir
         protected override void OnClosing(CancelEventArgs e)
         {
             this.Glasir.closeProject();
+        }
+
+        private void aboutUsClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Software developed during the 4th year of engineering studies at INSA Rennes.\n\nAuthors : Pierre-Marie Airiau, Valentin Esmieu and Maud Leray.\nDate : 2014 - 2015.\n\nNo guarantee is provided.\nUse at your own risk.");
         }
 
         
