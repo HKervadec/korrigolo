@@ -86,6 +86,7 @@ namespace Glasir
             this.closeProject(sender, e);
             this.Glasir.projectName = "";
             this.Title = "Untitled project - Glasir";
+            this.updateTreeView();
         }
 
         /// <summary>
@@ -122,6 +123,7 @@ namespace Glasir
                     MessageBox.Show("Only Glasir Project File (.glpf) can be opened.");
                 }
             }
+            this.updateTreeView();
         }
 
         /// <summary>
@@ -197,8 +199,7 @@ namespace Glasir
                 domains = Glasir.ADToolInstances[0].file.getDomains();
                 Window_Loaded(sender, e);
             }
-
-            
+            this.updateTreeView();
         }
 
         /// <summary>
@@ -210,23 +211,47 @@ namespace Glasir
         {
             this.Glasir.closeProject();
             this.Title = "Glasir";
+            this.updateTreeView();
         }
 
+        /// <summary>
+        /// exit Glasir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exit(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// close project when exitting
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
         {
             this.Glasir.closeProject();
         }
 
+        /// <summary>
+        /// about us
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutUsClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Software developed during the 4th year of engineering studies at INSA Rennes.\n\nAuthors : Pierre-Marie Airiau, Valentin Esmieu and Maud Leray.\nDate : 2014 - 2015.\n\nNo guarantee is provided.\nUse at your own risk.");
         }
 
+
+        private void updateTreeView()
+        {
+            treeView.Items.Clear();
+            foreach (ADToolInstance adti in Glasir.ADToolInstances)
+            {   
+                treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments });
+            }
+        }
         
     }
 }
