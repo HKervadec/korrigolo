@@ -133,7 +133,7 @@ namespace Glasir
             return resultFile;
         }
 
-        static double Evaluate(string expression)
+        public static double Evaluate(string expression)
         {
             var loDataTable = new DataTable();
             var loDataColumn = new DataColumn("Eval", typeof(double), expression);
@@ -169,7 +169,7 @@ namespace Glasir
                     if(c=="M") {c = M1;}
                     if(c == "H") { c = H1; }
                     if(c=="E") {c = E1;}
-                    if(d=="L") {d = L2;}*
+                    if(d=="L") {d = L2;}
                     if(d=="M") {d = M2;}
                     if(d=="H") {d = H2;}
                     if(d=="E") {d = E2;}

@@ -1,13 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<adtree>
+<?xml version="1.0" encoding="UTF-8"?><adtree>
   <node refinement="disjunctive">
     <label>top</label>
-    <parameter category="derived" domainId="MinCost1">60.0</parameter>
-    <parameter category="derived" domainId="MinTimeSeq2">60.0</parameter>
     <node refinement="conjunctive">
       <label>child1</label>
-      <parameter category="derived" domainId="MinCost1">60.0</parameter>
-      <parameter category="derived" domainId="MinTimeSeq2">90.0</parameter>
       <node refinement="disjunctive">
         <label>child1.1</label>
         <parameter domainId="MinCost1">20.0</parameter>

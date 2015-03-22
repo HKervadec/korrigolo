@@ -84,14 +84,14 @@
                     <TextBox Name="functionName" HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
                     <ComboBox Name="Param1Editor" SelectionChanged="testDomain1" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Width="77"/>
                     <ComboBox Name="Param2Editor" SelectionChanged="testDomain2" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="168,149,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
-                    <TextBox Name="L1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="11,199,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="M1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="38,199,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="H1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="65,199,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="E1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="92,199,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="26"/>
-                    <TextBox Name="L2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="147,199,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="M2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="174,199,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="H2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="201,199,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="22"/>
-                    <TextBox Name="E2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="228,199,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="26"/>
+                    <TextBox Name="L1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="11,199,0,0" TextWrapping="Wrap" Text="1.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="M1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="38,199,0,0" TextWrapping="Wrap" Text="10.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="H1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="65,199,0,0" TextWrapping="Wrap" Text="50.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="E1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="92,199,0,0" TextWrapping="Wrap" Text="200.0" VerticalAlignment="Top" Width="26"/>
+                    <TextBox Name="L2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="147,199,0,0" TextWrapping="Wrap" Text="1.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="M2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="174,199,0,0" TextWrapping="Wrap" Text="10.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="H2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="201,199,0,0" TextWrapping="Wrap" Text="50.0" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="E2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="228,199,0,0" TextWrapping="Wrap" Text="200.0" VerticalAlignment="Top" Width="26"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Filter">

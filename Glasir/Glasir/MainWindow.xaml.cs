@@ -70,17 +70,11 @@ namespace Glasir
                 String item = (String)Param1Editor.SelectedItem;
                 if (item.StartsWith("DiffLMHE", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    L1.Visibility = Visibility.Visible;
-                    M1.Visibility = Visibility.Visible;
-                    H1.Visibility = Visibility.Visible;
-                    E1.Visibility = Visibility.Visible;
+                    MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the result domain"); 
                 }
                 else if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    L1.Visibility = Visibility.Visible;
-                    M1.Visibility = Visibility.Visible;
-                    H1.Visibility = Visibility.Visible;
-                    E1.Visibility = Visibility.Hidden;
+                    MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the result domain"); 
                 }
                 else
                 {
@@ -128,18 +122,28 @@ namespace Glasir
         {
             try
             {
-                XMLFile file = Glasir.ADToolInstances[0].file;
-                FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
-                XMLFile newfile = functEdit.createResultingFile();
-                Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
-                Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
-                domains = Glasir.ADToolInstances[0].file.getDomains();
-                Window_Loaded(sender, e);
-                this.updateTreeView();
+                String item = (String)Param1Editor.SelectedItem;
+                if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the result domain");
+                }
+                else
+                {
+                
+                        XMLFile file = Glasir.ADToolInstances[0].file;
+                        FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                        double test = FunctionEditor.Evaluate("2" + FunctionFormula.Text + "1");
+                        XMLFile newfile = functEdit.createResultingFile();
+                        Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
+                        Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
+                        domains = Glasir.ADToolInstances[0].file.getDomains();
+                        Window_Loaded(sender, e);
+                        this.updateTreeView();
+                }  
             }
             catch
             {
-
+                MessageBoxResult result = MessageBox.Show("Invalid Function");
             }
         }
 
