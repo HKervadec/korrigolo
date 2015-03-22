@@ -80,7 +80,7 @@ public class DomainView<Type> extends JPanel implements ItemListener
   {
     labelBox = new JCheckBox("Show Labels");
     labelBox.setMnemonic(KeyEvent.VK_L);
-    labelBox.setSelected(false);
+    labelBox.setSelected(true);
     labelBox.addItemListener(this);
     allLabelBox = new JCheckBox("Show Computed Values for Subtrees");
     allLabelBox.setMnemonic(KeyEvent.VK_V);
@@ -91,7 +91,7 @@ public class DomainView<Type> extends JPanel implements ItemListener
     markEditableBox.setSelected(canvas.isMarkEditable());
     markEditableBox.addItemListener(this);
     canvas.setLocalExtentProvider(false);
-    canvas.setShowLabels(false);
+    canvas.setShowLabels(true);
     canvas.setShowAllLabels(true);
     nodeSizeBox = new JCheckBox("Local Node Size");
     nodeSizeBox.setMnemonic(KeyEvent.VK_S);
