@@ -150,7 +150,7 @@ ADTNode ADTPro():
      }
      |
         (
-          ( <OP> <LBRAC> tp=<IDENTIFIER>
+         ( <OP> <LBRAC> tp=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OP);
                     jjtThis.setName(tp.image);
