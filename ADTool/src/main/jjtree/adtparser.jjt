@@ -143,7 +143,7 @@ ADTNode ADTPro():
 }
 {
   (
-     t=<IDENTIFIER>
+     t=<IDENTIFIER> 
      {
        jjtThis.setType(ADTNode.Type.LEAFP);
        jjtThis.setName(t.image);
