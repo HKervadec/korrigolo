@@ -99,7 +99,8 @@ ADTNode ADTOpp() :
         jjtThis.setName(t.image);
       }
       |
-        ( ( <OO> <LBRAC> to=<IDENTIFIER>
+        (
+              ( <OO> <LBRAC> to=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OO);
                     jjtThis.setName(to.image);
@@ -148,7 +149,8 @@ ADTNode ADTPro():
        jjtThis.setName(t.image);
      }
      |
-        ( ( <OP> <LBRAC> tp=<IDENTIFIER>
+        (
+          ( <OP> <LBRAC> tp=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OP);
                     jjtThis.setName(tp.image);
