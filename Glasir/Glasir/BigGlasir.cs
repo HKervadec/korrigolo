@@ -83,6 +83,7 @@ namespace Glasir
         /// <returns></returns>
         public void launchADToolInstance(string fileName)
         {
+            Console.WriteLine(fileName);
             this.ADToolInstances.Add(new ADToolInstance(fileName));
         }
 

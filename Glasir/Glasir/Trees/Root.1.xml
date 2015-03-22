@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<adtree>
+  <node refinement="disjunctive">
+    <label>Root</label>
+    <node refinement="disjunctive">
+      <label>N_2</label>
+      <node refinement="conjunctive">
+        <label>N_5</label>
+        <node refinement="disjunctive">
+          <label>N_10</label>
+          <parameter domainId="MinTimePar1">30.0</parameter>
+          <parameter domainId="MinCost2">50.0</parameter>
+          <parameter domainId="Name">80</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>N_11</label>
+          <parameter domainId="MinTimePar1">20.0</parameter>
+          <parameter domainId="MinCost2">20.0</parameter>
+          <parameter domainId="Name">40</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>N_6</label>
+        <parameter domainId="MinTimePar1">50.0</parameter>
+        <parameter domainId="MinCost2">60.0</parameter>
+        <parameter domainId="Name">110</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>N_3</label>
+      <node refinement="disjunctive">
+        <label>N_7</label>
+        <parameter domainId="MinTimePar1">50.0</parameter>
+        <parameter domainId="MinCost2">80.0</parameter>
+        <parameter domainId="Name">130</parameter>
+      </node>
+    </node>
+    <node refinement="conjunctive">
+      <label>N_4</label>
+      <node refinement="disjunctive">
+        <label>N_8</label>
+        <parameter domainId="MinTimePar1">10.0</parameter>
+        <parameter domainId="MinCost2">70.0</parameter>
+        <parameter domainId="Name">80</parameter>
+      </node>
+      <node refinement="disjunctive">
+        <label>N_9</label>
+        <parameter domainId="MinTimePar1">25.0</parameter>
+        <parameter domainId="MinCost2">10.0</parameter>
+        <parameter domainId="Name">35</parameter>
+      </node>
+    </node>
+  </node>
+  <domain id="MinTimePar1">
+    <class>lu.uni.adtool.domains.predefined.MinTimePar</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinCost2">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="Name">
+    <class>lu.uni.adtool.domains.predefined.MinTimePar</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

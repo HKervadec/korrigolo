@@ -78,12 +78,20 @@
         <TabControl HorizontalAlignment="Left" Height="300" Margin="10,35,0,0" VerticalAlignment="Top" Width="270">
             <TabItem Header="FunctionEditor">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="test" HorizontalAlignment="Left" Margin="179,187,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="functionEdition"/>
-                    <TextBox Name="FunctionFormula" HorizontalAlignment="Left" Height="23" Margin="93,149,0,0" TextWrapping="Wrap" Text="Fonction" VerticalAlignment="Top" Width="70"/>
+                    <Button Content="CreateParameter" HorizontalAlignment="Left" Margin="158,239,0,0" VerticalAlignment="Top" Width="96" Height="23" Click="functionEdition"/>
+                    <TextBox Name="FunctionFormula" HorizontalAlignment="Left" Height="23" Margin="93,149,0,0" TextWrapping="Wrap" Text="Function" VerticalAlignment="Top" Width="70"/>
                     <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the name, select the parameters you want to combine and the function that will combine them :" VerticalAlignment="Top" Width="243"/>
                     <TextBox Name="functionName" HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox Name="Param1Editor" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Width="77"/>
-                    <ComboBox Name="Param2Editor" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="168,149,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
+                    <ComboBox Name="Param1Editor" SelectionChanged="testDomain1" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Width="77"/>
+                    <ComboBox Name="Param2Editor" SelectionChanged="testDomain2" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="168,149,0,0" VerticalAlignment="Top" Width="86" Height="23"/>
+                    <TextBox Name="L1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="11,199,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="M1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="38,199,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="H1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="65,199,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="E1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="92,199,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="26"/>
+                    <TextBox Name="L2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="147,199,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="M2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="174,199,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="H2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="201,199,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="22"/>
+                    <TextBox Name="E2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="228,199,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="26"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Filter">
@@ -122,7 +130,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        
+
         <!-- TreeView -->
         <TextBlock HorizontalAlignment="Left" Margin="10,366,0,0" TextWrapping="Wrap" Text="ADTrees" VerticalAlignment="Top" Width="243"/>
         <TreeView Name="treeView" HorizontalAlignment="Left" Height="100" Margin="10,387,0,0" VerticalAlignment="Top" Width="270"/>

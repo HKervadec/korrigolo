@@ -49,8 +49,8 @@ namespace Glasir
             // LA donnée source "domains" doit être collection
 
             //Binding par XAML
-            this.Param1Editor.DataContext = this.domains;
             this.Param2Editor.DataContext = this.domains;
+            this.Param1Editor.DataContext = this.domains;
 
             ////Binding par code
             //Binding bind = new Binding();
@@ -63,15 +63,84 @@ namespace Glasir
         }
 
 
+        public void testDomain1(object sender, SelectionChangedEventArgs args)
+        {
+            try
+            {
+                String item = (String)Param1Editor.SelectedItem;
+                if (item.StartsWith("DiffLMHE", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L1.Visibility = Visibility.Visible;
+                    M1.Visibility = Visibility.Visible;
+                    H1.Visibility = Visibility.Visible;
+                    E1.Visibility = Visibility.Visible;
+                }
+                else if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L1.Visibility = Visibility.Visible;
+                    M1.Visibility = Visibility.Visible;
+                    H1.Visibility = Visibility.Visible;
+                    E1.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    L1.Visibility = Visibility.Hidden;
+                    M1.Visibility = Visibility.Hidden;
+                    H1.Visibility = Visibility.Hidden;
+                    E1.Visibility = Visibility.Hidden;
+                }
+            }
+            catch { }
+        }
+
+        public void testDomain2(object sender, SelectionChangedEventArgs args)
+        {
+            try
+            {
+                String item = (String)Param2Editor.SelectedItem;
+                if (item.StartsWith("DiffLMHE", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L2.Visibility = Visibility.Visible;
+                    M2.Visibility = Visibility.Visible;
+                    H2.Visibility = Visibility.Visible;
+                    E2.Visibility = Visibility.Visible;
+                }
+                else if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L2.Visibility = Visibility.Visible;
+                    M2.Visibility = Visibility.Visible;
+                    H2.Visibility = Visibility.Visible;
+                    E2.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    L2.Visibility = Visibility.Hidden;
+                    M2.Visibility = Visibility.Hidden;
+                    H2.Visibility = Visibility.Hidden;
+                    E2.Visibility = Visibility.Hidden;
+                }
+            }
+            catch { }
+        }
+
+
         private void functionEdition(object sender, RoutedEventArgs e)
         {
-            XMLFile file = new XMLFile("../../Trees/test3.xml");
-            FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex);
-            XMLFile newfile = functEdit.createResultingFile();
-            Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
-            Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
-            domains = Glasir.ADToolInstances[0].file.getDomains();
-            Window_Loaded(sender, e);
+            try
+            {
+                XMLFile file = Glasir.ADToolInstances[0].file;
+                FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                XMLFile newfile = functEdit.createResultingFile();
+                Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
+                Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
+                domains = Glasir.ADToolInstances[0].file.getDomains();
+                Window_Loaded(sender, e);
+                this.updateTreeView();
+            }
+            catch
+            {
+
+            }
         }
 
         

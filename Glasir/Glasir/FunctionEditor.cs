@@ -42,12 +42,68 @@ namespace Glasir
             private set;
         }
 
+        public String L1
+        {
+            get;
+            private set;
+        }
+
+        public String M1
+        {
+            get;
+            private set;
+        }
+
+        public String H1
+        {
+            get;
+            private set;
+        }
+
+        public String E1
+        {
+            get;
+            private set;
+        }
+
+        public String L2
+        {
+            get;
+            private set;
+        }
+
+        public String M2
+        {
+            get;
+            private set;
+        }
+
+        public String H2
+        {
+            get;
+            private set;
+        }
+
+        public String E2
+        {
+            get;
+            private set;
+        }
+
         public FunctionEditor()
         {
         }
 
-        public FunctionEditor(XMLFile f, String name, String fn, int firstP, int secondP)
+        public FunctionEditor(XMLFile f, String name, String fn, int firstP, int secondP, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
         {
+            L1 = l1;
+            M1 = m1;
+            H1 = h1;
+            E1 = e1;
+            L2 = l2;
+            M2 = m2;
+            H2 = h2;
+            E2 = e2;
             File = f;
             FunctionName = name;
             Function = fn;
@@ -96,24 +152,43 @@ namespace Glasir
             Console.WriteLine(code);
             Console.WriteLine("\n");
 
-            if (code.Element("node") == null)
+            if (code.Element("node") == null || (String) code.Element("node").Attribute("switchRole") == "yes")
             {
                 IEnumerable<XElement> elements = code.Elements("parameter");
-                try
-                {
+       
                     string c = elements.ElementAt(FirstParam).Value;
                     string d = elements.ElementAt(SecondParam).Value;
-                    double res = Evaluate(c+Function+d);
-                    code.Add(new XElement("parameter", new XAttribute("domainId", "minCostTime"), res.ToString()));
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Unable to convert to a Double.");
-                }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("is outside the range of a Double.");
-                }
+
+                    if (c == "true") { c = "1"; }
+                    if (c == "false") {c = "0";}
+
+                    if (d == "true") {d = "1";}
+                    if (d == "false") {d = "0";}
+
+                    if(c == "L") { c = L1; }
+                    if(c=="M") {c = M1;}
+                    if(c == "H") { c = H1; }
+                    if(c=="E") {c = E1;}
+                    if(d=="L") {d = L2;}*
+                    if(d=="M") {d = M2;}
+                    if(d=="H") {d = H2;}
+                    if(d=="E") {d = E2;}
+                    
+                    if (c == "Infinity" || d == "Infinity")
+                    {
+                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), "Infinity"));
+                    }
+                    else if (Function.Contains("/") && (d == "0" || d == "0.0"))
+                    {
+                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), "Infinity"));
+                    }
+                    else
+                    {
+                        double res = Evaluate(c + Function + d);
+                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), res.ToString()));
+                    }
+                    
+                
                 Console.WriteLine("a");
                 Console.WriteLine(code);
                 return;
@@ -123,9 +198,12 @@ namespace Glasir
                 IEnumerable<XElement> elementsNode = code.Elements("node");
                 foreach (XElement el in elementsNode)
                 {
-                    Console.WriteLine("b");
-                    Console.WriteLine(el);
-                    searchAndChange(el);
+                    if ((String) el.Attribute("switchRole")!="yes")
+                    {
+                        Console.WriteLine("b");
+                        Console.WriteLine(el);
+                        searchAndChange(el);
+                    }
                 }
             }
         }
