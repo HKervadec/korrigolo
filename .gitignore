@@ -319,9 +319,9 @@ FakesAssemblies/
 .DS_Store
 
 # Maven
-./ADTool/log/*
-./ADTool/[Tt]arget/*
-.metadata/*
+./ADTool/log/
+./ADTool/[Tt]arget/
+.metadata/
 
 */*.iws
 */*.csproj
