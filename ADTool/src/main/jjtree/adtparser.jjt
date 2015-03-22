@@ -100,7 +100,7 @@ ADTNode ADTOpp() :
       }
       |
         (
-              ( <OO> <LBRAC> to=<IDENTIFIER>
+             ( <OO> <LBRAC> to=<IDENTIFIER>
                   {
                     jjtThis.setType(ADTNode.Type.OO);
                     jjtThis.setName(to.image);
