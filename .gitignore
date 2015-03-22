@@ -284,8 +284,10 @@ FakesAssemblies/
 
 # Maven
 log/
-target/
+ADTool/[Tt]arget/
+.metadata/
 
 */*.iws
 */*.csproj
 */*main.tex
+
