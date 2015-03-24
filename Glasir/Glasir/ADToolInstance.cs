@@ -38,6 +38,7 @@ namespace Glasir
             proc.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
             proc.StartInfo.Arguments = fileName;
             proc.Start();
+            Console.WriteLine("Started "+proc.StartInfo.Arguments);
             this.process = proc;
             file = new XMLFile(fileName);
             

@@ -78,7 +78,7 @@
         <TabControl HorizontalAlignment="Left" Height="300" Margin="10,35,0,0" VerticalAlignment="Top" Width="270">
             <TabItem Header="FunctionEditor">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="CreateParameter" HorizontalAlignment="Left" Margin="158,239,0,0" VerticalAlignment="Top" Width="96" Height="23" Click="functionEdition"/>
+                    <Button Content="Apply" HorizontalAlignment="Left" Margin="158,239,0,0" VerticalAlignment="Top" Width="96" Height="23" Click="functionEdition"/>
                     <TextBox Name="FunctionFormula" HorizontalAlignment="Left" Height="23" Margin="93,149,0,0" TextWrapping="Wrap" Text="Function" VerticalAlignment="Top" Width="70"/>
                     <TextBlock HorizontalAlignment="Left" Margin="11,31,0,0" TextWrapping="Wrap" Text="Enter the name, select the parameters you want to combine and the function that will combine them :" VerticalAlignment="Top" Width="243"/>
                     <TextBox Name="functionName" HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>

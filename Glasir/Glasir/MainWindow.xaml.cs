@@ -122,6 +122,9 @@ namespace Glasir
         {
             try
             {
+
+
+
                 String item = (String)Param1Editor.SelectedItem;
                 if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -129,21 +132,20 @@ namespace Glasir
                 }
                 else
                 {
-                
-                        XMLFile file = Glasir.ADToolInstances[0].file;
-                        FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
-                        double test = FunctionEditor.Evaluate("2" + FunctionFormula.Text + "1");
-                        XMLFile newfile = functEdit.createResultingFile();
-                        Glasir.launchADToolInstance("../../Trees/" + newfile.FileName + ".xml");
-                        Console.WriteLine("../../Trees/" + newfile.FileName + ".xml");
-                        domains = Glasir.ADToolInstances[0].file.getDomains();
-                        Window_Loaded(sender, e);
-                        this.updateTreeView();
-                }  
+
+                    XMLFile file = Glasir.ADToolInstances[0].file;
+                    FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                    double test = FunctionEditor.Evaluate("2" + FunctionFormula.Text + "1");
+                    XMLFile newfile = functEdit.createResultingFile();
+                    Glasir.launchADToolInstance(newfile.FileName);
+                    domains = Glasir.ADToolInstances[0].file.getDomains();
+                    Window_Loaded(sender, e);
+                    this.updateTreeView();
+                }
             }
             catch
             {
-                MessageBoxResult result = MessageBox.Show("Invalid Function");
+                MessageBox.Show("Invalid function.");
             }
         }
 

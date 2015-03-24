@@ -26,8 +26,8 @@ namespace Glasir
 
         public XMLFile(string path)
         {
-
-            FileName = Path.GetFileNameWithoutExtension(path);
+            FileName = path;
+            Console.WriteLine("XML.load " + path);
             XmlCode = XDocument.Load(path);
         }
 
@@ -49,9 +49,9 @@ namespace Glasir
 
         public XMLFile createResultFile()
         {
-            string newName = this.FileName+".1";
+            string newName = Path.GetFileNameWithoutExtension(this.FileName) + ".1.xml";
             XMLFile resultingFile = new XMLFile(newName, this.XmlCode);
-            resultingFile.XmlCode.Save("../../Trees/" + newName + ".xml");
+            resultingFile.XmlCode.Save(newName);
             return resultingFile;
         }
 
