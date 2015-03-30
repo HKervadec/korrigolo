@@ -12,7 +12,7 @@
     <title>Glasir</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap-3.3.4-dist\css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.4-dist\css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
@@ -40,7 +40,7 @@
       <div class="jumbotron">
 		<div class="row" style="display: flex;align-items: center">
 			<div class="col-lg-6">
-				<h1>Glasir</h1>
+				<h1><strong>Glasir</strong></h1>
 				<p class="lead">Model and analyze the security of your systems. Easier. Faster.</p>
 			</div>
 			
@@ -54,8 +54,8 @@
         <div class="col-lg-offset-1 col-lg-6">
           <h2>What is Glasir ?</h2>
           <p>Glasir is an open-source software dedicated to the security analysis of your systems. With Glasir, you will be able to identify your system's weak-points using "Attack-Defense Trees".</p>
-		  <p>Glasir is the product of a project conducted by 4th's year IT students at INSA Rennes. The initial objective of that project was to localize the weaknesses of the public transports system in Rennes. 
-		  In order to achieve that, we have decided to create an analyze-tool, based on the ADTree formalism.</p>
+		  <p>Glasir is the product of a project conducted by 4th's year Computer Science students at INSA Rennes. The initial objective of that project was to identify the weaknesses of the public transport in Rennes. 
+		  In order to achieve that, we have decided to create an analyzis tool, based on the ADTree formalism.</p>
 		</div>
 
         <div class="col-lg-offset-1 col-lg-4">
@@ -65,29 +65,28 @@
 	  
 	  <div class="row" style="display: flex;align-items: center; margin-top:50px">
         <div class="col-lg-8">
-          <p> <img src="./img/adtree2.png" alt="ADTree"/> </p>
+          <p> <img src="./img/adtree.png" width="750" height="300"  alt="ADTree"/> </p>
         </div>
 
         <div class="col-lg-4">
 		  <h4>What are "ADTrees" ?</h4>
-          <p>"ADTree" is short for "Attack-Defense Tree", a graphical way to represent the possible attacks and/or defenses concerning a given system. 
-		  ADTree is an improvement of the older "Attack Tree" formal representation, where only attacks could be represented on the Tree. By adding defenses to the 
-		  representation, ADTrees allow to see dynamically the impact of defenses on the system.  
-		  ADTrees also allow you to start from the attacker rather than from the system to defend, to be more accurate with a specific type of attacker.</p>
+          <p>"ADTree" is short for "Attack-Defense Tree", a graphical way to represent possible attacks and defenses for a given system.
+		  ADTree formalism is an extension of Attack Trees, where only attacks can be represented. By adding defenses to the 
+		  representation, ADTrees allow to assess the impact of defenses on the system.  
+		  </p>
 		  
         </div>
       </div>
 	  
 	  <div class="row" style="display: flex;align-items: center; margin-top:50px">
 		<div class="col-lg-offset-1 col-lg-6">
-          <h4>To start with : ADTool</h4>
-          <p>ADTool is an open-source software developed in order to computerize ADTrees. In addition to their graphical representation, it allows to valuate 
-		  the ADTrees with several parameters, which are propagate on the entire tree using "domains", a recursive method to evaluate the reachability of an upper node from lower nodes. 
-		  Glasir uses this tool as an ADTree viewer and editor.</p>
+          <h4>To start with: ADTool</h4>
+          <p>ADTool is an open-source software for creation an analysis of ADTrees. In addition to their graphical representation, it allows to decorate the ADTrees with several parameters, whose values are propagated recursively from child to parent nodes.
+Glasir uses this tool as an ADTree viewer.</p>
         </div>
 
         <div class="col-lg-offset-1 col-lg-4">
-          <p> <img src="./img/ADTool.png" alt="ADTool" /> </p>
+          <p> <img src="./img/ADTool.png" alt="ADTool" width="350" height="200" /> </p>
         </div>
       </div>
 	  
@@ -97,18 +96,18 @@
 
         <div class="col-lg-6">
           <h4>How to analyze ADTrees ?</h4>
-          <p>Glasir contains several tools for the analysis of systems. Three modules are available for this purpose : 
+          <p>Glasir contains three main modules improving upon the analysis capabilities of ADTool:
           <UL type="disc">
-          <LI>the Function Editor, which allows to express compromises between attributes of the attack by creating a new attribute which is function of two different attributes ;</LI> 
-          <LI>the Filter, to highlight the possible attacks given a specific attacker, by selecting only reachable nodes for him depending on his abilities ;</LI> 
-          <LI>the Optimizer, to identify the most effective/less costly attack on the system for a specific attribute or parameter.</LI>
+          <LI>the <b>Function Editor</b>, which allows to express compromises between different parameters by creating a new parameter which is function of two existing ones;</LI> 
+          <LI>the <b>Filter</b>, which highlights the possible attacks provided an attacker profile. It selects the nodes reachable for the attacker depending on his capabilities;</LI> 
+          <LI>the <b>Optimizer</b>, which identifies the most effective/less costly attack with respect to a specific parameter.</LI>
           </UL> </p>
 
         </div>
       </div>
     <footer class="footer" style="margin-top:50px">
-		<div class="col-lg-6">Students : Airiau Pierre-Marie , Esmieu Valentin , Leray Maud </div>
-		<div class="col-lg-offset-2 col-lg-4">Supervisors : Avoine Gildas , Kordy Barbara.</div>
+		<div class="col-lg-6">Students : Pierre-Marie AIRIAU, Valentin ESMIEU and Maud LERAY.</div>
+		<div class="col-lg-offset-2 col-lg-4">Supervisors : Gildas AVOINE and Barbara KORDY.</div>
     </footer>
 
     </div> <!-- /container -->

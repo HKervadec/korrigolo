@@ -327,6 +327,11 @@ namespace Glasir
                 treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments });
             }
         }
+
+        public static void messageBox(string message)
+        {
+            MessageBox.Show(message);
+        }
         
     }
 }

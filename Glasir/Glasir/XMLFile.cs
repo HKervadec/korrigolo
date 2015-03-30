@@ -28,7 +28,15 @@ namespace Glasir
         {
             FileName = path;
             Console.WriteLine("XML.load " + path);
-            XmlCode = XDocument.Load(path);
+            try
+            {
+                XmlCode = XDocument.Load(path);
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                MainWindow.messageBox("Unable to open " + path+".\nCheck if the file exists and if you have the rights to access it.\n");
+            }
+            
         }
 
         public XMLFile(string xmlfile, XDocument code)
