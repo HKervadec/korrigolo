@@ -1,0 +1,27 @@
+=> Pour la prochaine version penser à la doc !
+=> Penser à demander emploi du temps Gildas pour meeting semaine pro
+
+IMPORTANT :
+
+- ajouter la possibilité d'ouvrir ADTool avec l'arbre Root depuis Glasir ?
+- pb avec les booléens dans l'éditeur de fonctions : on peut obtenir 2, -1...
+- pb aussi avec opponent/proponent : interdire ?
+- pb aussi avec propagation proba et dernière satisf : interdire
+- empêcher de donner deux fois le mm nom aux fonctions
+- mm nom de fichier généré quand on évalue deux fois le mm arbre
+- possibilité de sélectionner un arbre dans l'arborescence
+- adapter le calcul des fonctions aux défenses surtout quand noeud en dessous
+- ajouter bouton "refresh" ? 
+- ajouter un nom pour les fenêtres d'ADTool
+
+MOINS IMPORTANT :
+
+- esthétiquement : étirer la fenêtre = redimensionnement
+- Piotr va corriger le pb de multi-défenses et nous tenir au courant
+
+MÉGA BADANT :
+
+- la version 0.2 est à remettre le lundi de la rentrée, le 27/04
+
+pages html :
+ - CS students plutot que IT students
