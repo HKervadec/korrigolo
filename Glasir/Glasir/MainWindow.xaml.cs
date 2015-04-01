@@ -123,7 +123,11 @@ namespace Glasir
             try
             {
 
-
+                if (domains.Contains(functionName.Text))
+                {
+                    MessageBox.Show("Invalid Name : The function name is already used.");
+                    return;
+                }
 
                 String item = (String)Param1Editor.SelectedItem;
                 if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
