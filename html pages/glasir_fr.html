@@ -1,146 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="fr">
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./img/glasir.ico" />
-
     <title>Glasir</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./img/glasir.ico" />
+    <style type="text/css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap-3.3.4-dist\css/bootstrap.css" rel="stylesheet">
+.mt-100 {
+    margin-top: 100px; 
+}
+.mb-100 {
+    margin-bottom: 100px;
+}
 
-    <!-- Custom styles for this template -->
-    <link href="jumbotron-narrow.css" rel="stylesheet">
-  </head>
+.icon {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding: 7px 8px;
+    border: 2px solid;
+    border-radius: 50%;
+}
 
-  
-  <!-- Ca commence ici -->
-  <body>
-  
+.header {
+    padding-top: 50px;
+    background-color: #eee;
+    overflow: hidden;
+}
 
-  <!-- ligne blanche du haut -->
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active"><a> </a></li>
-		  <!-- c'est ici que j'arrive pas à dégager le petit rectancgle gris pourri -->
-          </ul>
-        </nav>
-      </div>
-	  
-	  
-	  
-	  
-	  <!-- Rectangle gris principal avec l'enooorme logo--> 
-	  <div class="jumbotron">
-		<div class="row" style="display: flex;align-items: center">
-			<div class="col-lg-6">
-				<h1><strong>Glasir</strong></h1>
-				<p class="lead">Mod&eacute;lisez et analysez la s&eacute;curit&eacute; de vos syst&egrave;mes. </p><p>Simplement. </p><p>Rapidement.</p>
-			</div>
-			
-			<!-- logo glasir -->
-			<div class="col-lg-offset-2 col-lg-4">
-				<img class="img-responsive center-block vertical-align" src="./img/glasir_logo.png" alt="Glasir logo" />
-			</div>
-		</div>
-      </div>
+.content {
+    position: relative;
+    display: table;
+    width: 100%;
+    min-height: 100vh;
+}
+.pull-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
 
-	  
-	  
-	  
-	  <!-- qu'est-ce que c'est quoi que Glasir ? -->
-      <div class="row" style="display: flex;align-items: center;margin-top:20px">
-        <div class="col-lg-offset-1 col-lg-6">
-          <h4>Qu'est-ce que Glasir ?</h4>
-          <p style="text-align:justify;">Glasir est un logiciel open-source d&eacute;di&eacute; &agrave; l'analyse de s&eacute;curit&eacute; de n'importe quel syst&egrave;me. 
-		  Avec Glasir, vous pourrez identifier les points faibles de vos syst&egrave;mes gr&acirc;ce &agrave; une repr&eacute;sentation formelle appel&eacute;e "arbre d'attaque et de d&eacute;fense" ("attack-defense tree", ou "ADTree", en anglais).
-		  </p>
-		  <p style="text-align:justify;">
-		  Glasir est le r&eacute;sultat d'un projet r&eacute;alis&eacute; par un groupe d'&eacute;tudiants de 4e ann&eacute;e du d&eacute;partement Informatique de l'INSA de Rennes. 
-		  L'objectif initial &eacute;tait d'identifier les faiblesses du r&eacute;seau de transports en communs de Rennes. Afin d'accomplir cette tâche, la cr&eacute;ation d'un outil d'analyse bas&eacute; sur le formalisme des ADTrees fut décidé. 
-		  </p>
-		  <p style="text-align:justify;">
-		  Cet outil fut baptis&eacute; Glasir, en r&eacute;f&eacute;rence &agrava; la mythologie nordique o&ugrave; Glasir est un arbre aux feuilles d'or situ&eacute; aux portes du Valhalla, dans le royaume d'Asgard.
-		  </p>
+.btn {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.btn-circle {
+    border-radius: 20px;
+}
+
+.input-group input {
+    border: 0;
+    box-shadow: none;
+    padding-right: 30px;
+}
+.input-group input:focus,
+.input-group input:active {
+    outline: 0;
+    box-shadow: none;
+}
+.input-group-btn:last-child>.btn {
+    z-index: 2;
+    margin-left: -18px;   
+    border-radius: 20px;
+}
+
+.larger { font-size: 175%; }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GLASIR</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="./glasir_en.html">EN</a></li>
+      </ul>
+  </div>
+</nav>
+    <header class="header">
+        <div class="container">
+          <div class="row" style="display: flex;align-items: center">
+            <div class="col-md-5 col-md-offset-1">
+                    <h1 class="title"><strong>Glasir</strong></h1>
+                    <h2> Mod&eacute;lisez et analysez la s&eacute;curit&eacute; de vos syst&egrave;mes.</h2>
+                    <h3> Simplement. Rapidement.</h3>
+            </div>
+            <div class="col-md-4 col-md-offset-1 text-center mt-100 mb-100">
+                    <img class="img-responsive center-block vertical-align" src="./img/glasir_logo.png" alt="Glasir logo">
+            </div>
+          </div>
         </div>
-		
-		<!-- Logo INSA Rennes -->
-        <div class="col-lg-offset-2 col-lg-4">
-          <p style="text-align:justify;"> <img src="./img/insa-rennes-logo.png" alt="Logo de l'Insa de Rennes. " /> </p>
+    </header>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-4 col-md-offset-1 text-center mt-100 mb-100">
+                    <div class="container">
+                        <p style="text-align:justify;"> <img src="./img/insa-rennes-logo.png" alt="INSA logo" width = 26% /> </p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="content">
+                        <div class="pull-middle">
+                          <div class="row" style="display: flex;align-items: center; margin-top:30px">
+                          </div>
+                            <h3><strong>Glasir, un projet INSA.</strong></h3>
+                            <p style="text-align:justify;">Glasir est le r&eacute;sultat d'un projet r&eacute;alis&eacute; par un groupe d'&eacute;tudiants de 4e ann&eacute;e du d&eacute;partement Informatique de l'INSA de Rennes. 
+                            L'objectif initial &eacute;tait d'identifier les faiblesses du r&eacute;seau de transports en commun de Rennes (le <abbr title="Service des Transports en commun de l'Agglomération Rennaise">STAR</abbr>). Afin d'accomplir cette tâche, la cr&eacute;ation d'un outil d'analyse bas&eacute; sur le formalisme des <abbr title="Attack-Defense Trees">ADTrees</abbr> fut décidé. 
+                          </p>
+                           <small>Le nom du logiciel provient de la mythologie nordique o&ugrave; <a href="http://fr.wikipedia.org/wiki/Glasir">Glasir</a> est un arbre aux feuilles d'or situ&eacute; aux portes du Valhalla, dans le royaume d'Asgard.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-	  
-	  
-	  
-	  
-	  
-	  
-	  <!-- Les ADTrees kesskecé Jammy ? -->
-	  <div class="row" style="display: flex;align-items: center; margin-top:50px">
+    </section>
+
+<section class ="section">
+  <div class="container">
+<div class="row" style="display: flex;align-items: center; margin-top:40px">
         <div class="col-lg-8">
-          <p style="text-align:justify;"> <img src="./img/adtree_fr.png" width="750" height="300"  alt="ADTree"/> </p>
-        </div>
+          <p style="text-align:justify;"> <img src="./img/adtree.png" width="750" height="300"  alt="ADTree"/> </p>
+        </div> 
 
-		
-        <div class="col-lg-4">
-		  <h4>Que sont les "ADTrees" ?</h4>
-          <p style="text-align:justify;">"ADTree" est le diminutif de "Attack-Defense Tree", une repr&eacute;sentation graphique des attaques et/ou d&eacute;fenses possibles concernant un syst&egrave;me donn&eacute;. Il s'agit d'une repr&eacute;sentation un peu particuli&egrave;re, partant de l'attaquant
-          plut&ocirc;t que du syst&egrave;me &agrave; d&eacute;fendre, afin d'&ecirc;tre mieux adapt&eacute; aux diff&eacute;rents attaquants possibles.</p>
+        <div class="col-lg-4" >
+      <h3><strong>Que sont les ADTrees ?</strong></h3>
+          <p style="text-align:justify;">"ADTree" est le diminutif de "Attack-Defense Tree", une repr&eacute;sentation graphique des attaques et/ou d&eacute;fenses possibles concernant un syst&egrave;me donn&eacute;. C'est une amélioration des "Attack Trees", où seules les attaques (en rouge) figurent. En ajoutant les défenses (en vert) à la représentation, les ADTrees permettent d'estimer leur impact sur le système.
+      </p>
         </div>
       </div>
-	  
-	   <!-- Qu'est-ce que c'est qu'ADITOULE ? -->
-	  <div class="row marketing">
-		<div class="col-lg-6">
-          <h4>L'existant : ADTool</h4>
-          <p style="text-align:justify;">ADtool est un logiciel open-source d&eacute;velopp&eacute; par une &eacute;quipe de chercheurs, dans le but d'informatiser les ADTrees. En plus de leur repr&eacute;sentation graphique, il est possible de valuer les ADTrees selon diff&eacute;rents param&egrave;tres appel&eacute;s "domains".
-          Glasir utilise ADTool pour afficher les ADTrees manipul&eacute;s. </p>
-        </div>
-		
-		 <!-- Logo d'ADITOULE -->
-        <div class="col-lg-offset-2 col-lg-4">
-          <p style="text-align:justify;"> <img src="./img/ADTool.png" alt="ADTool" /> </p>
+    </div>
+</section>
+
+    <div class="row" style="display: flex;align-items: center; margin-top:120px">
+        <div class="col-lg-6">
         </div>
       </div>
-	  
-	  
-	  
-	  <!-- Y a quoi de génial dans Glazour ? -->
-	  <!-- bon ça c'est rien c'est juste pour faire un bout de blanc sur la page -->
-	  <div class="row marketing">
-        <div class="col-lg-6">
-        </div>
 
-		<!-- C'est quoi les modules faits par AIRIAU Pierre-Marie ? -->
-        <div class="col-lg-6">
-          <h4>Comment analyser les ADTrees ?</h4>
-          <p style="text-align:justify;">Glasir offre plusieurs outils permettant d'analyser les syst&egrave;mes. Dans ce but, trois modules sont disponibles : 
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-right">
+                    <div class="content">
+                            <h4><strong>À propos de Glasir.</strong></h4>
+                            <p>Glasir est un logiciel open-source d&eacute;di&eacute; &agrave; l'analyse de s&eacute;curit&eacute; de vos syst&egrave;mes. Avec Glasir, vous pourrez identifier les points faibles de vos syst&egrave;mes gr&acirc;ce aux ADTrees, et vous pourrez les visualiser à l'aide d'un outil déjà existant nommé ADTool.</p>
+                    </div>
+                </div>
+               <div class="col-md-4 col-md-offset-1 mb-100">
+                    <div class="container">
+                        <img src="./img/ADTool.png" alt="ADTool" width="300" height="180" /> </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="content">
+                            <h4><strong>ADTool : un bref aperçu.</strong></h4>
+                            <p>ADtool est un logiciel open-source permettant de créer et d'afficher les ADTrees. En plus de leur repr&eacute;sentation graphique, il est possible de valuer les ADTrees selon diff&eacute;rents param&egrave;tres dont les valeurs sont propagées récursivement des noeuds fils vers leurs parents.
+                            Glasir utilise ADTool pour afficher les ADTrees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class ="section">
+  <div class="container">
+    <div class="col-lg-2" > </div>
+<div class="row" style="display: flex;align-items: center">
+          <p style="text-align:justify;"> <img src="./img/glasir_logo.png"  alt="ADTree"/> </p>
+        <div class="col-lg-6" >
+      <h3><strong>Comment analyser les ADTrees ?</strong></h3>
+          <p style="text-align:justify;">Glasir contient trois modules principaux qui augmentent les capacités d'ADTool : 
           <UL type="disc">
           <LI>l'<b>&Eacute;diteur de Fonctions</b>, qui permet de combiner les param&egrave;tres existants pour en cr&eacute;er de nouveaux ;</LI>
-          <LI>le <b>Filtre</b>, pour mettre en &eacute;vidence les attaques accessibles &agrave; un attaquant en particulier ;</LI>
-          <LI>l'<b>Optimiseur</b>, pour d&eacute;terminer l'attaque la plus efficace contre votre syst&egrave;me selon un param&egrave;tre donn&eacute;.</LI>
+          <LI>le <b>Filtre</b>, qui met en &eacute;vidence les attaques accessibles &agrave; un attaquant en particulier. Il sélectionne les noeuds atteignables en fonction de ses capacités ;</LI>
+          <LI>l'<b>Optimiseur</b>, qui détermine l'attaque la plus efficace/la moins coûteuse selon un param&egrave;tre donn&eacute;.</LI>
           </UL> </p>
         </div>
       </div>
+    </div>
+</section>
 
-	  
-	  <!-- Yaki dans ce projet ? -->
-     <footer class="footer" style="margin-top:50px">
-		<div class="col-lg-6"><b>&Eacute;tudiants :</b> Pierre-Marie AIRIAU, Valentin ESMIEU et Maud LERAY.</div>
-		<div class="col-lg-offset-2 col-lg-4"><b>Encadrants :</b> Gildas AVOINE and Barbara KORDY.<br> <br></div>
-    </footer>
+<footer class="footer" style="margin-top:60px">
+  <div class="container">
+    <div class="col-lg-5"><b>Étudiants :</b> Pierre-Marie AIRIAU, Valentin ESMIEU et Maud LERAY.<br> </div>
+    <div class="col-lg-offset-2 col-lg-4"><b>Encadrants :</b> Gildas AVOINE et Barbara KORDY.<br> <br></div>
+  </div>
+</footer>
 
     </div>
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</div>
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 </html>

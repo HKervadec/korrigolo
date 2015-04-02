@@ -74,15 +74,15 @@
 <body>
 <div class="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand text-uppercase" href="#">Glasir</a>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-      </div>
-    </nav>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GLASIR</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="./glasir_fr.html">FR</a></li>
+      </ul>
+  </div>
+</nav>
     <header class="header">
         <div class="container">
           <div class="row" style="display: flex;align-items: center">
@@ -112,7 +112,7 @@
                           </div>
                             <h3><strong>Glasir, an INSA project.</strong></h3>
                             <p style="text-align:justify;">Glasir is the product of a project conducted by 4th's year Computer Science students at INSA Rennes. The initial objective of that project was to identify the weaknesses of the public transport in Rennes. 
-                            In order to achieve that, the creation of an analyzis tool based on the <abbr title="Attack-Defense Tree">ADTree</abbr> formalism was decided.
+                            In order to achieve that, the creation of an analyzis tool based on the <abbr title="Attack-Defense Tree">ADTree</abbr> formalism has been undertaken.
                           </p>
                            <small>The name of the software, <a href="http://en.wikipedia.org/wiki/Glasir">Glasir</a>, comes from a tree bearing golden leaves in the Norse mythology, located in the realm of Asgard, outside the doors of Valhalla.</small>
                         </div>
@@ -130,10 +130,8 @@
         </div> 
 
         <div class="col-lg-4" >
-      <h3><strong>What are ADTrees ?</strong></h3>
-          <p style="text-align:justify;">"ADTree" is short for "Attack-Defense Tree", a graphical way to represent possible attacks and defenses for a given system.
-      ADTree formalism is an extension of Attack Trees, where only attacks can be represented. By adding defenses to the 
-      representation, ADTrees allow to assess the impact of defenses on the system.  
+      <h3><strong>What are ADTrees?</strong></h3>
+          <p style="text-align:justify;">"ADTree" is short for "Attack-Defense Tree", a graphical way to represent possible attacks and defenses for a given system. ADTree formalism is an extension of Attack Trees, where only attacks (in red) can be represented. By adding defenses (in green) to the representation, ADTrees allow to assess their impact on the system.  
       </p>
         </div>
       </div>
@@ -161,8 +159,8 @@
                 </div>
                 <div class="col-md-3 col-md-offset-1">
                     <div class="content">
-                            <h4><strong>ADTool : a quick preview.</strong></h4>
-                            <p>ADTool is an open-source software for creation an analysis of ADTrees. In addition to their graphical representation, it allows to decorate the ADTrees with several parameters, whose values are propagated recursively from child to parent nodes. Glasir uses this tool as an ADTree viewer.</p>
+                            <h4><strong>ADTool: a quick preview.</strong></h4>
+                            <p>ADTool is an open-source software for creation and display of ADTrees. In addition to their graphical representation, it allows to decorate the ADTrees with several parameters, whose values are propagated recursively from child to parent nodes. Glasir uses this tool as an ADTree viewer.</p>
 
                     </div>
                 </div>
@@ -177,10 +175,10 @@
           <p style="text-align:justify;"> <img src="./img/glasir_logo.png"  alt="ADTree"/> </p>
 
         <div class="col-lg-6" >
-      <h3><strong>How to analyze ADTrees ?</strong></h3>
-          <p style="text-align:justify;">Glasir contains three main modules improving upon the analysis capabilities of ADTool:
+      <h3><strong>How to analyze ADTrees?</strong></h3>
+          <p style="text-align:justify;">Glasir contains three main modules improving upon the capabilities of ADTool:
           <UL type="disc">
-          <LI>the <b>Function Editor</b>, which allows to express compromises between different parameters by creating a new parameter which is function of two existing ones;</LI> 
+          <LI>the <b>Function Editor</b>, which allows to express compromises between different parameters by creating a new parameter which is a function of two existing ones;</LI> 
           <LI>the <b>Filter</b>, which highlights the possible attacks provided an attacker profile. It selects the nodes reachable for the attacker depending on his capabilities;</LI> 
           <LI>the <b>Optimizer</b>, which identifies the most effective/less costly attack with respect to a specific parameter.</LI>
           </UL> </p>
