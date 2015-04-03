@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Glasir
 {
+    
     public class BigGlasir
     {
+
         public BigGlasir()
         {
             this.ADToolInstances = new List<ADToolInstance>();
@@ -138,5 +141,15 @@ namespace Glasir
             }
             this.ADToolInstances = new List<ADToolInstance>();
         }
+
+        /// <summary>
+        /// set the i-th adtool instance as the foreground instance
+        /// </summary>
+        /// <param name="i"></param>
+        internal void setForegroundInstance(int i)
+        {
+            ADToolInstance.foregroundInstance = this.ADToolInstances[i];
+        }
+
     }
 }

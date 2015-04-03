@@ -328,7 +328,15 @@ namespace Glasir
             treeView.Items.Clear();
             foreach (ADToolInstance adti in Glasir.ADToolInstances)
             {   
-                treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments });
+                if((bool) this.showFilename.IsChecked)
+                {
+                    treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments });
+                }
+                else
+                {
+                    treeView.Items.Add(new TreeViewItem() { Header = System.IO.Path.GetFileName(adti.process.StartInfo.Arguments) });
+                }
+                
             }
         }
 
@@ -336,6 +344,32 @@ namespace Glasir
         {
             MessageBox.Show(message);
         }
+
+        // ugly
+        private void updateTreeView(object sender, RoutedEventArgs e)
+        {
+            this.updateTreeView();
+        }
+
+
+        /// <summary>
+        /// update the foreground instance when clicking on a treeview item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void updateForegroundInstance(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            for (int i = 0; i< this.treeView.Items.Count; i++)
+            {
+                if ( ((TreeViewItem) this.treeView.Items[i]).IsSelected)
+                {
+                    this.Glasir.setForegroundInstance(i);
+                    return;
+                }
+            }
+        }
+
+        
         
     }
 }

@@ -41,7 +41,7 @@ namespace Glasir
             Console.WriteLine("Started "+proc.StartInfo.Arguments);
             this.process = proc;
             file = new XMLFile(fileName);
-            
+            foregroundInstance = this;
         }
         
 
