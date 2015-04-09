@@ -23,10 +23,8 @@ package lu.uni.adtool.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.io.StringReader;
 
 import javax.swing.Box;
@@ -36,15 +34,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
-
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 
 //import lu.uni.adtool.adtconverter.EulerTree;
 
+
+import lu.uni.adtool.Main;
 import lu.uni.adtool.adtree.ADTNode;
 import lu.uni.adtool.adtree.ADTParser;
 import lu.uni.adtool.adtree.ADTreeNode;
@@ -196,14 +194,25 @@ public class ADTermView extends JPanel implements TreeChangeListener
            //Execute when button is pressed
            revert();
        }
-    });   
-    validate.addActionListener(new ActionListener() {
-       public void actionPerformed(ActionEvent e)
-       {
-           //Execute when button is pressed
-           parse();
-       }
-    });   
+    });
+    
+    if (Main.viewmodeIsOn)
+    {
+    	validate.setEnabled(false);
+    }
+    else
+    {
+    	validate.addActionListener(new ActionListener() 
+        {
+           public void actionPerformed(ActionEvent e)
+           {
+               //Execute when button is pressed
+               parse();
+           }
+        });
+    }
+       
+    
     revert.setEnabled(false);
     return buttonPane;
   }

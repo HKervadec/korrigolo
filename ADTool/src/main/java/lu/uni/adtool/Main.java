@@ -36,6 +36,7 @@ public final class Main
 {
 
   private static final int MIN_JAVA_NUM = 6;
+  public static boolean viewmodeIsOn = false;
 
 
   /**
@@ -48,8 +49,22 @@ public final class Main
    * 
    * @param args the arguments
    */
-  public static void main(final String[] args)
+  public static void main(String[] args)
   {
+	  if (args.length > 1)
+	  {
+		  if (args[0].equals("--viewmode"))
+		  {
+			  Main.viewmodeIsOn = true;
+			  System.out.println("Viewmode is activated.");
+			  for (int i = 0 ; i<args.length-1 ; i++)
+			  {
+				  args[i] = args[i+1];
+			  }			  
+		  }		  
+	  }
+	  final String[] arguments = args.clone();
+	  
     final String vendor = System.getProperty("java.vendor");
     final String version = System.getProperty("java.version");
     boolean correctversion = false;
@@ -83,8 +98,8 @@ public final class Main
     SwingUtilities.invokeLater(new Runnable()
     {
       public void run()
-      {
-        new MainWindow(args);
+      {    	  
+        new MainWindow(arguments);
       }
     });
   }

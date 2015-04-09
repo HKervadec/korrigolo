@@ -68,6 +68,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.text.DefaultEditorKit;
 
+import lu.uni.adtool.Main;
 import lu.uni.adtool.Options;
 import lu.uni.adtool.adtree.ADTSerializer;
 import lu.uni.adtool.adtree.ADTXmlImport;
@@ -83,7 +84,6 @@ import lu.uni.adtool.domains.rings.Ring;
 import lu.uni.adtool.ui.printview.JPrintPreviewDialog;
 import lu.uni.adtool.ui.texts.ButtonTexts;
 import lu.uni.adtool.ui.texts.ToolTipTexts;
-
 import net.infonode.docking.DockingWindow;
 import net.infonode.docking.DockingWindowAdapter;
 import net.infonode.docking.FloatingWindow;
@@ -987,9 +987,14 @@ public class MainWindow extends Frame
       fh = new FileHandler(status, this);
     }
     mouseHandler = new MouseHandler();
-    frame.getContentPane().add(createToolBar(), BorderLayout.NORTH);
+    if (!Main.viewmodeIsOn)
+    {
+    	frame.getContentPane().add(createToolBar(), BorderLayout.NORTH);
+    	frame.getContentPane().add(status, BorderLayout.SOUTH);
+    }
+    
     frame.getContentPane().add(getRootWindow(), BorderLayout.CENTER);
-    frame.getContentPane().add(status, BorderLayout.SOUTH);
+    
     frame.setJMenuBar(createMenuBar());
     Dimension dim = getScreenSize(0.8, 0.4);
     frame.setSize(dim.width, dim.height);
@@ -998,15 +1003,23 @@ public class MainWindow extends Frame
     {
       public final void windowClosing(final WindowEvent e)
       {
-        final JFrame localFrame = (JFrame) e.getSource();
+    	  if (Main.viewmodeIsOn)
+    	  {
+    		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	  }
+    	  else
+    	  {
+    		  final JFrame localFrame = (JFrame) e.getSource();
 
-        final int result = JOptionPane.showConfirmDialog(localFrame,
-            "Are you sure you want to exit the application?",
-            "Exit Application", JOptionPane.YES_NO_OPTION);
+    	        final int result = JOptionPane.showConfirmDialog(localFrame,
+    	            "Are you sure you want to exit the application?",
+    	            "Exit Application", JOptionPane.YES_NO_OPTION);
 
-        if (result == JOptionPane.YES_OPTION) {
-          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
+    	        if (result == JOptionPane.YES_OPTION) {
+    	          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	        }
+    		  
+    	  }
       }
     });
     frame.setVisible(true);
@@ -1044,15 +1057,21 @@ public class MainWindow extends Frame
   private JMenuBar createMenuBar()
   {
     final JMenuBar menu = new JMenuBar();
-    menu.add(createFileMenu());
-    menu.add(createEditMenu());
-    menu.add(createViewMenu());
-    menu.add(createWindowsMenu());
+    
     attrDomainsMenu = new JMenu("Domains");
     attrDomainsMenu.setMnemonic(KeyEvent.VK_D);
-    menu.add(attrDomainsMenu);
+    
     createAttrDomainMenu();
-    menu.add(createHelpMenu());
+    
+    if (!Main.viewmodeIsOn)
+    {
+    	menu.add(createFileMenu());
+        menu.add(createEditMenu());
+        menu.add(createViewMenu());
+        menu.add(createWindowsMenu());
+        menu.add(attrDomainsMenu);
+        menu.add(createHelpMenu());
+    }
     return menu;
   }
 
