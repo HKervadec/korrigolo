@@ -1,0 +1,4 @@
+Questions pour Piotr
+- comment faire en sorte de rendre possible "java .ADTool.jar --viewmode adtree.xml" ?
+- du coup pour faire un viewer c'est quelles classes qu'il faut modifier ? On a vu MainWindow.java qui semble pas mal...
+- désactiver les raccourcis claviers aussi, c'est faisableuh ?
