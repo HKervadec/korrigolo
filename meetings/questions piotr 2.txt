@@ -1,0 +1,5 @@
+ADTreeNode (possédant un ADTNode contenant ses fils) implémenterait Transferable.
+Comment sait-on qu'un noeud est selectionné ? -> ADTreeCanvas contient un attribut focused
+Pour le cut, on a removeNode dans ADTreeCanvas qui fait ça très bien. Quelle différence entre removeTree et removeNode dans ADTreeForGui d'ailleurs ?
+Les raccourcis c'est dans ADTreeCanvasHandler
+Dans InputEvent.class il y a les évènement d'appuis sur les touches du clavier
