@@ -51,7 +51,7 @@ public final class Main
    */
   public static void main(String[] args)
   {
-	  if (args.length > 1)
+	 /* if (args.length > 1)
 	  {
 		  if (args[0].equals("--viewmode"))
 		  {
@@ -62,9 +62,9 @@ public final class Main
 				  args[i] = args[i+1];
 			  }			  
 		  }		  
-	  }
+	  } */
 	  final String[] arguments = args.clone();
-	  
+	
     final String vendor = System.getProperty("java.vendor");
     final String version = System.getProperty("java.version");
     boolean correctversion = false;

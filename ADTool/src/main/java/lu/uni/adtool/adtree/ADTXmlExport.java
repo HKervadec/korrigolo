@@ -121,9 +121,9 @@ public class ADTXmlExport
      Element parameter = doc.createElement("parameter");
 //      String domainId=vd.getDomain().getClass().getSimpleName()+new Integer(i.intValue()+1).toString();
      parameter.setAttribute("domainId",domainId);
-     if(!category.equals("basic")){
+    // if(!category.equals("basic")){
        parameter.setAttribute("category",category);
-     }
+    // }
      parameter.setTextContent(content);
      return parameter;
   }
