@@ -330,7 +330,7 @@ namespace Glasir
             {   
                 if((bool) this.showFilename.IsChecked)
                 {
-                    treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments });
+                    treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments.Remove(0, 10) }); // remove --viewmode from arguments
                 }
                 else
                 {

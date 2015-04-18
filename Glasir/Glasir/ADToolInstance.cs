@@ -36,8 +36,9 @@ namespace Glasir
             Process proc = new Process();
             proc.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
             proc.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-            proc.StartInfo.Arguments = fileName;
+            proc.StartInfo.Arguments = "--viewmode "+fileName;
             proc.Start();
+            proc.StartInfo.Arguments = fileName;
             Console.WriteLine("Started "+proc.StartInfo.Arguments);
             this.process = proc;
             file = new XMLFile(fileName);
