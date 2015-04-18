@@ -415,6 +415,10 @@ public class MainWindow extends Frame
       }
       catch(Exception e){
         System.out.println("Error opening file:"+args[0]);
+        if (args[0].equals("--viewmode") || args[0].equals("-viewmode"))
+        {
+        	System.out.println("Viewmode usage : --viewmode filename.xml");
+        }
       }
     }
   }
@@ -498,18 +502,28 @@ public class MainWindow extends Frame
   private void createRootWindow()
   {
     ADTreeForGui tree = new ADTreeForGui(new ADTreeNode());
-    views[0] = new View("ADTree Edit", new ImageIcon(this.getClass()
-        .getResource("/icons/tree_16x16.png")), new ADTreeView(tree, this));
+    views[0] = new View("ADTree Edit",
+    					new ImageIcon(this.getClass().getResource("/icons/tree_16x16.png")),
+    					new ADTreeView(tree, this));
     ADTreeCanvas canvas = ((ADTreeView) views[0].getComponent()).getCanvas();
-    views[1] = new View("ADTerm Edit", new ImageIcon(this.getClass()
-        .getResource("/icons/viewTree_16x16.png")), new ADTermView(canvas));
-    views[2] = new View("Valuations View", new ImageIcon(this.getClass()
-        .getResource("/icons/table_16x16.png")), new ValuationView());
-    views[3] = new View("Domain Details View", new ImageIcon(this.getClass()
-        .getResource("/icons/eyes_16x16.png")), new DetailsView());
-    views[4] = new View("Message Log", new ImageIcon(this.getClass()
-        .getResource("/icons/messageLog.png")), new LogView());
-    for (int i = 0; i < views.length; i++) {
+    
+    views[1] = new View("ADTerm Edit",
+    					new ImageIcon(this.getClass().getResource("/icons/viewTree_16x16.png")),
+    					new ADTermView(canvas));
+    
+    views[2] = new View("Valuations View",
+    					new ImageIcon(this.getClass().getResource("/icons/table_16x16.png")),
+    					new ValuationView());
+    
+    views[3] = new View("Domain Details View",
+    					new ImageIcon(this.getClass().getResource("/icons/eyes_16x16.png")),
+    					new DetailsView());
+    views[4] = new View("Message Log",
+    					new ImageIcon(this.getClass().getResource("/icons/messageLog.png")),
+    					new LogView());
+    
+    for (int i = 0; i < views.length; i++) 
+    {
       viewMap.addView(i, views[i]);
     }
     MixedViewHandler handler = new MixedViewHandler(viewMap,
@@ -941,19 +955,20 @@ public class MainWindow extends Frame
 
   private void restoreDefaultLayout()
   {
-//     tabWindow = new TabWindow(new DockingWindow[] {view[0],view[1]});
-//     tabWindow.add(views[0]);
-//     tabWindow.add(views[1]);
-//     rootWindow.setWindow(tabWindow);
-//     TitledTab tab = new TitledTab("Tab " + tabId, null, new JTextArea("This is the content for Tab " + tabId), null);
-    splitWindow=new SplitWindow(false, 0.37103593f, views[1], views[0]);
-    rootWindow.setWindow(splitWindow);
-    for (View v : dynamicViews.values()) {
-      addDomainWindow(v);
-    }
+	  if(Main.viewmodeIsOn)
+	  {
+		  rootWindow.setWindow(views[0]);
+	  }
+	  else
+	  {
+		  splitWindow=new SplitWindow(false, 0.37103593f, views[1], views[0]);
+		  rootWindow.setWindow(splitWindow);
+	  }
+	  for (View v : dynamicViews.values()) 
+	  {
+		  addDomainWindow(v);
+	  }
     
-//     rootWindow.setWindow(new SplitWindow(false, 0.37103593f, views[1], views[0]));
-
   }
 
   private void printPreview()

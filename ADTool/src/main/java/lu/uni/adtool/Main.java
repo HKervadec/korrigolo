@@ -56,7 +56,7 @@ public final class Main
 		  if (args[0].equals("--viewmode"))
 		  {
 			  Main.viewmodeIsOn = true;
-			  System.out.println("Viewmode is activated.");
+			  System.out.println("ADTool is running on View mode.");
 			  for (int i = 0 ; i<args.length-1 ; i++)
 			  {
 				  args[i] = args[i+1];

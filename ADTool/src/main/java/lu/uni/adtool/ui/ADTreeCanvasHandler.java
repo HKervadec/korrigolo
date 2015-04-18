@@ -32,6 +32,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.KeyStroke;
 
+import lu.uni.adtool.Main;
 import lu.uni.adtool.adtree.ADTreeNode;
 
 /**
@@ -41,7 +42,6 @@ import lu.uni.adtool.adtree.ADTreeNode;
  */
 public class ADTreeCanvasHandler extends AbstractCanvasHandler
 {
-  //private ADTreeCanvas canvas;
   private JPopupMenu   pmenu;
   private JMenuItem    toggleAboveFold;
   private JMenuItem    toggleFold;
@@ -51,9 +51,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
   private JMenuItem    remove;
   private JMenuItem    removeChild;
   private ADTreeNode   menuNode;
-  //private Point2D      dragStart;
-  //private boolean      dragScroll;
-
+  
   /**
    * Constructs a new instance.
    *
@@ -71,6 +69,10 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
    */
   public void keyPressed(final KeyEvent e)
   {
+	if (Main.viewmodeIsOn)
+	{
+	  return;
+	}
     boolean consume = true;
     final ADTreeNode node = canvas.getFocused();
     if(e.isControlDown()) {
@@ -158,6 +160,10 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
    */
   public final void mouseClicked(final MouseEvent e)
   {
+	if (Main.viewmodeIsOn)
+	{
+	  return;
+	}
     canvas.requestFocusInWindow();
     final ADTreeNode node = this.canvas.getNode(e.getX(), e.getY());
     if (node != null) {

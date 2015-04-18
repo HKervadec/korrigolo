@@ -326,3 +326,5 @@ FakesAssemblies/
 */*.iws
 */*.csproj
 */*main.tex
+
+.recommenders/
