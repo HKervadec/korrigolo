@@ -23,12 +23,10 @@ package lu.uni.adtool.ui;
 import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Rectangle;
-
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
-
 import java.awt.geom.Point2D;
 
 import javax.swing.BoundedRangeModel;
@@ -36,6 +34,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import lu.uni.adtool.adtree.ADTreeNode;
+import lu.uni.adtool.copypaste.ADTreeTransferHandler;
 
 /**
  * Abstract mouse and keyboard hadler for the canvas.
@@ -45,8 +44,9 @@ import lu.uni.adtool.adtree.ADTreeNode;
 public abstract class AbstractCanvasHandler implements  CanvasHandler
 {
   protected ADTreeCanvas canvas;
-  private Point2D      dragStart;
-  private boolean      dragScroll;
+  protected ADTreeTransferHandler transferHandler;
+  private Point2D      	dragStart;
+  private boolean      	dragScroll;
   /**
    * Constructs a new instance.
    * 
@@ -55,6 +55,7 @@ public abstract class AbstractCanvasHandler implements  CanvasHandler
   public AbstractCanvasHandler(final ADTreeCanvas canvas)
   {
     this.canvas = canvas;
+    this.transferHandler = new ADTreeTransferHandler();
     dragStart = null;
     dragScroll = false;
   }

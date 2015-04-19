@@ -42,15 +42,18 @@ import lu.uni.adtool.adtree.ADTreeNode;
  */
 public class ADTreeCanvasHandler extends AbstractCanvasHandler
 {
-  private JPopupMenu   pmenu;
-  private JMenuItem    toggleAboveFold;
-  private JMenuItem    toggleFold;
-  private JMenuItem    addCounter;
-  private JMenuItem    addLeft;
-  private JMenuItem    addRight;
-  private JMenuItem    remove;
-  private JMenuItem    removeChild;
-  private ADTreeNode   menuNode;
+  private JPopupMenu	pmenu;
+  private JMenuItem    	toggleAboveFold;
+  private JMenuItem    	toggleFold;
+  private JMenuItem    	addCounter;
+  private JMenuItem    	addLeft;
+  private JMenuItem    	addRight;
+  private JMenuItem    	remove;
+  private JMenuItem    	removeChild;
+  private JMenuItem		cut;
+  private JMenuItem		copy;
+  private JMenuItem 	paste;
+  private ADTreeNode   	menuNode;
   
   /**
    * Constructs a new instance.
@@ -97,6 +100,15 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
           case KeyEvent.VK_S:
             canvas.addSibling(node, !e.isShiftDown());
             break;
+          case KeyEvent.VK_X:
+        	  super.transferHandler.cut(canvas.getFocused());
+        	  break;
+          case KeyEvent.VK_C:
+        	  super.transferHandler.copy(canvas.getFocused());
+        	  break;
+          case KeyEvent.VK_V:
+        	  super.transferHandler.paste(canvas);
+        	  break;
           default:
             consume = false;
         }
@@ -233,13 +245,15 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     super.setFocus(node);
   }
   /**
-   * Initialise context menu.
+   * Initialize context menu.
    *
    */
   private void initPopupMenu()
   {
     this.pmenu = new JPopupMenu();
     menuNode = null;
+    
+    // Change Label
     JMenuItem menuItem = new JMenuItem("Change Label");
     menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L,
         InputEvent.CTRL_MASK));
@@ -251,6 +265,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(menuItem);
+    
+    // Change Operator 
     menuItem = new JMenuItem("Change Operator");
     menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J,
         InputEvent.CTRL_MASK));
@@ -264,6 +280,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(menuItem);
+    
+    // Fold Above
     toggleAboveFold = new JMenuItem("Fold Above");
     toggleAboveFold.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
         InputEvent.SHIFT_MASK));
@@ -277,6 +295,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(toggleAboveFold);
+    
+    // Fold Below
     toggleFold = new JMenuItem("Fold Below");
     toggleFold.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,0,true));
     toggleFold.addActionListener(new ActionListener()
@@ -290,9 +310,10 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     });
     pmenu.add(toggleFold);
 
-
+    // separator
     pmenu.addSeparator();
 
+    // Add Child
     menuItem = new JMenuItem("Add Child");
     menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
         InputEvent.CTRL_MASK));
@@ -307,6 +328,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     });
     pmenu.add(menuItem);
 
+    // Add Countermeasure
     addCounter = new JMenuItem("Add Countermeasure");
     addCounter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I,
         InputEvent.CTRL_MASK));
@@ -320,7 +342,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(addCounter);
-
+    
+    // Add Left Sibling
     addLeft = new JMenuItem("Add Left Sibling");
     addLeft.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
         InputEvent.CTRL_MASK));
@@ -335,6 +358,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     });
     pmenu.add(addLeft);
 
+    // Add Right Sibling
     addRight = new JMenuItem("Add Right Sibling");
     addRight.setAccelerator(KeyStroke.getKeyStroke("shift control S"));
     addRight.addActionListener(new ActionListener()
@@ -347,21 +371,11 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(addRight);
+    
+    // Separator
     pmenu.addSeparator();
 
-    //removeNode = new JMenuItem("Remove Node");
-    //removeNode.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE,
-        //0));
-    //removeNode.addActionListener(new ActionListener()
-    //{
-      //public void actionPerformed(final ActionEvent evt)
-      //{
-        //if (menuNode != null) {
-          //canvas.removeNode(menuNode);
-        //}
-      //}
-    //});
-    //pmenu.add(removeNode);
+    // Remove Subtree
     remove = new JMenuItem("Remove Subtree");
     remove.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
         InputEvent.CTRL_MASK));
@@ -375,6 +389,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(remove);
+    
+    // Remove Children
     removeChild = new JMenuItem("Remove Children");
     removeChild.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
         InputEvent.SHIFT_MASK));
@@ -388,40 +404,59 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       }
     });
     pmenu.add(removeChild);
-    //pmenu.addSeparator();
-
-    // menuItem = new JMenuItem("Change Basic Assignment");
-    // menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K,
-    // InputEvent.CTRL_MASK));
-    // menuItem.addActionListener(new ActionListener() {
-    // public void actionPerformed(ActionEvent evt) {
-    // changeBAActionPerformed(evt);
-    // }
-    // });
-    // pmenu.add(menuItem);
-    // pmenu.addSeparator();
-
-    // menuItem = new JMenuItem("Collapse/Expand Node");
-    // menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T,
-    // InputEvent.CTRL_MASK));
-    // menuItem.addActionListener(new ActionListener() {
-    // public void actionPerformed(ActionEvent evt) {
-    // collapseActionPerformed();
-    // }
-    // });
-    // pmenu.add(menuItem);
-    // pmenu.addSeparator();
-
-    // menuItem = new JMenuItem("Properties");
-    // //menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
-    // InputEvent.CTRL_MASK));
-    // menuItem.addActionListener(new ActionListener() {
-    // public void actionPerformed(ActionEvent evt) {
-    // propertiesActionPerformed(evt);
-    // }
-    // });
-    // pmenu.add(menuItem);
+    
+    // Separator
+    pmenu.addSeparator();
+    
+    // Cut Subtree
+    cut = new JMenuItem("Cut Subtree");
+    cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,InputEvent.CTRL_MASK));
+    cut.addActionListener(new ActionListener()
+    {
+    	public void actionPerformed(final ActionEvent evt)
+    	{
+    		if (menuNode != null)
+    		{
+    			System.out.println("Cut ! TODO");
+    		}
+    	}
+    });
+    pmenu.add(cut);
+    
+    // Copy Subtree
+    copy = new JMenuItem("Copy Subtree");
+    copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,InputEvent.CTRL_MASK));
+    copy.addActionListener(new ActionListener()
+    {
+    	public void actionPerformed(final ActionEvent evt)
+    	{
+    		if (menuNode != null)
+    		{
+    			System.out.println("Copied ! TODO");
+    		}
+    	}
+    });
+    pmenu.add(copy);
+    
+    // Paste as Child
+    paste = new JMenuItem("Paste as Child");
+    paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,InputEvent.CTRL_MASK));
+    paste.addActionListener(new ActionListener()
+    {
+    	public void actionPerformed(final ActionEvent evt)
+    	{
+    		if (menuNode != null)
+    		{
+    			System.out.println("Pasted ! TODO");
+    		}
+    	}
+    });
+    pmenu.add(paste);
+    
+    
+    
   }
+  
   /**
    * Checks if a string is a valid label
    *

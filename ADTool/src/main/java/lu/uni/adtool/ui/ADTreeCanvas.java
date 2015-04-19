@@ -795,9 +795,20 @@ public class ADTreeCanvas extends JPanel implements Scrollable,
    * 
    * @param node
    */
-  public void addChild(ADTreeNode node){
+  public void addChild(ADTreeNode node)
+  {
     ADTreeNode child = new ADTreeNode(node.getType(),Options.tree_defRefType);
     tree.addChild(node,child);
+  }
+  
+  /**
+   * adds a specified child to the parent
+   * @param parent
+   * @param child
+   */
+  public void addChild(ADTreeNode parent, ADTreeNode child)
+  {
+	  tree.addChild(parent, child);
   }
   
   /**
