@@ -1,46 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?><adtree>
   <node refinement="disjunctive">
     <label>Root</label>
+    <parameter category="derived" domainId="MinTimePar1">25.0</parameter>
+    <parameter category="derived" domainId="MinCost2">60.0</parameter>
     <node refinement="disjunctive">
       <label>N_2</label>
+      <parameter category="derived" domainId="MinTimePar1">30.0</parameter>
+      <parameter category="derived" domainId="MinCost2">60.0</parameter>
       <node refinement="conjunctive">
         <label>N_5</label>
+        <parameter category="derived" domainId="MinTimePar1">30.0</parameter>
+        <parameter category="derived" domainId="MinCost2">70.0</parameter>
         <node refinement="disjunctive">
           <label>N_10</label>
-          <parameter domainId="MinTimePar1">30.0</parameter>
-          <parameter domainId="MinCost2">50.0</parameter>
+          <parameter category="basic" domainId="MinTimePar1">30.0</parameter>
+          <parameter category="basic" domainId="MinCost2">50.0</parameter>
         </node>
         <node refinement="disjunctive">
           <label>N_11</label>
-          <parameter domainId="MinTimePar1">20.0</parameter>
-          <parameter domainId="MinCost2">20.0</parameter>
+          <parameter category="basic" domainId="MinTimePar1">20.0</parameter>
+          <parameter category="basic" domainId="MinCost2">20.0</parameter>
         </node>
       </node>
       <node refinement="disjunctive">
         <label>N_6</label>
-        <parameter domainId="MinTimePar1">50.0</parameter>
-        <parameter domainId="MinCost2">60.0</parameter>
+        <parameter category="basic" domainId="MinTimePar1">50.0</parameter>
+        <parameter category="basic" domainId="MinCost2">60.0</parameter>
       </node>
     </node>
     <node refinement="disjunctive">
       <label>N_3</label>
+      <parameter category="derived" domainId="MinTimePar1">50.0</parameter>
+      <parameter category="derived" domainId="MinCost2">80.0</parameter>
       <node refinement="disjunctive">
         <label>N_7</label>
-        <parameter domainId="MinTimePar1">50.0</parameter>
-        <parameter domainId="MinCost2">80.0</parameter>
+        <parameter category="basic" domainId="MinTimePar1">50.0</parameter>
+        <parameter category="basic" domainId="MinCost2">80.0</parameter>
       </node>
     </node>
     <node refinement="conjunctive">
       <label>N_4</label>
+      <parameter category="derived" domainId="MinTimePar1">25.0</parameter>
+      <parameter category="derived" domainId="MinCost2">80.0</parameter>
       <node refinement="disjunctive">
         <label>N_8</label>
-        <parameter domainId="MinTimePar1">10.0</parameter>
-        <parameter domainId="MinCost2">70.0</parameter>
+        <parameter category="basic" domainId="MinTimePar1">10.0</parameter>
+        <parameter category="basic" domainId="MinCost2">70.0</parameter>
       </node>
       <node refinement="disjunctive">
         <label>N_9</label>
-        <parameter domainId="MinTimePar1">25.0</parameter>
-        <parameter domainId="MinCost2">10.0</parameter>
+        <parameter category="basic" domainId="MinTimePar1">25.0</parameter>
+        <parameter category="basic" domainId="MinCost2">10.0</parameter>
       </node>
     </node>
   </node>

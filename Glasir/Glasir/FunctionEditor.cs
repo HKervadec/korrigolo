@@ -129,7 +129,7 @@ namespace Glasir
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
             searchAndChange(elemRoot);
-            XMLFile resultFile = this.File.createResultFile();
+            XMLFile resultFile = this.File.createResultFile(1);
             return resultFile;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -12,19 +13,19 @@ namespace Glasir
         {
         }
         
-        public int FirstParam
-        {
-            get;
-            private set;
-        }
-
-        public int SecondParam
+        public int DomainParam
         {
             get;
             private set;
         }
 
         public XMLFile File
+        {
+            get;
+            private set;
+        }
+
+        public double Max
         {
             get;
             private set;
@@ -78,7 +79,7 @@ namespace Glasir
             private set;
         }
 
-        public Filter(XMLFile f, String name, String fn, int firstP, int secondP, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
+        public Filter(XMLFile f, int domain, String max, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
         {
             L1 = l1;
             M1 = m1;
@@ -89,11 +90,11 @@ namespace Glasir
             H2 = h2;
             E2 = e2;
             File = f;
-            FirstParam = firstP;
-            SecondParam = secondP;
+            DomainParam = domain;
+            Max= Convert.ToDouble(max);
         }
 
-        /*
+
         /// <summary>
         /// create the resulting tree of the function
         /// </summary>
@@ -104,16 +105,108 @@ namespace Glasir
 
             XElement fn = (XElement) File.XmlCode.FirstNode;
             IEnumerable<XElement> domains = fn.Elements("domain");
-            String domainClass = domains.ElementAt(FirstParam).Element("class").Value;
-            fn.Add(new XElement("domain", 
-                new XAttribute("id", FunctionName), 
-                new XElement("class", domainClass), 
-                new XElement("tool", "ADTool")));
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
-            searchAndChange(elemRoot);
-            XMLFile resultFile = this.File.createResultFile();
+            searchAndChange(elemRoot, Max);
+            XMLFile resultFile = this.File.createResultFile(2);
             return resultFile;
+        }
+
+        /*
+         * Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
+         * Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils et ses noeuds frères
+         */
+
+        public void searchAndChange(XElement code, double m)
+        {
+            Console.WriteLine(code);
+            Console.WriteLine("\n");
+
+            if (code.Element("node") != null && (String)code.Element("node").Attribute("switchRole") == "yes")
+            {
+                IEnumerable<XElement> subnodes = code.Elements("node");
+                foreach (XElement elem in subnodes)
+                {
+                    searchAndChange(elem, m);
+                }
+            }
+
+            else
+            {
+                IEnumerable<XElement> elements = code.Elements("parameter");
+       
+                    string value = elements.ElementAt(DomainParam).Value;
+
+                    if (value == "true") { value = "1"; }
+                    if (value == "false") {value = "0";}
+
+                    if(value == "L") { value = L1; }
+                    if(value=="M") {value = M1;}
+                    if(value == "H") { value = H1; }
+                    if(value=="E") {value = E1;}
+                    
+                    if (value == "Infinity")
+                    {
+                        code.Remove();
+                    }
+                    else
+                    {
+                        if (Evaluate(value+"-"+m) > 0)
+                        {
+                                code.Remove();
+                        }
+                        else if (code.Element("node") != null) {
+                            IEnumerable<XElement> subnodes = code.Elements("node");
+                            foreach(XElement elem in subnodes) {
+                                searchAndChange(elem, m); 
+                            }
+                        }
+                        else if ((String)code.Attribute("refinement") == "conjunctive")
+                        {
+
+                            IEnumerable<XElement> elements2 = code.Elements("parameter");
+                            string value2 = elements2.ElementAt(DomainParam).Value;
+
+
+                            IEnumerable<XElement> elementsNode = code.Elements("node");
+                            foreach (XElement el in elementsNode)
+                            {
+                                if ((String)el.Attribute("switchRole") != "yes")
+                                {
+                                    IEnumerable<XElement> elem = el.Elements("parameter");
+                                    string val = elem.ElementAt(DomainParam).Value;
+                                    double maxtemp = Evaluate(val + " - " + value2);
+                                    maxtemp = m + maxtemp;
+                                    Console.WriteLine("b");
+                                    Console.WriteLine(el);
+                                    searchAndChange(el, maxtemp);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+
+                            IEnumerable<XElement> elementsNode = code.Elements("node");
+                            foreach (XElement el in elementsNode)
+                            {
+                                if ((String)el.Attribute("switchRole") != "yes")
+                                {
+                                    Console.WriteLine("b");
+                                    Console.WriteLine(el);
+                                    searchAndChange(el, m);
+                                }
+                            }
+                        }
+                    }
+                    
+                
+                Console.WriteLine("a");
+                Console.WriteLine(code);
+                return;
+            }
+
+            
         }
 
         public static double Evaluate(string expression)
@@ -124,87 +217,13 @@ namespace Glasir
             loDataTable.Rows.Add(0);
             return (double)(loDataTable.Rows[0]["Eval"]);
         }
-        */
-
-        /*
-         * Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
-         * Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils et ses noeuds frères
-         */
-
-        /*
-        public void searchAndChange(XElement code)
-        {
-            Console.WriteLine(code);
-            Console.WriteLine("\n");
-
-            if (code.Element("node") == null || (String) code.Element("node").Attribute("switchRole") == "yes")
-            {
-                IEnumerable<XElement> elements = code.Elements("parameter");
-       
-                    string c = elements.ElementAt(FirstParam).Value;
-                    string d = elements.ElementAt(SecondParam).Value;
-
-                    if (c == "true") { c = "1"; }
-                    if (c == "false") {c = "0";}
-
-                    if (d == "true") {d = "1";}
-                    if (d == "false") {d = "0";}
-
-                    if(c == "L") { c = L1; }
-                    if(c=="M") {c = M1;}
-                    if(c == "H") { c = H1; }
-                    if(c=="E") {c = E1;}
-                    if(d=="L") {d = L2;}
-                    if(d=="M") {d = M2;}
-                    if(d=="H") {d = H2;}
-                    if(d=="E") {d = E2;}
-                    
-                    if (c == "Infinity" || d == "Infinity")
-                    {
-                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), "Infinity"));
-                    }
-                    else if (Function.Contains("/") && (d == "0" || d == "0.0"))
-                    {
-                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), "Infinity"));
-                    }
-                    else
-                    {
-                        double res = Evaluate(c + Function + d);
-                        code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("domainId", FunctionName), res.ToString()));
-                    }
-                    
-                
-                Console.WriteLine("a");
-                Console.WriteLine(code);
-                return;
-            }
-            else
-            {
-                IEnumerable<XElement> elementsNode = code.Elements("node");
-                foreach (XElement el in elementsNode)
-                {
-                    if ((String) el.Attribute("switchRole")!="yes")
-                    {
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
-                        searchAndChange(el);
-                    }
-                }
-            }
-        }
-
-        public override XMLFile createResultingFile(XMLFile file) { return file; }
-    }
-          */
 
         /// <summary>
         /// create the resulting tree of the function
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="xmlCode"></param>
-        public override XMLFile createResultingFile(XMLFile fileName)
-        {
-            throw new NotImplementedException();
-        }
+        public override XMLFile createResultingFile(XMLFile file) { return file; }
+    
     }
 }

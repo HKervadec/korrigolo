@@ -51,6 +51,7 @@ namespace Glasir
             //Binding par XAML
             this.Param2Editor.DataContext = this.domains;
             this.Param1Editor.DataContext = this.domains;
+            this.FilterComboBox.DataContext = this.domains;
 
             ////Binding par code
             //Binding bind = new Binding();
@@ -60,6 +61,7 @@ namespace Glasir
             //Définition de ma property à afficher dans la combo
             Param1Editor.DisplayMemberPath = "Chars";
             Param2Editor.DisplayMemberPath = "Chars";
+            FilterComboBox.DisplayMemberPath = "Chars";
         }
 
 
@@ -117,7 +119,11 @@ namespace Glasir
             catch { }
         }
 
-
+        /// <summary>
+        /// create the new parameter for the foreground tree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void functionEdition(object sender, RoutedEventArgs e)
         {
             try
@@ -137,12 +143,12 @@ namespace Glasir
                 else
                 {
 
-                    XMLFile file = Glasir.ADToolInstances[0].file;
+                    XMLFile file = ADToolInstance.foregroundInstance.file;
                     FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
                     double test = FunctionEditor.Evaluate("2" + FunctionFormula.Text + "1");
                     XMLFile newfile = functEdit.createResultingFile();
                     Glasir.launchADToolInstance(newfile.FileName);
-                    domains = Glasir.ADToolInstances[0].file.getDomains();
+                    domains = ADToolInstance.foregroundInstance.file.getDomains();
                     Window_Loaded(sender, e);
                     this.updateTreeView();
                 }
@@ -153,6 +159,39 @@ namespace Glasir
             }
         }
 
+
+        /// <summary>
+        /// filter the foregroung tree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void filtering(object sender, RoutedEventArgs e)
+        {
+            //try
+           // {
+
+                String item = (String)FilterComboBox.SelectedItem;
+                if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the filter");
+                }
+                else
+                {
+
+                    XMLFile file = ADToolInstance.foregroundInstance.file;
+                    Filter filter = new Filter(file, FilterComboBox.SelectedIndex, maxFilter.Text, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                    XMLFile newfile = filter.createResultingFile();
+                    Glasir.launchADToolInstance(newfile.FileName);
+                    domains = ADToolInstance.foregroundInstance.file.getDomains();
+                    Window_Loaded(sender, e);
+                    this.updateTreeView();
+                }
+           // }
+           // catch
+            //{
+           //     MessageBox.Show("Invalid filter.");
+           // }
+        }
         
 
         /// <summary>
@@ -275,7 +314,7 @@ namespace Glasir
                 // Open ADT file 
                 string filename = dlg.FileName;
                 Glasir.launchADToolInstance(filename);
-                domains = Glasir.ADToolInstances[0].file.getDomains();
+                domains = ADToolInstance.foregroundInstance.file.getDomains();
                 Window_Loaded(sender, e);
             }
             this.updateTreeView();
@@ -364,6 +403,8 @@ namespace Glasir
                 if ( ((TreeViewItem) this.treeView.Items[i]).IsSelected)
                 {
                     this.Glasir.setForegroundInstance(i);
+                    domains = ADToolInstance.foregroundInstance.file.getDomains();
+                    Window_Loaded(sender, e);
                     return;
                 }
             }

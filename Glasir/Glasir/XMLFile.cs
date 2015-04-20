@@ -55,9 +55,21 @@ namespace Glasir
             return XmlCode.ToString(); 
         }
 
-        public XMLFile createResultFile()
+        public XMLFile createResultFile(int a)
         {
-            string newName = Path.GetFileNameWithoutExtension(this.FileName) + ".1.xml";
+            string newName;
+            if (a == 1)
+            {
+                newName = Path.GetFileNameWithoutExtension(this.FileName) + ".functEdit.xml";
+            }
+            if (a == 2)
+            {
+                newName = Path.GetFileNameWithoutExtension(this.FileName) + ".Filter.xml";
+            }
+            else
+            {
+                newName = Path.GetFileNameWithoutExtension(this.FileName) + ".Optimizer.xml";
+            }
             XMLFile resultingFile = new XMLFile(newName, this.XmlCode);
             resultingFile.XmlCode.Save(newName);
             return resultingFile;

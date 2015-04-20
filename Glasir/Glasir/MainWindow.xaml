@@ -96,25 +96,12 @@
             </TabItem>
             <TabItem Header="Filter">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox HorizontalAlignment="Left" Height="114" Margin="10,87,0,0" VerticalAlignment="Top" Width="77">
-                        <CheckBox Content="Param1" Height="25" VerticalContentAlignment="Center" />
-                        <CheckBox Content="Param2" Height="25" VerticalContentAlignment="Center"/>
-                        <CheckBox Content="Param3" Height="25" VerticalContentAlignment="Center"/>
-                        <CheckBox Content="Param4" Height="25" VerticalContentAlignment="Center"/>
-                    </ListBox>
-                    <Button Content="Filter" HorizontalAlignment="Left" Margin="97,223,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                    <Button Content="Filter" HorizontalAlignment="Left" Margin="93,164,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="filtering"/>
                     <TextBlock HorizontalAlignment="Left" Margin="21,66,0,0" TextWrapping="Wrap" Text="Parameter" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="126,66,0,0" TextWrapping="Wrap" Text="min" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="206,66,0,0" TextWrapping="Wrap" Text="max" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="97,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="168,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="Select the parameters you want to filter with and the corresponding intervals :" VerticalAlignment="Top" Width="218"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="168,68,0,0" TextWrapping="Wrap" Text="max" VerticalAlignment="Top" RenderTransformOrigin="-0.174,0.611"/>
+                    <TextBox Name="maxFilter" HorizontalAlignment="Left" Height="23" Margin="149,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="Select the parameter you want to filter the tree with, and the maximum value :" VerticalAlignment="Top" Width="218"/>
+                    <ComboBox Name="FilterComboBox" HorizontalAlignment="Left" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" Margin="10,89,0,0" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Optimize">
