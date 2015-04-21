@@ -1018,7 +1018,7 @@ public class MainWindow extends Frame
     {
       public final void windowClosing(final WindowEvent e)
       {
-    	  if (Main.viewmodeIsOn)
+    	  if (Main.viewmodeIsOn || !Main.askToQuit)
     	  {
     		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	  }

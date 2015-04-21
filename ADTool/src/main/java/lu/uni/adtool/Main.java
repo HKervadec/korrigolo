@@ -37,6 +37,7 @@ public final class Main
 
   private static final int MIN_JAVA_NUM = 6;
   public static boolean viewmodeIsOn = false;
+  public static boolean askToQuit = false;
 
 
   /**
