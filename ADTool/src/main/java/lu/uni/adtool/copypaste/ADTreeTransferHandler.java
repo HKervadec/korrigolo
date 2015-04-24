@@ -2,6 +2,7 @@ package lu.uni.adtool.copypaste;
 
 import java.util.Vector;
 
+import lu.uni.adtool.adtree.ADTNode;
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.adtree.Node;
 import lu.uni.adtool.ui.ADTreeCanvas;
@@ -10,21 +11,53 @@ public class ADTreeTransferHandler
 {
 	private int counter = 1;
 	private ADTreeNode clonedNode;
-	private Vector<Node> children;
 	
-
+	/**
+	 * Cut
+	 * @param adt
+	 */
 	public void cut(ADTreeNode adt)
 	{
 		System.out.println("cut : "+adt.getLabel());
 	}
 	
+	/**
+	 * Copy
+	 * @param adt
+	 */
 	public void copy(ADTreeNode adt)
 	{	
 		this.clonedNode = new ADTreeNode(adt.getType(), adt.getRefinmentType(), adt.getLabel());
-		System.out.println("copied");
+		this.clonedNode.setTerm(this.copyTerm(adt.getTerm()));
+		
+		System.out.println("copied : "+adt.getLabel());
 	}
 	
+	/**
+	 * subfunction for copy
+	 * @param term
+	 * @return
+	 */
+	private ADTNode copyTerm(ADTNode term)
+	{
+		ADTNode clonedTerm = new ADTNode(term.getId(),term.getType(),term.getName());
+		System.out.println("cloned : "+term.getName());
+		
+		Vector<Node> clonedChildren = new Vector<Node>();
+		for(Node child : term.getChildren())
+		{
+				ADTNode castedChild = ((ADTNode) child);
+				clonedChildren.add(this.copyTerm(castedChild));
+		}
+		clonedTerm.setChildren(clonedChildren);
+		
+		return clonedTerm;
+	}
 
+	/**
+	 * Paste
+	 * @param canvas
+	 */
 	public void paste(ADTreeCanvas canvas) 
 	{
 		if (this.clonedNode == null)

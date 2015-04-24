@@ -62,6 +62,20 @@ public class ADTNode extends SimpleNode
     name = "";
     children = new Vector<Node>();
   }
+  
+  /**
+   * Bigger constructor
+   * @param id
+   * @param type
+   * @param name
+   */
+  public ADTNode(final int id, final Type type, final String name)
+  {
+	  super(id);
+	  this.type = type;
+	  this.name = name;
+	  this.children = new Vector<Node>();
+  }
 
   /**
    * Gets the children for this instance.
@@ -144,7 +158,16 @@ public class ADTNode extends SimpleNode
 
   public String toString()
   {
-    return toString(0);
+	  /*
+	  String resul = this.getName();
+	  for (Node child : this.children)
+	  {
+		  ADTNode castedChild = ((ADTNode) child);
+		  resul += " \n\t"+castedChild.toString();
+	  }
+	  return resul;
+	  */
+	  return toString(0);
   }
   /**
    * Removes all children of a node.
