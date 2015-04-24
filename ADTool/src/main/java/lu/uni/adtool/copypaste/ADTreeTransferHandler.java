@@ -81,6 +81,8 @@ public class ADTreeTransferHandler
 		ADTreeNode nodeToPaste = new ADTreeNode(this.clonedNode.getType(),
 												this.clonedNode.getRefinmentType(),
 												this.clonedNode.getLabel()+counter++);
+		nodeToPaste.setTerm(this.copyTerm(clonedNode.getTerm()));
+		System.out.println(nodeToPaste.getTerm().toString());
 		canvas.addChild(focusedNode, nodeToPaste);
 		System.out.println("pasted : "+clonedNode.getLabel());
 	}

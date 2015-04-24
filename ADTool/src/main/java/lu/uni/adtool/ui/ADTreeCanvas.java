@@ -69,7 +69,6 @@ import lu.uni.adtool.adtree.ADTreeForGui;
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.adtree.ParseException;
 import lu.uni.adtool.adtree.TokenMgrError;
-
 import net.infonode.docking.View;
 
 import org.abego.treelayout.NodeExtentProvider;
