@@ -12,8 +12,14 @@ namespace Glasir
         public Filter()
         {
         }
-        
-        public int DomainParam
+
+        public List<XElement> listDelete
+        {
+            get;
+            private set;
+        }
+
+        public string DomainParam
         {
             get;
             private set;
@@ -79,7 +85,7 @@ namespace Glasir
             private set;
         }
 
-        public Filter(XMLFile f, int domain, String max, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
+        public Filter(XMLFile f, string domain, String max, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
         {
             L1 = l1;
             M1 = m1;
@@ -107,7 +113,11 @@ namespace Glasir
             IEnumerable<XElement> domains = fn.Elements("domain");
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
+            listDelete = new List<XElement>();
             searchAndChange(elemRoot, Max);
+            foreach(XElement el in listDelete) {
+                el.Remove();
+            }
             XMLFile resultFile = this.File.createResultFile(2);
             return resultFile;
         }
@@ -122,91 +132,118 @@ namespace Glasir
             Console.WriteLine(code);
             Console.WriteLine("\n");
 
-            if (code.Element("node") != null && (String)code.Element("node").Attribute("switchRole") == "yes")
+            IEnumerable<XElement> parameters = code.Elements("parameter");
+            string value=null;
+            foreach (XElement par in parameters)
             {
-                IEnumerable<XElement> subnodes = code.Elements("node");
-                foreach (XElement elem in subnodes)
+                if ((string)par.Attribute("category") == "derived" && (string)par.Attribute("domainId") == DomainParam)
                 {
-                    searchAndChange(elem, m);
+                    value = par.Value;
+                }
+            }
+            if (value == null)
+            {
+                foreach (XElement par in parameters)
+                {
+                    if ((string)par.Attribute("category") == "basic" && (string)par.Attribute("domainId") == DomainParam)
+                    {
+                        value = par.Value;
+                    }
                 }
             }
 
-            else
+            if (value == "true") {value = "1";}
+            if (value == "false") {value = "0";}
+
+            if(value == "L") {value = L1;}
+            if(value == "M") {value = M1;}
+            if(value == "H") {value = H1;}
+            if(value == "E") {value = E1;}
+
+            if (value == "Infinity")
             {
-                IEnumerable<XElement> elements = code.Elements("parameter");
-       
-                    string value = elements.ElementAt(DomainParam).Value;
+                listDelete.Add(code);
+                return;
+            }
 
-                    if (value == "true") { value = "1"; }
-                    if (value == "false") {value = "0";}
-
-                    if(value == "L") { value = L1; }
-                    if(value=="M") {value = M1;}
-                    if(value == "H") { value = H1; }
-                    if(value=="E") {value = E1;}
-                    
-                    if (value == "Infinity")
-                    {
-                        code.Remove();
-                    }
-                    else
-                    {
-                        if (Evaluate(value+"-"+m) > 0)
-                        {
-                                code.Remove();
-                        }
-                        else if (code.Element("node") != null) {
-                            IEnumerable<XElement> subnodes = code.Elements("node");
-                            foreach(XElement elem in subnodes) {
-                                searchAndChange(elem, m); 
-                            }
-                        }
-                        else if ((String)code.Attribute("refinement") == "conjunctive")
-                        {
-
-                            IEnumerable<XElement> elements2 = code.Elements("parameter");
-                            string value2 = elements2.ElementAt(DomainParam).Value;
-
-
-                            IEnumerable<XElement> elementsNode = code.Elements("node");
-                            foreach (XElement el in elementsNode)
-                            {
-                                if ((String)el.Attribute("switchRole") != "yes")
-                                {
-                                    IEnumerable<XElement> elem = el.Elements("parameter");
-                                    string val = elem.ElementAt(DomainParam).Value;
-                                    double maxtemp = Evaluate(val + " - " + value2);
-                                    maxtemp = m + maxtemp;
-                                    Console.WriteLine("b");
-                                    Console.WriteLine(el);
-                                    searchAndChange(el, maxtemp);
-                                }
-                            }
-                        }
-
-                        else
-                        {
-
-                            IEnumerable<XElement> elementsNode = code.Elements("node");
-                            foreach (XElement el in elementsNode)
-                            {
-                                if ((String)el.Attribute("switchRole") != "yes")
-                                {
-                                    Console.WriteLine("b");
-                                    Console.WriteLine(el);
-                                    searchAndChange(el, m);
-                                }
-                            }
-                        }
-                    }
-                    
-                
+            if (code.Element("node") == null)
+            {
+                if (Evaluate(m + "-" + value) < 0.0) { listDelete.Add(code); } 
                 Console.WriteLine("a");
                 Console.WriteLine(code);
                 return;
             }
 
-            
+            else {
+
+                if (Evaluate(m + "-" + value) < 0.0)
+                {
+                    listDelete.Add(code);
+                    //code.Remove();
+                    Console.WriteLine("a");
+                    Console.WriteLine(code);
+                    return;
+                }
+                else {
+                    if ((String)code.Attribute("refinement") == "conjunctive")
+                    {
+                        IEnumerable<XElement> subNodes = code.Elements("node");
+                        foreach (XElement el in subNodes)
+                        {
+                            IEnumerable<XElement> subParams = el.Elements("parameter");
+                            string subVal = null;
+                            foreach (XElement par in subParams)
+                            {
+                                if ((string)par.Attribute("category") == "derived" && (string)par.Attribute("domainId") == DomainParam)
+                                {
+                                    subVal = par.Value;
+                                }
+                            }
+                            if (subVal == null)
+                            {
+                                foreach (XElement par in subParams)
+                                {
+                                    if ((string)par.Attribute("category") == "basic" && (string)par.Attribute("domainId") == DomainParam)
+                                    {
+                                        subVal = par.Value;
+                                    }
+                                }
+                            }
+                            if (subVal == "true") { subVal = "1"; }
+                            if (subVal == "false") { subVal = "0"; }
+
+                            if (subVal == "L") { subVal = L1; }
+                            if (subVal == "M") { subVal = M1; }
+                            if (subVal == "H") { subVal = H1; }
+                            if (subVal == "E") { subVal = E1; }
+
+                            if (subVal == "Infinity")
+                            {
+                                listDelete.Add(el);
+                                return;
+                            }
+                            else
+                            {
+                                double maxtemp = Evaluate(subVal + " - " + value);
+                                maxtemp = m + maxtemp;
+                                Console.WriteLine("b");
+                                Console.WriteLine(el);
+                                searchAndChange(el, maxtemp);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        IEnumerable<XElement> subNodes = code.Elements("node");
+                        foreach (XElement el in subNodes)
+                        {
+                            Console.WriteLine("b");
+                            Console.WriteLine(el);
+                            searchAndChange(el, m);
+                        }
+                    }
+                }
+            }
         }
 
         public static double Evaluate(string expression)

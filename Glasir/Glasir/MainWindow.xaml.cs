@@ -144,7 +144,7 @@ namespace Glasir
                 {
 
                     XMLFile file = ADToolInstance.foregroundInstance.file;
-                    FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, Param1Editor.SelectedIndex, Param2Editor.SelectedIndex, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                    FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, (string)Param1Editor.SelectedItem, (string)Param2Editor.SelectedItem, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
                     double test = FunctionEditor.Evaluate("2" + FunctionFormula.Text + "1");
                     XMLFile newfile = functEdit.createResultingFile();
                     Glasir.launchADToolInstance(newfile.FileName);
@@ -179,7 +179,7 @@ namespace Glasir
                 {
 
                     XMLFile file = ADToolInstance.foregroundInstance.file;
-                    Filter filter = new Filter(file, FilterComboBox.SelectedIndex, maxFilter.Text, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                    Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
                     XMLFile newfile = filter.createResultingFile();
                     Glasir.launchADToolInstance(newfile.FileName);
                     domains = ADToolInstance.foregroundInstance.file.getDomains();

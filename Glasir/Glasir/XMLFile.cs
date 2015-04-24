@@ -62,7 +62,7 @@ namespace Glasir
             {
                 newName = Path.GetFileNameWithoutExtension(this.FileName) + ".functEdit.xml";
             }
-            if (a == 2)
+            else if (a == 2)
             {
                 newName = Path.GetFileNameWithoutExtension(this.FileName) + ".Filter.xml";
             }
