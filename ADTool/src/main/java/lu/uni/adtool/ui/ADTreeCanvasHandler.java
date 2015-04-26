@@ -101,10 +101,13 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
             canvas.addSibling(node, !e.isShiftDown());
             break;
           case KeyEvent.VK_X:
-        	  super.transferHandler.cut(canvas.getFocused());
+        	  super.transferHandler.copy(canvas.getFocused());
+        	  this.canvas.removeTree(canvas.getFocused());
+        	  System.out.println("Cut: "+canvas.getFocused().getLabel());
         	  break;
           case KeyEvent.VK_C:
         	  super.transferHandler.copy(canvas.getFocused());
+        	  System.out.println("Copied: "+canvas.getFocused().getLabel());
         	  break;
           case KeyEvent.VK_V:
         	  super.transferHandler.paste(canvas);
@@ -419,7 +422,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     		{
     			transferHandler.copy(menuNode);
     			canvas.removeTree(menuNode);
-    			System.out.println("Cut");
+    			System.out.println("Cut : "+menuNode.getLabel());
     		}
     	}
     });
@@ -435,14 +438,14 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     		if (menuNode != null)
     		{
     			transferHandler.copy(menuNode);
-    			System.out.println("Copied !");
+    			System.out.println("Copied : "+menuNode.getLabel());
     		}
     	}
     });
     pmenu.add(copy);
     
     // Paste as Child
-    paste = new JMenuItem("Paste as Child");
+    paste = new JMenuItem("Paste Subtree as Child");
     paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,InputEvent.CTRL_MASK));
     paste.addActionListener(new ActionListener()
     {
@@ -451,7 +454,6 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     		if (menuNode != null)
     		{
     			transferHandler.paste(canvas);
-    			System.out.println("Pasted ! TODO");
     		}
     	}
     });
