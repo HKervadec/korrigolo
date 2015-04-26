@@ -417,7 +417,9 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	{
     		if (menuNode != null)
     		{
-    			System.out.println("Cut ! TODO");
+    			transferHandler.copy(menuNode);
+    			canvas.removeTree(menuNode);
+    			System.out.println("Cut");
     		}
     	}
     });
@@ -432,7 +434,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	{
     		if (menuNode != null)
     		{
-    			System.out.println("Copied ! TODO");
+    			transferHandler.copy(menuNode);
+    			System.out.println("Copied !");
     		}
     	}
     });
@@ -447,6 +450,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	{
     		if (menuNode != null)
     		{
+    			transferHandler.paste(canvas);
     			System.out.println("Pasted ! TODO");
     		}
     	}
