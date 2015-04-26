@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>Root</label>
+    <parameter category="derived" domainId="DiffLMH1">M</parameter>
+    <node refinement="conjunctive">
+      <label>N_2</label>
+      <parameter category="derived" domainId="DiffLMH1">M</parameter>
+      <node refinement="disjunctive">
+        <label>N_4</label>
+        <parameter category="derived" domainId="DiffLMH1">M</parameter>
+        <node refinement="disjunctive">
+          <label>N_10</label>
+          <parameter category="basic" domainId="DiffLMH1">M</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>N_11</label>
+          <parameter category="basic" domainId="DiffLMH1">H</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>N_5</label>
+        <parameter category="basic" domainId="DiffLMH1">M</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>N_3</label>
+      <parameter category="derived" domainId="DiffLMH1">M</parameter>
+      <node refinement="conjunctive">
+        <label>N_6</label>
+        <parameter category="derived" domainId="DiffLMH1">M</parameter>
+        <node refinement="disjunctive">
+          <label>N_8</label>
+          <parameter category="basic" domainId="DiffLMH1">L</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>N_9</label>
+          <parameter category="basic" domainId="DiffLMH1">M</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>N_7</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
+      </node>
+    </node>
+  </node>
+  <domain id="DiffLMH1">
+    <class>lu.uni.adtool.domains.predefined.DiffLMH</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

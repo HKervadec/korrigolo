@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>Root</label>
+    <parameter category="derived" domainId="MinCost1">30.0</parameter>
+    <node refinement="conjunctive">
+      <label>N_2</label>
+      <parameter category="derived" domainId="MinCost1">30.0</parameter>
+      <node refinement="disjunctive">
+        <label>N_6</label>
+        <parameter category="basic" domainId="MinCost1">15.0</parameter>
+      </node>
+      <node refinement="conjunctive">
+        <label>N_7</label>
+        <parameter category="derived" domainId="MinCost1">15.0</parameter>
+        <node refinement="disjunctive">
+          <label>N_8</label>
+          <parameter category="basic" domainId="MinCost1">10.0</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>N_9</label>
+          <parameter category="basic" domainId="MinCost1">5.0</parameter>
+        </node>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>N_4</label>
+      <parameter category="basic" domainId="MinCost1">40.0</parameter>
+    </node>
+    <node refinement="disjunctive">
+      <label>N_3</label>
+      <parameter category="derived" domainId="MinCost1">35.0</parameter>
+      <node refinement="disjunctive">
+        <label>N_10</label>
+        <parameter category="basic" domainId="MinCost1">35.0</parameter>
+      </node>
+      <node refinement="conjunctive">
+        <label>N_11</label>
+        <parameter category="derived" domainId="MinCost1">35.0</parameter>
+        <node refinement="disjunctive">
+          <label>N_13</label>
+          <parameter category="derived" domainId="MinCost1">20.0</parameter>
+          <node refinement="disjunctive">
+            <label>N_15</label>
+            <parameter category="basic" domainId="MinCost1">20.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>N_16</label>
+            <parameter category="basic" domainId="MinCost1">40.0</parameter>
+          </node>
+        </node>
+        <node refinement="disjunctive">
+          <label>N_14</label>
+          <parameter category="basic" domainId="MinCost1">15.0</parameter>
+        </node>
+      </node>
+    </node>
+  </node>
+  <domain id="MinCost1">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

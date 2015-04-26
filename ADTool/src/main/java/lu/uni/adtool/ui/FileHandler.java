@@ -370,7 +370,7 @@ public class FileHandler
     });
     exportCalculatedValues = new JCheckBox();
     exportCalculatedValues.setText("Add derived values");
-    exportCalculatedValues.setSelected(Options.main_saveDerivedValues);
+    exportCalculatedValues.setSelected(true);
     exportCalculatedValues.addActionListener(new ActionListener()
     {
       public void actionPerformed(ActionEvent e)
