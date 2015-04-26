@@ -414,10 +414,10 @@ public class MainWindow extends Frame
         System.out.println("File not found:"+args[0]);
       }
       catch(Exception e){
-        System.out.println("Error opening file:"+args[0]);
+        System.out.println("Error opening file: "+args[0]+" ("+e.getMessage()+")");
         if (args[0].equals("--viewmode") || args[0].equals("-viewmode"))
         {
-        	System.out.println("Viewmode usage : --viewmode filename.xml");
+        	System.out.println("Viewmode usage: --viewmode filename.xml");
         }
       }
     }
@@ -955,15 +955,9 @@ public class MainWindow extends Frame
 
   private void restoreDefaultLayout()
   {
-	  if(Main.viewmodeIsOn)
-	  {
-		  rootWindow.setWindow(views[0]);
-	  }
-	  else
-	  {
-		  splitWindow=new SplitWindow(false, 0.37103593f, views[1], views[0]);
-		  rootWindow.setWindow(splitWindow);
-	  }
+	  splitWindow=new SplitWindow(false, 0.37103593f, views[1], views[0]);
+	  rootWindow.setWindow(splitWindow);
+	  
 	  for (View v : dynamicViews.values()) 
 	  {
 		  addDomainWindow(v);
@@ -1078,15 +1072,17 @@ public class MainWindow extends Frame
     
     createAttrDomainMenu();
     
-    if (!Main.viewmodeIsOn)
+    if (Main.viewmodeIsOn)
     {
-    	menu.add(createFileMenu());
-        menu.add(createEditMenu());
-        menu.add(createViewMenu());
-        menu.add(createWindowsMenu());
-        menu.add(attrDomainsMenu);
-        menu.add(createHelpMenu());
+    	return menu;
     }
+	menu.add(createFileMenu());
+    menu.add(createEditMenu());
+    menu.add(createViewMenu());
+    menu.add(createWindowsMenu());
+    menu.add(attrDomainsMenu);
+    menu.add(createHelpMenu());
+
     return menu;
   }
 
@@ -1099,17 +1095,22 @@ public class MainWindow extends Frame
   {
     JMenu menu=attrDomainsMenu;
     menu.removeAll();
+    
     JMenuItem menuItem = new JMenuItem("Add Attribute Domain");
-    menuItem.addActionListener(new ActionListener()
+    if (!Main.viewmodeIsOn)
     {
-      public void actionPerformed(ActionEvent e)
-      {
-        chooseAttributeDomain();
-      }
-    });
-    menuItem.setMnemonic(KeyEvent.VK_A);
-    menu.add(menuItem);
-    // if (dynViews.size()>0){
+        menuItem.addActionListener(new ActionListener()
+        {
+          public void actionPerformed(ActionEvent e)
+          {
+            chooseAttributeDomain();
+          }
+        });
+        menuItem.setMnemonic(KeyEvent.VK_A);
+        menu.add(menuItem);
+    }
+    
+    
     if (valuations.size() > 0) {
       menu.addSeparator();
       for (Integer i : valuations.keySet()) {
@@ -1134,6 +1135,8 @@ public class MainWindow extends Frame
       }
     }
   }
+  
+  
   public void addDomainWindow(DockingWindow window){
     DockingWindow wr =splitWindow.getRightWindow();
     DockingWindow wl =splitWindow.getLeftWindow();

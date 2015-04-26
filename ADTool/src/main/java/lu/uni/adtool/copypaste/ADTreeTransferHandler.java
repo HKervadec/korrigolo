@@ -11,14 +11,6 @@ public class ADTreeTransferHandler
 {
 	private ADTreeNode clonedNode;
 	
-	/**
-	 * Cut
-	 * @param adt
-	 */
-	public void cut(ADTreeNode adt)
-	{
-		System.out.println("cut : "+adt.getLabel());
-	}
 	
 	/**
 	 * Copy
@@ -28,8 +20,6 @@ public class ADTreeTransferHandler
 	{	
 		this.clonedNode = new ADTreeNode(adt.getType(), adt.getRefinmentType(), adt.getLabel());
 		this.clonedNode.setTerm(this.copyTerm(adt.getTerm()));
-		
-		System.out.println("copied : "+adt.getLabel());
 	}
 	
 	/**
@@ -59,7 +49,7 @@ public class ADTreeTransferHandler
 	{
 		if (this.clonedNode == null)
 		{
-			System.out.println("Nothing to paste !");
+			System.out.println("Nothing to paste!");
 			return;
 		}
 		ADTreeNode focusedNode = canvas.getFocused();
@@ -79,11 +69,10 @@ public class ADTreeTransferHandler
 												this.clonedNode.getRefinmentType(),
 												this.clonedNode.getLabel());
 		nodeToPaste.setTerm(this.copyTerm(clonedNode.getTerm()));
-		System.out.println(nodeToPaste.getTerm().toString());
 		
 		ADTreeNode child = canvas.addChild(focusedNode);
 		canvas.getTree().cloneTreeFromTerms(nodeToPaste.getTerm(), child);
-		System.out.println("pasted : "+clonedNode.getLabel());
+		System.out.println("Pasted: "+clonedNode.getLabel());
 	}
 
 }
