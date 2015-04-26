@@ -106,6 +106,7 @@ namespace Glasir
             E2 = e2;
             File = f;
             FunctionName = name;
+            fn = fn.Replace('.', ',');
             Function = fn;
             FirstParam = firstP;
             SecondParam = secondP;
@@ -157,8 +158,8 @@ namespace Glasir
          */
         public void searchAndChange(XElement code, int swittcccchhhhh=0)
         {
-            Console.WriteLine(code);
-            Console.WriteLine("\n");
+            //Console.WriteLine(code);
+            //Console.WriteLine("\n");
 
             if (swittcccchhhhh == 1)
             {
@@ -167,13 +168,13 @@ namespace Glasir
                 {
                     if ((String)el.Attribute("switchRole") == "yes")
                     {
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
+                        //Console.WriteLine("b");
+                        //Console.WriteLine(el);
                         searchAndChange(el, 0);
                     }
                     else{
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
+                        //Console.WriteLine("b");
+                        //Console.WriteLine(el);
                         searchAndChange(el, 1);
                     }
                 }
@@ -226,8 +227,8 @@ namespace Glasir
                     code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
                 }
                       
-            Console.WriteLine("a");
-            Console.WriteLine(code);
+            //Console.WriteLine("a");
+            //Console.WriteLine(code);
             return;
             }
 
@@ -282,14 +283,14 @@ namespace Glasir
                             code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
                         }
 
-                        Console.WriteLine("a");
-                        Console.WriteLine(code);searchAndChange(el, 1);
+                        //Console.WriteLine("a");
+                        //Console.WriteLine(code);searchAndChange(el, 1);
                         return;
                     }
                     else
                     {
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
+                        //Console.WriteLine("b");
+                        //Console.WriteLine(el);
                         searchAndChange(el);
                     }
                 }

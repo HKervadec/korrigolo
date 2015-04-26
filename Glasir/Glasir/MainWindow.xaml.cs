@@ -119,6 +119,36 @@ namespace Glasir
             catch { }
         }
 
+        public void testDomainFiltering(object sender, SelectionChangedEventArgs args)
+        {
+            try
+            {
+                String item = (String)FilterComboBox.SelectedItem;
+                if (item.StartsWith("DiffLMHE", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L3.Visibility = Visibility.Visible;
+                    M3.Visibility = Visibility.Visible;
+                    H3.Visibility = Visibility.Visible;
+                    E3.Visibility = Visibility.Visible;
+                }
+                else if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    L3.Visibility = Visibility.Visible;
+                    M3.Visibility = Visibility.Visible;
+                    H3.Visibility = Visibility.Visible;
+                    E3.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    L3.Visibility = Visibility.Hidden;
+                    M3.Visibility = Visibility.Hidden;
+                    H3.Visibility = Visibility.Hidden;
+                    E3.Visibility = Visibility.Hidden;
+                }
+            }
+            catch { }
+        }
+
         /// <summary>
         /// create the new parameter for the foreground tree
         /// </summary>
@@ -167,30 +197,30 @@ namespace Glasir
         /// <param name="e"></param>
         private void filtering(object sender, RoutedEventArgs e)
         {
-            //try
-           // {
+            try
+            {
 
                 String item = (String)FilterComboBox.SelectedItem;
-                if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                /*if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
                 {
                     MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the filter");
                 }
                 else
-                {
+                {*/
 
                     XMLFile file = ADToolInstance.foregroundInstance.file;
-                    Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
+                    Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text);
                     XMLFile newfile = filter.createResultingFile();
                     Glasir.launchADToolInstance(newfile.FileName);
                     domains = ADToolInstance.foregroundInstance.file.getDomains();
                     Window_Loaded(sender, e);
                     this.updateTreeView();
-                }
-           // }
-           // catch
-            //{
-           //     MessageBox.Show("Invalid filter.");
-           // }
+                //}
+            }
+            catch
+            {
+                MessageBox.Show("Invalid filter.");
+            }
         }
         
 

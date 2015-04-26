@@ -61,42 +61,16 @@ namespace Glasir
             private set;
         }
 
-        public String L2
-        {
-            get;
-            private set;
-        }
 
-        public String M2
+        public Filter(XMLFile f, string domain, String max)
         {
-            get;
-            private set;
-        }
-
-        public String H2
-        {
-            get;
-            private set;
-        }
-
-        public String E2
-        {
-            get;
-            private set;
-        }
-
-        public Filter(XMLFile f, string domain, String max, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
-        {
-            L1 = l1;
-            M1 = m1;
-            H1 = h1;
-            E1 = e1;
-            L2 = l2;
-            M2 = m2;
-            H2 = h2;
-            E2 = e2;
             File = f;
             DomainParam = domain;
+            max = max.Replace('.',',');
+            if (max == "L") { max = "1"; }
+            else if (max == "M") { max = "2"; }
+            else if (max == "H") { max = "3"; }
+            else if (max == "E") { max = "4"; }
             Max= Convert.ToDouble(max);
         }
 
@@ -155,10 +129,10 @@ namespace Glasir
             if (value == "true") {value = "1";}
             if (value == "false") {value = "0";}
 
-            if(value == "L") {value = L1;}
-            if(value == "M") {value = M1;}
-            if(value == "H") {value = H1;}
-            if(value == "E") {value = E1;}
+            if(value == "L") {value = "1";}
+            if(value == "M") {value = "2";}
+            if(value == "H") {value = "3";}
+            if(value == "E") {value = "4";}
 
             if (value == "Infinity")
             {
@@ -212,10 +186,10 @@ namespace Glasir
                             if (subVal == "true") { subVal = "1"; }
                             if (subVal == "false") { subVal = "0"; }
 
-                            if (subVal == "L") { subVal = L1; }
-                            if (subVal == "M") { subVal = M1; }
-                            if (subVal == "H") { subVal = H1; }
-                            if (subVal == "E") { subVal = E1; }
+                            if (subVal == "L") { subVal = "1"; }
+                            if (subVal == "M") { subVal = "2"; }
+                            if (subVal == "H") { subVal = "3"; }
+                            if (subVal == "E") { subVal = "4"; }
 
                             if (subVal == "Infinity")
                             {
