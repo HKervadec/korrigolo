@@ -789,15 +789,17 @@ public class ADTreeCanvas extends JPanel implements Scrollable,
     child.changeType();
     tree.addCounter(node,child);
   }
+  
   /**
    * Adds a child or a counter to the node.
    * 
    * @param node
    */
-  public void addChild(ADTreeNode node)
+  public ADTreeNode addChild(ADTreeNode node)
   {
     ADTreeNode child = new ADTreeNode(node.getType(),Options.tree_defRefType);
     tree.addChild(node,child);
+    return child;
   }
   
   /**

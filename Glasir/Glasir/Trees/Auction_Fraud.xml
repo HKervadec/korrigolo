@@ -5,6 +5,7 @@
       <label>Preparation Phase</label>
       <node refinement="disjunctive">
         <label>Ask Vera about Sam</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Subvert Verify</label>
         </node>
@@ -13,12 +14,15 @@
         <label>Shop at Sam</label>
         <node refinement="disjunctive">
           <label>Acquire Malware</label>
+          <parameter category="basic" domainId="DiffLMH1">M</parameter>
         </node>
         <node refinement="disjunctive">
           <label>Acquire Emails</label>
+          <parameter category="basic" domainId="DiffLMH1">H</parameter>
         </node>
         <node refinement="disjunctive">
           <label>Acquire Chris CC</label>
+          <parameter category="basic" domainId="DiffLMH1">H</parameter>
         </node>
         <node refinement="disjunctive" switchRole="yes">
           <label>Police Internet</label>
@@ -30,24 +34,28 @@
           <label>Job Offer</label>
           <node refinement="disjunctive">
             <label>Rachel Accepts Job</label>
+            <parameter category="basic" domainId="DiffLMH1">H</parameter>
             <node refinement="disjunctive" switchRole="yes">
               <label>Train Rachel</label>
             </node>
           </node>
           <node refinement="disjunctive">
             <label>Send Job Ad to Emails</label>
+            <parameter category="basic" domainId="DiffLMH1">H</parameter>
           </node>
         </node>
         <node refinement="conjunctive">
           <label>Malware Distribution</label>
           <node refinement="disjunctive">
             <label>Tino Opens Attachment</label>
+            <parameter category="basic" domainId="DiffLMH1">H</parameter>
             <node refinement="disjunctive" switchRole="yes">
               <label>Train Tina</label>
             </node>
           </node>
           <node refinement="disjunctive">
             <label>Send Malware to Emails</label>
+            <parameter category="basic" domainId="DiffLMH1">H</parameter>
           </node>
         </node>
       </node>
@@ -56,15 +64,18 @@
       <label>Buy from Alice</label>
       <node refinement="disjunctive">
         <label>Credentials from Tina</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Profile Credential Usage</label>
         </node>
       </node>
       <node refinement="disjunctive">
         <label>Purchase Goods</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
       </node>
       <node refinement="disjunctive">
         <label>Pay with Chris CC</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Check CCs for Theft</label>
         </node>
@@ -74,12 +85,14 @@
       <label>Delivery Process</label>
       <node refinement="disjunctive">
         <label>Max to Rachel</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Mark Goods</label>
         </node>
       </node>
       <node refinement="disjunctive">
         <label>Rachel to Dave</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Stop in Transit</label>
           <node refinement="disjunctive">
@@ -92,6 +105,7 @@
       </node>
       <node refinement="disjunctive">
         <label>Otto from Dave</label>
+        <parameter category="basic" domainId="DiffLMH1">H</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Spot-check Drop Boxes</label>
         </node>
@@ -99,6 +113,7 @@
     </node>
     <node refinement="disjunctive">
       <label>Otto sells to Perry</label>
+      <parameter category="basic" domainId="DiffLMH1">H</parameter>
       <node refinement="disjunctive" switchRole="yes">
         <label>Prevent Sale</label>
         <node refinement="disjunctive">
@@ -110,4 +125,8 @@
       </node>
     </node>
   </node>
+  <domain id="DiffLMH1">
+    <class>lu.uni.adtool.domains.predefined.DiffLMH</class>
+    <tool>ADTool</tool>
+  </domain>
 </adtree>

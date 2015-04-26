@@ -1155,4 +1155,83 @@ public class ADTreeForGui extends AbstractTreeForTreeLayout<ADTreeNode> implemen
     java.util.Collections.sort(list);
     return list;
   }
+  
+  
+  
+  /**
+   * Create new tree based on the terms (used for copy/paste)
+   *
+   * @param root
+   */
+  public void cloneTreeFromTerms(ADTNode termRoot, ADTreeNode treeRoot)
+  {
+    switch(termRoot.getType()){
+      case LEAFP:
+      case LEAFO:
+        treeRoot.setLabel(termRoot.getName());
+        break;
+      case OP:
+      case OO:
+        treeRoot.setLabel(termRoot.getName());
+        treeRoot.setRefinementType(ADTreeNode.RefinementType.DISJUNCTIVE);
+        for(Node termChild:termRoot.getChildren()){
+          addFromTerm((ADTNode)termChild,treeRoot,1);
+        }
+        break;
+      case AP:
+      case AO:
+        treeRoot.setLabel(termRoot.getName());
+        treeRoot.setRefinementType(ADTreeNode.RefinementType.CONJUNCTIVE);
+        for(Node termChild:termRoot.getChildren()){
+          addFromTerm((ADTNode)termChild,treeRoot,1);
+        }
+        break;
+        
+      case CP:
+      case CO:
+        ADTNode subTerm = (ADTNode)termRoot.getChildren().elementAt(0);
+        switch(subTerm.getType()){
+          case LEAFP:
+          case LEAFO:
+            treeRoot.setLabel(subTerm.getName());
+            break;
+          case OP:
+          case OO:          
+            treeRoot.setLabel(subTerm.getName());
+            treeRoot.setRefinementType(ADTreeNode.RefinementType.DISJUNCTIVE);
+            for(Node termChild:subTerm.getChildren()){
+              addFromTerm((ADTNode)termChild,treeRoot,1);
+            }
+            break;
+          case AP:
+          case AO:          
+            treeRoot.setLabel(subTerm.getName());
+            treeRoot.setRefinementType(ADTreeNode.RefinementType.CONJUNCTIVE);
+            for(Node termChild:subTerm.getChildren()){
+              addFromTerm((ADTNode)termChild,treeRoot,1);
+            }
+            break;
+          case CP:
+          case CO:
+            treeRoot.setLabel(subTerm.getName());
+            treeRoot.setRefinementType(ADTreeNode.RefinementType.DISJUNCTIVE);
+            addFromTerm((ADTNode)subTerm,treeRoot,1);
+            break;
+          
+          default:
+            System.err.println("Cannot create from terms. Invalid term expression provided in counter node.");
+        }
+        addFromTerm((ADTNode)termRoot.getChildren().elementAt(1),treeRoot,1);
+        //it must be last !!
+        treeRoot.setCountered(true);
+        break;
+        
+
+      default:
+        System.err.println("Cannot create from terms. Invalid term expression provided.");
+    }
+    notifyTreeChanged();
+    updateAllSizes();
+    notifySizeChanged();
+  }
 }

@@ -9,7 +9,6 @@ import lu.uni.adtool.ui.ADTreeCanvas;
 
 public class ADTreeTransferHandler
 {
-	private int counter = 1;
 	private ADTreeNode clonedNode;
 	
 	/**
@@ -41,8 +40,6 @@ public class ADTreeTransferHandler
 	private ADTNode copyTerm(ADTNode term)
 	{
 		ADTNode clonedTerm = new ADTNode(term.getId(),term.getType(),term.getName());
-		System.out.println("cloned : "+term.getName());
-		
 		Vector<Node> clonedChildren = new Vector<Node>();
 		for(Node child : term.getChildren())
 		{
@@ -80,10 +77,12 @@ public class ADTreeTransferHandler
 		
 		ADTreeNode nodeToPaste = new ADTreeNode(this.clonedNode.getType(),
 												this.clonedNode.getRefinmentType(),
-												this.clonedNode.getLabel()+counter++);
+												this.clonedNode.getLabel());
 		nodeToPaste.setTerm(this.copyTerm(clonedNode.getTerm()));
 		System.out.println(nodeToPaste.getTerm().toString());
-		canvas.addChild(focusedNode, nodeToPaste);
+		
+		ADTreeNode child = canvas.addChild(focusedNode);
+		canvas.getTree().cloneTreeFromTerms(nodeToPaste.getTerm(), child);
 		System.out.println("pasted : "+clonedNode.getLabel());
 	}
 

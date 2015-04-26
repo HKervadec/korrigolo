@@ -168,7 +168,6 @@ public class CollapsiblePanel extends JPanel
       c.setVisible(visible);
     }
     updateBorderTitle();
-    System.out.println("pd");
   }
 
   protected void updateBorderTitle()
