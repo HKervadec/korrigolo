@@ -34,7 +34,7 @@ namespace Glasir
         public ADToolInstance(string fileName)
         {
             Process proc = new Process();
-            proc.StartInfo.FileName = "ADTool-1.4-jar-with-dependencies.jar";
+            proc.StartInfo.FileName = BigGlasir.AdtoolVersion;
             proc.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
             proc.StartInfo.Arguments = "--viewmode "+fileName;
             try
@@ -43,8 +43,7 @@ namespace Glasir
             }
             catch (System.ComponentModel.Win32Exception)
             {
-                MainWindow.messageBox("ADTool couldn't be launched. \nBe sure that ADTool.jar is in this folder: \n"+Directory.GetCurrentDirectory()
-                    +"\nAlso check that you have a working JDK for your Operating System.");
+                MainWindow.messageBox("ADTool couldn't be launched.\nFollow the steps described in the ReadMe file provided with Glasir, then restart the software.");
             }
             
             proc.StartInfo.Arguments = fileName;

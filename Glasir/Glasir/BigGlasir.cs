@@ -9,6 +9,12 @@ namespace Glasir
     
     public class BigGlasir
     {
+        private static string _adtoolVersion = "ADTool-1.4-jar-with-dependencies.jar";
+
+        public static string AdtoolVersion
+        {
+            get { return _adtoolVersion; }
+        }
 
         public BigGlasir()
         {

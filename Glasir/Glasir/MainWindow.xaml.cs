@@ -42,6 +42,16 @@ namespace Glasir
         {   
             InitializeComponent();
             this.Glasir = new BigGlasir();
+            checkIfADToolIsInstalled();
+        }
+
+        private void checkIfADToolIsInstalled()
+        {
+            if (!System.IO.File.Exists(Directory.GetCurrentDirectory() + BigGlasir.AdtoolVersion))
+            {
+                MessageBox.Show(BigGlasir.AdtoolVersion + "   was not found.\nPlease follow the steps described in the ReadMe file provided with Glasir.");
+                this.Close();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
