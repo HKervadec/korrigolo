@@ -208,8 +208,8 @@ namespace Glasir
         /// <param name="e"></param>
         private void filtering(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
                 String item = (String)FilterComboBox.SelectedItem;
                 /*if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
@@ -227,11 +227,11 @@ namespace Glasir
                     Window_Loaded(sender, e);
                     this.updateTreeView();
                 //}
-            }
-            catch
-            {
-                MessageBox.Show("Invalid filter.");
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Invalid filter.");
+            //}
         }
         
 

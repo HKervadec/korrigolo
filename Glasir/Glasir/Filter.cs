@@ -140,6 +140,8 @@ namespace Glasir
                 return;
             }
 
+            value = value.Replace('.', ',');
+
             if (code.Element("node") == null)
             {
                 if (Evaluate(m + "-" + value) < 0.0) { listDelete.Add(code); } 
@@ -191,6 +193,8 @@ namespace Glasir
                             if (subVal == "H") { subVal = "3"; }
                             if (subVal == "E") { subVal = "4"; }
 
+                            subVal = subVal.Replace('.', ',');
+
                             if (subVal == "Infinity")
                             {
                                 listDelete.Add(el);
@@ -223,6 +227,7 @@ namespace Glasir
         public static double Evaluate(string expression)
         {
             var loDataTable = new DataTable();
+            expression = expression.Replace(',', '.');
             var loDataColumn = new DataColumn("Eval", typeof(double), expression);
             loDataTable.Columns.Add(loDataColumn);
             loDataTable.Rows.Add(0);
