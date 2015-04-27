@@ -47,9 +47,10 @@ namespace Glasir
 
         private void checkIfADToolIsInstalled()
         {
-            if (!System.IO.File.Exists(Directory.GetCurrentDirectory() + BigGlasir.AdtoolVersion))
+            string path = Directory.GetCurrentDirectory() + "\\" + BigGlasir.AdtoolVersion;
+            if (!System.IO.File.Exists(path))
             {
-                MessageBox.Show(BigGlasir.AdtoolVersion + "   was not found.\nPlease follow the steps described in the ReadMe file provided with Glasir.");
+                MessageBox.Show(path + "   was not found.\nPlease follow the steps described in the ReadMe file provided with Glasir.");
                 this.Close();
             }
         }
