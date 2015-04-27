@@ -39,6 +39,12 @@ namespace Glasir
             
         }
 
+        public XMLFile(XMLFile file)
+        {
+            FileName = file.FileName;
+            XmlCode = new XDocument(file.XmlCode);
+        }
+
         public XMLFile(string xmlfile, XDocument code)
         {
             FileName = xmlfile;

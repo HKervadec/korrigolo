@@ -82,8 +82,8 @@ namespace Glasir
         /// <param name="xmlCode"></param>
         public XMLFile createResultingFile()
         {
-
-            XElement fn = (XElement) File.XmlCode.FirstNode;
+            XMLFile codeXML = new XMLFile(File);
+            XElement fn = (XElement) codeXML.XmlCode.FirstNode;
             IEnumerable<XElement> domains = fn.Elements("domain");
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
@@ -92,7 +92,7 @@ namespace Glasir
             foreach(XElement el in listDelete) {
                 el.Remove();
             }
-            XMLFile resultFile = this.File.createResultFile(2);
+            XMLFile resultFile = codeXML.createResultFile(2);
             return resultFile;
         }
 
