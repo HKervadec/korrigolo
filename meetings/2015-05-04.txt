@@ -1,0 +1,10 @@
+l'arbre en foreground devrait être plus mis en évidence
+rajouter java -jar pour que ça marche...
+rajouter path de l'arbre ouvert dans titre de fenêtre aditoule
+il faudra préciser pour le filtre qu'on considère chaque noeud comme indépendant des autres, i.e. si on a deux noeuds "péter la porte", ce sont deux portes distinctes
+fenêtre popup quand arbre vide (filtre)
+désactiver les clics dans la fenêtre des domains
+expliquer que le copy paste faut faire gaffe au sens de l'adtree
+supprimer le paste du menu quand rien n'est copié
+
+prochainje réunion mardi 19 mai à 14h et jeudi 21 à 16h
