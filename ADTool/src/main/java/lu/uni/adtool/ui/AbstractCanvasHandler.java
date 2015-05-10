@@ -35,6 +35,7 @@ import javax.swing.JScrollPane;
 
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.copypaste.ADTreeTransferHandler;
+import lu.uni.adtool.copypaste.UndoExecutor;
 
 /**
  * Abstract mouse and keyboard hadler for the canvas.
@@ -45,6 +46,7 @@ public abstract class AbstractCanvasHandler implements  CanvasHandler
 {
   protected ADTreeCanvas canvas;
   protected ADTreeTransferHandler transferHandler;
+  protected UndoExecutor undoExecutor;
   private Point2D      	dragStart;
   private boolean      	dragScroll;
   /**
@@ -55,10 +57,12 @@ public abstract class AbstractCanvasHandler implements  CanvasHandler
   public AbstractCanvasHandler(final ADTreeCanvas canvas)
   {
     this.canvas = canvas;
+    this.undoExecutor = new UndoExecutor();
     this.transferHandler = new ADTreeTransferHandler();
     dragStart = null;
     dragScroll = false;
   }
+  
   /**
    * {@inheritDoc}
    * @see java.awt.event.MouseWheelListener#mouseWheelMoved(MouseWheelEvent)

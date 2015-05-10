@@ -32,6 +32,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 
+import lu.uni.adtool.Main;
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.domains.Domain;
 
@@ -132,6 +133,10 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
   @SuppressWarnings("unchecked")
   public void mouseClicked(final MouseEvent e)
   {
+	if (Main.viewmodeIsOn)
+	{
+		return;
+	}
     canvas.requestFocusInWindow();
     final ADTreeNode node = this.canvas.getNode(e.getX(), e.getY());
     if (node != null) {
