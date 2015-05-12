@@ -8,4 +8,16 @@ Additionally ADTool depends on the following libraries:
 - TreeLayout, that you can find here: https://code.google.com/p/treelayout/ 
 - InfoNodeDockingWindows, that you can find here: http://www.infonode.net/index.html?idw
 
-When all those steps are done, please be sure that the jar file of ADTool is in the same folder that Glasir.exe. Then launch Glasir.exe, and enjoy !
+Please be sure that the jar file of ADTool is in the same folder that Glasir.exe.
+
+You may have to associate .jar file with java. In this case, please follow these steps:
+- Open Windows Explorer by right-clicking the Start button, and then click Explore.
+- Click a folder that contains a .jar file (like ADTool.jar).
+- Right-click the file and click Open With (or point to Open With, and then click Choose Program).
+- In the Programs list, click Java (or click Browse, locate it, click it, and then click Open).
+- Click to select the "Always use the selected program to open this kind of file" check box if it is not selected.
+- Click OK.
+If ADTool launch correctly after those steps, you can close it and then restart Glasir.
+
+
+When all those steps are done, launch Glasir.exe, and enjoy !

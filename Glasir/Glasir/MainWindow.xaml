@@ -70,6 +70,8 @@
                 <MenuItem Header="Last Window" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="_Help" >
+                <MenuItem Header="ADTool doesn't launch" Click="helpADTool"/>
+                <Separator></Separator>
                 <MenuItem Header="About Glasir" Click="aboutUsClick"/>
             </MenuItem>
         </Menu>
