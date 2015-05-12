@@ -1,6 +1,6 @@
 Glasir:
-l'arbre en foreground devrait être plus mis en évidence
-rajouter java -jar pour que ça marche...
+moyen ok -> l'arbre en foreground devrait être plus mis en évidence <- moyen ok
+pseudo ok -> rajouter java -jar pour que ça marche... <- pseudo ok
 
 ADTool:
 ok -> rajouter path de l'arbre ouvert dans titre de fenêtre aditoule <- ok

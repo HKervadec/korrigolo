@@ -407,16 +407,14 @@ namespace Glasir
         {
             treeView.Items.Clear();
             foreach (ADToolInstance adti in Glasir.ADToolInstances)
-            {   
-                if((bool) this.showFilename.IsChecked)
+            {
+                TreeViewItem item = new TreeViewItem() { Header = adti.process.StartInfo.Arguments};
+                if((bool) !this.showFilename.IsChecked)
                 {
-                    treeView.Items.Add(new TreeViewItem() { Header = adti.process.StartInfo.Arguments});
+                    item.Header = System.IO.Path.GetFileName(adti.process.StartInfo.Arguments) ;
                 }
-                else
-                {
-                    treeView.Items.Add(new TreeViewItem() { Header = System.IO.Path.GetFileName(adti.process.StartInfo.Arguments) });
-                }
-                
+                               
+                treeView.Items.Add(item);                
             }
         }
 
@@ -443,6 +441,7 @@ namespace Glasir
             {
                 if ( ((TreeViewItem) this.treeView.Items[i]).IsSelected)
                 {
+                    this.selectedItemLabel.Content = ((TreeViewItem) this.treeView.Items[i]).Header;
                     this.Glasir.setForegroundInstance(i);
                     domains = ADToolInstance.foregroundInstance.file.getDomains();
                     Window_Loaded(sender, e);
