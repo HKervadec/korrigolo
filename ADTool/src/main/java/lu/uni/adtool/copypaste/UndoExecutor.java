@@ -1,5 +1,6 @@
 package lu.uni.adtool.copypaste;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 import lu.uni.adtool.adtree.ADTNode;
@@ -8,8 +9,9 @@ import lu.uni.adtool.ui.ADTreeCanvas;
 
 public class UndoExecutor 
 {
-	private Stack<ADTNode> savedRootStack = new Stack<ADTNode>();
-	private final int STACKLIMIT = 5;
+	private LinkedList<ADTNode> savedTreesQueue = new LinkedList<ADTNode>();
+	private final int QUEUEMEMORYLIMIT = 5000;
+	private int currentQueueSize = 0;
 	
 	/**
 	 * restore the tree in its previous state
@@ -17,12 +19,12 @@ public class UndoExecutor
 	 */
 	public void undo(ADTreeCanvas canvas) 
 	{
-		if (this.savedRootStack.empty())
+		if (this.savedTreesQueue.isEmpty())
 		{
 			System.out.println("Nothing to undo!");
 			return;
 		}
-		canvas.getTree().createFromTerms(this.savedRootStack.pop());
+		canvas.getTree().createFromTerms(this.savedTreesQueue.pop());
 		System.out.println("Last action undone.");		
 	}
 	
@@ -32,13 +34,14 @@ public class UndoExecutor
 	 */
 	public void saveTreeState(ADTreeNode root)
 	{
-		if (this.savedRootStack.size() > this.STACKLIMIT)
+		int rootSize = root.getTerm().getSize();
+		System.out.println(rootSize);
+		while ((this.currentQueueSize + rootSize > this.QUEUEMEMORYLIMIT) && !this.savedTreesQueue.isEmpty())
 		{
-			ADTNode lastNode = this.savedRootStack.pop();
-			this.savedRootStack.clear();
-			this.savedRootStack.push(lastNode);
+			this.currentQueueSize -= this.savedTreesQueue.removeLast().getSize();
 		}
-		this.savedRootStack.push(root.getTerm());
+		this.savedTreesQueue.push(root.getTerm());
+		this.currentQueueSize += root.getTerm().getSize();
 		System.out.println("Tree was saved.");
 	}
 }

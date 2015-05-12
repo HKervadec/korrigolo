@@ -10,6 +10,7 @@ import lu.uni.adtool.ui.ADTreeCanvas;
 public class ADTreeTransferHandler
 {
 	private ADTreeNode clonedNode;
+	private final int MAXSIZE = 1000;
 	
 	
 	/**
@@ -17,7 +18,12 @@ public class ADTreeTransferHandler
 	 * @param adt
 	 */
 	public void copy(ADTreeNode adt)
-	{	
+	{
+		if (adt.getTerm().getSize() > this.MAXSIZE)
+		{
+			System.out.println("Subtree is too big to be copied!");
+			return;
+		}
 		this.clonedNode = new ADTreeNode(adt.getType(), adt.getRefinmentType(), adt.getLabel());
 		this.clonedNode.setTerm(this.copyTerm(adt.getTerm()));
 	}
@@ -47,14 +53,15 @@ public class ADTreeTransferHandler
 	 */
 	public void paste(ADTreeCanvas canvas) 
 	{
-		if (this.clonedNode == null)
-		{
-			System.out.println("Nothing to paste!");
-			return;
-		}
 		ADTreeNode focusedNode = canvas.getFocused();
 		if (focusedNode == null)
 		{
+			return;
+		}
+		
+		if (this.clonedNode == null)
+		{
+			canvas.addChild(focusedNode);
 			return;
 		}
 		

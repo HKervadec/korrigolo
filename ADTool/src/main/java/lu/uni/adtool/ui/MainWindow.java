@@ -392,6 +392,7 @@ public class MainWindow extends Frame
           if (in != null) {
             ADTXmlImport importer = new ADTXmlImport(this);
             importer.importFrom(in);
+            this.frame.setTitle(args[0] + " - Attack Defense Tree Tool");
           }
         }
         else{

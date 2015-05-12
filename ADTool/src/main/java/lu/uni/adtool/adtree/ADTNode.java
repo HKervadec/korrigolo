@@ -149,6 +149,20 @@ public class ADTNode extends SimpleNode
   {
     return this.type;
   }
+  
+  
+  /**
+   * returns the max depth of its children.
+   */
+  public int getSize()
+  {
+	  int size = 1;
+	  for (Node child : this.children)
+	  {
+		  size += ((ADTNode) child).getSize();
+	  }
+	  return size;
+  }
 
   /**
    * {@inheritDoc}
