@@ -453,7 +453,7 @@ namespace Glasir
 
         private void helpADTool(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Files with .jar extention might be associate with something else than Java.\nPlease open the ReadMe file and follow the steps to change .jar file association.");
+            MessageBox.Show("Files with .jar extention might be associated with something else than Java.\nPlease open the ReadMe file and follow the steps to change .jar file association.");
         }
 
         
