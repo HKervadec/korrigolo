@@ -1,6 +1,7 @@
 Glasir:
 moyen ok -> l'arbre en foreground devrait être plus mis en évidence <- moyen ok
 pseudo ok -> rajouter java -jar pour que ça marche... <- pseudo ok
+fenêtre popup quand arbre vide (filtre)
 
 ADTool:
 ok -> rajouter path de l'arbre ouvert dans titre de fenêtre aditoule <- ok
@@ -10,7 +11,6 @@ enlever le booleen asktoexit à la fin...
 
 Rapport:
 il faudra préciser pour le filtre qu'on considère chaque noeud comme indépendant des autres, i.e. si on a deux noeuds "péter la porte", ce sont deux portes distinctes
-fenêtre popup quand arbre vide (filtre)
 expliquer que le copy paste faut faire gaffe au sens de l'adtree
 
 
