@@ -252,6 +252,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       addCounter.setVisible(!node.isCountered());
       addLeft.setVisible(canAddSibling);
       addRight.setVisible(canAddSibling);
+      paste.setVisible(transferHandler.hasClonedNode());
       remove.setVisible(parent!=null);
       removeChild.setVisible(canvas.getMiddleChild(node)!=null);
         //removeNode.setVisible(parent!=null);
@@ -480,10 +481,8 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	}
     });
     pmenu.add(paste);
-    
-    
-    
-  }
+    paste.setVisible(false);
+}
   
   /**
    * Checks if a string is a valid label

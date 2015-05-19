@@ -74,6 +74,7 @@ import lu.uni.adtool.adtree.ADTSerializer;
 import lu.uni.adtool.adtree.ADTXmlImport;
 import lu.uni.adtool.adtree.ADTreeForGui;
 import lu.uni.adtool.adtree.ADTreeNode;
+import lu.uni.adtool.copypaste.UndoExecutor;
 import lu.uni.adtool.domains.Domain;
 import lu.uni.adtool.domains.DomainFactory;
 import lu.uni.adtool.domains.ValuationDomain;
@@ -139,6 +140,7 @@ public class MainWindow extends Frame
   private static ADAction                   filePrint;
   private static ADAction                   filePrintPreview;
   private static ADAction                   fileExit;
+  protected UndoExecutor 					undoExecutor;
   /**
    * Status bar
    */
@@ -1375,6 +1377,7 @@ public class MainWindow extends Frame
     menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,
         InputEvent.CTRL_MASK));
     editMenu.add(menuItem);
+    
     editMenu.addSeparator();
     menuItem = new JMenuItem("Switch Attacker/Defender Roles");
     menuItem.addActionListener(new ActionListener()
