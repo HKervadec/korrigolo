@@ -112,14 +112,9 @@
             </TabItem>
             <TabItem Header="Optimize">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Optimize" HorizontalAlignment="Left" Margin="179,83,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="19,83,0,0" VerticalAlignment="Top" Width="120">
-                        <ComboBoxItem IsSelected="True">Param1</ComboBoxItem>
-                        <ComboBoxItem>Param2</ComboBoxItem>
-                        <ComboBoxItem>Param3</ComboBoxItem>
-                        <ComboBoxItem>Param4</ComboBoxItem>
-                    </ComboBox>
-                    <TextBlock HorizontalAlignment="Left" Margin="19,36,0,0" TextWrapping="Wrap" Text="Select the parameter you want optimize :" VerticalAlignment="Top"/>
+                    <Button Content="Optimize" HorizontalAlignment="Left" Margin="166,83,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="optimize"/>
+                    <ComboBox Name="OptimizeComboBox" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" HorizontalAlignment="Left" Margin="19,83,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="19,36,0,0" TextWrapping="Wrap" Text="Select the parameter you want the ADTree to be optimized to :" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>
