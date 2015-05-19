@@ -44,8 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractCanvasHandler.cs" />
     <Compile Include="AddChildEdit.cs" />
     <Compile Include="AddDomainEdit.cs" />
+    <Compile Include="ADTreeCanvas.cs" />
+    <Compile Include="ADTreeCanvasHandler.cs" />
+    <Compile Include="ADTreeNode.cs" />
+    <Compile Include="ADTreeTransferHandler.cs" />
+    <Compile Include="CanvasHandler.cs" />
     <Compile Include="ChangeLabelEdit.cs" />
     <Compile Include="Clipboard.cs" />
     <Compile Include="Form1.cs">
@@ -63,6 +69,7 @@
     <Compile Include="TransfertHandler.cs" />
     <Compile Include="UndoableEdit.cs" />
     <Compile Include="HistoryManager.cs" />
+    <Compile Include="UndoExecutor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
