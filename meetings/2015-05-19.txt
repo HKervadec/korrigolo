@@ -1,0 +1,20 @@
+demain soir (20/05) faut envoyer un rapport bien entamé
+
+envoyer des trucs à barbara le dimanche soir, et le mercredi soir
+
+Démo de 30min pendant le showroom => envoyer mail à Pazat (et Gildas) pour horaires
+Mail à Gildas pour rapports de l'année dernière
+
+Envoyer un mail à Eric Anquetil : la documentation en ligne, est-ce que c'est un pdf ? Et à qui faut le rendre ?
+Manuel utilisateur en français, et juste parler des nouvelles fonctionnalités d'ADTool.
+
+Rapport final : dans les rectificatifs, mettre les nouveaux algos, aussi, et les expliquer. Montrer le avant, et le après, peu importe si ça fait 50 pages.
+Dans les tests, on peut mettre en intro nous on a testé (en tant que dev), barbara a testé ADTool (en tant qu'experte), et Gildas teste comme quelqu'un de totalement exterieur. Préciser qu'on a eu des ADTrees des 5A. Pas nécessaire de mettre des images pour chaque bug
+Dans Etat finalisation : editeur de fonctions on s'est restreint sur les fonctions, pas sur le nombre de paramètres combinables. Pour le filtre, dire qu'on a fait mieux, même si ça a déjà été dit dans la partie rectificatif conception.
+
+Rapport de planif : dire qu'on a appris à gérer un projet, pour l'intro.
+
+Soutenance : faut parler un peu de notre planification sur les deux dernières slides. Ne pas faire de démo, t'façon on a pas le temps. Sceenshot à balle.
+
+
+ADTool : rajouter un bouton Undo.
