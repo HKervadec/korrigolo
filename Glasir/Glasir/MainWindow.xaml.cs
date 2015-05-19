@@ -63,6 +63,7 @@ namespace Glasir
             this.Param2Editor.DataContext = this.domains;
             this.Param1Editor.DataContext = this.domains;
             this.FilterComboBox.DataContext = this.domains;
+            this.OptimizeComboBox.DataContext = this.domains;
 
             ////Binding par code
             //Binding bind = new Binding();
@@ -73,6 +74,7 @@ namespace Glasir
             Param1Editor.DisplayMemberPath = "Chars";
             Param2Editor.DisplayMemberPath = "Chars";
             FilterComboBox.DisplayMemberPath = "Chars";
+            OptimizeComboBox.DisplayMemberPath = "Chars";
         }
 
 
@@ -212,21 +214,38 @@ namespace Glasir
             {
 
                 String item = (String)FilterComboBox.SelectedItem;
-                /*if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the filter");
-                }
-                else
-                {*/
+                XMLFile file = ADToolInstance.foregroundInstance.file;
+                Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text);
+                XMLFile newfile = filter.createResultingFile();
+                Glasir.launchADToolInstance(newfile.FileName);
+                domains = ADToolInstance.foregroundInstance.file.getDomains();
+                Window_Loaded(sender, e);
+                this.updateTreeView();
+            }
+            catch
+            {
+                MessageBox.Show("Invalid filter.");
+            }
+        }
 
-                    XMLFile file = ADToolInstance.foregroundInstance.file;
-                    Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text);
-                    XMLFile newfile = filter.createResultingFile();
-                    Glasir.launchADToolInstance(newfile.FileName);
-                    domains = ADToolInstance.foregroundInstance.file.getDomains();
-                    Window_Loaded(sender, e);
-                    this.updateTreeView();
-                //}
+        /// <summary>
+        /// Optimize the current tree with the given parameter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void optimize(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                String item = (String)OptimizeComboBox.SelectedItem;
+                XMLFile file = ADToolInstance.foregroundInstance.file;
+                Optimizer optim = new Optimizer(file, (String)OptimizeComboBox.SelectedItem);
+                XMLFile newfile = optim.createResultingFile();
+                Glasir.launchADToolInstance(newfile.FileName);
+                domains = ADToolInstance.foregroundInstance.file.getDomains();
+                Window_Loaded(sender, e);
+                this.updateTreeView();
             }
             catch
             {
