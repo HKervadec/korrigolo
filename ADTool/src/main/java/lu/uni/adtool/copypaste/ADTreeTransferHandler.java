@@ -12,6 +12,12 @@ public class ADTreeTransferHandler
 	private ADTreeNode clonedNode;
 	private final int MAXSIZE = 1000;
 	
+	/**
+	 * returns true if a node has been cut or copied
+	 */
+	public boolean hasClonedNode() {
+		return (clonedNode != null);
+	}
 	
 	/**
 	 * Copy
@@ -54,14 +60,8 @@ public class ADTreeTransferHandler
 	public void paste(ADTreeCanvas canvas) 
 	{
 		ADTreeNode focusedNode = canvas.getFocused();
-		if (focusedNode == null)
+		if (focusedNode == null || clonedNode == null)
 		{
-			return;
-		}
-		
-		if (this.clonedNode == null)
-		{
-			canvas.addChild(focusedNode);
 			return;
 		}
 		

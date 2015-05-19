@@ -14,7 +14,14 @@ public class UndoExecutor
 	private int currentQueueSize = 0;
 	
 	/**
-	 * restore the tree in its previous state
+	 * returns true if there is no action to undo
+	 */
+	public boolean noActionDone(){
+		return savedTreesQueue.isEmpty();
+	}
+	
+	/**
+	 * restores the tree in its previous state
 	 * @param canvas
 	 */
 	public void undo(ADTreeCanvas canvas) 
