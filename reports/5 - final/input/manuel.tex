@@ -1,4 +1,43 @@
-\section{Manuel utilisateur (en annexe ?)}
+\section{Manuel utilisateur}
+\label{sec:manuel}
+
+Bienvenue dans le manuel utilisateur de Glasir. Ce livret commencera par décrire le fonctionnement général du logiciel (création d'un nouveau projet, ouverture d'un projet existant, etc.), avant d'expliquer comment prendre en main les trois fonctionnalités principales que sont l'Éditeur de fonctions, le Filtre et enfin l'Optimiseur. 
+
+Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez des détails concernant l'utilisation d'ADTool, surtout les nouveautés qui lui ont été ajoutées lors de ce projet.
+
+\begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.3\textwidth]{figure/glasir.png}
+    \end{figure}
+
 \subsection{Glasir}
+\label{ssec:manuelGlasir}
+
+\paragraph{Fonctionnement général}
+
+\paragraph{Éditeur de fonctions}
+
+\paragraph{Filtre}
+
+\paragraph{Optimiseur}
 
 \subsection{Nouvelles fonctionnalités d'ADTool}
+\label{ssec:manuelADTool}
+
+Pour le fonctionnement basique d'ADTool, vous pouvez vous référer au manuel utilisateur officiel disponible sur Internet\footnote{Voir à l'adresse suivante : http://satoss.uni.lu/members/piotr/adtool/manual.pdf}. Le guide ici présent ne détaillera que l'utilisation des nouvelles fonctionnalités d'ADTool, qui sont le copier/couper/coller ainsi que l'annulation d'une action.
+
+\paragraph{Copier/couper/coller} Ces fonctionnalités vous seront utiles si vous désirez copier (resp. couper) un sous-arbre de l'ADTree courant afin de le coller ensuite à un autre emplacement dans ce même ADTree. Il est à noter que le sous-arbre copié (resp. coupé) sera ajouté en tant que nouveau fils du noeud auquel il sera collé. Pour copier (resp. couper) un sous-arbre puis le coller, merci de suivre les étapes suivantes : 
+\begin{enumerate}
+	\item Effectuez un clic droit sur le noeud racine du sous-arbre que vous désirez copier (resp. couper). Un menu déroulant doit apparaître à côté du noeud sélectionné, comme sur la {\sc Figure}~\ref{fig:clicdroit}.
+	\item Sélectionnez l'option \og Copy Subtree \fg{} (resp. \og Cut Subtree \fg{}) dans le menu déroulant. Vous pouvez également effectuer cette étape à l'aide d'un raccourci clavier, {\sc CTRL+C} (resp. {\sc CTRL+X}).
+	\item Effectuez un clic droit sur le noeud auquel vous voulez coller le sous-arbre copié (resp. coupé), puis sélectionnez dans la liste déroulante \og Paste Subtree as Child \fg{}. Si cette option n'apparaît pas dans le menu déroulant, c'est que vous n'avez pas préalablement copié (resp. coupé) de sous-arbre. Vous pouvez ici encore utiliser à la place du clic droit un raccourci clavier, {\sc CTRL+V}.
+\end{enumerate}
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/clicdroit.png}
+        \caption{Menu déroulant apparaissant après un clic droit sur un noeud.}
+        \label{fig:clicdroit}
+    \end{figure}
+
+\paragraph{Annulation d'une action} Il s'agit ici d'annuler une ou plusieurs action(s) effectuée(s) précédemment sur l'ADTree courant. Pour cela, il vous suffit tout simplement d'utiliser le raccourci clavier {\sc CTRL+Z} autant de fois que nécessaire, jusqu'à retrouver l'état souhaité pour l'ADTree.
