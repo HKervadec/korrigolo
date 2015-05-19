@@ -1,36 +1,53 @@
-\section{Etat de finalisation de Glasir}
+\section{État de finalisation de Glasir}
+\label{sec:etatFinal}
+
+Cette section va présenter l'état actuel de Glasir, celui dans lequel il a été livré à l'issue de cette année de 4INFO. Elle va donc débuter par un récapitulatif des objectifs initiaux et de leur état d'achèvement dans la {\sc sous-section}~\ref{subsec:objOK} avant d'évoquer des améliorations à envisager si continuation.
 
 \subsection{Tenue des objectifs}
+\label{subsec:objOK}
 
-Editeur de fonctions : 
-combinaison de paramètre ok,   mais avec seulement 2 paramètres
+Cette section établira d'abord les accomplissements relatifs à Glasir avant de mettre en évidence ceux concernant ADTool.
 
-filtre : 
-filtrage ok, seulement sur 1 paramètre, mais peut être utilisé consécutivement sur différents paramètres pour le même résultat qu'un filtrage sur plusieurs paramètres en une fois  
+\subsubsection{Glasir}
+\label{sssec:obj_glasir}
 
-opti : 
-?
+D'une manière générale, l'interface graphique de Glasir a été correctement implémentée avec les éléments qui avaient été promis : 
+\begin{itemize}
+	\item les trois fonctionnalités principales bien mises en évidence ;
+	\item les ADTrees contenus dans le projet en cours ;
+	\item un menu intuitif pour l'utilisateur.
+\end{itemize}
+Le seul écart à noter est qu'ADTool n'est finalement pas intégré à Glasir : les deux logiciels restent totalement indépendants. Les soucis éventuels de cohérence des ADTrees à la suite de modifications ont été contournés grâce à la mise en place d'un \og view mode \fg{} pour ADTool, comme expliqué en détails dans la {\sc section}~\ref{sec:rect}. L'expérience utilisateur ne semble pas affectée par cette décision, qui permet en plus de mieux distinguer l'édition des ADTrees de leur analyse. Enfin, il sera joint à la version finale de Glasir un dossier faisant office de bibliothèque de modèles et contenant un certain nombre d'ADTrees pouvant être utilisés pour des tests mais aussi dans des projets. Ces ADTrees seront basés sur la thématique des transports en commun afin d'illustrer notre étude de cas sur le STAR (Service des Transports en commun de l'Agglomération Rennaise).
 
-Glasir : 
-interface ok
+Les états d'avancement respectifs des trois fonctionnalités principales de Glasir sont quant à eux détaillés dans les paragraphes suivants.
 
-intégration adtool ds Glasir :
-non, mais ADTool à côté de Glasir, pour une utilisation à peu près aussi commode
+\paragraph{L'Éditeur de fonctions} Ce dernier permet comme promis la combinaison de plusieurs paramètres, mais il est seulement possible d'en combiner deux à la fois. Cependant, il est ensuite possible de réutiliser les fonctions créées pour en produire de nouvelles, ce qui permet indirectement de combiner plus de deux paramètres. En revanche, les fonctions mathématiques possibles à implémenter sont plus limitées que prévu. Seules les fonctions de base sont utilisables (somme, différence, produit, division) associées à des coefficients éventuels. Les autres fonctions évoquées dans le rapport de spécifications (min, max, etc.) ne sont finalement pas applicables.
 
-affichage multi-paramètre dans ADTool :
-non implémenté car tâche trop complexe (nécessité de recoder presque intégralement ADTool)
+-> ajouter les histoires de domaines ?
 
-Copy/Cut/Paste dans ADTool :
-ok
+\paragraph{Le Filtre} Cette fonctionnalité permet comme prévu de filtrer l'ADTree courant selon un paramètre sélectionné (qui peut être l'une des fonctions créées par le biais de l'Éditeur de fonctions). Les valeurs acceptées par l'utilisateur sont à fournir sous forme d'intervalle. Par contre, contrairement à ce qui avait été annoncé dans le rapport de spécifications, il est impossible de filtrer un ADTree d'un coup selon plusieurs paramètres. Cela peut être obtenu en appliquant le Filtre plusieurs fois d'affilée sur le même ADTree, d'abord selon un paramètre puis selon le deuxième, et ce jusqu'à obtenir le filtrage définitif souhaité.
 
-Ctrl Z :
-ok
+\paragraph{L'Optimiseur}
 
-Bibliothèque d'arbre : 
-déjà présente dans ADTool
+\subsubsection{ADTool}
+\label{sssec:obj_adtool}
+
+Le cahier des charges prévoyait en plus de l'implémentation de Glasir un certain nombre de modifications à apporter à ADTool. Parmi ces dernières, toutes ont été correctement mises en place, à l'exception de l'affichage simultané de plusieurs paramètres sur les noeuds d'un même ADTree. Cette nouveauté a été abandonnée car elle nécessitait une charge de travail trop importante, comme cela a été expliqué dans la {\sc section}~\ref{sec:rect}.
+
+Le logiciel permet donc toujours de créer, d'afficher et d'éditer des ADTrees de façon simple et intuitive, mais son ergonomie a été améliorée par les fonctionnalités suivantes :
+\begin{itemize}
+	\item une représentation textuelle plus complète ;
+	\item la possibilité de copier/couper/coller ;
+	\item l'annulation des actions précédentes.
+\end{itemize}
+
+Toutes les nouveautés évoquées ici apportent une réelle aide à l'expert en sécurité, qu'il veuille créer, éditer ou analyser des ADTrees. Mais un logiciel peut toujours être amélioré, c'est pourquoi la {\sc sous-section}~\ref{encorePlusMieux} présente une liste d'idées à creuser dans l'éventualité d'une continuation de l'implémentation.
 
 \subsection{Améliorations possibles}
+\label{subsec:encorePlusMieux}
 
-Refresh ADTool/Glasir
+La liste d'améliorations proposées ci-après n'est évidemment pas exhaustive, elle présente juste quelques pistes qui auraient pu être envisagées si le projet avait été poursuivi.
 
-Fonctionnalité suggestion de défenses
+\paragraph{Interconnectivité ADTool/Glasir} Sans parler d'intégrer totalement ADTool dans Glasir, il semble envisageable de trouver un moyen d'informer l'un des modifications effectuées via l'autre, et vice-versa. Il serait plus agréable pour l'utilisateur de pouvoir éditer et analyser les ADTrees à partir d'une même fenêtre logicielle, sans avoir à changer d'outil sans arrêt. Cette interconnectivité permettrait de se passer de la version \og view mode \fg{} d'ADTool actuellement utilisée dans Glasir. 
+
+\paragraph{Suggestion de défenses}
