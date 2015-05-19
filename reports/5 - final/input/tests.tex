@@ -1,19 +1,40 @@
 \section{Compte-rendu des tests}
+\label{sec:cr_tests}
 
-On s'est donné deux versions intermédiaires pour être sûr de ce qu'on faisait.
+Le développement de Glasir, ainsi que les modifications apportées à ADTool, ont été versionnés afin de pouvoir tester les nouveautés au fur et à mesure. En tout, trois versions ont été livrées : la 0.1, la 0.2 puis finalement la 1.0. Cette section a pour but de décrire les compte-rendus des tests de chacune des versions. Avant cela, il est à noter que les tests ont été réalisés par trois entités distinctes, dont nous allons présenter les profils respectifs dans la {\sc sous-section}~\ref{subsec:testeurs}.
+
+\subsection{Les profils de testeurs}
+\label{subsec:testeurs}
+
+\paragraph{Les développeurs} Cette catégorie comprend les trois étudiants en charge de l'implémentation du projet : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} ainsi que Maud {\sc Leray}. Le code produit a été testé en continu lors de son avancement, et non pas uniquement lors des rendus de versions, ce qui a déjà permis d'éliminer un certain nombre de \og bugs \fg{} possibles.
+
+\paragraph{L'expert en ADTrees} Chaque version rendue a été testée par un expert en ADTrees, qui maîtrisait aussi déjà la version initiale d'ADTool. Ses remarques, concernant Glasir mais aussi les améliorations apportées à ADTool, ont souvent permis de soulever des incohérences de formalisme ou d'interprétation des ADTrees.
+
+\paragraph{Le regard extérieur} Il s'agit ici d'une personne qui connaissait les objectifs du projet, mais qui n'était pas familière avec le formalisme des ADTrees ni avec ADTool. Son point de vue fut primordial car il permit de soulever des questions d'ordre ergonomique et/ou pratique qui n'auraient probablement pas été remarqués sinon.
+
+Maintenant que les différents profils de testeurs ont été décrits, il est temps de rendre compte des versions livrées, à commencer par la 0.1 dans la {\sc sous-section}~\ref{subsec:v0.1}.
+
 \subsection{Version 0.1}
+\label{subsec:v0.1}
 
-Problème machine vierge, 
+Cette version fut la première rendue dans le cadre du projet Glasir, elle présentait un certain nombre de dysfonctionnements rapidement corrigés par la suite. Ces derniers étaient en partie dûs au fait que le logiciel avait été testé en amont sur les ordinateurs personnels des développeurs, mais jamais sur une machine vierge. De plus, Glasir 0.1 a été rendue sans manuel utilisateur, or certaines fonctionnalités n'étaient pas forcément intuitives à prendre en main. Des précautions ont été prises par la suite pour ne pas reproduire les mêmes erreurs.
 
-problème éditeur fonctions : gestion booleens, même nom donné à deux nouveaux params, gestion défenses
+Les plus gros problèmes soulevés concernant cette version sont ceux relatifs à la fonctionnalité principale implémentée : l'Éditeur de fonctions. Pour commencer, ce dernier ne savait pas traiter les paramètres de type booléen, ni la présence de défenses dans un ADTree. Quelques questions ont également été soulevées concernant la gestion des paramètres discrets, tels que la difficulté pour l'attaquant évaluée sous la forme de valeurs L (Low), M (Medium) ou H (High). Des décisions ont été prises en collaboration avec les encadrants pour remédier à ces interrogations. Enfin, il a été remarqué que deux fonctions créées pouvaient porter le même nom, ce qui posait par la suite des soucis de clarté pour l'analyse des ADTrees.
 
-ajouter le nom pour les fenêtres d'ADTool
+Esthétiquement parlant, la fenêtre principale de Glasir a été critiquée pour son absence de redimensionnement. 
 
-problème redimensionement de la fenêtre de Glasir 
+Enfin, le constat a été fait que la possibilité de modifier les ADTrees via ADTool lors de leur ouverture avec Glasir était problématique, du fait de l'indépendance totale des deux logiciels. En effet, les changements effectués dans l'un n'étaient pas connus par l'autre et vice-versa. La solution mise en place fut celle d'un \og view mode \fg{} pour ADTool, utilisé dans Glasir pour bloquer toutes les possibilités de modification des ADTrees (à l'exception de celles apportées par l'Éditeur de fonctions, le Filtre et/ou l'Optimiseur). Cette nouveauté fut présente dès la version 0.2, dont le compte-rendu de tests est décrit dans la {\sc sous-section}~\ref{subsec:v0.2}.
 
 \subsection{Version 0.2}
+\label{subsec:v0.2}
 
-problème config jar, 
+Glasir 0.2 présentait moins de \og bugs \fg{} que son prédécesseur, et parmi ceux-ci aucun ne concernait l'implémentation du Filtre qui était la principale nouvelle fonctionnalité. Cela s'explique par le fait que cette fois-ci toutes les questions à son égard avaient été évoquées en amont du développement, lors d'une réunion avec les encadrants. La seule amélioration demandée était d'afficher une fenêtre pop-up du type \og Arbre vide après filtrage \fg{} plutôt que l'ADTree réduit à \og Root \fg{} lorsque le filtre appliqué ne permettait de conserver aucun noeud. Cela parait en effet plus compréhensible pour l'utilisateur.
 
-mise en évidence de l'arbre au premier plan pour Glasir
+Le principal problème soulevé fut que l'un des testeurs ne pouvait pas ouvrir d'ADTrees depuis Glasir, à cause d'un manque de précision dans le code lors du lancement d'ADTool (il n'était pas précisé d'ouvrir le fichier .jar avec Java). Ceci a été corrigé de suite, puis renvoyé au testeur pour avoir d'autres retours. 
 
+De plus, Glasir disposant d'une arborescence des ADTrees du projet en cours, il a été demandé d'y mettre plus en évidence celui manipulé à l'instant présent.
+
+Concernant ADTool, la nouveauté implémentée ici était celle du copier/couper/coller. La seule critique faite à son égard était que le menu déroulant comportait toujours la possibilité de coller un noeud même si aucun n'avait été préalablement copié ni coupé (sans aucun effet). Bien que sans conséquences notables, cette petite incohérence fut vite corrigée. Il a aussi été demandé d'ajouter en haut de la fenêtre d'ADTool le nom (et même le path complet) de l'ADTree affiché. Ceci est très pratique lorsque plusieurs instances d'ADTool sont ouvertes simultanément, comme c'est souvent le cas lors de l'utilisation de Glasir. 
+
+\subsection{Version 1.0}
+\label{subsec:v1.0}
