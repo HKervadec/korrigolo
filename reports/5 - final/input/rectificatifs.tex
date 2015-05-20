@@ -25,12 +25,53 @@ ADTool ne fait finalement pas partie intégrante de Glasir, mais est lancé en t
 \subsection{Algorithme de l'Éditeur de fonction}
 	L'algorithme.
 
+
 \subsection{Algorithme du Filtre}
- 	L'algorithme.
+
+ 	\begin{algorithm}[h!]
+            \caption{filter(racine, param, val\_limit)}
+            \label{algo:opti}
+            \begin{algorithmic}
+	\STATE
+	     \FORALL{fils IN racine.fils()}
+                \STATE
+                \IF{fils.val > val\_limit}
+	         \STATE DELETE fils
+                    \RETURN
+\STATE
+	\ELSE
+                \RETURN filter(fils, param, val\_limit)
+\ENDIF
+\ENDFOR
+            \end{algorithmic}
+        \end{algorithm}
 
 \subsection{Algorithme de l'Optimiseur}
-	L'algorithme.
-        
+
+         \begin{algorithm}[h!]
+            \caption{opti(racine, param)}
+            \label{algo:opti}
+            \begin{algorithmic}
+                \STATE l\_fils = fils(racine)
+                \IF{vide(l\_fils)}
+                    \RETURN
+                \ENDIF
+                \STATE
+                \IF{mode(racine) == ou}
+                    \STATE v = param(racine)
+
+                    \FOR{n in l\_fils}
+                        \IF{not defense(n) and param(n) != v}
+                            \STATE delete(n) // will delete subtrees as well
+                        \ENDIF
+                    \ENDFOR
+                \ENDIF
+                \STATE
+                \FOR{n in fils(racine)}
+                    \STATE opti(n, param)
+                \ENDFOR
+            \end{algorithmic}
+        \end{algorithm}
 
 \newpage
 \section{Rectificatifs du rapport de conception}
