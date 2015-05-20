@@ -21,31 +21,109 @@ La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imagin�
         \end{figure}
         
         
-\subsection{Algorithme de l'Éditeur de fonction}
-	L'algorithme.
+\subsection{Algorithme de l'Éditeur de fonctions}
 
+Bien que nous n'ayons pas jugé interessant de détailler l'algortihme de l'éditeur de fonctions lors de la rédaction du rapport de spécification, celui ci s'est révélé plus délicat à implémenter que prévu et nous en détaillons donc le fonctionnement ici.
 
-\subsection{Algorithme du Filtre}
+Algorithme implémenté pour l'éditeur de fonctions :
 
- 	\begin{algorithm}[h!]
-            \caption{filter(racine, param, val\_limit)}
-            \label{algo:opti}
+	\begin{algorithm}[h!]
+            \caption{functionEdition(racine, param1, param2, function)}
+            \label{algo:functionEdition}
             \begin{algorithmic}
-	\STATE
-	     \FORALL{fils IN racine.fils()}
-                \STATE
-                \IF{fils.val > val\_limit}
-	         \STATE DELETE fils
-                    \RETURN
-\STATE
-	\ELSE
-                \RETURN filter(fils, param, val\_limit)
-\ENDIF
-\ENDFOR
+		\IF{type(racine) == defense}
+			\FORALL{sub IN fils(racine)}
+				\STATE functionEdition(sub, param1, param2, function)
+			\ENDFOR
+			\RETURN
+		\ENDIF
+		\STATE
+		\IF{type(racine) == feuille}
+			\STATE p1 = param1(racine)
+			\STATE p2 = param2(racine)
+			\STATE newParam(racine) = function(p1,p2)
+			\RETURN
+		\ELSE
+			\FORALL{sub IN fils(racine)}
+				\IF {(type(sub) == defense}
+					\STATE p1 = param1(racine)
+					\STATE p2 = param2(racine)
+					\STATE newParam(racine) = function(p1,p2)
+				\ENDIF
+				\STATE functionEdition(sub, param1, param2, function)
+			\ENDFOR
+		\ENDIF
             \end{algorithmic}
         \end{algorithm}
 
+ Les notations non explicites sont présentées ci-dessous :
+        \begin{itemize}
+            \item \verb|racine| correspond au nœud racine de l'arbre ou sous-arbre manipulé ;
+            \item \verb|param1| est une fonction renvoyant la valeur du premier paramètre qui nous intéresse pour un nœud donné ;
+            \item \verb|param2| est une fonction renvoyant la valeur du second paramètre qui nous intéresse pour un nœud donné ;
+            \item \verb|function| est une fonction prenant deux paramètres et calculant un résultat ;
+            \item \verb|fils| est une fonction renvoyant la liste des fils du nœud passé en paramètre ;
+            \item \verb|mode| précise si il s'agit d'un nœud disjonctif ou conjonctif ;
+            \item \verb|type| précise si il s'agit d'un nœud d'attaque ou de défense, ou bien d'une feuille.
+        \end{itemize}
+
+\subsection{Algorithme du Filtre}
+
+L'algorithme original du filtre comportait quelques erreurs, dont le fait pouvoir conserver des sous-noeuds d'un noeud conjonctif qui ne repectaient pas la condition de filtrage. Il a donc été modifié en conséquence.
+
+Algorithme d'origine du filtre :
+
+ 	\begin{algorithm}[h!]
+            \caption{filtre(racine, rules)}
+            \label{algo:filtre}
+            \begin{algorithmic}
+                \FOR{r in rules}
+                    \IF{not r(racine)}
+                        \STATE delete(r) // will delete subtrees as well
+                        \RETURN
+                    \ENDIF
+                \ENDFOR
+                \STATE
+                \FOR{n in fils(racine)}
+                    \STATE filtre(n, rules)
+                \ENDFOR
+            \end{algorithmic}
+        \end{algorithm}
+
+Algorithme réellement implémenté :
+
+ 	\begin{algorithm}[h!]
+            \caption{filtre(racine, param, max)}
+            \label{algo:filtrereal}
+            \begin{algorithmic}
+	\STATE val = param(racine)
+	\STATE
+	\IF {val > max}
+		\STATE delete(racine) // will delete subtrees as well
+		\RETURN
+	\STATE
+	\ELSE
+		\IF{mode(racine) == et}
+			\FORALL{sub IN fils(racine)}
+				\STATE subval = sub.param
+				\STATE filtre(sub, param, max+subval-val)
+			\ENDFOR
+		\ELSE
+			\FORALL{sub IN fils(racine)}
+				\STATE filtre(sub, param, max)
+			\ENDFOR
+		\ENDIF
+	\ENDIF
+            \end{algorithmic}
+        \end{algorithm}
+
+        \begin{itemize}
+            \item \verb|max| est la pire valeur pour le paramètre param que l'on désire dans l'arbre filtré peu importe le chemin envisagé.
+        \end{itemize}
+
 \subsection{Algorithme de l'Optimiseur}
+
+Algorithme d'origine de l'optimiseur :
 
          \begin{algorithm}[h!]
             \caption{opti(racine, param)}
@@ -69,6 +147,19 @@ La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imagin�
                 \FOR{n in fils(racine)}
                     \STATE opti(n, param)
                 \ENDFOR
+            \end{algorithmic}
+        \end{algorithm}
+
+Après reflexion, il nous est apparu que l'optimiseur tel que présenté dans le rapport de spécifiction pouvait être implémenté de manière bien plus simple, en se servant du filtre sans en impacter le résultat. Nous présentons donc ici le fonctionnement réel de l'optimiseur implémenté.
+
+Algorithme réellement implémenté :
+
+	\begin{algorithm}[h!]
+            \caption{opti(racine, param)}
+            \label{algo:optireal}
+            \begin{algorithmic}
+		\STATE v = param(racine)
+		\STATE filtre(racine, param, v)
             \end{algorithmic}
         \end{algorithm}
 
