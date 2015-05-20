@@ -1,7 +1,156 @@
 \section{Planification initale}
+\label{sec:planifInit}
 
-Methode SCRUM
+Cette section a pour but de rappeler les grandes lignes de la planification initiale du projet, qui avait été détaillée dans le rapport de planification~\cite{planif}. Pour rappel, la méthode de gestion de projet que nous avons choisie d'appliquer est la méthode SCRUM, dont le principe est brièvement rappelé dans la {\sc sous-section}~\ref{ssec:scrum}.
 
-Versionnement
+\subsection{La méthode SCRUM}
+\label{ssec:scrum}
 
-Répartition
+En décembre dernier, après avoir déjà rédigé et rendu les rapports de pré-étude~\cite{pre_etude} et de spécifications fonctionnelles~\cite{spec_fonc}, il a fallu penser à la planification du développement de Glasir. Après discussions, nous nous sommes finalement dirigés vers une méthode agile proche du \og \textsc{Scrum} \fg{}. Ce choix s'est basé sur les constats suivants :
+
+Depuis le début du projet, un \og coordinateur \fg{} était responsable de la réalisation et du rendu d'un livrable (rapport, version logicielle, etc). Ce rôle, attribué à une nouvelle personne à chaque nouveau livrable, était assimilable au rôle de \og Scrum Master \fg{} tel que défini dans la méthode \textsc{scrum}.
+
+Le coordinateur endossait également la responsabilité de \og Product Owner \fg{}, partagée avec les encadrants du projet pour ce qui est de la définition des objectifs et surtout de l'acceptation des livrables.
+
+Au lieu de la mêlée quotidienne du \textsc{Scrum}, un rythme hebdomadaire a été adopté pour les réunions car Glasir n'est pas un projet à temps plein. 
+
+Enfin, le développement de chaque version a été divisé en sprints au cours desquels chaque développeur était associé à un sous-ensemble de tâches nécessaires à la réalisation de Glasir. Ces tâches ont constitué les \og Users Stories \fg{} du projet, et sont détaillées dans la \textsc{sous-section}~\ref{ssec:repartition}. Avant de revenir sur cette répartition, quelques rappels sur le versionnement de l'implémentation s'imposent dans la {\sc sous-section}~\ref{ssec:versions}.
+
+\subsection{Versionnement du développement}
+\label{ssec:versions}
+
+L'implémentation de Glasir (et des améliorations apportées à ADTool en parallèle) a été séparée en trois versions, deux intermédiaires et une finale, chacune étant concrétisée par un rendu aux encadrants sous forme d'exécutable fonctionnel. Le contenu de ces trois livrables est rapidement décrit ci-dessous.
+
+\paragraph{Version 0.1} Huit grandes tâches ont été identifiées pour cette version et sont présentées dans la {\sc Table} \ref{tab:taches_units_1}. 
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
+
+                    \multirow{5}{*}{\glasir{}} & 1.1 & Squelette interface & WPF & 6h\\
+                    \cline{2-5}
+                     & 1.2 & Gestion fichiers projet & C++ & 20h\\
+                    \cline{2-5}
+                     & 1.3 & Intégration ADTool dans \glasir & JNI & 20h\\
+                    \cline{2-5}
+                     & 1.4 & \'Evaluateur de fonction & Java & 12h\\
+                    \cline{2-5}
+                     & 1.5 & Interface évaluateur & WPF & 8h\\
+                    \hline
+
+                    \multirow{3}{*}{ADTool} & 1.6 & Valuation ADTrees & \multirow{3}{*}{Java} & 18h\\
+                    \cline{2-3} \cline{5-5}
+                     & 1.7 & Refonte langage des ADTrees & & 16h\\
+                    \cline{2-3} \cline{5-5}
+                     & 1.8 & Vue globale des paramètres & & 12h\\
+                    \hline
+
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 112h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées au développement de \glasir{} version 0.1.}
+                \label{tab:taches_units_1}
+            \end{table}
+
+\paragraph{Version 0.2} Le développement de la version 0.2 est découpé en cinq tâches, résumées dans la {\sc table} \ref{tab:taches_units_2}.
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
+
+                    \multirow{4}{*}{\glasir{}} & 2.1 & Algorithme filtrage & C++ & 24h\\
+                    \cline{2-5}
+                     & 2.2 & Interface filtre & WPF & 15h\\
+                    \cline{2-5}
+                     & 2.3 & Multiples instances d'ADTool & C++, WPF & 20h\\
+                    \cline{2-5}
+                     & 2.4 & Affichage arbre filtré & Java, WPF & 16h\\
+                    \hline
+
+                    \multirow{1}{*}{ADTool} & 2.5 & Couper/copier/coller & \multirow{1}{*}{Java} & 25h\\
+                    \hline
+
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 100h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées au développement de \glasir{} version 0.2.}
+                \label{tab:taches_units_2}
+            \end{table}
+
+\paragraph{Version 1.0} Quatre tâches ont été identifiées pour la version 1.0 de \glasir{}, présentées dans la {\sc Table} \ref{tab:taches_units_3}.
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{|c|r|l|c|r|}
+                    \hline
+                    \textbf{Cible} & \textbf{Id} & \textbf{Tâche} & \textbf{Technologies} & \textbf{Durée}\\
+                    \hline
+
+                    \multirow{4}{*}{\glasir{}} & 3.1 & Optimiseur & C++, WPF & 30h\\
+                    \cline{2-5}
+                     & 3.2 & Bibliothèque de modèles & C++, WPF & 20h\\
+                    \cline{2-5}
+                     & 3.3 & Harmonisation interface & WPF & 16h\\
+                    \cline{2-5}
+                     & 3.4 & Packaging & - & 8h\\
+                    \hline
+
+                    \multirow{1}{*}{ADTool} & 3.5 & Ctrl-Z & \multirow{1}{*}{Java} & 16h\\
+                    \hline
+
+                    \multicolumn{4}{|l|}{\bf Total} & {\bf 90h}\\
+                    \hline
+                \end{tabular}
+                \caption{Tâches associées au développement de \glasir{} version 1.0.}
+                \label{tab:taches_units_3}
+            \end{table}
+
+À l'issue de cette première division du travail à réaliser, il a fallu répartir entre les développeurs les tâches citées précédemment pour chacune des versions. Ces assignations sont rappelées dans la {\sc sous-section}~\ref{ssec:repartition}.
+
+\subsection{Répartition des tâches}
+\label{ssec:repartition}
+
+Pour répartir correctement les tâches unitaires présentées dans la {\sc sous-section}~\ref{ssec:version}, il a d'abord fallu \og spécialiser \fg{} chacun des trois développeurs comme indiqué ci-après :
+
+\begin{itemize}
+\item Pierre-Marie {\sc Airiau} était en charge des trois modules principaux de Glasir ;
+\item Valentin {\sc Esmieu} s'occupait surtout de l'interface de Glasir et de son fonctionnement global ;
+\item Maud {\sc Leray} était responsable des améliorations apportées à ADTool.
+\end{itemize}
+
+Ce choix de planification permettait non seulement d'équilibrer le nombre d'heures de travail par personne, mais aussi de limiter pour chacun l'apprentissage de nouvelles technologies, ce qui aurait sinon entraîné un ralentissement dans l'avancement du projet. La répartition exacte des tâches est définie dans la {\sc table}~\ref{tab:repartition}.
+
+\begin{table}[H]
+            \centering
+            \begin{tabular}{|l|c|r||c|r||c|r|}
+                \hline
+                \multirow{2}{*}{} & \nomRepart{Pierre-Marie A.} & \nomRepart{Valentin E.} & \nomRepartt{Maud L.}\\
+                \cline{2-7}
+                 & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée} & {\bf Id tâche} & {\bf Durée}\\
+                \hline
+                {\bf Version 0.1} & - & {\bf 38h} & - & {\bf 34h} & - & {\bf 40h}\\
+                 & 1.3 & 10h & 1.1 & 6h & 1.2 & 10h\\
+                 & 1.4 & 12h & 1.2 & 10h & 1.6 & 18h\\
+                 & 1.7 & 16h & 1.3 & 10h & 1.8 & 12h\\
+                 & - & - & 1.5 & 8h & - & -\\
+                \hline
+                {\bf Version 0.2} & - & {\bf 39h} & - & {\bf 33h} & - & {\bf 28h}\\
+                 & 2.1 & 24h & 2.3 & 20h & 2.4 & 16h\\
+                 & 2.2 & 15h & 2.5 & 13h & 2.5 & 12h\\
+                \hline
+                {\bf Version 1.0} & - & {\bf 25h} & - & {\bf 23h} & - & {\bf 42h}\\
+                 & 3.1 & 15h & 3.1 & 15h & 3.2 & 10h\\
+                 & 3.2 & 10h & 3.4 & 8h & 3.3 & 16h\\
+                 & - & - & - & - & 3.5 & 16h\\
+                \hline
+                {\bf Total} & \multicolumn{2}{r||}{{\bf 102h}} & \multicolumn{2}{r||}{{\bf 100h}} & \multicolumn{2}{r|}{{\bf 110h}}\\
+                \hline
+            \end{tabular}
+            \caption{Répartition des tâches, par personne et par version.}
+            \label{tab:repartition}
+        \end{table}
+
+Ici s'arrête le résumé de la planification initiale, il est donc temps de passer à la comparaison de cette dernière avec la planification effective constatée à l'issue du développement de Glasir. C'est le but de la {\sc Section}~\ref{sec:ecarts}. 
