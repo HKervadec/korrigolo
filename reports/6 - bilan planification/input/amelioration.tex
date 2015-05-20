@@ -1,5 +1,22 @@
 \section{Pistes d'amélioration pour la gestion de projet}
+\label{sec:plusMieux}
 
-plus de recherches en amont sur les points complexes de l'implémentation (communication inter-processus, reprise de code existant, ...)
+La présente section a pour objectif de revenir sur les défauts de notre gestion de projet afin d'en tirer de bonnes pratiques pour l'avenir. La liste des améliorations possibles indiquées ci-dessous n'est pas exhaustive, mais elle contient nos principaux constats à l'issue de ce projet.
 
-mieux définir en amont les spécificités des fonctionnalités du logiciel (besoin de redéfinir le but des modules avant chaque implémentation)
+\subsection{Renforcement de la pré-étude}
+\label{ssec:pre-etude}
+
+Le contexte du projet avait été bien établi lors de la phase de pré-étude du projet (en septembre dernier) : notions de sécurité, formalisme des ADTrees, etc. Cependant, nous avons réalisé lors du développement que les détails techniques liés à l'implémentation auraient quant à eux nécessité des recherches plus poussées. Deux exemples seront cités ci-dessous afin d'illustrer cette problématique.
+
+\paragraph{Intégration Java/C\#} La planification initiale prévoyait d'intégrer ADTool (codé en Java) directement dans Glasir qui a été développé principalement en C\#. Au moment de l'implémentation effective, de nombreux essais ont été réalisés dans ce but mais aucun n'a été concluant. Il a donc fallu revoir nos espérances à la baisse, et conserver les deux logiciels séparés. Ce n'est pas une mauvaise chose en soi : cela permet de mieux distinguer l'édition des ADTrees de leur analyse par Glasir. Cependant, cela reste un écart à la planification qui aurait pu être évité si nous nous étions mieux renseignés sur la compatibilité des deux langages lors de la phase de pré-étude.
+
+\paragraph{Reprise d'un code existant} Il s'agit ici du logiciel ADTool, codé en Java, qui existait déjà avant le démarrage du projet Glasir. Il était prévu d'apporter à cet outil un certain nombre d'améliorations, ce qui nous a paru réalisable dans la mesure où le langage de programmation nous était déjà familier. Nous n'avons pas su détecter les complications qu'induisait la reprise d'un code déjà existant, et nous n'avons donc pas suffisamment étudié le code source d'ADTool lors de la phase de pré-étude. Cela explique par exemple que nous ayions abandonné l'affichage multi-paramètres, qui aurait nécessité de re-structurer l'intégralité du programme et donc d'y passer énormément de temps.
+
+À travers les deux exemples précédents, il est évident qu'un manque de renseignements quant au développement technique d'un projet peut poser des soucis en terme de réalisabilité des objectifs. C'est donc un point à améliorer lors de la phase de pré-étude de nos projets futurs.
+
+\subsection{Meilleure définition du cahier des charges}
+\label{ssec:cahier-charges}
+
+Cette sous-section concerne surtout les trois modules principaux de Glasir que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur. Ces derniers ont été annoncés par le cahier des charges initial du rapport de pré-étude~\cite{pre_etude}, puis ensuite détaillés dans les rapports de spécifications fonctionnelles~\cite{spec_fonc} et de conception~\cite{conception}. La planification initiale prévoyait de les implémenter au dur et à mesure, au rythme d'un nouveau module par version. C'est plus ou moins ce qui a été effectué, sauf qu'il a fallu avant chaque version redéfinir le fonctionnement du module concerné, car de nouvelles problématiques avaient été soulevées depuis les rapports précédents. Il a même parfois fallu en reparler après le rendu de la version, puis revenir sur l'implémentation pour prendre en compte les nouvelles remarques. Dans ces cas-là, la redéfinition a entraîné un léger contretemps qui a un peu bousculé la planification initiale, sans pour autant annuler d'autres échéances. Ces petits écarts auraient pu être évités si les fonctionnalités du cahier des charges avaient été définies plus en détails dès le début, en se basant par exemple sur une étude de cas permettant d'illustrer l'ensemble des possibilités.
+
+Les constats ci-dessus entraînent de notre part une rétrospective sur le projet qui va maintenant être présentée avant la conclusion, dans la {\sc section}~\ref{sec:conclusion}.
