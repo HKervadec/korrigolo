@@ -263,7 +263,7 @@ namespace Glasir
             }
             catch
             {
-                MessageBox.Show("Invalid filter.");
+                MessageBox.Show("Invalid optimizer.");
             }
         }
         
