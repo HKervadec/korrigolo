@@ -51,6 +51,20 @@ namespace Glasir
             XmlCode = code;
         }
 
+        public Boolean isEmpty()
+        {
+            XElement fn = (XElement) this.XmlCode.FirstNode;
+            XElement elemRoot = fn.Element("node");
+            if(elemRoot == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public XMLFile()
         {
             throw new NotImplementedException();

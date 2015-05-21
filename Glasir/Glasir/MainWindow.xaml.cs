@@ -217,10 +217,17 @@ namespace Glasir
                 XMLFile file = ADToolInstance.foregroundInstance.file;
                 Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text);
                 XMLFile newfile = filter.createResultingFile();
-                Glasir.launchADToolInstance(newfile.FileName);
-                domains = ADToolInstance.foregroundInstance.file.getDomains();
-                Window_Loaded(sender, e);
-                this.updateTreeView();
+                if (newfile.isEmpty())
+                {
+                    MessageBox.Show("No path in the ADTree satisfies the condition.");
+                }
+                else
+                {
+                    Glasir.launchADToolInstance(newfile.FileName);
+                    domains = ADToolInstance.foregroundInstance.file.getDomains();
+                    Window_Loaded(sender, e);
+                    this.updateTreeView();
+                }
             }
             catch
             {
@@ -242,10 +249,17 @@ namespace Glasir
                 XMLFile file = ADToolInstance.foregroundInstance.file;
                 Optimizer optim = new Optimizer(file, (String)OptimizeComboBox.SelectedItem);
                 XMLFile newfile = optim.createResultingFile();
-                Glasir.launchADToolInstance(newfile.FileName);
-                domains = ADToolInstance.foregroundInstance.file.getDomains();
-                Window_Loaded(sender, e);
-                this.updateTreeView();
+                if (newfile.isEmpty())
+                {
+                    MessageBox.Show("No path in the ADTree satisfies the condition.");
+                }
+                else
+                {
+                    Glasir.launchADToolInstance(newfile.FileName);
+                    domains = ADToolInstance.foregroundInstance.file.getDomains();
+                    Window_Loaded(sender, e);
+                    this.updateTreeView();
+                }
             }
             catch
             {
