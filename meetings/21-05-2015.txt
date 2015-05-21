@@ -25,4 +25,8 @@ rapport final :
 			présenter plus ce que fait le produit en lui meme que comparer ce qu'on a promi et réalisé
 			revoir le titre de section
 	citer rapport de planif
+
+rapport planif :
+	Amélioration : rajouter améliorer les tests
+	
 		
