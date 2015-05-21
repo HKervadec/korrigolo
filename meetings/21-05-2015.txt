@@ -1,0 +1,28 @@
+calendrier :
+	demo 13h30 vendredi 29
+	envoyer diapos a Gildas dimanche soir
+
+remarques générales :
+	Mr. => M.
+	
+
+rapport final :
+	Contexte-Objectif-(Abstract/Résumé)Bilan : mise en valeur du bilan, regard critique, court ?
+			bilan : cahier des charges / resultat ?
+			présenter clairement avant/apres
+			parler a la fois du bilan de projet et de Glasir		
+	phase de test : LA partie la plus importante ! 
+			redecrire la methodologie utilisée pour les tests (ici pour l'instant : tests utilisateurs). 
+				Justifier l'absence de tests unitaires.
+			justifier nos testeurs : pk pas d'exterieurs ?
+			méthode : chercher les resultats incohérents, tests aléatoires
+			revoir le titre de section
+			bien separer présentation de la méthodologie et les rapports de test.
+			organiser selon les fonctionnalités testées plutot que les versions
+	une nouvelle section retrospective => personnel ?
+			gestion de projet : a-t'on bien conduit le projet ? A t-on évolué dans notre capacité de gérer un projet ?
+	etat finalisation => le plus important : est ce que ce qui a été promi est fourni ?
+			présenter plus ce que fait le produit en lui meme que comparer ce qu'on a promi et réalisé
+			revoir le titre de section
+	citer rapport de planif
+		
