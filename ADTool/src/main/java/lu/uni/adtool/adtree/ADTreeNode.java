@@ -213,6 +213,15 @@ public class ADTreeNode implements Serializable
   }
   
   /**
+   * Returns true if the node's type is opponent
+   *
+   */
+  public boolean isOpponent()
+  {
+    return this.type == Type.OPPONENT;
+  }
+  
+  /**
    * Toggles the refinement type of node.
    */
   public void changeOp(){
