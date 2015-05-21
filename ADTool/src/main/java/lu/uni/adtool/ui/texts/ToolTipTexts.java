@@ -37,7 +37,29 @@ public final class ToolTipTexts
   /**
    * Tooltip for creating new file.
    */
-  public static final String NEW = "Start with the new empty ADTree";
+  public static final String NEW = "Start with a new empty ADTree";
+  
+  /**
+   * Tooltip for undo.
+   */
+  public static final String UNDO = "Undo last action (CTRL+Z)";
+  
+  /**
+   * Tooltip for opening a file.
+   */
+  public static final String OPEN = "Open an existing file";
+  
+  /**
+   * Tooltip for saving an ADTree.
+   */
+  public static final String SAVE = "Save this ADTree";
+  
+  /**
+   * Tooltip for printing a preview.
+   */
+  public static final String PREVIEW = "See a print preview";
+  
+  
   /**
    * Constructs a new instance.
    */

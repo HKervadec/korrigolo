@@ -217,6 +217,10 @@ public final class ButtonTexts
 
   /** The Constant assignments. */
   public static final String ASSIGNMENTS         = "Assignments";
+  
+  /** The Constant undo. */
+  public static final String UNDO         = "Undo";
+
 
   /**
    * Constructs a new instance.

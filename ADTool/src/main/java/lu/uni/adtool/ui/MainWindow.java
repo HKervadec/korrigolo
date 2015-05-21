@@ -140,6 +140,7 @@ public class MainWindow extends Frame
   private static ADAction                   filePrint;
   private static ADAction                   filePrintPreview;
   private static ADAction                   fileExit;
+  private static ADAction					undoAction;
   protected UndoExecutor 					undoExecutor;
   /**
    * Status bar
@@ -314,7 +315,7 @@ public class MainWindow extends Frame
    */
   public ADTreeCanvas getLastFocused()
   {
-    return this.lastFocused;
+    return lastFocused;
   }
 
   /**
@@ -718,6 +719,7 @@ public class MainWindow extends Frame
         InputEvent.ALT_MASK));
     fileOpen.setSmallIcon(new ImageIcon(getClass().getResource(
         "/icons/open.png")));
+    fileOpen.setToolTip(ToolTipTexts.OPEN);
 
     fileSave = new ADAction(ButtonTexts.SAVE)
     {
@@ -736,6 +738,8 @@ public class MainWindow extends Frame
         InputEvent.ALT_MASK));
     fileSave.setSmallIcon(new ImageIcon(getClass().getResource(
         "/icons/save.png")));
+
+    fileSave.setToolTip(ToolTipTexts.SAVE);
 
     fileExample = new ADAction("Load Example Tree")
     {
@@ -876,6 +880,7 @@ public class MainWindow extends Frame
     filePrintPreview.setMnemonic(KeyEvent.VK_V);
     filePrintPreview.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,
         InputEvent.CTRL_MASK));
+    filePrintPreview.setToolTip(ToolTipTexts.PREVIEW);
 
     filePrint = new ADAction(ButtonTexts.PRINT)
     {
@@ -914,6 +919,26 @@ public class MainWindow extends Frame
         InputEvent.CTRL_MASK));
     fileExit.setSmallIcon(new ImageIcon(getClass().getResource(
         "/icons/exit.png")));
+    
+    undoAction = new ADAction(ButtonTexts.UNDO)
+    {
+      /**
+		 * 
+		 */
+	  private static final long serialVersionUID = 1L;
+	  
+      public void actionPerformed(final ActionEvent e)
+      {
+    	  System.out.println(lastFocused.toString());
+    	  undoExecutor.undo(lastFocused);
+      }
+    };
+    undoAction.setMnemonic(KeyEvent.VK_U);
+    undoAction.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+        InputEvent.CTRL_MASK));
+    undoAction.setSmallIcon(new ImageIcon(getClass().getResource(
+        "/icons/undo.png")));
+    undoAction.setToolTip(ToolTipTexts.UNDO);
   }
 
   private void importFrom(String type)
@@ -1056,6 +1081,9 @@ public class MainWindow extends Frame
     button.addMouseListener(mouseHandler);
     toolbar.addSeparator();
     button = toolbar.add(filePrintPreview);
+    button.addMouseListener(mouseHandler);
+    toolbar.addSeparator();
+    button = toolbar.add(undoAction);
     button.addMouseListener(mouseHandler);
     toolbar.setTextLabels(true);
     return toolbar;
@@ -1712,7 +1740,7 @@ public class MainWindow extends Frame
     private static final long serialVersionUID = 8109471079193338016L;
 
     /**
-     * Defines an ADAction object with the specified descripiton and a default
+     * Defines an ADAction object with the specified description and a default
      * icon.
      *
      * @param text
