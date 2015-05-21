@@ -252,7 +252,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       addCounter.setVisible(!node.isCountered());
       addLeft.setVisible(canAddSibling);
       addRight.setVisible(canAddSibling);
-      if (node.isOpponent() || !transferHandler.hasClonedNode()) {
+      if (node.differentType(transferHandler.getClonedNode()) || !transferHandler.hasClonedNode()) {
     	  paste.setVisible(false);
       } else { paste.setVisible(true); }
       remove.setVisible(parent!=null);

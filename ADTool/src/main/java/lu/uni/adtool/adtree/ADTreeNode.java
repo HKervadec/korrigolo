@@ -213,12 +213,15 @@ public class ADTreeNode implements Serializable
   }
   
   /**
-   * Returns true if the node's type is opponent
+   * Returns true if the node's type is different from the one in parameter
    *
+   * @param adt The ADTreeNode to compare.
    */
-  public boolean isOpponent()
+  public boolean differentType(ADTreeNode adt)
   {
-    return this.type == Type.OPPONENT;
+	  if (this != null && adt != null) {
+		  return (this.type != adt.getType());
+	  } else { return true; }
   }
   
   /**

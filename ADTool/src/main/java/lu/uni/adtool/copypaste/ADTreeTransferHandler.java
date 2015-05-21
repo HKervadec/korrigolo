@@ -13,6 +13,13 @@ public class ADTreeTransferHandler
 	private final int MAXSIZE = 1000;
 	
 	/**
+	 * returns the attribute clonedNode
+	 */
+	public ADTreeNode getClonedNode() {
+		return clonedNode;
+	}
+
+	/**
 	 * returns true if a node has been cut or copied
 	 */
 	public boolean hasClonedNode() {
