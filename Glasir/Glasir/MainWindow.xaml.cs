@@ -435,7 +435,9 @@ namespace Glasir
             MessageBox.Show("Software developed during the 4th year of engineering studies at INSA Rennes.\n\nAuthors : Pierre-Marie Airiau, Valentin Esmieu and Maud Leray.\nDate : 2014 - 2015.\n\nNo guarantee is provided.\nUse at your own risk.");
         }
 
-
+        /// <summary>
+        /// update the list of available ADTrees and the current ADTree
+        /// </summary>
         private void updateTreeView()
         {
             treeView.Items.Clear();
@@ -446,11 +448,24 @@ namespace Glasir
                 {
                     item.Header = System.IO.Path.GetFileName(adti.process.StartInfo.Arguments) ;
                 }
-                               
-                treeView.Items.Add(item);                
+
+                treeView.Items.Add(item);
+    
+                if(ADToolInstance.foregroundInstance == null)
+                {
+                    return;
+                }
+                else if (ADToolInstance.foregroundInstance == adti)
+                {
+                    item.IsSelected = true;
+                }
             }
         }
 
+        /// <summary>
+        /// used for showing something
+        /// </summary>
+        /// <param name="message"></param>
         public static void messageBox(string message)
         {
             MessageBox.Show(message);
@@ -474,7 +489,7 @@ namespace Glasir
             {
                 if ( ((TreeViewItem) this.treeView.Items[i]).IsSelected)
                 {
-                    this.selectedItemLabel.Content = ((TreeViewItem) this.treeView.Items[i]).Header;
+                    this.selectedItemLabel.Content = System.IO.Path.GetFileName((string) ((TreeViewItem) this.treeView.Items[i]).Header);
                     this.Glasir.setForegroundInstance(i);
                     domains = ADToolInstance.foregroundInstance.file.getDomains();
                     Window_Loaded(sender, e);
@@ -483,6 +498,11 @@ namespace Glasir
             }
         }
 
+        /// <summary>
+        /// message for help
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void helpADTool(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Files with .jar extention might be associated with something else than Java.\nPlease open the ReadMe file and follow the steps to change .jar file association.");
