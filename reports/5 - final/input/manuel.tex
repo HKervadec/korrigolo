@@ -60,6 +60,14 @@ Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à 
 \paragraph{Changer d'ADTree courant} Pour pouvoir utiliser les modules de Glasir, vous devez sélectionner un ADTree courant, sur lequel les opérations des modules seront appliquées. Le bloc en bas de la fenêtre principale dresse la liste des ADTrees de votre projet.  Vous avez la possibilité de cocher la case \emph{Show complete path}, en bas, pour voir le chemin complet de chaque ADTree. Cliquez sur un ADTree dans la liste pour qu'il devienne l'ADTree courant. Son nom est alors indiqué à la ligne du dessus, en plus gros. Si aucun ADTree n'est disponible ou sélectionné, le message \og No ADTree selected \fg{} est affiché à la place. Notez que lorsque vous ouvrez un ADTree, ce dernier devient automatiquement l'ADTree courant.
 
 \paragraph{Éditeur de fonctions}Cette fonctionnalité a pour intérêt d'exprimer un compromis entre deux valuations d'un ADTree en en créant une troisième, fonction des deux premières. Par exemple, si vous avez un ADTree qui a comme paramètres \og Minimal cost for the proponent \fg (en euros) et \og Minimal time for the proponent (sequentiall) \fg (en heures) et que vous estimez que une heure \og coute \fg par comparaison 20 euros, vous pouvez créer un nouveau paramètre de type \og Minimal cost for the proponent \fg exprimant un compromis entre les deux paramètres qui sera égal à coût+20*temps.
+
+ \begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/functionEdition.png}
+        \caption{Onglet FunctionEditor.}
+        \label{fig:functEdit}
+    \end{figure}
+
 Pour utiliser l'éditeur de onctions, suivez les étapes suivantes : 
 \begin{itemize}
 \item Assurer vous d'avoir l'ADTree que vous voulez utiliser d'ouvert et désigné comme l'arbre courant. 
@@ -73,7 +81,16 @@ S'ouvrira alors un nouvel arbre dans une nouvelle fenêtre d'ADTool qui sera nom
 Si un problème survient, l'exécution sera interrompu et une boite de message apparaitra pour vous expliquer pourquoi.
 
 \paragraph{Filtre}Cette fonctionnalité sert a élaguer les chemins d'un ADTree qui ne respectent pas une certaine condition. Par exemple si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'on sait qu'un attaquant potentiel ne peut pas dépenser plus de 2000 euros, le filtre permettra alors d'élaguer l'ADTree de manière a ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros ou moins.
+
+ \begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/filter.png}
+        \caption{Onglet Filter.}
+        \label{fig:filter}
+    \end{figure}
+
 Pour utiliser le filtre, suivez les étapes suivantes :
+
 \begin{itemize}
 \item Assurer vous d'avoir l'ADTree que vous voulez filtrer d'ouvert et désigné comme l'arbre courant. 
 \item Sélectionnez l'onglet \og Filter \fg .
@@ -85,6 +102,14 @@ S'ouvrira alors un nouvel arbre correspondant à l'arbre élagué dans une nouve
 Si un problème survient, l'exécution sera interrompu et une boite de message apparaitra pour vous expliquer pourquoi.
 
 \paragraph{Optimiseur}Cette fonctionnalité sert a élaguer les chemins d'un ADTree de manière a ne conserver que le ou les meilleurs chemins selon un paramètre donné. Par exemple si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'attaque la moins chère coute 2000 euros, l'optimiseur permettra alors d'élaguer l'ADTree de manière a ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros seulement.
+
+ \begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/optimizer.png}
+        \caption{Onglet Optimize.}
+        \label{fig:opti}
+    \end{figure}
+
 Pour utiliser l'optimiseur, suivez les étapes suivantes :
 \begin{itemize}
 \item Assurer vous d'avoir l'ADTree que vous voulez filtrer d'ouvert et désigné comme l'arbre courant. 

@@ -100,9 +100,9 @@
                 <Grid Background="#FFE5E5E5">
                     <Button Content="Filter" HorizontalAlignment="Left" Margin="93,198,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="filtering"/>
                     <TextBlock HorizontalAlignment="Left" Margin="21,66,0,0" TextWrapping="Wrap" Text="Parameter" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="168,68,0,0" TextWrapping="Wrap" Text="max" VerticalAlignment="Top" RenderTransformOrigin="-0.174,0.611"/>
-                    <TextBox Name="maxFilter" HorizontalAlignment="Left" Height="23" Margin="149,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="Select the parameter you want to filter the tree with, and the maximum value :" VerticalAlignment="Top" Width="218"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="155,66,0,0" TextWrapping="Wrap" Text="limit value" VerticalAlignment="Top" RenderTransformOrigin="-0.174,0.611"/>
+                    <TextBox Name="maxFilter" HorizontalAlignment="Left" Height="23" Margin="155,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="21,20,0,0" TextWrapping="Wrap" Text="Select the parameter you want to filter the tree with, and the limit value :" VerticalAlignment="Top" Width="218"/>
                     <ComboBox Name="FilterComboBox" HorizontalAlignment="Left" ItemsSource="{Binding Path=.}" DisplayMemberPath="Nom" Margin="10,89,0,0" VerticalAlignment="Top" Width="120"/>
                     <TextBox Name="L3" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="21,152,0,0" TextWrapping="Wrap" Text="1.0" VerticalAlignment="Top" Width="35"/>
                     <TextBox Name="M3" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="79,152,0,0" TextWrapping="Wrap" Text="10.0" VerticalAlignment="Top" Width="37"/>
