@@ -1,9 +1,12 @@
 \section{Rectificatifs du rapport de spécifications fonctionnelles}
 \label{sec:rect}
 
+Cette section a pour but d'énoncer et de justifier les différences constatées entre les fonctionnalités prévues dans le rapport de spécifications fonctionnelles~\cite{spec_fonc} et leur implémentation lors de la phase de développement. La {\sc sous-section}~\ref{subsec:archi} commence d'abord par énoncer les modifications les plus générales concernant l'architecture du logiciel, avant d'entrer plus en profondeur dans le code dans les sous-sections suivantes.
+
 \subsection{Architecture générale}
 \label{subsec:archi}
-La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imaginée lors du rapport de spécifications fonctionnelles. Suite à des contraintes techniques, notamment dues au fait qu'un programme Java est difficilement contrôlable depuis un programme C\#, l'architecture a été revue pour correspondre à celle présentée à la {\sc Figure} \ref{fig:archiReelle}. ADTool ne fait finalement pas partie intégrante de Glasir, mais est lancé en tant que simple \og viewer \fg{} d'ADTree. En effet, il est impossible, depuis Glasir, de détecter des modifications faites dans ADTool, comme par exemple la modification d'une valuation de l'une des feuilles de l'ADTree. Par conséquent, la décision fut prise de désactiver toutes les fonctions d'édition dans ADTool lorsque Glasir se lance, donnant ainsi à ADTool un mode spécial batpisé \og viewmode \fg{} dans lequel l'utilisateur ne peut que visualiser un ADTree, sans pouvoir le modifier. De plus, la bibliothèque de modèles n'est également plus incluse dans Glasir, mais est simplement constituée d'un dossier contenant les fichiers des modèles, facilement importables. Ce dossier est fournit avec l'executable de Glasir.
+
+La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imaginée lors du rapport de spécifications fonctionnelles~\cite{spec_fonc}. Suite à des contraintes techniques, notamment dûes au fait qu'un programme Java (ADTool dans notre cas) est difficilement contrôlable depuis un programme C\#, l'architecture a été revue pour correspondre à celle présentée à la {\sc Figure}~\ref{fig:archiReelle}. C'est pourquoi ADTool ne fait finalement pas partie intégrante de Glasir, mais est lancé en tant que simple \og viewer \fg{} d'ADTrees. En effet, il est impossible, depuis Glasir, de détecter des modifications faites dans ADTool, comme par exemple la modification d'une valuation de l'une des feuilles de l'ADTree. Par conséquent, la décision fut prise de désactiver toutes les fonctions d'édition dans ADTool lorsque Glasir se lance, donnant ainsi à ADTool un mode spécial baptisé \og viewmode \fg{}. Dans ce mode, l'utilisateur ne peut que visualiser un ADTree, sans pouvoir le modifier (les menus et les raccourcis clavier ont été supprimés). De plus, la bibliothèque de modèles n'est plus incluse dans Glasir : cette décision est justifiée dans la {\sc sous-section}~\ref{ssec:bib}.
 
 		\begin{figure}[H]
             \centering
@@ -20,14 +23,14 @@ La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imagin�
             \label{fig:archiReelle}
         \end{figure}
         
-        
+Les modules principaux de Glasir que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur ont eux aussi été un peu revus par rapport à l'implémentation prévue dans le rapport de conception~\cite{conception}. Ces changements sont principalement liés à des questions de cohérence soulevées après le début du développement. La {\sc sous-section}~\ref{ssec:editeurFct} détaille les modifications apportées à l'Éditeur de fonctions en particulier.
+
 \subsection{Algorithme de l'Éditeur de fonctions}
+\label{ssec:editeurFct}
 
-Bien que nous n'ayons pas jugé interessant de détailler l'algortihme de l'éditeur de fonctions lors de la rédaction du rapport de spécification, celui ci s'est révélé plus délicat à implémenter que prévu et nous en détaillons donc le fonctionnement ici.
+Bien que nous n'ayons pas jugé nécessaire de détailler l'algorithme de l'Éditeur de fonctions lors de la rédaction du rapport de spécifications fonctionnelles~\cite{spec_fonc}, celui-ci s'est révélé plus délicat à implémenter que prévu. Son nouveau fonctionnement est donc détaillé ci-après, par une présentation de l'{\sc algorithme}~\ref{algo:functionEdition} qui a été effectivement implémenté.
 
-Algorithme implémenté pour l'éditeur de fonctions :
-
-	\begin{algorithm}[h!]
+	\begin{algorithm}[H]
             \caption{functionEdition(racine, param1, param2, function)}
             \label{algo:functionEdition}
             \begin{algorithmic}
@@ -56,24 +59,25 @@ Algorithme implémenté pour l'éditeur de fonctions :
             \end{algorithmic}
         \end{algorithm}
 
- Les notations non explicites sont présentées ci-dessous :
+ Les notations non explicites de l'{\sc algorithme}~\ref{algo:functionEdition} sont présentées ci-dessous :
         \begin{itemize}
             \item \verb|racine| correspond au nœud racine de l'arbre ou sous-arbre manipulé ;
-            \item \verb|param1| est une fonction renvoyant la valeur du premier paramètre qui nous intéresse pour un nœud donné ;
-            \item \verb|param2| est une fonction renvoyant la valeur du second paramètre qui nous intéresse pour un nœud donné ;
-            \item \verb|function| est une fonction prenant deux paramètres et calculant un résultat ;
+            \item \verb|param1| est une fonction renvoyant la valeur du 1\ier{} paramètre qui nous intéresse pour un nœud donné ;
+            \item \verb|param2| est une fonction renvoyant la valeur du 2\ieme{} paramètre qui nous intéresse pour un nœud donné ;
+            \item \verb|function| est une fonction calculant un résultat à partir de deux paramètres ;
             \item \verb|fils| est une fonction renvoyant la liste des fils du nœud passé en paramètre ;
             \item \verb|mode| précise si il s'agit d'un nœud disjonctif ou conjonctif ;
             \item \verb|type| précise si il s'agit d'un nœud d'attaque ou de défense, ou bien d'une feuille.
         \end{itemize}
 
+    L'Éditeur de fonctions n'est pas la seule fonctionnalité ayant subi des modifications au cours de son implémentation. Ainsi, la {\sc sous-section}~\ref{implemFiltre} présente les corrections apportées au Filtre.
+
 \subsection{Algorithme du Filtre}
+\label{ssec:implemFiltre}
 
-L'algorithme original du filtre comportait quelques erreurs, dont le fait pouvoir conserver des sous-noeuds d'un noeud conjonctif qui ne repectaient pas la condition de filtrage. Il a donc été modifié en conséquence.
+L'algorithme original du Filtre comportait quelques erreurs, telles que la possibilité de conserver des sous-n\oe{}uds d'un n\oe{}ud conjonctif qui ne respectaient pas la condition de filtrage. Cet algorithme, l'{\sc algorithme}~\ref{algo:filtre}, a donc été corrigé en conséquence pour devenir l'{\sc algorithme}~\ref{algo:filtreReel} qui a été implémenté.
 
-Algorithme d'origine du filtre :
-
- 	\begin{algorithm}[h!]
+ 	\begin{algorithm}[H]
             \caption{filtre(racine, rules)}
             \label{algo:filtre}
             \begin{algorithmic}
@@ -89,16 +93,15 @@ Algorithme d'origine du filtre :
                 \ENDFOR
             \end{algorithmic}
         \end{algorithm}
+        
 
-Algorithme réellement implémenté :
-
- 	\begin{algorithm}[h!]
-            \caption{filtre(racine, param, max)}
-            \label{algo:filtrereal}
+ 	\begin{algorithm}[H]
+            \caption{filtre(racine, param, valLim)}
+            \label{algo:filtreReel}
             \begin{algorithmic}
 	\STATE val = param(racine)
 	\STATE
-	\IF {val > max}
+	\IF {val > valLim}
 		\STATE delete(racine) // will delete subtrees as well
 		\RETURN
 	\STATE
@@ -106,26 +109,27 @@ Algorithme réellement implémenté :
 		\IF{mode(racine) == et}
 			\FORALL{sub IN fils(racine)}
 				\STATE subval = sub.param
-				\STATE filtre(sub, param, max+subval-val)
+				\STATE filtre(sub, param, valLim+subval-val)
 			\ENDFOR
 		\ELSE
 			\FORALL{sub IN fils(racine)}
-				\STATE filtre(sub, param, max)
+				\STATE filtre(sub, param, valLim)
 			\ENDFOR
 		\ENDIF
 	\ENDIF
             \end{algorithmic}
         \end{algorithm}
 
-        \begin{itemize}
-            \item \verb|max| est la pire valeur pour le paramètre param que l'on désire dans l'arbre filtré peu importe le chemin envisagé.
-        \end{itemize}
+    Dans l'{\sc algorithme}~\ref{algo:filtreReel}, \verb|valLim| est la valeur limite (maximale ou minimale selon les cas) acceptée pour le paramètre \verb|param| que l'on désire dans l'arbre filtré peu importe le chemin envisagé.
+
+    Il reste à présent l'Optimiseur, dont le fonctionnement n'a pas été bouleversé. Son implémentation en revanche a été un peu différente de celle prévue, comme expliqué dans la {\sc sous-section}~\ref{ssec:algoOptim}.
 
 \subsection{Algorithme de l'Optimiseur}
+\label{ssec:algoOptim}
 
-Algorithme d'origine de l'optimiseur :
+    L'algorithme initial de l'Optimiseur, tel que décrit dans le rapport de spécifications fonctionnelles~\cite{spec_fonc}, est rappelé par l'{\sc algorithme}~\ref{algo:opti}.
 
-         \begin{algorithm}[h!]
+         \begin{algorithm}[H]
             \caption{opti(racine, param)}
             \label{algo:opti}
             \begin{algorithmic}
@@ -150,67 +154,79 @@ Algorithme d'origine de l'optimiseur :
             \end{algorithmic}
         \end{algorithm}
 
-Après reflexion, il nous est apparu que l'optimiseur tel que présenté dans le rapport de spécifiction pouvait être implémenté de manière bien plus simple, en se servant du filtre sans en impacter le résultat. Nous présentons donc ici le fonctionnement réel de l'optimiseur implémenté.
+Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait être implémenté de manière bien plus simple, en se servant du Filtre. Ce nouvel algorithme n'impactant pas le résultat obtenu, c'est donc lui qui a finalement été choisi et codé selon l'{\sc algorithme}~\ref{algo:optiReel}.
 
-Algorithme réellement implémenté :
-
-	\begin{algorithm}[h!]
+	\begin{algorithm}[H]
             \caption{opti(racine, param)}
-            \label{algo:optireal}
+            \label{algo:optiReel}
             \begin{algorithmic}
 		\STATE v = param(racine)
 		\STATE filtre(racine, param, v)
             \end{algorithmic}
         \end{algorithm}
 
+    La présente section a permis de décrire les différences constatées à la fin du projet entre les promesses du rapport de spécifications fonctionnelles~\cite{spec_fonc} et l'implémentation réelle. Un autre rapport avait été rédigé avant le début du développement, celui de conception~\cite{conception}. Là encore, des écarts sont constatés avec ce qui a été codé, c'est ce dont fait état la {\sc section}~\ref{sec:rectConc}. 
+
 \newpage
 \section{Rectificatifs du rapport de conception}
 \label{sec:rectConc}
-
+    
+    Cette section a pour objectif de comparer les fonctionnalités décrites lors du rapport de conception~\cite{conception} à celles qui ont été ensuite implémentées.
 
 	\subsection{Affichage multiple des paramètres}
 
-	\subsection{Couper-copier-coller}
-	La {\sc Figure} \ref{fig:copypastePrevu} illustre l'implémentation du couper-copier-coller imaginée lors du rapport de conception. Après s'être confronté à la réelle structure interne d'ADTool, il nous parut beaucoup plus simple de réaliser cette fonctionnalité comme indiqué sur la {\sc Figure} \ref{fig:copypasteReel}. Un ADTree est en réalité un \emph{ADTreeNode} possédant des fils, qui sont eux-même des \emph{ADTreeNode}. Cet ADTree est affiché à l'écran via un \emph{ADTreeCanvas}. Les actions au clavier et à la souris réalisées par l'utilisateur sont captées par la classe \emph{AbstractCanvasHandler}, qui possède le \emph{ADTreeCanvas} sur lequel agit l'utilisateur. Nous avons donc ajouté à l'\emph{AbstractCanvasHandler} un attribut de \emph{ADTreeTransferHandler}, une nouvelle classe qui contient les méthodes de copie et de collage d'un \emph{ADTreeNode}. Ainsi, lorsque l'utilisateur lance la commande couper, par exemple, la commande est captée par la classe \emph{CanvasHandler}, qui demande à sa classe parente (\emph{AbstractCanvasHandler}) de récuperer l'\emph{ADTreeNode} à couper (il s'agit de l'attribut \emph{focusedNode} de \emph{ADTreeCanvas}). L'\emph{ADTreeTransferHandler} se charge de l'opération de copie en stockant un clone de l'\emph{ADTreeNode} coupé, tandis que la suppression de l'ADTree coupé est gérée en interne par l'\emph{AbstractCanvasHandler}. Pour le collage, les opérations sont sensiblement identiques, sauf que le clone stocké par l'\emph{ADTreeTransferHandler} est restitué à l'\emph{AbstractCanvasHandler} qui se charge de l'ajouter à son \emph{ADTreeCanvas}.
+    Cette nouveauté n'a finalement pas été mise en place. En effet, l'étude approfondie du code source d'ADTool a montré qu'un tel changement aurait nécessité une refonte quasi-totale de la structure du logiciel. De telles modifications auraient demandé un temps de travail bien trop conséquent comparé au temps disponible pour la réalisation du projet. Aussi, l'intérêt de ce nouvel affichage a été remis en cause : le risque de perdre en clarté et en lisibilité lors de la manipulation des ADTrees a semblé trop important.
+
+	\subsection{Couper/copier/coller}
+
+	La {\sc Figure} \ref{fig:copypastePrevu} rappelle le couper/copier/coller imaginé lors du rapport de conception~\cite{conception}. Après avoir mieux pris connaissance de la structure interne d'ADTool, il a paru beaucoup plus simple de réaliser cette fonctionnalité comme illustré sur la {\sc Figure} \ref{fig:copypasteReel}.
 	
 	
-		\begin{figure}
+		\begin{figure}[H]
             \centering
                 \includegraphics[width=0.8\textwidth]{figure/copiercoller.png}
-            \caption{Diagramme de classe prévu pour le couper-copier-coller.}
+            \caption{Diagramme de classes prévu pour le couper/copier/coller.}
             \label{fig:copypastePrevu}
         \end{figure}
         
-        \begin{figure}
+        \begin{figure}[H]
             \centering
-                \includegraphics[width=0.8\textwidth]{figure/copiercollerReel.png}
-            \caption{Diagramme de classe réel pour le couper-copier-coller.}
+                \includegraphics[width=0.9\textwidth]{figure/copiercollerReel.png}
+            \caption{Diagramme de classes réellement implémenté pour le couper/copier/coller.}
             \label{fig:copypasteReel}
         \end{figure}
+
+        Dans ADTool, un ADTree est en réalité un \emph{ADTreeNode} possédant des fils, qui sont eux-mêmes des \emph{ADTreeNode}. L'ADTree courant est affiché à l'écran via un \emph{ADTreeCanvas}. Les actions au clavier et à la souris réalisées par l'utilisateur sont captées par la classe \emph{AbstractCanvasHandler}, qui possède le \emph{ADTreeCanvas} sur lequel agit l'utilisateur. Il a donc été ajouté à l'\emph{AbstractCanvasHandler} un attribut de \emph{ADTreeTransferHandler}, une nouvelle classe qui contient les méthodes de copie et de collage d'un \emph{ADTreeNode}. Ainsi, lorsque l'utilisateur lance la commande \og couper \fg{}, par exemple, cette dernière est captée par la classe \emph{CanvasHandler} qui demande alors à sa classe parente (\emph{AbstractCanvasHandler}) de récupérer l'\emph{ADTreeNode} à couper (il s'agit de l'attribut \emph{focusedNode} de \emph{ADTreeCanvas}). L'\emph{ADTreeTransferHandler} se charge ensuite de l'opération de copie en stockant dans \emph{clonedNode} un clone de l'\emph{ADTreeNode} coupé. Dans le cas de l'action \og couper \fg{}, la suppression de l'ADTree coupé est gérée en interne par l'\emph{AbstractCanvasHandler}. Pour le collage, les opérations sont sensiblement identiques, sauf que le clone stocké par l'\emph{ADTreeTransferHandler} est restitué à l'\emph{AbstractCanvasHandler} qui se charge de l'ajouter à son \emph{ADTreeCanvas}.
        
 	\subsection{Annulation des dernières actions}
-		 La {\sc Figure} \ref{fig:ctrlzPrevu} illustre l'implémentation de l'annulation des dernières actions telle qu'imaginée lors du rapport de conception. De la même façon que pour le couper-copier-coller, la structure d'ADTool nous a poussé à implémenter l'annulation différemment, comme indiqué sur la {\sc Figure} \ref{fig:ctrlzReel}. En effet, associer chaque action à une classe se révélait trop fastidieux, étant donné le grand nombre d'actions possibles. L'\emph{AbstractCanvasHandler} se voit donc doté d'un attribut de \emph{UndoExecutor}, une nouvelle classe qui contient les méthodes d'annulation. Lorsque l'utilisateur réalise une action, un clone de l'ADTree est empilé dans la pile de l'\emph{UndoExecutor}. Les clones sont dépilés et rechargés dans l'\emph{ADTreeCanvas} lorsque l'utilisateur utilise la fonctionnalité d'annulation. Afin d'éviter une saturation de la mémoire, la pile ne peut contenir qu'un certain nombre de clones de l'ADTree, supprimant le plus ancien pour pouvoir empiler le plus récent. Il est à noter que plus l'ADTree est petit, plus le nombre d'actions annulables est grand, car la pile peut contenir plus de clones avant d'indiquer sa saturation. Dans le pire des cas, si l'ADTree est immense, seule la dernière action sera annulable. 
+
+		 La {\sc Figure}~\ref{fig:ctrlzPrevu} illustre l'implémentation de l'annulation de la dernière action telle qu'imaginée lors du rapport de conception~\cite{conception} (dans lequel il n'était pas prévu de pouvoir effectuer plusieurs annulations à la suite). De la même façon que pour le couper/copier/coller, la structure d'ADTool a mené à implémenter l'annulation différemment, comme indiqué sur la {\sc Figure}~\ref{fig:ctrlzReel}. 
 		 
-        \begin{figure}
+        \begin{figure}[H]
             \centering
                 \includegraphics[width=0.8\textwidth]{figure/ctrlz.png}
             \caption{Diagramme de classes prévu pour l'annulation des dernières actions.}
             \label{fig:ctrlzPrevu}
         \end{figure}
         
-        \begin{figure}
+        \begin{figure}[H]
             \centering
                 \includegraphics[width=0.8\textwidth]{figure/ctrlzReel.png}
             \caption{Diagramme de classes réel pour l'annulation des dernières actions.}
             \label{fig:ctrlzReel}
         \end{figure}
 
+        En effet, associer chaque action à une classe se révélait trop fastidieux, étant donné le grand nombre d'actions possibles. L'\emph{AbstractCanvasHandler} se voit donc doté d'un attribut de \emph{UndoExecutor}, une nouvelle classe qui contient les méthodes d'annulation. Lorsque l'utilisateur réalise une action, un clone de l'ADTree courant est stocké dans la pile de l'\emph{UndoExecutor}. Les clones sont dépilés et rechargés dans l'\emph{ADTreeCanvas} lorsque l'utilisateur utilise la fonctionnalité d'annulation. Afin d'éviter une saturation de la mémoire, la pile ne peut contenir qu'un certain nombre de clones de l'ADTree, supprimant si besoin le plus ancien pour pouvoir ajouter le plus récent. Il est à noter que plus l'ADTree est petit, plus le nombre d'actions annulables est grand, car la pile peut contenir plus de clones avant d'arriver à saturation. Dans le pire des cas, si l'ADTree est immense (dans notre cas, s'il contient plus de 1000 n\oe{}uds), seule la dernière action sera annulable. 
+
 	\subsection{Bibliothèque de modèles}
-		La {\sc Figure} \ref{fig:library} illustre l'implémentation de la bibliothèque de modèles telle qu'imaginée lors du rapport de conception. Finalement, cette bibliothèque se présente comme un simple dossier contenant les modèles, fourni avec Glasir. En effet, les contraintes décrites dans la {\sc section} \ref{subsec:archi} ayant imposé la création du \emph{viewmode} d'ADTool ont également nécessité de donner un tel format à la bibliothèque.
+    \label{ssec:bib}
+		La {\sc Figure} \ref{fig:library} illustre l'implémentation de la bibliothèque de modèles telle qu'imaginée lors du rapport de conception~\cite{conception}. 
 		
-		\begin{figure}
+		\begin{figure}[H]
             \centering
                 \includegraphics[width=0.8\textwidth]{figure/library.png}
             \caption{Diagramme de classes prévu pour la bibliothèque de modèles.}
             \label{fig:library}
         \end{figure}
+
+        Finalement, cette bibliothèque se présente comme un simple dossier (fourni avec Glasir) contenant les modèles d'ADTrees. Ceux-ci portent sur le thème des transports en commun, ce qui correspond à l'étude de cas dans le cadre de ce projet mais ne doit pas restreindre l'utilisation de Glasir. C'est pourquoi il a été décidé de la fournir séparée du logiciel, pour que ce dernier reste adapté à l'analyse en sécurité de n'importe quel système.
