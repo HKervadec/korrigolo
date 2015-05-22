@@ -23,7 +23,7 @@ La {\sc Figure} \ref{fig:archiPrevue} illustre l'architecture générale imagin�
             \label{fig:archiReelle}
         \end{figure}
         
-Les modules principaux de Glasir que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur ont eux aussi été un peu revus par rapport à l'implémentation prévue dans le rapport de conception~\cite{conception}. Ces changements sont principalement liés à des questions de cohérence soulevées après le début du développement. La {\sc sous-section}~\ref{ssec:editeurFct} détaille les modifications apportées à l'Éditeur de fonctions en particulier.
+Les modules principaux de Glasir que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur ont eux aussi été un peu revus par rapport à l'implémentation prévue dans le rapport de conception~\cite{conception}. Ces changements sont principalement liés à des questions de cohérence soulevées après le début du développement. Les {\sc sous-sections}~\ref{ssec:editeurFct},~\ref{ssec:implemFiltre} et~\ref{ssec:algoOptim} détaillent les modifications apportées à ces modules.
 
 \subsection{Algorithme de l'Éditeur de fonctions}
 \label{ssec:editeurFct}
@@ -70,7 +70,7 @@ Bien que nous n'ayons pas jugé nécessaire de détailler l'algorithme de l'Édi
             \item \verb|type| précise si il s'agit d'un nœud d'attaque ou de défense, ou bien d'une feuille.
         \end{itemize}
 
-    L'Éditeur de fonctions n'est pas la seule fonctionnalité ayant subi des modifications au cours de son implémentation. Ainsi, la {\sc sous-section}~\ref{implemFiltre} présente les corrections apportées au Filtre.
+    L'algorithme de l'éditeur de fonctions est donc un algorithme récursif, qui cherche les feuilles de l'ADTree pour ajouter le nouveau paramètre à celle-ci. 
 
 \subsection{Algorithme du Filtre}
 \label{ssec:implemFiltre}
@@ -101,7 +101,7 @@ L'algorithme original du Filtre comportait quelques erreurs, telles que la possi
             \begin{algorithmic}
 	\STATE val = param(racine)
 	\STATE
-	\IF {val > valLim}
+	\IF {pire(val, valLim)}
 		\STATE delete(racine) // will delete subtrees as well
 		\RETURN
 	\STATE
@@ -120,9 +120,7 @@ L'algorithme original du Filtre comportait quelques erreurs, telles que la possi
             \end{algorithmic}
         \end{algorithm}
 
-    Dans l'{\sc algorithme}~\ref{algo:filtreReel}, \verb|valLim| est la valeur limite (maximale ou minimale selon les cas) acceptée pour le paramètre \verb|param| que l'on désire dans l'arbre filtré peu importe le chemin envisagé.
-
-    Il reste à présent l'Optimiseur, dont le fonctionnement n'a pas été bouleversé. Son implémentation en revanche a été un peu différente de celle prévue, comme expliqué dans la {\sc sous-section}~\ref{ssec:algoOptim}.
+    Dans l'{\sc algorithme}~\ref{algo:filtreReel}, \verb|valLim| est la valeur limite (maximale ou minimale selon les cas) acceptée pour le paramètre \verb|param| que l'on désire dans l'arbre filtré peu importe le chemin envisagé, et  \verb|pire| est une fonction renvoyant vrai si son premier paramètre est moins bon que son second pour le domaine de valuation considéré, et faux sinon.
 
 \subsection{Algorithme de l'Optimiseur}
 \label{ssec:algoOptim}
@@ -175,7 +173,7 @@ Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait 
 
 	\subsection{Affichage multiple des paramètres}
 
-    Cette nouveauté n'a finalement pas été mise en place. En effet, l'étude approfondie du code source d'ADTool a montré qu'un tel changement aurait nécessité une refonte quasi-totale de la structure du logiciel. De telles modifications auraient demandé un temps de travail bien trop conséquent comparé au temps disponible pour la réalisation du projet. Aussi, l'intérêt de ce nouvel affichage a été remis en cause : le risque de perdre en clarté et en lisibilité lors de la manipulation des ADTrees a semblé trop important.
+    Cette nouveauté n'a finalement pas été mise en place. En effet, l'étude approfondie du code source d'ADTool a montré qu'un tel changement aurait nécessité une refonte quasi-totale de la structure du logiciel. De telles modifications auraient demandé un temps de travail bien trop conséquent comparé au temps disponible pour la réalisation du projet. De toute manière, l'intérêt de ce nouvel affichage avait finalement été remis en cause : le risque de perdre en clarté et en lisibilité lors de la manipulation des ADTrees avait semblé trop important.
 
 	\subsection{Couper/copier/coller}
 

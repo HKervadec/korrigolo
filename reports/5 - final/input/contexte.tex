@@ -14,7 +14,7 @@
     L'objectif de ce projet a donc été la réalisation d'un logiciel fournissant à l'utilisateur, un expert en sécurité, des outils d'analyse des ADTrees. Ce logiciel a été nommé \glasir{} en référence à l'arbre aux feuilles d'or de la mythologie nordique~\cite{vikingCulture}, et dont le logo est visible sur la \textsc{Figure} \ref{fig:glasir}. Il dispose de trois fonctionnalités principales, qui ont été détaillées dans les rapports précédents :
 \begin{itemize}
     	\item l'{\bf Éditeur de fonctions}, qui permet à l'expert de créer de nouveaux paramètres fonctions de ceux déjà présents dans l'arbre ;
-    	\item le {\bf Filtre}, qui aide l'utilisateur à ôter de l'ADTree les branches aux valuations hors d'un intervalle défini ;
+    	\item le {\bf Filtre}, qui aide l'utilisateur à ôter de l'ADTree les branches dont les valuations ne respectent pas un certain critère;
     	\item l'{\bf Optimiseur}, qui sélectionne le(s) meilleur(s) chemin(s) de l'ADTree selon un paramètre donné.
 \end{itemize} 
     ADTool a quant à lui été amélioré, et est utilisé au sein de Glasir comme viewer d'ADTrees. 
@@ -57,7 +57,7 @@
         \label{fig:bilan_cdc}
     \end{table}
 
-    La 1\iere{} colonne de la {\sc table}~\ref{fig:bilan_cdc} rappelle le cahier des charges tel qu'il a été défini dans le rapport de planification~\cite{planif}, c'est-à-dire sous forme de tâches unitaires. La 2\ieme{} colonne de la {\sc table}~\ref{fig:bilan_cdc} indique si la tâche correspondante a bien été effectuée (symbole \textcolor{bo_vert}{\ding{51}}) ou non (symbole \textcolor{nouvo_rouge}{\ding{55}}). Il est à noter que si les fonctionnalités implémentées sont fonctionnelles et rendent bien le service décrit initialement dans le cahier des charges, leur implémentation a souvent différé de leur conception pour des raisons pratiques. Ces différences seront détaillées et justifiées par la suite, dans la {\sc section}~\ref{sec:rect}.
+    La 1\iere{} colonne de la {\sc table}~\ref{fig:bilan_cdc} rappelle le cahier des charges tel qu'il a été défini dans le rapport de planification~\cite{planif}, c'est-à-dire sous forme de tâches unitaires. La 2\ieme{} colonne de la {\sc table}~\ref{fig:bilan_cdc} indique si la tâche correspondante a bien été effectuée (symbole \textcolor{bo_vert}{\ding{51}}) ou non (symbole \textcolor{nouvo_rouge}{\ding{55}}). Comme la {\sc table}~\ref{fig:bilan_cdc} permet de le voir, la plupart des fonctionnalités promises dans le cahier des charges du projet ont effectivement été livrées. Il est à noter que si les fonctionnalités implémentées sont fonctionnelles et rendent bien le service décrit initialement dans le cahier des charges, leur implémentation a parfois différé de leur conception pour des raisons pratiques. Ces différences seront détaillées et justifiées par la suite dans la {\sc section}~\ref{sec:rect}.
 
     Quatre rapports ont été rédigés dans le cadre de ce projet : celui de pré-étude~\cite{pre_etude}, celui de spécifications fonctionnelles~\cite{spec_fonc}, celui de planification~\cite{planif} et celui de conception~\cite{conception}. Ils ont permis de mieux définir les objectifs du logiciel, ainsi que l'organisation de son implémentation. Le but de ce rapport final est de rendre compte de la tenue des objectifs qui ont été fixés au début du projet, et des méthodes mises en place pour y parvenir. Il évoquera aussi les ajustements qui ont été mis en place afin de gérer les imprévus auquels nous avons fait face. 
 
