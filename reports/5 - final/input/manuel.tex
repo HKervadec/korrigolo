@@ -3,11 +3,11 @@
 
 Bienvenue dans le manuel utilisateur de Glasir, un logiciel d'aide aux experts en sécurité basé sur le formalisme des ADTrees\footnote{Abréviation d'\og Attack-Defense Trees \fg{}, ou \og Arbres d'Attaque et de Défense\fg{} en français.}. Grâce à Glasir, vous pourrez analyser efficacement vos ADTrees préalablement créés avec ADTool~\cite{adtool}, un logiciel open-source disponible sur Internet.
 
-Ce livret commencera par décrire le fonctionnement général du logiciel (création d'un nouveau projet, ouverture d'un projet existant, etc.), avant d'expliquer comment prendre en main les trois fonctionnalités principales que sont l'Éditeur de fonctions, le Filtre et enfin l'Optimiseur. 
+Ce manuel commencera par décrire le fonctionnement général du logiciel (création d'un nouveau projet, ouverture d'un projet existant, etc.), avant d'expliquer comment prendre en main les trois fonctionnalités principales que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur. 
 
 Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez des détails concernant l'utilisation d'ADTool, surtout les nouveautés qui lui ont été ajoutées lors de ce projet.
 
-\begin{figure}[!h]
+	\begin{figure}[!h]
         \centering
         \includegraphics[height=0.3\textwidth]{figure/glasir.png}
     \end{figure}
@@ -15,7 +15,49 @@ Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez d
 \subsection{Glasir}
 \label{ssec:manuelGlasir}
 
-\paragraph{Fonctionnement général}
+\paragraph{Agencement général de la fenêtre}
+Lorsque vous démarrez Glasir, la fenêtre présentée sur la {\sc Figure}~\ref{fig:princ} s'affiche. Nous allons décrire rapidement la structure de cette fenêtre, sans rentrer dans les détails : 
+\begin{itemize}
+	\item  la barre de menu située en haut vous permet d'ouvrir des ADTrees, de sauvegarder des projets, ou encore d'obtenir des indications si vous avez besoin d'aide;
+	\item le bloc central vous permet d'accéder à l'Éditeur de fonction (\emph{FunctionEditor}), au Filtre (\emph{Filter}) et à l'Optimiseur (\emph{Optimize});
+	\item la ligne de texte en dessous du bloc central indique sur quel ADTree vous travaillez. Au démarrage, comme aucun ADTree n'est ouvert, le message \og No ADTree selected \fg{} est initialement affiché.
+	\item le bloc en bas, surmonté du message \og ADTrees available \fg{}, vous indique quels sont les ADTrees appartenant au porjet courant. Comme aucun projet n'est ouvert au démarrage, ce bloc est initialement vide.
+	\item la case cochable \emph{Show complete path}, tout en bas, vous permet d'afficher le chemin complet des ADTrees listé dans le bloc situé au-dessus.
+	\end{itemize}
+	
+	Nous allons maintenant détailler le fonctionnement de chacune des fonctionnalités de Glasir.
+	
+	\begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/glasirFenetrePrincipale.png}
+        \caption{Fenêtre principale s'affichant au démarrage de Glasir.}
+        \label{fig:princ}
+    \end{figure}
+
+\paragraph{Ouvrir un ADTree}
+Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à gauche, dans la barre de menu. Puis, dans le menu déroulant, cliquez sur \emph{Open ADTree File}, comme indiqué sur la {\sc Figure}~\ref{fig:file}. Une boîte de dialogue apparaît : parcourez vos dossiers pour sélectionner l'ADTree que vous souhaitez ouvrir. Notez que seul les ADTrees au format XML sont supportés par Glasir. Une fois l'ADTree sélectionné, cliquez sur le bouton \emph{Open} de la boite de dialogue. ADTool se lance alors pour afficher votre ADTree. Notez qu'au démarrage, cette opération peut prendre quelques secondes. Une fois ADTool lancé, Glasir se présente sous la forme de plusieurs fenêtres, comme indiqué sur la {\sc Figure}~\ref{fig:gladitoule}. Si la fenêtre d'ADTool ne s'affiche pas au bout d'une minute ou qu'un autre programme qu'ADTool se lance, c'est que vos fichier \emph{.jar} ne sont pas associés à Java (ou que vous ne possédez simplement pas Java). Consultez et suivez les étapes du fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir pour obtenir des informations supplémentaires et corriger le problème.
+
+	\begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/openfile.png}
+        \caption{Menu déroulant disponible en cliquant sur le bouton \emph{File} de la barre de menu.}
+        \label{fig:file}
+    \end{figure}
+    
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[height=0.7\textwidth]{figure/glasirAditoule.png}
+        \caption{Fenêtres visibles après ouverture d'un ADTree.}
+        \label{fig:gladitoule}
+    \end{figure}
+
+\paragraph{Enregistrer un projet} Lorsque vous avez ouvert un ou plusieurs ADTrees, vous avez la possibilité de sauvegarder l'état actuel de votre projet, c'est-à-dire la liste des ADTrees ouverts. Pour ce faire, cliquez sur \emph{File}, puis sur \emph{Save project as} pour choisir l'emplacement où enregistrer le fichier du projet. Donnez-lui un nom, puis cliquez sur le bouton \emph{Save} de la boite de dialogue. Une fois ceci fait, le titre de la fenêtre de Glasir portera alors le nom de votre projet. Vous pourrez par la suite cliquer directement sur \emph{Save project} pour enregistrer vos modifications.
+
+\paragraph{Ouvrir un projet} Si vous avez déjà un projet enregistré, c'est-à-dire un fichier avec l'extension \emph{.glpf} (\emph{Glasir Project File}), vous pouvez recharger ce fichier : cliquez sur \emph{File}, puis \emph{Open project}. Parcourez vos dossiers pour retrouver votre fichier de projet, sélectionnez-le, puis cliquez sur le bouton \emph{Open} de la boite de dialogue. Si vous aviez un projet ou des ADTrees ouverts, ils seront fermés pour que votre projet enregistré puisse être ré-ouvert. Notez que toute modification non-sauvegardée ne sera pas enregistrée lors de la fermeture.
+
+\paragraph{Aide} Si vous avez des problèmes avec le lancement d'ADTool, vous pouvez cliquer sur le bouton \emph{Help} de la barre de menu pour obtenir des informations supplémentaires. Nous vous invitons dans ce cas à suivre les consignes indiquées dans le fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir.
+
+\paragraph{Changer d'ADTree courant} Pour pouvoir utiliser les modules de Glasir, vous devez sélectionner un ADTree courant, sur lequel les opérations des modules seront appliquées. Le bloc en bas de la fenêtre principale dresse la liste des ADTrees de votre projet.  Vous avez la possibilité de cocher la case \emph{Show complete path}, en bas, pour voir le chemin complet de chaque ADTree. Cliquez sur un ADTree dans la liste pour qu'il devienne l'ADTree courant. Son nom est alors indiqué à la ligne du dessus, en plus gros. Si aucun ADTree n'est disponible ou sélectionné, le message \og No ADTree selected \fg{} est affiché à la place. Notez que lorsque vous ouvrez un ADTree, ce dernier devient automatiquement l'ADTree courant.
 
 \paragraph{Éditeur de fonctions}
 
