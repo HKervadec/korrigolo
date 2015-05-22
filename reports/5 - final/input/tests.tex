@@ -1,42 +1,62 @@
-\section{Compte-rendu des tests}
+\section{Méthodologie de test et résultats}
 \label{sec:cr_tests}
 
-Le développement de Glasir, ainsi que les modifications apportées à ADTool, ont été versionnés afin de pouvoir tester les nouveautés au fur et à mesure. En tout, trois versions ont été livrées : la 0.1, la 0.2 puis finalement la 1.0. Cette section a pour but de décrire les compte-rendus des tests de chacune des versions. Avant cela, il est à noter que les tests ont été réalisés par trois entités distinctes, dont nous allons présenter les profils respectifs dans la {\sc sous-section}~\ref{subsec:testeurs}. Il faut aussi savoir que nous avons pu tester chaque nouveauté sur des ADTrees relativement conséquents, fournis par les élèves de 5INFO à l'issue de l'un de leurs TP.
+Tout au long de l'implémentation de Glasir et des nouvelles fonctionnalités d'ADTool, nous avons du nous assurer du bon fonctionnement de notre logiciel. Pour cela, nous avons du mettre en place une méthodologie de test en accord avec les contraintes de notre projet. La contrainte du projet la plus contraignante aura été que, Glasir et ADTool étant deux logiciels distincts, nous ne pouvions pas assurer au travers de tests unitaires dans Glasir que les fonctionnalités d'analyse fonctionnaient correctement, car c'était justement l'affichage correct ou non de l'arbre résultat sous ADTool qui permettait de valider ou non l'analyse. Nous avons donc du recourir à une méthode différente des tests unitaires.
+Le développement de Glasir et l'amélioration d'ADTool ayant été versionnés, nous avions un cadre propice pour le test des fonctionnalités d'une version sur l'autre. La méthodologie employée pour tester Glasir a donc été de faire tester les deux logiciels par des personnes avec trois profils distincts et complémentaires, dont nous allons présenter les profils respectifs dans la {\sc sous-section}~\ref{subsec:testeurs}. Nous avons de plus pu tester chaque nouveauté sur des ADTrees relativement conséquents, fournis par les élèves de 5INFO à l'issue de l'un de leurs TP.
 
 \subsection{Les profils de testeurs}
 \label{subsec:testeurs}
 
-Les tests de Glasir ont été réalisés de manière plus ou moins continue par trois catégories de personnes très différentes, qui vont être présentées ci-dessous.
+Les tests de Glasir ont été réalisés de manière plus ou moins continue par trois catégories de personnes avec des profils différents, qui vont être présentés ci-dessous.
 
-\paragraph{Les développeurs} Cette catégorie comprend les trois étudiants en charge de l'implémentation du projet : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} ainsi que Maud {\sc Leray}. Le code produit a été testé en continu lors de son avancement, et non pas uniquement lors des rendus de versions, ce qui a déjà permis d'éliminer un certain nombre de \og bugs \fg{} possibles.
+\paragraph{Les développeurs} Cette catégorie comprend les trois étudiants en charge de l'implémentation du projet : Pierre-Marie {\sc Airiau}, Valentin {\sc Esmieu} ainsi que Maud {\sc Leray}. Pour chacune des fonctionnalités des logiciels, celui d'entre nous qui avait la charge de l'implémenter la testait au fur et à mesure du développement ; puis une fois l'implémentation terminée, la faisait tester par les deux autres du groupe pour localiser d'éventuels bugs sur lesquels il serait passé. La méthode utilisée pour ces tests se décomposait en deux parties : Tout d'abord, nous essayions de pousser les fonctionnalités dans leurs retranchements pour tenter d'aboutir à des résultats incohérents, puis nous testions le comportement du logiciel lors d'utilisations inappropriées pour localiser les cas d'utilisations non maitrisés par le code.
 
-\paragraph{L'expert en ADTrees} Chaque version rendue a été testée par un expert en ADTrees, qui maîtrisait aussi déjà la version initiale d'ADTool. Ses remarques, concernant Glasir mais aussi les améliorations apportées à ADTool, ont souvent permis de soulever des incohérences de formalisme ou d'interprétation des ADTrees.
+\paragraph{Expert en ADTrees} Chacune des versions rendues a ensuite été testée par un expert en ADTrees maîtrisant également la version initiale d'ADTool. Son rôle était de s'assurer que les résultats des fonctionnalités d'analyses étaient cohérents avec le formalisme des ADTrees.
 
-\paragraph{Le regard extérieur} Il s'agit ici d'une personne qui connaissait les objectifs du projet, mais qui n'était pas familière avec le formalisme des ADTrees ni avec ADTool. Son point de vue fut primordial car il permit de soulever des questions d'ordre ergonomique et/ou pratique qui n'auraient probablement pas été remarqués sinon.
+\paragraph{Expert en sécurité} Il s'agit enfin d'un expert en sécurité qui connaissait les objectifs du projet, mais qui n'était pas familier avec le formalisme des ADTrees ni avec ADTool. Son rôle était de tester le logiciel avec un oeil \og{}extérieur\fg afin de soulever des questions d'ordre ergonomique et/ou pratique qui n'auraient probablement pas été remarqués sinon.
 
-Maintenant que les différents profils de testeurs ont été décrits, il est temps de rendre compte des versions livrées, à commencer par la 0.1 dans la {\sc sous-section}~\ref{subsec:v0.1}.
+\subsection{Rapport de tests}
+\label{subsec:tests}
 
-\subsection{Version 0.1}
-\label{subsec:v0.1}
+Nous allons maintenant détailler les différents retours de tests que nous avons eu sur Glasir et ADTool lors des rendus des différentes versions : 
+\begin{itemize}
+	\item v0.1 avec l'interface de Glasir, l'Editeur de Fonctions et la refonte de la grammaire d'ADTool ;
+	\item v0.2 avec le Filtre dans Glasir et la fonctionnalité de copier/couper/coller dans ADTool ;
+	\item v1.0 avec l'optimiseur pour Glasir et le Undo pour ADTool.
+\end{itemize}
+Seront détaillés ici les retours consécutifs aux rendus des différentes versions de Glasir. Ces retours sont repartis selon le type d'élément qu'ils concernent :
 
-Cette version fut la première rendue dans le cadre du projet Glasir, elle présentait un certain nombre de dysfonctionnements rapidement corrigés par la suite. Ces derniers étaient en partie dûs au fait que le logiciel avait été testé en amont sur les ordinateurs personnels des développeurs, mais jamais sur une machine vierge. De plus, Glasir 0.1 a été rendue sans manuel utilisateur, or certaines fonctionnalités n'étaient pas forcément intuitives à prendre en main. Des précautions ont été prises par la suite pour ne pas reproduire les mêmes erreurs.
+\subsubsection{Retours d'ordre général sur Glasir}
+\label{subsubsec:fonctglob}
 
-Les plus gros problèmes soulevés concernant cette version sont ceux relatifs à la fonctionnalité principale implémentée : l'Éditeur de fonctions. Pour commencer, ce dernier ne savait pas traiter les paramètres de type booléen, ni la présence de défenses dans un ADTree. Quelques questions ont également été soulevées concernant la gestion des paramètres discrets, tels que la difficulté pour l'attaquant évaluée sous la forme de valeurs L (Low), M (Medium) ou H (High). Des décisions ont été prises en collaboration avec les encadrants pour remédier à ces interrogations. Enfin, il a été remarqué que deux fonctions créées pouvaient porter le même nom, ce qui posait par la suite des soucis de clarté pour l'analyse des ADTrees.
+Le principal problème soulevé dès la version 0.1 fut que l'on pouvait ne pas parvenir pas à ouvrir d'ADTrees depuis Glasir, à cause d'un manque de précision dans le code lors du lancement d'ADTool (il n'était pas précisé d'ouvrir le fichier .jar avec Java). Ceci était dû au fait que le logiciel avait été testé en amont sur les ordinateurs personnels des développeurs, mais jamais sur une machine vierge où l'association entre .jar et JAVA n'était pas paramétrée par défaut. Ceci a été corrigé par la suite. 
 
-Esthétiquement parlant, la fenêtre principale de Glasir a été critiquée pour son absence de redimensionnement. 
+Esthétiquement parlant, la fenêtre principale de Glasir a été critiquée pour son absence de redimensionnement lors de l'étirement de la fenêtre. Nous avons alors fixé la taille de la fenêtre pour empêcher son étirement. 
 
-Enfin, le constat a été fait que la possibilité de modifier les ADTrees via ADTool lors de leur ouverture avec Glasir était problématique, du fait de l'indépendance totale des deux logiciels. En effet, les changements effectués dans l'un n'étaient pas connus par l'autre et vice-versa. La solution mise en place fut celle d'un \og view mode \fg{} pour ADTool, utilisé dans Glasir pour bloquer toutes les possibilités de modification des ADTrees (à l'exception de celles apportées par l'Éditeur de fonctions, le Filtre et/ou l'Optimiseur). Cette nouveauté fut présente dès la version 0.2, dont le compte-rendu de tests est décrit dans la {\sc sous-section}~\ref{subsec:v0.2}.
+Enfin, Glasir disposant d'une arborescence des ADTrees pour le projet en cours, il a été demandé d'y mettre plus en évidence celui en cours de manipulation. Un affichage séparé de l'arbre en cours de manipulation a donc été ajouté.
 
-\subsection{Version 0.2}
-\label{subsec:v0.2}
+\subsubsection{Retours sur les fonctionnalités de Glasir}
+\label{subsubsec:Glasir}
 
-Glasir 0.2 présentait moins de \og bugs \fg{} que son prédécesseur, et parmi ceux-ci aucun ne concernait l'implémentation du Filtre qui était la principale nouvelle fonctionnalité. Cela s'explique par le fait que cette fois-ci toutes les questions à son égard avaient été évoquées en amont du développement, lors d'une réunion avec les encadrants. La seule amélioration demandée était d'afficher une fenêtre pop-up du type \og Arbre vide après filtrage \fg{} plutôt que l'ADTree réduit à \og Root \fg{} lorsque le filtre appliqué ne permettait de conserver aucun noeud. Cela parait en effet plus compréhensible pour l'utilisateur.
+Au rendu de la version 0.1, l'éditeur de fonction comportait de nombreux bugs. Pour commencer, ce dernier ne savait pas traiter les paramètres de type booléen, ni la présence de défenses dans un ADTree. Quelques questions ont également été soulevées concernant la gestion des paramètres discrets, tels que la difficulté pour l'attaquant évaluée sous la forme de valeurs L (Low), M (Medium) ou H (High). Enfin, il a été remarqué que deux fonctions créées pouvaient porter le même nom, ce qui posait par la suite des soucis de clarté pour l'analyse des ADTrees. Des décisions ont été prises pour remédier à ces problèmes, qui ont été corrigé depuis. 
 
-Le principal problème soulevé fut que l'un des testeurs ne pouvait pas ouvrir d'ADTrees depuis Glasir, à cause d'un manque de précision dans le code lors du lancement d'ADTool (il n'était pas précisé d'ouvrir le fichier .jar avec Java). Ceci a été corrigé de suite, puis renvoyé au testeur pour avoir d'autres retours. 
+Nous avons alors apporté un plus grand soin aux tests des fonctionnalités restantes de Glasir, pour fournir aux versions suivante des implémentations plus abouties du filtre et de l'optimiseur. 
 
-De plus, Glasir disposant d'une arborescence des ADTrees du projet en cours, il a été demandé d'y mettre plus en évidence celui manipulé à l'instant présent.
+En conséquence de ceci, le rendu de la version 0.2 contenant le filtre comportait moins de bugs. La seule amélioration demandée était d'afficher une fenêtre pop-up du type \og Arbre vide après filtrage \fg{} plutôt que l'ADTree réduit à \og Root \fg{} lorsque le filtre appliqué ne permettait de conserver aucun noeud. Cela est en effet plus compréhensible pour l'utilisateur et a donc été implémenté suite à ce retour.
 
-Concernant ADTool, la nouveauté implémentée ici était celle du copier/couper/coller. La seule critique faite à son égard était que le menu déroulant comportait toujours la possibilité de coller un noeud même si aucun n'avait été préalablement copié ni coupé (sans aucun effet). Bien que sans conséquences notables, cette petite incohérence fut vite corrigée. Il a aussi été demandé d'ajouter en haut de la fenêtre d'ADTool le nom (et même le path complet) de l'ADTree affiché. Ceci est très pratique lorsque plusieurs instances d'ADTool sont ouvertes simultanément, comme c'est souvent le cas lors de l'utilisation de Glasir. 
+L'optimiseur, quant à lui rendu en version finale 1.0, n'a montré aucun bugs lors de la phase de test.
 
-\subsection{Version 1.0}
-\label{subsec:v1.0}
+\subsubsection{Retours sur les nouvelles fonctionnalités d'ADTool}
+\label{subsubsec:ADTool}
+
+Le constat a été fait que la possibilité de modifier les ADTrees via ADTool lors de leur ouverture avec Glasir était problématique, du fait de l'indépendance des deux logiciels une fois lancés. En effet, les changements effectués dans l'un n'étaient pas connus par l'autre et vice-versa. La solution mise en place fut celle d'un \og view mode \fg{} pour ADTool, utilisé dans Glasir pour bloquer toutes possibilités de modification des ADTrees dans ADTool lors de l'utilisation de Glasir. Cette nouveauté fut présente dès la version 0.2.
+
+La seule critique faite à l'égard du copier/couper/coller était que le menu déroulant comportait toujours la possibilité de coller un n\oe{}ud même si aucun n'avait été préalablement copié ni coupé (sans aucun effet). Bien que sans conséquences notables, cette petite incohérence fut vite corrigée. 
+
+Il a également été demandé après les tests de la version 0.2 d'ajouter en haut de la fenêtre d'ADTool le nom (et même le path complet) de l'ADTree affiché, ce qui a été fait depuis. Ceci est en effet très pratique lorsque plusieurs instances d'ADTool sont ouvertes simultanément, comme c'est souvent le cas lors de l'utilisation de Glasir. 
+
+
+
+
+
+

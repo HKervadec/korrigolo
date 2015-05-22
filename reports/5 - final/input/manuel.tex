@@ -59,11 +59,41 @@ Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à 
 
 \paragraph{Changer d'ADTree courant} Pour pouvoir utiliser les modules de Glasir, vous devez sélectionner un ADTree courant, sur lequel les opérations des modules seront appliquées. Le bloc en bas de la fenêtre principale dresse la liste des ADTrees de votre projet.  Vous avez la possibilité de cocher la case \emph{Show complete path}, en bas, pour voir le chemin complet de chaque ADTree. Cliquez sur un ADTree dans la liste pour qu'il devienne l'ADTree courant. Son nom est alors indiqué à la ligne du dessus, en plus gros. Si aucun ADTree n'est disponible ou sélectionné, le message \og No ADTree selected \fg{} est affiché à la place. Notez que lorsque vous ouvrez un ADTree, ce dernier devient automatiquement l'ADTree courant.
 
-\paragraph{Éditeur de fonctions}
+\paragraph{Éditeur de fonctions}Cette fonctionnalité a pour intérêt d'exprimer un compromis entre deux valuations d'un ADTree en en créant une troisième, fonction des deux premières. Par exemple, si vous avez un ADTree qui a comme paramètres \og Minimal cost for the proponent \fg (en euros) et \og Minimal time for the proponent (sequentiall) \fg (en heures) et que vous estimez que une heure \og coute \fg par comparaison 20 euros, vous pouvez créer un nouveau paramètre de type \og Minimal cost for the proponent \fg exprimant un compromis entre les deux paramètres qui sera égal à coût+20*temps.
+Pour utiliser l'éditeur de onctions, suivez les étapes suivantes : 
+\begin{itemize}
+\item Assurer vous d'avoir l'ADTree que vous voulez utiliser d'ouvert et désigné comme l'arbre courant. 
+\item Sélectionnez l'onglet \og FunctionEditor \fg .
+\item Sélectionnez les deux paramètres de l'ADTree que vous voulez combiner au moyen des deux ComboBox présentent dans l'onglet. ATTENTION  ! : le nouveau paramètre aura pour type celui du premier paramètre sélectionné (à gauche), par exemple si le premier paramètre est de type \og Minimal time for the proponent (sequentiall) \fg , alors le nouveau paramètre calculé le sera aussi. Si vous sélectionnez un paramètre de type discret, un nombre de cases égal au nombre valeurs possibles s'affichera. Vous pourrez alors pondérer ces valeurs de la plus petite (à gauche), à la plus grande (à droite).
+\item Inscrivez dans la textBox \og Function \fg la fonction que vous voulez utiliser pour le calcul du nouveau paramètre. Par exemple, si vous voulez faire \og newParam = firstParam + 2*secondParam\fg , inscrivez \og +2*\fg .
+\item Entrez le nom que vous voulez donné au nouveau paramètre créé dans la textBox \og Name\fg.
+\item Enfin, cliquez sur le bouton \og Apply\fg pour créer le nouveau paramètre.
+\end{itemize} 
+S'ouvrira alors un nouvel arbre dans une nouvelle fenêtre d'ADTool qui sera nommé comme l'arbre utilisé suivi de \og .functEdit\fg . Le nouvel arbre sera enregistré dans le répertoire où se trouve le logiciel Glasir. 
+Si un problème survient, l'exécution sera interrompu et une boite de message apparaitra pour vous expliquer pourquoi.
 
-\paragraph{Filtre}
+\paragraph{Filtre}Cette fonctionnalité sert a élaguer les chemins d'un ADTree qui ne respectent pas une certaine condition. Par exemple si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'on sait qu'un attaquant potentiel ne peut pas dépenser plus de 2000 euros, le filtre permettra alors d'élaguer l'ADTree de manière a ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros ou moins.
+Pour utiliser le filtre, suivez les étapes suivantes :
+\begin{itemize}
+\item Assurer vous d'avoir l'ADTree que vous voulez filtrer d'ouvert et désigné comme l'arbre courant. 
+\item Sélectionnez l'onglet \og Filter \fg .
+\item Sélectionnez le paramètre selon lequel vous voulez filtre l'arbre avec la ComboBox présente dans l'onglet.
+\item Indiquer dans la textBox \og Limit Value\fg la pire valeur acceptable par le filtre pour le paramètre sélectionné. Vous pouvez rentrez une valeur textuelle correspondant à l'une des valeurs de l'ensemble du paramètre si l'ensemble est discret.
+\item Enfin, cliquez sur le bouton \og Filter\fg pour filtrer l'arbre.
+\end{itemize}
+S'ouvrira alors un nouvel arbre correspondant à l'arbre élagué dans une nouvelle fenêtre d'ADTool, qui sera nommé comme l'arbre utilisé suivi de \og .filter\fg . Le nouvel arbre sera enregistré dans le répertoire où se trouve le logiciel Glasir.
+Si un problème survient, l'exécution sera interrompu et une boite de message apparaitra pour vous expliquer pourquoi.
 
-\paragraph{Optimiseur}
+\paragraph{Optimiseur}Cette fonctionnalité sert a élaguer les chemins d'un ADTree de manière a ne conserver que le ou les meilleurs chemins selon un paramètre donné. Par exemple si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'attaque la moins chère coute 2000 euros, l'optimiseur permettra alors d'élaguer l'ADTree de manière a ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros seulement.
+Pour utiliser l'optimiseur, suivez les étapes suivantes :
+\begin{itemize}
+\item Assurer vous d'avoir l'ADTree que vous voulez filtrer d'ouvert et désigné comme l'arbre courant. 
+\item Sélectionnez l'onglet \og Optimize \fg .
+\item Sélectionnez le paramètre selon lequel vous voulez optimiser l'arbre avec la ComboBox présente dans l'onglet.
+\item Enfin, cliquez sur le bouton \og Optimize\fg pour filtrer l'arbre.
+\end{itemize}
+S'ouvrira alors un nouvel arbre correspondant à l'arbre élagué dans une nouvelle fenêtre d'ADTool, qui sera nommé comme l'arbre utilisé suivi de \og .Optimizer\fg . Le nouvel arbre sera enregistré dans le répertoire où se trouve le logiciel Glasir.
+Si un problème survient, l'exécution sera interrompu et une boite de message apparaitra pour vous expliquer pourquoi.
 
 \subsection{Nouvelles fonctionnalités d'ADTool}
 \label{ssec:manuelADTool}
