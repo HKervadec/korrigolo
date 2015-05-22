@@ -24,6 +24,10 @@ namespace Glasir
             private set;
         }
 
+        /// <summary>
+        /// Create a new XMLFile with the given parameter
+        /// </summary>
+        /// <param name="path"></param>
         public XMLFile(string path)
         {
             FileName = path;
@@ -39,18 +43,31 @@ namespace Glasir
             
         }
 
+        /// <summary>
+        /// Create a new XMLFile with the given parameter
+        /// </summary>
+        /// <param name="file"></param>
         public XMLFile(XMLFile file)
         {
             FileName = file.FileName;
             XmlCode = new XDocument(file.XmlCode);
         }
 
+        /// <summary>
+        /// Create a new XMLFile object with the given parameters
+        /// </summary>
+        /// <param name="xmlfile"></param>
+        /// <param name="code"></param>
         public XMLFile(string xmlfile, XDocument code)
         {
             FileName = xmlfile;
             XmlCode = code;
         }
 
+        /// <summary>
+        /// Tell if the XMLTree is empty or not
+        /// </summary>
+        /// <returns></returns>
         public Boolean isEmpty()
         {
             XElement fn = (XElement) this.XmlCode.FirstNode;
@@ -70,11 +87,21 @@ namespace Glasir
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Return the XMLCode of the file
+        /// </summary>
+        /// <returns></returns>
         public string getXMLCodeFromFile()
         {
             return XmlCode.ToString(); 
         }
 
+        /// <summary>
+        /// Create the resulting file of a module
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public XMLFile createResultFile(int a)
         {
             string newName;
@@ -95,6 +122,10 @@ namespace Glasir
             return resultingFile;
         }
 
+        /// <summary>
+        /// get the list of the domains used in the XMLFile
+        /// </summary>
+        /// <returns></returns>
         public List<String> getDomains()
         {
             XElement fn = (XElement) this.XmlCode.FirstNode;

@@ -1,0 +1,17 @@
+changer figure 3 et figure 4
+
+p15 changer la représentation textuelle (mettre "noeud décomposé")
+rajouter une image comme à la soutenance, ce sera beaucoup plus clair.
+
+détailler peut-être les attributs et les méthodes des diagrammes (instances d'adtool, adt...)
+
+\begin{figure}[H]
+\centering
+\hspace*{-1cm}
+ou
+\includegraphics[width=\textwidth]{figure/startseqdiag.png}
+\caption{Diagramme de séquence du démarrage d'une instance d'ADTool dans Glasir.}
+\label{fig:start}
+\end{figure}
+
+commentaires en couleur... \newcommande{\comment}[1]{\textcolor{red}{Commentaire : #1}

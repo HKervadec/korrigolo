@@ -45,6 +45,9 @@ namespace Glasir
             checkIfADToolIsInstalled();
         }
 
+        /// <summary>
+        /// Check is ADToolisInstalled
+        /// </summary>
         private void checkIfADToolIsInstalled()
         {
             string path = Directory.GetCurrentDirectory() + "\\" + BigGlasir.AdtoolVersion;
@@ -55,6 +58,11 @@ namespace Glasir
             }
         }
 
+        /// <summary>
+        /// Actualise the selctionable domains in the module parameters with those of the foreground tree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // LA donnée source "domains" doit être collection
@@ -77,7 +85,11 @@ namespace Glasir
             OptimizeComboBox.DisplayMemberPath = "Chars";
         }
 
-
+        /// <summary>
+        /// Print or hide the LMHE boxex is an LMHE paramter is/is not selected for the second parameter of the FunctionEditor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void testDomain1(object sender, SelectionChangedEventArgs args)
         {
             try
@@ -102,6 +114,11 @@ namespace Glasir
             catch { }
         }
 
+        /// <summary>
+        /// Print or hide the LMHE boxex is an LMHE paramter is/is not selected for the second parameter of the FunctionEditor 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void testDomain2(object sender, SelectionChangedEventArgs args)
         {
             try
@@ -132,6 +149,11 @@ namespace Glasir
             catch { }
         }
 
+        /// <summary>
+        /// Print or hide the LMHE boxex is an LMHE paramter is/is not selected for the filter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void testDomainFiltering(object sender, SelectionChangedEventArgs args)
         {
             try

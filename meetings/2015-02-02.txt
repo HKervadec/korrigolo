@@ -1,0 +1,2 @@
+expliquer diagrammes
+modulariser diagramme de séquence
