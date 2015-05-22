@@ -94,6 +94,22 @@ namespace Glasir
         {
         }
 
+        /// <summary>
+        /// Create a new FunctionEditor object with the given properties
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="name"></param>
+        /// <param name="fn"></param>
+        /// <param name="firstP"></param>
+        /// <param name="secondP"></param>
+        /// <param name="l1"></param>
+        /// <param name="m1"></param>
+        /// <param name="h1"></param>
+        /// <param name="e1"></param>
+        /// <param name="l2"></param>
+        /// <param name="m2"></param>
+        /// <param name="h2"></param>
+        /// <param name="e2"></param>
         public FunctionEditor(XMLFile f, String name, String fn, string firstP, string secondP, String l1, String m1, String h1, String e1, String l2, String m2, String h2, String e2)
         {
             L1 = l1;
@@ -142,6 +158,11 @@ namespace Glasir
             return resultFile;
         }
 
+        /// <summary>
+        /// Send the resultat of the mathematical operation within the expression 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
         public static double Evaluate(string expression)
         {
             var loDataTable = new DataTable();
@@ -151,11 +172,12 @@ namespace Glasir
             return (double)(loDataTable.Rows[0]["Eval"]);
         }
 
-
-        /*
-         * Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
-         * Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils et ses noeuds frères
-         */
+        /// <summary>
+        /// Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
+        /// Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="swittcccchhhhh"></param>
         public void searchAndChange(XElement code, int swittcccchhhhh=0)
         {
             //Console.WriteLine(code);
@@ -295,77 +317,6 @@ namespace Glasir
                     }
                 }
             }
-            /*
-            else if ((String)code.Element("node").Attribute("switchRole") == "yes")
-            {
-                IEnumerable<XElement> elements = code.Elements("parameter");
-                string c = null;
-                string d = null;
-                foreach (XElement par in elements)
-                {
-                    if ((string)par.Attribute("category") == "basic" && (string)par.Attribute("domainId") == FirstParam)
-                    {
-                        c = par.Value;
-                    }
-                    else if ((string)par.Attribute("category") == "basic" && (string)par.Attribute("domainId") == SecondParam)
-                    {
-                        d = par.Value;
-                    }
-                }
-
-                if (c == "true") { c = "1"; }
-                if (c == "false") { c = "0"; }
-
-                if (d == "true") { d = "1"; }
-                if (d == "false") { d = "0"; }
-
-                if (c == "L") { c = L1; }
-                if (c == "M") { c = M1; }
-                if (c == "H") { c = H1; }
-                if (c == "E") { c = E1; }
-                if (d == "L") { d = L2; }
-                if (d == "M") { d = M2; }
-                if (d == "H") { d = H2; }
-                if (d == "E") { d = E2; }
-
-                if (c == "Infinity" || d == "Infinity")
-                {
-                    code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), "Infinity"));
-                }
-                else if (Function.Contains("/") && (d == "0" || d == "0.0"))
-                {
-                    code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), "Infinity"));
-                }
-                else
-                {
-                    double res = Evaluate(c + Function + d);
-                    code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
-                }
-
-                Console.WriteLine("a");
-                Console.WriteLine(code);
-                IEnumerable<XElement> elementsNode = code.Elements("node");
-                foreach (XElement el in elementsNode)
-                {
-                    Console.WriteLine("b");
-                    Console.WriteLine(el);
-                    searchAndChange(el, 1);
-                }
-                return;
-            }
-            else
-            {
-                IEnumerable<XElement> elementsNode = code.Elements("node");
-                foreach (XElement el in elementsNode)
-                {
-                    if ((String) el.Attribute("switchRole")!="yes")
-                    {
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
-                        searchAndChange(el);
-                    }
-                }
-            }*/
         }
 
         public override XMLFile createResultingFile(XMLFile file) { return file; }

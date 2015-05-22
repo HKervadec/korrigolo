@@ -61,7 +61,12 @@ namespace Glasir
             private set;
         }
 
-
+        /// <summary>
+        /// Create a new Filter objetc with the given properties
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="domain"></param>
+        /// <param name="max"></param>
         public Filter(XMLFile f, string domain, String max)
         {
             File = f;
@@ -96,11 +101,12 @@ namespace Glasir
             return resultFile;
         }
 
-        /*
-         * Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
-         * Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils et ses noeuds frères
-         */
-
+        /// <summary>
+        /// Elague l'arbre original du sous-arbre passé en param, si il ne respecte pas les conditions définies par le filtre 
+        /// Si le noeud en en param respecte les conditions définies par le filtre, procède à un appel récursif sur ses fils
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="m"></param>
         public void searchAndChange(XElement code, double m)
         {
             Console.WriteLine(code);

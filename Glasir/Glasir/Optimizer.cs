@@ -31,12 +31,21 @@ namespace Glasir
             private set;
         }
 
+        /// <summary>
+        /// Create a new Optimizer object with the given properties
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="item"></param>
         public Optimizer(XMLFile f, String item)
         {
             File = f;
             domain = item;
         }
 
+        /// <summary>
+        /// Optimize the given tree by the given parameter 
+        /// </summary>
+        /// <returns></returns>
         public XMLFile createResultingFile()
         {
             XMLFile codeXML = new XMLFile(File);
