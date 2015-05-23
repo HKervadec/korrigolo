@@ -1,0 +1,16 @@
+21 mai :
+_premières versions rapport final et bilan de planif aux encadrants
+
+26 mai :
+_rapport final et bilan de planif au rapporteur
+
+27 mai :
+
+28 mai :
+_documentation "en ligne" du logiciel au rapporteur
+_livraison du projet sur CD-ROM (diapos soutenances, sources commentés, doc, exécutables, manuel installation, 
+	jeux de tests)
+
+29 mai :
+_soutenance finale (10h25) (y en a deux avant nous, ça commence à 9h15)
+_demo devant encadrants et rapporteur pendant showroom des projets (après-midi)

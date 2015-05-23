@@ -243,7 +243,7 @@ namespace Glasir
                 {
                     code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), "Infinity"));
                 }
-                else
+                else if (c!=null && d!=null)
                 {
                     double res = Evaluate(c + Function + d);
                     code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
@@ -261,7 +261,7 @@ namespace Glasir
                 {
                     if ((String)el.Attribute("switchRole") == "yes")
                     {
-                        IEnumerable<XElement> elements = el.Elements("parameter");
+                        IEnumerable<XElement> elements = code.Elements("parameter");
                         string c = null;
                         string d = null;
                         foreach (XElement par in elements)
@@ -299,14 +299,15 @@ namespace Glasir
                         {
                             code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), "Infinity"));
                         }
-                        else
+                        else if (c != null && d != null)
                         {
                             double res = Evaluate(c + Function + d);
                             code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
                         }
 
                         //Console.WriteLine("a");
-                        //Console.WriteLine(code);searchAndChange(el, 1);
+                        //Console.WriteLine(code);
+                        searchAndChange(el, 1);
                         return;
                     }
                     else
