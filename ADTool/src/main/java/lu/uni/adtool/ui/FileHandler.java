@@ -163,11 +163,12 @@ public class FileHandler
   {
     FileInputStream in = null;
     FileFilter filter = null;
+    exportCalculatedValues.setVisible(false);
     if (extension.equals("xml")){
       filter = new FileNameExtensionFilter("Xml file", "xml", "XML", "Xml");
+      exportCalculatedValues.setVisible(true);
     }
     exportDomains.setVisible(false);
-    exportCalculatedValues.setVisible(false);
     saveLayout.setVisible(false);
     fc.setDialogTitle("Import tree...");
     fc.setSelectedFile(new File(getTreeFileNameWithExt(extension)));
