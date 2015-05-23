@@ -1,0 +1,26 @@
+contexte problématique : sécurité des systèmes, ADTrees, manque d'outils d'analyse
+objectifs : creer un outil d'analyse
+2min Maud
+
+conception architecture : interaction analyse=Glasir/ADTool=affichage, modules
+2 Valou
+fonctionnalités Glasir: edit functions, filtre, optim
+2 PM
+fonctionnalités ADTool: copier/couper/coller, ctrl Z, grammaire
+1 Maud
+5min
+
+tests : version, méthode et retrospective
+2min Valou
+
+bilan planif : 
+	suivi de planification : ok
+	contributions : 
+		implem : Maud 45h, Valou/PM 55h
+		temps complet : 50h reu + 20h par rapports *2 + 6h Valou/PM 10h Maud = 100 h/pers
+			environ 150h/pers
+	retour sur prévisions : chgmts + retrospective
+3min PM
+
+bilan : tableau du rapport, pistes amelioration Glasir/ADTool, ce que ça nous a apporté/comparaison competence debut projet
+3m Maud
