@@ -82,47 +82,47 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       if(node!=null){
         switch(e.getKeyCode()) {
           case KeyEvent.VK_J:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  canvas.changeOp(node);
         	  break;
           case KeyEvent.VK_I:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  canvas.addCounter(node);
         	  break;
           case KeyEvent.VK_N:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  canvas.addChild(node);
         	  break;
           case KeyEvent.VK_L:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  menuNode = node;
         	  changeLabelActionPerformed();
         	  break;
           case KeyEvent.VK_R:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  canvas.removeTree(node);
         	  break;
           case KeyEvent.VK_S:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  canvas.addSibling(node, !e.isShiftDown());
         	  break;
           case KeyEvent.VK_X:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
-        	  super.transferHandler.copy(canvas.getFocused());
-        	  this.canvas.removeTree(canvas.getFocused());
-        	  System.out.println("Cut: "+canvas.getFocused().getLabel());
+        	  canvas.saveTree();
+        	  super.transferHandler.copy(node);
+        	  this.canvas.removeTree(node);
+        	  System.out.println("Cut: "+node.getLabel());
         	  break;
           case KeyEvent.VK_C:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
-        	  super.transferHandler.copy(canvas.getFocused());
-        	  System.out.println("Copied: "+canvas.getFocused().getLabel());
+        	  canvas.saveTree();
+        	  super.transferHandler.copy(node);
+        	  System.out.println("Copied: "+node.getLabel());
         	  break;
           case KeyEvent.VK_V:
-        	  undoExecutor.saveTreeState(canvas.getRoot(true));
+        	  canvas.saveTree();
         	  super.transferHandler.paste(canvas);
         	  break;
           case KeyEvent.VK_Z:
-        	  super.undoExecutor.undo(canvas);
+        	  canvas.undo();
         	  break;
           default:
             consume = false;
@@ -279,7 +279,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     {
       public void actionPerformed(final ActionEvent evt)
       {
-    	  undoExecutor.saveTreeState(canvas.getRoot(true));
+    	  canvas.saveTree();
     	  changeLabelActionPerformed();
       }
     });
@@ -293,7 +293,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     {
       public void actionPerformed(final ActionEvent evt)
       {
-    	undoExecutor.saveTreeState(canvas.getRoot(true));
+    	canvas.saveTree();
         if (menuNode != null) {
           canvas.changeOp(menuNode);
         }
@@ -342,7 +342,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.addChild(menuNode);
         }
       }
@@ -358,7 +358,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.addCounter(menuNode);
         }
       }
@@ -374,7 +374,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.addSibling(menuNode, true);
         }
       }
@@ -389,7 +389,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.addSibling(menuNode, false);
         }
       }
@@ -408,7 +408,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.removeTree(menuNode);
         }
       }
@@ -424,7 +424,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
       public void actionPerformed(final ActionEvent evt)
       {
         if (menuNode != null) {
-        	undoExecutor.saveTreeState(canvas.getRoot(true));
+        	canvas.saveTree();
         	canvas.removeChildren(menuNode);
         }
       }
@@ -443,7 +443,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	{
     		if (menuNode != null)
     		{
-    			undoExecutor.saveTreeState(canvas.getRoot(true));
+    			canvas.saveTree();
     			transferHandler.copy(menuNode);
     			canvas.removeTree(menuNode);
     			System.out.println("Cut : "+menuNode.getLabel());
@@ -477,7 +477,7 @@ public class ADTreeCanvasHandler extends AbstractCanvasHandler
     	{
     		if (menuNode != null)
     		{
-    			undoExecutor.saveTreeState(canvas.getRoot(true));
+    			canvas.saveTree();
     			transferHandler.paste(canvas);
     		}
     	}

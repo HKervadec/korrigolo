@@ -141,7 +141,7 @@ public class MainWindow extends Frame
   private static ADAction                   filePrintPreview;
   private static ADAction                   fileExit;
   private static ADAction					undoAction;
-  protected UndoExecutor 					undoExecutor;
+  
   /**
    * Status bar
    */
@@ -199,6 +199,7 @@ public class MainWindow extends Frame
    * etc. are stored. This object is cleared when the theme is changed.
    */
   private RootWindowProperties              properties    = new RootWindowProperties();
+  
 
   public ValuationDomain<Ring> getValuation(int id)
   {
@@ -920,17 +921,14 @@ public class MainWindow extends Frame
     fileExit.setSmallIcon(new ImageIcon(getClass().getResource(
         "/icons/exit.png")));
     
+    // Undo
     undoAction = new ADAction(ButtonTexts.UNDO)
     {
-      /**
-		 * 
-		 */
 	  private static final long serialVersionUID = 1L;
 	  
       public void actionPerformed(final ActionEvent e)
       {
-    	  System.out.println(lastFocused.toString());
-    	  undoExecutor.undo(lastFocused);
+    	  lastFocused.undo();
       }
     };
     undoAction.setMnemonic(KeyEvent.VK_U);
@@ -939,6 +937,7 @@ public class MainWindow extends Frame
     undoAction.setSmallIcon(new ImageIcon(getClass().getResource(
         "/icons/undo.png")));
     undoAction.setToolTip(ToolTipTexts.UNDO);
+    
   }
 
   private void importFrom(String type)
