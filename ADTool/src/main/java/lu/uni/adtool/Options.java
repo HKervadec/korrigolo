@@ -88,7 +88,7 @@ public final class Options
 
   public static boolean      main_saveLayout = true;
   public static boolean      main_saveDomains = true;
-  public static boolean      main_saveDerivedValues = false;
+  public static boolean      main_saveDerivedValues = true;
 
   /**
    * Print options

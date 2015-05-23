@@ -80,7 +80,7 @@ public class FileHandler
   }
   /** Shows save dialog.
    *
-   * @return stream to wchich we can write or null.
+   * @return stream to which we can write or null.
    */
   public ObjectOutputStream getSaveTreeStream()
   {
@@ -90,7 +90,7 @@ public class FileHandler
     exportDomains.setVisible(false);
     exportCalculatedValues.setVisible(false);
     fc.setSelectedFile(new File(getTreeFileNameWithExt("adt")));
-    fc.setDialogTitle("Save Attack Defence Tree...");
+    fc.setDialogTitle("Save Attack Defense Tree...");
     ObjectOutputStream result = getSaveStream(filter);
     if (result != null){
       setTreeFileName(tempFileName);
@@ -256,7 +256,7 @@ public class FileHandler
     exportCalculatedValues.setVisible(false);
     saveLayout.setVisible(false);
     fc.setSelectedFile(new File(getTreeFileNameWithExt("adt")));
-    fc.setDialogTitle("Load Atack Defence Tree...");
+    fc.setDialogTitle("Load Attack Defense Tree...");
     ObjectInputStream result = getLoadStream(filter);
     if (result != null){
       setTreeFileName(tempFileName);
