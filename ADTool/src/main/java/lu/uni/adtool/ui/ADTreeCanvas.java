@@ -69,6 +69,7 @@ import lu.uni.adtool.adtree.ADTreeForGui;
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.adtree.ParseException;
 import lu.uni.adtool.adtree.TokenMgrError;
+import lu.uni.adtool.copypaste.UndoExecutor;
 import net.infonode.docking.View;
 
 import org.abego.treelayout.NodeExtentProvider;
@@ -96,6 +97,12 @@ public class ADTreeCanvas extends JPanel implements Scrollable,
    * Attack defense tree.
    */
   protected ADTreeForGui tree;
+  
+  /**
+   * for undoable actions
+   */
+  private UndoExecutor undoExecutor = new UndoExecutor();
+  
   /**
    * If true then we do not synchronize our size with other canvases.
    */
@@ -1546,4 +1553,22 @@ public class ADTreeCanvas extends JPanel implements Scrollable,
   public int getId(){
     return this.id;
   }
+  
+  
+  /**
+   * save the tree
+   * @return
+   */
+  public void saveTree()
+  {
+	  this.undoExecutor.saveTreeState(this.getRoot(true));
+  }
+  /**
+   * undo the last action
+   */
+  public void undo()
+  {
+	  this.undoExecutor.undo(this);
+  }
+  
 }

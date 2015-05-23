@@ -46,7 +46,6 @@ public abstract class AbstractCanvasHandler implements  CanvasHandler
 {
   protected ADTreeCanvas canvas;
   protected ADTreeTransferHandler transferHandler;
-  protected UndoExecutor undoExecutor;
   private Point2D      	dragStart;
   private boolean      	dragScroll;
   /**
@@ -57,7 +56,6 @@ public abstract class AbstractCanvasHandler implements  CanvasHandler
   public AbstractCanvasHandler(final ADTreeCanvas canvas)
   {
     this.canvas = canvas;
-    this.undoExecutor = new UndoExecutor();
     this.transferHandler = new ADTreeTransferHandler();
     dragStart = null;
     dragScroll = false;

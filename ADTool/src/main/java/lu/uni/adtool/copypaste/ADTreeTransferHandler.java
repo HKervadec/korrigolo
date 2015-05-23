@@ -2,6 +2,8 @@ package lu.uni.adtool.copypaste;
 
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import lu.uni.adtool.adtree.ADTNode;
 import lu.uni.adtool.adtree.ADTreeNode;
 import lu.uni.adtool.adtree.Node;
@@ -74,7 +76,7 @@ public class ADTreeTransferHandler
 		
 		if (focusedNode.getType() != this.clonedNode.getType())
 		{
-			System.out.println("You can't paste "+focusedNode.getType().toString()+" node "
+			JOptionPane.showMessageDialog(null, "You can't paste "+focusedNode.getType().toString()+" node "
 					+ "as child of "+this.clonedNode.getType().toString()+" node.");
 			return;
 		}
