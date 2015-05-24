@@ -1,0 +1,75 @@
+\section{Retour sur les risques}
+\label{sec:risques}
+
+Le rapport de planification~\cite{planif}, en plus de la répartition des tâches, comportait une section sur les risques prévisibles concernant le développement de Glasir. La présente section commence par rappeler ces risques dans la {\sc sous-section}~\ref{ssec:risquesBase} avant de comparer avec le déroulement réel de l'implémentation de Glasir dans la {\sc sous-section}~\ref{ssec:risquesRetro}.
+
+\subsection{Rappel des risques pressentis}
+\label{ssec:risquesBase}
+
+Afin de délivrer ce projet dans les délais prévus, une évaluation des risques a été effectuée lors de la rédaction du rapport de planification~\cite{planif}. Pour chacun de ces risques, les notions de probabilité (Pr) et de criticité (Cr) ont été estimées. Les valeurs possibles sont les suivantes : L pour \og Low \fg{} (faible), M pour \og Medium \fg{} (moyenne), H pour \og High \fg{} (élevée). Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|p{4cm}|l|l|l|p{4cm}|}
+        	\hline
+            \textbf{Id} & \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
+            \hline
+            1 & Mauvaise estimation des durées nécessaires aux tâches unitaires & 
+                Toutes & H & H &
+                Prioriser les tâches restantes\\ 
+            \hline
+            2 & Apparition d'un bug difficile à corriger & 
+                Toutes & H & H &
+                Faire des tests unitaires\\
+            \hline
+            3 & Difficulté à créer une grammaire & 
+                1.4 & L & M &
+                Simplifier les expressions à évaluer\\ 
+            \hline
+            4 & Manque de connaissances techniques & 
+                Toutes & H & H &
+                Approfondir nos connaissances\\ 
+            \hline
+            5 & Rédaction trop tardive de la documentation & 
+                Toutes & M & L &
+                Commenter le code au fur et à mesure\\
+            \hline
+            6 & Mauvaise compréhension du code d'ADTool & 
+                Toutes celles sur ADTool & M & M &
+                Contacter le développeur d'ADTool\\ 
+            \hline
+            7 & Mauvaise communication entre ADTool et Glasir & 
+                1.4, 2.1, 3.1 & M & H &
+                Utiliser le fichier XML lisible par ADTool\\ 
+            \hline
+            8 & Perte de temps sur une tâche secondaire & 
+                Toutes & M & L &
+                Compter ses heures, faire le point lors des réunions\\ 
+            \hline
+            9 & Algorithme ralentissant le logiciel & 
+                3.1, 2.2 & L & L &
+                Optimiser l’algorithme\\ 
+            \hline
+            10 & Échec de l'intégration d'ADTool dans Glasir & 
+                1.2 & L & H &
+                Lancer ADTool séparément\\ 
+            \hline
+        \end{tabular}
+        \caption{Tableau des risques du rapport de planification~\cite{planif}.}
+        \label{fig:risques}
+    \end{table}
+
+Maintenant que l'implémentation de Glasir est terminée, il est intéressant de revenir sur les prévisions précédentes afin d'évaluer leur cohérence. 
+
+\subsection{Rétrospective}
+\label{ssec:risquesRetro}
+
+En relisant la {\sc table}~\ref{fig:risques}, et ayant connaissance de la {\sc section}~\ref{sec:ecarts}, il apparaît que la majorité des risques repérés lors du 1\ier{} semestre ne se sont finalement pas présentés. Cependant, certains valent la peine d'être soulignés.
+
+Ainsi, le risque n\degre 1 s'est bel et bien réalisé, mais il a été plutôt positif au final puisque les durées avaient été sur-estimées, comme cela a été expliqué dans la {\sc section}~\ref{sec:ecarts}, et non sous-estimées. Cela a permis de gagner du temps et d'améliorer certains aspects de Glasir, comme le Filtre par exemple.
+
+Le risque n\degre 10 s'est également révélé réel, ce qui peut s'expliquer entre autres par le risque n\degre 4. Nous avons en effet manqué de connaissances techniques pour réaliser l'inter-connectivité totale entre deux langages (C\# et Java), et nous n'avons pas eu le temps de progresser suffisamment pour résoudre le problème. Nous avons donc mis en application la solution envisagée : lancer ADTool séparément de Glasir. Cette solution a tout de fois été améliorée par la création du \og view mode \fg{} d'ADTool, explicité dans la {\sc section}~\ref{sec:ecarts}.
+
+Enfin, le risque n\degre 7 n'a pas vraiment pu se réaliser car il a été décidé dès le début de l'implémentation de travailler sur les ADTrees sous format XML, comme le préconisait la solution envisagée. Cela est dû au fait que leur format de base (.adt) est de type binaire, et donc très difficile à exploiter.
+
+Toutes les parties du rapport de planification~\cite{planif} ayant à présent été revues, il est nécessaire de prendre du recul quant à la gestion du projet Glasir. C'est pourquoi la {\sc section}~\ref{sec:plusMieux} propose quelques idées de solutions à mettre en place pour éviter les écarts de planification mis en évidence précédemment.

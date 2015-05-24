@@ -21,7 +21,7 @@ Malgré le gain de temps évoqué dans la {\sc sous-section}~\ref{ssec:temps}, n
 
 L'affichage multi-paramètres, que nous estimions être une fonctionnalité relativement simple à implémenter, s'est avérée très complexe après l'étude approfondie du code source d'ADTool. En effet, l'implémentation de cette fonctionnalité aurait nécessité de réorganiser l'intégralité du code, ce qui n'était pas possible au vu du temps imparti dans le cadre de ce projet. 
 
-L'intégration complète d'ADTool au sein de Glasir a quant à elle été abandonnée après de nombreux et vains essais. Nous n'avons simplement pas réussi à trouver des méthodes permettant l'exécution d'un thread Java au sein d'un processus C\#. Pour remédier à cette impasse, une version \og view mode \fg d'ADTool a été mise au point, dans laquelle toutes les fonctionnalités de création et de modification d'ADTrees sont désactivées. Cela permet d'utiliser ADTool en tant que processus extérieur à Glasir, sans craindre des incohérences dûes à des modifications d'arbres sous ADTool ignorées de Glasir.  
+L'intégration complète d'ADTool au sein de Glasir a quant à elle été abandonnée, malgré de nombreuses tentatives. Nous n'avons simplement pas réussi à trouver des méthodes permettant l'exécution d'un thread Java au sein d'un processus C\#. Pour remédier à cette impasse, une version \og view mode \fg d'ADTool a été mise au point, dans laquelle toutes les fonctionnalités de création et de modification d'ADTrees sont désactivées. Cela permet d'utiliser ADTool en tant que processus extérieur à Glasir, sans craindre des incohérences dûes à des modifications d'arbres sous ADTool ignorées de Glasir.  
 
     \begin{figure}[H]
         \centering

@@ -1,0 +1,65 @@
+\section{Retour sur les risques}
+\label{sec:risques}
+
+Le rapport de planification~\cite{planif}, en plus de la répartition des tâches, comportait une section sur les risques prévisibles concernant le développement de Glasir. La présente section commence par rappeler ces risques dans la {\sc sous-section}~\ref{ssec:risquesBase} avant de comparer avec le déroulement réel de l'implémentation de Glasir dans la {\sc sous-section}~\ref{ssec:risquesRetro}.
+
+\subsection{Rappel des risques pressentis}
+\label{ssec:risquesBase}
+
+Afin de délivrer ce projet dans les délais prévus, une évaluation des risques a été effectuée lors de la rédaction du rapport de planification~\cite{planif}. Pour chacun de ces risques, les notions de probabilité (Pr) et de criticité (Cr) ont été estimées. Les valeurs possibles sont les suivantes : L pour \og Low \fg{} (faible), M pour \og Medium \fg{} (moyenne), H pour \og High \fg{} (élevée). Dans le but de réagir au mieux en cas d’apparition de ces aléas, des solutions ont été définies. Le résultat de cette réflexion est présenté dans la \textsc{table}~\ref{fig:risques}. 
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{4cm}|l|l|l|p{4cm}|}
+        	\hline
+            \textbf{Risque} & \textbf{Tâches concernées} & \textbf{Pr.} & \textbf{Cr.} & \textbf{Solution}\\
+            \hline
+            Mauvaise estimation des durées nécessaires aux tâches unitaires & 
+                Toutes & H & H &
+                Prioriser les tâches restantes\\ 
+            \hline
+            Apparition d'un bug difficile à corriger & 
+                Toutes & H & H &
+                Faire des tests unitaires\\
+            \hline
+            Difficulté à créer une grammaire & 
+                1.4 & L & M &
+                Simplifier les expressions à évaluer\\ 
+            \hline
+            Manque de connaissances techniques & 
+                Toutes & H & H &
+                Approfondir nos connaissances\\ 
+            \hline
+            Rédaction trop tardive de la documentation & 
+                Toutes & M & L &
+                Commenter le code au fur et à mesure\\
+            \hline
+            Mauvaise compréhension du code d'ADTool & 
+                Toutes celles sur ADTool & M & M &
+                Contacter le développeur d'ADTool\\ 
+            \hline
+            Mauvaise communication entre ADTool et Glasir & 
+                1.4, 2.1, 3.1 & M & H &
+                Utiliser le fichier XML lisible par ADTool\\ 
+            \hline
+            Perte de temps sur une tâche secondaire & 
+                Toutes & M & L &
+                Compter ses heures, faire le point lors des réunions\\ 
+            \hline
+            Algorithme ralentissant le logiciel & 
+                3.1, 2.2 & L & L &
+                Optimiser l’algorithme\\ 
+            \hline
+            Échec de l'intégration d'ADTool dans Glasir & 
+                1.2 & L & H &
+                Lancer ADTool séparément\\ 
+            \hline
+        \end{tabular}
+        \caption{Tableau des risques}
+        \label{fig:risques}
+    \end{table}
+
+Maintenant que l'implémentation de Glasir est terminée, il est intéressant de revenir sur les prévisions précédentes afin d'évaluer leur cohérence. 
+
+\subsection{Rétrospective}
+\label{ssec:risquesRetro}

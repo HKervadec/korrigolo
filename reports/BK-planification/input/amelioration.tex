@@ -1,0 +1,36 @@
+\section{Pistes d'amélioration pour la gestion de projet}
+\label{sec:plusMieux}
+
+La présente section a pour objectif de revenir sur les défauts de notre gestion de projet afin d'en tirer de bonnes pratiques pour l'avenir. La liste des améliorations possibles indiquées ci-dessous n'est pas exhaustive, mais elle contient nos principaux constats à l'issue de ce projet.
+
+\subsection{Renforcement de la pré-étude}
+\label{ssec:pre-etude}
+
+Le contexte du projet avait été bien établi lors de la phase de pré-étude du projet (en septembre dernier) : notions de sécurité, formalisme des ADTrees, etc. Cependant, nous avons réalisé lors du développement que les détails techniques liés à l'implémentation auraient quant à eux nécessité des recherches plus poussées. Deux exemples seront cités ci-dessous afin d'illustrer cette problématique.
+
+\paragraph{Intégration Java dans  un programme C\#} La planification initiale prévoyait d'intégrer ADTool (codé en Java) directement dans Glasir, développé en C\#. Au moment de l'implémentation effective, de nombreux essais ont été réalisés dans ce but mais aucun n'a été concluant. Il a donc fallu conserver les deux logiciels séparés. Il est à noter que ce choix permet tout de même de mieux séparer l'édition des ADTrees, réalisée par ADTool, de leur analyse par Glasir. Ceci reste cependant un écart à la planification qui aurait pu être évité si nous nous étions mieux renseignés sur la compatibilité des deux langages lors de la phase de pré-étude.
+
+\paragraph{Reprise d'un code existant} Il était prévu d'apporter à ADTool un certain nombre d'améliorations, ce qui paraissait simple dans la mesure où le langage de programmation nous était déjà familier. Nous n'avons cependant pas su totalement anticiper les complications qu'induisait la reprise d'un code déjà existant, et n'avons pas suffisamment étudié le code source d'ADTool lors de la phase de pré-étude. Ceci explique notamment que nous ayons annoncé la fonctionnalité d'affichage multiple des paramètres, qui aurait nécessité de re-structurer l'intégralité du programme et donc d'y consacrer un temps beaucoup trop élevé.
+
+À travers les deux exemples précédents, il est évident qu'un manque de renseignements quant au développement technique d'un projet peut poser des soucis en terme de faisabilité des objectifs. C'est donc un point à améliorer lors de la phase de pré-étude de nos projets futurs.
+
+\subsection{Meilleure définition du cahier des charges}
+\label{ssec:cahier-charges}
+
+Cette sous-section concerne les trois modules principaux de Glasir que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur. Ces derniers ont été annoncés dans le rapport de pré-étude~\cite{pre_etude}, puis détaillés dans les rapports de spécifications fonctionnelles~\cite{spec_fonc} et de conception~\cite{conception}. La planification initiale prévoyait de les implémenter au fur et à mesure, au rythme d'un nouveau module par version. Ces échéances ont été correctement respectées, mais quelques modifications furent nécessaires sur chaque modules après leur implémentations suite à des redéfinitions de leur fonctionnement. Ces petits écarts auraient pu être évités si les fonctionnalités du cahier des charges avaient été définies plus en détails dès le début, en se basant par exemple sur une étude de cas permettant d'illustrer l'ensemble des possibilités.
+
+\subsection{Précision de la méthodologie de test}
+\label{ssec:methodoTest}
+
+La méthodologie de test appliquée au cours des différentes étapes du développement a été détaillée dans le rapport final du projet~\cite{rapportFinal}. C'est justement la rédaction de ce dernier qui a mis en évidence le fait que les tests n'avaient pas été suffisamment rigoureux, malgré le versionnement du développement. En effet, chaque phase de test (correspondant à chaque rendu de version, sauf pour les développeurs qui ont testé en continu) aurait mérité d'être plus réfléchie. Les tests ont une importance capitale dans un projet informatique, c'est pourquoi il s'agit d'un point à améliorer dans le cadre de projets futurs. Cela peut être réalisé en suivant les pistes ci-dessous, dont la liste n'est pas exhaustive : 
+
+\begin{itemize}
+\item définition d'une procédure précise de test ;
+\item description claire des objectifs des tests (ergonomie du logiciel, cohérence des résultats, etc.) ;
+\item conduite de tests par des individus totalement extérieurs au projet ;
+\item conduite de tests par un futur utilisateur potentiel (dans notre cas, un expert en sécurité connaissant les ADTrees).
+\end{itemize}
+
+Les constats précédents entraînent une rétrospective sur le projet qui est présentée dans la {\sc section}~\ref{sec:conclu}.
+
+\BK{Ne voulez-vous pas revenir sur les risques mentionnés dans le rapport de planification original?}
