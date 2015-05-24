@@ -35,7 +35,7 @@ Bien que nous n'ayons pas jugé nécessaire de détailler l'algorithme de l'Édi
             \label{algo:functionEdition}
             \begin{algorithmic}
 		\IF{type(racine) == defense}
-			\FORALL{sub IN fils(racine)}
+			\FORALL{sub \textbf{in} fils(racine)}
 				\STATE functionEdition(sub, param1, param2, function)
 			\ENDFOR
 			\RETURN
@@ -47,7 +47,7 @@ Bien que nous n'ayons pas jugé nécessaire de détailler l'algorithme de l'Édi
 			\STATE newParam(racine) = function(p1,p2)
 			\RETURN
 		\ELSE
-			\FORALL{sub IN fils(racine)}
+			\FORALL{sub \textbf{in} fils(racine)}
 				\IF {(type(sub) == defense}
 					\STATE p1 = param1(racine)
 					\STATE p2 = param2(racine)
@@ -70,12 +70,12 @@ Bien que nous n'ayons pas jugé nécessaire de détailler l'algorithme de l'Édi
             \item \verb|type| précise si il s'agit d'un nœud d'attaque ou de défense, ou bien d'une feuille.
         \end{itemize}
 
-    L'algorithme de l'éditeur de fonctions est donc un algorithme récursif, qui cherche les feuilles de l'ADTree pour ajouter le nouveau paramètre à celle-ci. 
+    L'algorithme de l'Éditeur de fonctions est donc un algorithme récursif, qui cherche les feuilles de l'ADTree pour ajouter le nouveau paramètre à celles-ci. 
 
 \subsection{Algorithme du Filtre}
 \label{ssec:implemFiltre}
 
-L'algorithme original du Filtre comportait quelques erreurs, telles que la possibilité de conserver des sous-n\oe{}uds d'un n\oe{}ud conjonctif qui ne respectaient pas la condition de filtrage. Cet algorithme, l'{\sc algorithme}~\ref{algo:filtre}, a donc été corrigé en conséquence pour devenir l'{\sc algorithme}~\ref{algo:filtreReel} qui a été implémenté.
+L'algorithme original du Filtre, représenté par l'{\sc algorithme}~\ref{algo:filtre}, comportait quelques erreurs telles que la possibilité de conserver des sous-n\oe{}uds d'un n\oe{}ud conjonctif qui ne respectaient pas la condition de filtrage. Cet algorithme a donc été corrigé en conséquence pour devenir l'{\sc algorithme}~\ref{algo:filtreReel} qui a été implémenté.
 
  	\begin{algorithm}[H]
             \caption{filtre(racine, rules)}
@@ -107,12 +107,12 @@ L'algorithme original du Filtre comportait quelques erreurs, telles que la possi
 	\STATE
 	\ELSE
 		\IF{mode(racine) == et}
-			\FORALL{sub IN fils(racine)}
+			\FORALL{sub \textbf{in} fils(racine)}
 				\STATE subval = sub.param
 				\STATE filtre(sub, param, valLim+subval-val)
 			\ENDFOR
 		\ELSE
-			\FORALL{sub IN fils(racine)}
+			\FORALL{sub \textbf{in} fils(racine)}
 				\STATE filtre(sub, param, valLim)
 			\ENDFOR
 		\ENDIF
@@ -120,7 +120,7 @@ L'algorithme original du Filtre comportait quelques erreurs, telles que la possi
             \end{algorithmic}
         \end{algorithm}
 
-    Dans l'{\sc algorithme}~\ref{algo:filtreReel}, \verb|valLim| est la valeur limite (maximale ou minimale selon les cas) acceptée pour le paramètre \verb|param| que l'on désire dans l'arbre filtré peu importe le chemin envisagé, et  \verb|pire| est une fonction renvoyant vrai si son premier paramètre est moins bon que son second pour le domaine de valuation considéré, et faux sinon.
+    Dans l'{\sc algorithme}~\ref{algo:filtreReel}, \verb|valLim| est la valeur limite (maximale ou minimale selon les cas) acceptée pour le paramètre \verb|param| avec lequel on souhaite filtrer l'ADTree. Et \verb|pire| est une fonction renvoyant \emph{vrai} si son 1\ier{} paramètre \verb|val| est moins bon (c'est-à-dire inférieur ou supérieur, selon les cas) que son 2\ieme{} paramètre \verb|valLim| pour le domaine de valuation considéré. Elle renvoie \emph{faux} dans le cas contraire.
 
 \subsection{Algorithme de l'Optimiseur}
 \label{ssec:algoOptim}
@@ -152,7 +152,7 @@ L'algorithme original du Filtre comportait quelques erreurs, telles que la possi
             \end{algorithmic}
         \end{algorithm}
 
-Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait être implémenté de manière bien plus simple, en se servant du Filtre. Ce nouvel algorithme n'impactant pas le résultat obtenu, c'est donc lui qui a finalement été choisi et codé selon l'{\sc algorithme}~\ref{algo:optiReel}.
+Après avoir implémenté le Filtre, il est apparu qu'il était possible de l'utiliser pour simplifier l'implémentation de l'Optimiseur. Le nouvel algorithme obtenu (l'{\sc algorithme}~\ref{algo:optiReel}) n'impactant pas le résultat, c'est finalement lui qui a été choisi pour coder l'Optimiseur.
 
 	\begin{algorithm}[H]
             \caption{opti(racine, param)}
@@ -177,7 +177,7 @@ Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait 
 
 	\subsection{Couper/copier/coller}
 
-	La {\sc Figure} \ref{fig:copypastePrevu} rappelle le couper/copier/coller imaginé lors du rapport de conception~\cite{conception}. Après avoir mieux pris connaissance de la structure interne d'ADTool, il a paru beaucoup plus simple de réaliser cette fonctionnalité comme illustré sur la {\sc Figure} \ref{fig:copypasteReel}.
+	La {\sc Figure} \ref{fig:copypastePrevu} rappelle la fonctionnalité de couper/copier/coller telle qu'imaginée lors du rapport de conception~\cite{conception}. Après avoir mieux pris connaissance de la structure interne d'ADTool, il a paru beaucoup plus simple de réaliser cette fonctionnalité comme illustré sur la {\sc Figure} \ref{fig:copypasteReel}.
 	
 	
 		\begin{figure}[H]
@@ -198,7 +198,7 @@ Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait 
        
 	\subsection{Annulation des dernières actions}
 
-		 La {\sc Figure}~\ref{fig:ctrlzPrevu} illustre l'implémentation de l'annulation de la dernière action telle qu'imaginée lors du rapport de conception~\cite{conception} (dans lequel il n'était pas prévu de pouvoir effectuer plusieurs annulations à la suite). De la même façon que pour le couper/copier/coller, la structure d'ADTool a mené à implémenter l'annulation différemment, comme indiqué sur la {\sc Figure}~\ref{fig:ctrlzReel}. 
+		 La {\sc Figure}~\ref{fig:ctrlzPrevu} illustre l'implémentation de l'annulation de la dernière action telle qu'imaginée lors du rapport de conception~\cite{conception}, dans lequel il n'était pas prévu de pouvoir effectuer plusieurs annulations à la suite. De la même façon que pour le couper/copier/coller, la structure d'ADTool a conduit à implémenter l'annulation différemment, comme indiqué sur la {\sc Figure}~\ref{fig:ctrlzReel}. 
 		 
         \begin{figure}[H]
             \centering
@@ -210,11 +210,11 @@ Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait 
         \begin{figure}[H]
             \centering
                 \includegraphics[width=0.8\textwidth]{figure/ctrlzReel.png}
-            \caption{Diagramme de classes réel pour l'annulation des dernières actions.}
+            \caption{Diagramme de classes réellement implémenté pour l'annulation des dernières actions.}
             \label{fig:ctrlzReel}
         \end{figure}
 
-        En effet, associer chaque action à une classe se révélait trop fastidieux, étant donné le grand nombre d'actions possibles. L'\emph{AbstractCanvasHandler} se voit donc doté d'un attribut de \emph{UndoExecutor}, une nouvelle classe qui contient les méthodes d'annulation. Lorsque l'utilisateur réalise une action, un clone de l'ADTree courant est stocké dans la pile de l'\emph{UndoExecutor}. Les clones sont dépilés et rechargés dans l'\emph{ADTreeCanvas} lorsque l'utilisateur utilise la fonctionnalité d'annulation. Afin d'éviter une saturation de la mémoire, la pile ne peut contenir qu'un certain nombre de clones de l'ADTree, supprimant si besoin le plus ancien pour pouvoir ajouter le plus récent. Il est à noter que plus l'ADTree est petit, plus le nombre d'actions annulables est grand, car la pile peut contenir plus de clones avant d'arriver à saturation. Dans le pire des cas, si l'ADTree est immense (dans notre cas, s'il contient plus de 1000 n\oe{}uds), seule la dernière action sera annulable. 
+        En effet, associer chaque action à une classe se révélait trop fastidieux, étant donné le grand nombre d'actions possibles. L'\emph{AbstractCanvasHandler} se voit donc doté d'un attribut de \emph{UndoExecutor}, une nouvelle classe qui contient les méthodes d'annulation. Lorsque l'utilisateur réalise une action, un clone de l'ADTree courant est stocké dans la pile de l'\emph{UndoExecutor}. Les clones sont dépilés et rechargés dans l'\emph{ADTreeCanvas} lorsque l'utilisateur utilise la fonctionnalité d'annulation. Afin d'éviter une saturation de la mémoire, la pile ne peut contenir qu'un certain nombre de clones de l'ADTree, supprimant si besoin le plus ancien pour pouvoir ajouter le plus récent. Il est à noter que plus l'ADTree est petit, plus le nombre d'actions annulables est grand, car la pile peut contenir plus de clones avant d'arriver à saturation. Dans le pire des cas, si l'ADTree est conséquent (dans notre cas, s'il contient plus de 1000 n\oe{}uds), seule la dernière action sera annulable. 
 
 	\subsection{Bibliothèque de modèles}
     \label{ssec:bib}
@@ -222,7 +222,7 @@ Après réflexion, il est apparu que l'{\sc algorithme}~\ref{algo:opti} pouvait 
 		
 		\begin{figure}[H]
             \centering
-                \includegraphics[width=0.8\textwidth]{figure/library.png}
+                \includegraphics[width=0.75\textwidth]{figure/library.png}
             \caption{Diagramme de classes prévu pour la bibliothèque de modèles.}
             \label{fig:library}
         \end{figure}

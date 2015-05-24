@@ -1,0 +1,117 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
+\usepackage{array}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{sidecap}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{tipa}
+\usepackage{multirow}
+\usepackage[gen]{eurosym}
+\usepackage{float}
+\usepackage{color}
+\definecolor{bo_vert}{rgb}{0,0.65,0}
+\definecolor{nouvo_rouge}{rgb}{0.65,0,0}
+\usepackage{pifont}
+\DeclareUnicodeCharacter{20AC}{\euro{}}
+
+\floatname{algorithm}{Algorithme} % pour écrire le nom 'Algorithme' en français
+
+\newcommand{\BK}[1]{\textcolor{red}{\noindent BK: #1}}
+
+\usepackage{hyperref}
+\hypersetup{    
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{Rapport final}
+
+\author
+{
+    Pierre-Marie {\sc Airiau}\\
+    Valentin {\sc Esmieu}\\
+    Maud {\sc Leray}\\
+    %Hoel {\sc Kervadec}\\
+    %Florent {\sc Mallard}\\
+    %Corentin {\sc Nicole}\\
+    %ON VOUS AIME LES COPAINS
+}
+
+\date{\today}
+
+\newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
+\newcommand{\glasir}[0]{Glasir}
+\newcommand{\ttable}[0]{{\sc Table}}
+\newcommand{\ffigure}[0]{{\sc Figure}}
+
+\newcommand{\nomRepart}[1]{\multicolumn{2}{c||}{\textbf{#1}}}
+\newcommand{\nomRepartt}[1]{\multicolumn{2}{c|}{\textbf{#1}}}
+
+\begin{document}
+    % Ouh c'est sale.
+    \hypersetup{pageanchor=false}
+    \includepdf[pages=1]{figure/couv.pdf}
+    \hypersetup{pageanchor=true}
+    
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    
+    \newpage
+    
+    \setcounter{tocdepth}{2}
+    \tableofcontents
+    \setlength{\parskip}{10pt}
+    
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+
+	\newpage
+    \input{input/remerciements.tex}
+
+    \newpage
+    \input{input/contexte.tex}
+
+    \newpage
+    \input{input/rectificatifs.tex}
+   	
+    \newpage
+    \input{input/tests.tex}
+    
+    \newpage
+    \input{input/etatFinal.tex}
+
+    \newpage
+    \input{input/retro.tex}
+    
+    \newpage
+    \input{input/manuel.tex}
+
+ \pagevierge
+    \newpage
+    \bibliographystyle{plain}
+    \newpage
+    \bibliography{input/biblio}
+
+    % Manoucherie incoming
+    \pagevierge
+    \ifthenelse{\isodd{\thepage}}
+    {\pagevierge}
+    {}
+    \includepdf[pages=2]{figure/couv.pdf}
+\end{document}

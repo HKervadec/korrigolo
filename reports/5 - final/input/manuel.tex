@@ -1,19 +1,21 @@
 \section{Manuel utilisateur}
 \label{sec:manuel}
 
-Bienvenue dans le manuel utilisateur de Glasir, un logiciel d'aide aux experts en sécurité basé sur le formalisme des ADTrees\footnote{Abréviation d'\og Attack-Defense Trees \fg{}, ou \og Arbres d'Attaque et de Défense\fg{} en français.}. Grâce à Glasir, vous pourrez analyser efficacement vos ADTrees préalablement créés avec ADTool~\cite{adtool}, un logiciel open-source disponible sur Internet.
+Bienvenue dans le manuel utilisateur de Glasir, un logiciel d'aide aux experts en sécurité basé sur le formalisme des ADTrees\footnote{Abréviation d'\og Attack-Defense Trees \fg{}, ou \og Arbres d'Attaque et de Défense\fg{} en français.}~\cite{ADTrees}. Grâce à Glasir, vous pourrez analyser efficacement vos ADTrees préalablement créés avec ADTool~\cite{adtool}, un logiciel open source disponible sur Internet à l'adresse \url{http://satoss.uni.lu/members/piotr/adtool/}.
 
 Ce manuel commencera par décrire le fonctionnement général du logiciel (création d'un nouveau projet, ouverture d'un projet existant, etc.), avant d'expliquer comment prendre en main les trois fonctionnalités principales que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur. 
 
 Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez des détails concernant l'utilisation d'ADTool, surtout les nouveautés qui lui ont été ajoutées lors de ce projet.
 
-	\begin{figure}[!h]
+	\begin{figure}[H]
         \centering
         \includegraphics[height=0.3\textwidth]{figure/glasir.png}
     \end{figure}
 
 \subsection{Glasir}
 \label{ssec:manuelGlasir}
+
+Glasir est un logiciel d'analyse en sécurité open source, développé pour Windows. Il est fourni sous forme d'exécutable (fichier Glasir.exe) et accompagné d'un dossier contenant des exemples d'ADTrees sous format XML que vous pouvez utiliser pour débuter. Pour lancer le logiciel, veuillez double-cliquer sur Glasir.exe. Si vous rencontrez un souci dès cette étape, merci de lire le fichier ReadMe.txt joint au dossier de téléchargement de Glasir.
 
 \paragraph{Agencement général de la fenêtre}
 Lorsque vous démarrez Glasir, la fenêtre présentée sur la {\sc Figure}~\ref{fig:princ} s'affiche. Voici une description rapide des éléments que vous trouverez dans cette fenêtre :
@@ -35,7 +37,7 @@ Lorsque vous démarrez Glasir, la fenêtre présentée sur la {\sc Figure}~\ref{
     \end{figure}
 
 \paragraph{Ouvrir un ADTree}
-Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à gauche, dans la barre de menu. Puis, dans le menu déroulant, cliquez sur \emph{Open ADTree File}, comme indiqué sur la {\sc Figure}~\ref{fig:file}. Une boîte de dialogue apparaît : parcourez vos dossiers pour sélectionner l'ADTree que vous souhaitez ouvrir. Notez que seuls les ADTrees au format XML peuvent être analysés par Glasir. Une fois l'ADTree sélectionné, cliquez sur le bouton \emph{Open} de la boite de dialogue. ADTool se lance alors pour afficher votre ADTree. Notez qu'au démarrage, cette opération peut prendre quelques secondes. Une fois ADTool lancé, Glasir se présente sous la forme de plusieurs fenêtres, comme indiqué sur la {\sc Figure}~\ref{fig:gladitoule}. Si la fenêtre d'ADTool ne s'affiche pas au bout d'une minute ou qu'un autre programme qu'ADTool se lance, cela signifie que vos fichiers \emph{.jar} ne sont pas associés à Java (ou que vous ne possédez pas Java). Consultez et suivez les étapes du fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir pour obtenir des informations supplémentaires et corriger le problème.
+Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à gauche, dans la barre de menu. Puis, dans le menu déroulant, cliquez sur \emph{Open ADTree File}, comme indiqué sur la {\sc Figure}~\ref{fig:file}. Une boîte de dialogue apparaît : parcourez vos dossiers pour sélectionner l'ADTree que vous souhaitez ouvrir. Notez que seuls les ADTrees au format XML générés par ADTool (consulter {\sc section} 7 du manuel utilisateur d'ADTool~\cite{ADTool_Manual}) peuvent être analysés par Glasir. Une fois l'ADTree sélectionné, cliquez sur le bouton \emph{Open} de la boite de dialogue. ADTool se lance alors pour afficher votre ADTree. Notez qu'au démarrage, cette opération peut prendre quelques secondes. Une fois ADTool lancé, Glasir se présente sous la forme de plusieurs fenêtres, comme indiqué sur la {\sc Figure}~\ref{fig:gladitoule}. Si la fenêtre d'ADTool ne s'affiche pas au bout d'une minute ou qu'un autre programme qu'ADTool se lance, cela signifie que vos fichiers \emph{.jar} ne sont pas associés à Java (ou que vous ne possédez pas Java). Consultez et suivez les étapes du fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir pour obtenir des informations supplémentaires et corriger le problème.
 
 	\begin{figure}[H]
         \centering
@@ -61,7 +63,7 @@ Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à 
 
 \paragraph{Éditeur de fonctions} Cette fonctionnalité a pour intérêt d'exprimer un compromis entre deux valuations d'un ADTree en en créant une troisième, fonction des deux premières. Par exemple, si vous avez un ADTree qui a comme paramètres \og Minimal cost for the proponent \fg (en euros) et \og Minimal time for the proponent (sequential) \fg (en heures) et que vous estimez qu'une heure \og coûte \fg par comparaison 20 euros, vous pouvez créer un nouveau paramètre de type \og Minimal cost for the proponent \fg exprimant un compromis entre les deux paramètres qui sera égal à coût+20*temps.
 
-ATTENTION  ! : le nouveau paramètre aura pour type celui du premier paramètre sélectionné (à gauche), par exemple si le premier paramètre est de type \og Minimal time for the proponent (sequential) \fg , alors le nouveau paramètre calculé le sera aussi. Si vous sélectionnez un paramètre de type discret, un nombre de cases égal au nombre valeurs possibles s'affichera. Vous pourrez alors pondérer ces valeurs de la plus petite (à gauche), à la plus grande (à droite).
+\textbf{ATTENTION} : le nouveau paramètre aura pour type celui du premier paramètre sélectionné (à gauche), par exemple si le premier paramètre est de type \og Minimal time for the proponent (sequential) \fg , alors le nouveau paramètre calculé le sera aussi. Si vous sélectionnez un paramètre de type discret, un nombre de cases égal au nombre valeurs possibles s'affichera. Vous pourrez alors pondérer ces valeurs de la plus petite (à gauche), à la plus grande (à droite).
 
  \begin{figure}[H]
         \centering
@@ -70,7 +72,7 @@ ATTENTION  ! : le nouveau paramètre aura pour type celui du premier paramètre 
         \label{fig:functEdit}
     \end{figure}
 
-Pour utiliser l'Éditeur de onctions, suivez les étapes suivantes : 
+Pour utiliser l'Éditeur de fonctions, suivez les étapes suivantes : 
 
 \begin{itemize}
 \item Assurez-vous que l'ADTree que vous voulez filtrer est ouvert et désigné comme l'arbre courant ;
@@ -130,7 +132,7 @@ Si un problème survient, l'exécution sera stoppée et une boite de message app
 \subsection{Nouvelles fonctionnalités d'ADTool}
 \label{ssec:manuelADTool}
 
-Pour le fonctionnement basique d'ADTool, vous pouvez vous référer au manuel utilisateur officiel disponible sur Internet\footnote{Voir à l'adresse suivante : http://satoss.uni.lu/members/piotr/adtool/manual.pdf}. Le guide ici présent ne détaillera que l'utilisation des nouvelles fonctionnalités d'ADTool, qui sont le copier/couper/coller ainsi que l'annulation d'une action.
+Pour le fonctionnement basique d'ADTool, vous pouvez vous référer au manuel utilisateur officiel~\cite{ADTool_Manual} disponible sur Internet\footnote{Voir à l'adresse suivante : http://satoss.uni.lu/members/piotr/adtool/manual.pdf}. Le guide ici présent ne détaillera que l'utilisation des nouvelles fonctionnalités d'ADTool, qui sont le copier/couper/coller ainsi que l'annulation d'une action.
 
 \paragraph{Copier/couper/coller} Ces fonctionnalités vous seront utiles si vous désirez couper/copier un sous-arbre de l'ADTree courant afin de le coller ensuite à un autre emplacement dans ce même ADTree. Il est à noter que le sous-arbre coupé/copié sera ajouté en tant que fils du n\oe{}ud auquel il sera collé. Aussi, la racine du sous-arbre coupé/copié doit être du même type (opponent ou proponent) que son futur n\oe{}ud parent. Pour couper/copier un sous-arbre puis le coller, suivez les étapes suivantes : 
 \begin{enumerate}
@@ -140,16 +142,16 @@ Pour le fonctionnement basique d'ADTool, vous pouvez vous référer au manuel ut
 	\item Effectuez un clic droit sur le n\oe{}ud auquel vous voulez coller le sous-arbre coupé/copié, puis sélectionnez dans la liste déroulante \og Paste Subtree as Child \fg{}. Si cette option n'apparaît pas dans le menu déroulant, c'est que vous n'avez pas préalablement coupé/copié de sous-arbre. Vous pouvez ici encore utiliser un raccourci clavier, {\sc CTRL+V}.
 \end{enumerate}
 
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[height=0.7\textwidth]{figure/clicdroit.png}
+        \includegraphics[height=0.63\textwidth]{figure/clicdroit.png}
         \caption{Menu déroulant apparaissant après un clic droit sur un n\oe{}ud.}
         \label{fig:clicdroit}
     \end{figure}
 
 \paragraph{Annulation d'une action} Il s'agit ici d'annuler une ou plusieurs action(s) effectuée(s) précédemment sur l'ADTree courant. Pour cela, il vous suffit tout simplement d'utiliser le raccourci clavier {\sc CTRL+Z} autant de fois que nécessaire, jusqu'à retrouver l'état souhaité pour l'ADTree. Vous pouvez également cliquer sur l'icône \og Undo last action (CTRL+Z) \fg{} en haut à gauche de la fenêtre principale d'ADTool, encadrée en rouge sur la {\sc figure}~\ref{fig:undo}. Les actions pouvant être annulées sont les changements de labels, les ajouts ou suppressions de n\oe{}uds, les changements d'opérateur (conjonction ou disjonction) ainsi que les actions de couper/copier/coller.
 
-\begin{figure}[!h]
+\begin{figure}[H]
         \centering
         \includegraphics[height=0.17\textwidth]{figure/undo.png}
         \caption{Icône permettant d'annuler l'action précédente.}

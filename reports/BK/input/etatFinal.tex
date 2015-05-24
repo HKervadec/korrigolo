@@ -1,0 +1,73 @@
+\section{État de Glasir à la conclusion du projet}
+\label{sec:etatFinal}
+
+Cette section va présenter \BK{pourquoi au future? (présente)} l'état dans lequel Glasir a été 
+\BK{est}
+livré à l'issue du projet. Va être présenté \BK{On présente} un récapitulatif des objectifs initiaux et leur état d'achèvement dans la {\sc sous-section}~\ref{subsec:objOK}, avant d'évoquer en {\sc sous-section}~\ref{subsec:encorePlusMieux} des améliorations à envisager.
+
+\subsection{Tenue des objectifs}
+\label{subsec:objOK}
+
+Cette sous-section va d'abord récapituler \BK{d'abord récapitule} les accomplissements relatifs à Glasir, avant de mettre en évidence ceux concernant ADTool.
+
+\subsubsection{Glasir}
+\label{sssec:obj_glasir}
+
+L'objectif du projet était de fournir à des experts en sécurité, familiers avec le formalisme des ADTrees, une solution logicielle pour analyser et exploiter ces derniers. L'utilisation de cette solution logicielle, Glasir, devait se faire au moyen d'un ensemble de \og{modules}\fg 
+\BK{il manque un espace ici dans votre version}
+constituant les fonctionnalités d'analyse des ADTrees, au sein d'une interface graphique simple et claire. L'interface imaginée pour répondre à ces besoins est celle de la {\sc figure}~\ref{fig:InterfaceGlasir}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=0.75\textwidth]{figure/interface.png}
+        \caption{Interface du logiciel Glasir.}
+        \label{fig:InterfaceGlasir}
+    \end{figure}
+
+L'interface graphique de Glasir a été implémentée avec les éléments qui avaient été promis : 
+\begin{itemize}
+    \item les trois fonctionnalités principales \BK{-- Éditeur de Fonctions, Filtre, Optimiseur --} bien en évidence ;
+    \item la liste des ADTrees contenus dans le projet en cours, sous forme d'arborescence ;
+    \item un menu intuitif pour l'utilisateur.
+\end{itemize}
+Le seul écart à noter est qu'ADTool n'est finalement pas complètement intégré à Glasir. Les deux logiciels, bien que liés, restent indépendants dans le sens où bien que Glasir ait besoin d'ADTool pour fonctionner, il ne communique pas avec ce dernier. Les éventuels soucis de cohérence des ADTrees après modification ont été contournés grâce à la mise en place d'un \og view mode \fg{} pour ADTool, comme expliqué en détails dans la {\sc section}~\ref{sec:rect}. L'expérience utilisateur n'est pas affectée par cette décision, qui permet en plus de mieux distinguer l'édition des ADTrees de leur analyse. Enfin, il est joint à Glasir un dossier faisant office de bibliothèque de modèles et contenant un certain nombre d'ADTrees pouvant être utilisés pour des tests, mais aussi dans des projets. Ces ADTrees sont basés sur la thématique des transports en commun afin d'illustrer notre étude de cas sur le STAR (Service des Transports en commun de l'Agglomération Rennaise).
+
+L'état des trois fonctionnalités principales de Glasir, qui confèrent au logiciel son intérêt pour l'analyse, est détaillé dans les paragraphes suivants.
+
+\paragraph{L'Éditeur de Fonctions} Ce dernier permet comme promis la combinaison de plusieurs paramètres, mais il est seulement possible d'en combiner deux en une seule fois. Cependant, il est ensuite possible de réutiliser les paramètres créés pour en produire de nouveaux, ce qui permet indirectement de combiner plus de deux paramètres. Les fonctions mathématiques utilisables sont comme annoncé les fonctions de base (somme, différence, produit, division), associées à des coefficients éventuels. Seules les fonctions min et max ne sont finalement pas applicables, car la façon d'écrire la fonction ne s'y prêtait pas.
+
+\paragraph{Le Filtre} Cette fonctionnalité permet comme prévu de filtrer un ADTree selon un paramètre sélectionné (qui peut être l'un des paramètres créés par le biais de l'Éditeur de Fonctions). L'ensemble des valeurs acceptées par le Filtre est à préciser en fournissant une valeur limite (maximale ou minimale selon les cas). Le Filtre conservera alors les chemins de l'arbre étant meilleurs ou au moins aussi efficaces selon le paramètre choisi que la valeur limite. Cela dit, il est impossible de filtrer en une seule fois un ADTree selon plusieurs paramètres, contrairement à ce qui avait été annoncé dans le rapport de spécifications~\cite{spec_fonc}. Ceci peut malgré tout être fait en appliquant le Filtre consécutivement sur différents paramètres et sur différentes valeurs limites, jusqu'à obtenir le filtrage définitif souhaité.
+
+\paragraph{L'Optimiseur} Comme annoncé, l'Optimiseur permet de conserver simplement le(s) chemin(s) le(s) plus efficace(s) selon le paramètre choisi par l'utilisateur. Ce paramètre peut être l'un de ceux obtenus grâce à l'Éditeur de fonctions \BK{Fonction (lettre majuscule)}.
+
+Ainsi, malgré quelques changements comparé à ce qui avait été annoncé lors de la phase de conception, Glasir est bien capable de remplir le rôle qui lui avait été fixé :  il fournit à l'expert en sécurité des outils d'analyse efficaces et simples d'utilisation. 
+\BK{vous pouvez mettre la dernière phrase en italique
+\emph{il fournit à l'expert en sécurité des outils d'analyse efficaces et simples d'utilisation.}}
+
+\subsubsection{ADTool}
+\label{sssec:obj_adtool}
+
+Le cahier des charges prévoyait, en plus de l'implémentation de Glasir, un certain nombre de modifications à apporter à ADTool. Parmi ces dernières, toutes ont été correctement mises en place, à l'exception de l'affichage simultané de plusieurs paramètres sur les noeuds d'un même ADTree. Cette nouveauté a été abandonnée car elle nécessitait une charge de travail trop importante, comme déjà expliqué dans la {\sc section}~\ref{sec:rect}.
+
+Le logiciel permet donc toujours de créer, d'afficher et d'éditer des ADTrees de façon simple et intuitive, mais son ergonomie a été améliorée par l'ajout des fonctionnalités suivantes :
+\begin{itemize}
+    \item la possibilité de copier-couper-coller 
+		\BK{copier/couper/coller }
+		des sous-arbre d'un ADTree ;
+    \item l'annulation des actions précédentes.
+\end{itemize}
+
+De plus, la grammaire utilisée pour générée \BK{générer (pas générée)} la représentation textuelle des ADTrees dans la fenêtre \og ADTerm Edit \fg{} a été améliorée. Elle est à présent plus complète et plus lisible \BK{car elle contient des labelles correspondant aux n\oe{}uds intermédiaires d'un ADTree}
+
+Toutes les nouveautés évoquées ici apportent une réelle aide à l'expert en sécurité, qu'il veuille créer, éditer ou analyser des ADTrees. Mais le logiciel peut encore être amélioré, c'est pourquoi la {\sc sous-section}~\ref{subsec:encorePlusMieux} présente une liste d'idées à creuser dans l'éventualité d'une continuation de l'implémentation.
+
+\subsection{Améliorations possibles}
+\label{subsec:encorePlusMieux}
+
+Suite à nos recherches sur l'analyse des ADTrees et à l'implémentation de Glasir, nous avons pu identifier des améliorations et de nouvelles fonctionnalités potentiellement utiles pour l'analyse des ADTrees. La liste d'améliorations proposées ci-après n'est évidemment pas exhaustive, elle présente juste quelques pistes qui pourraient être envisagées si le projet avait à être poursuivi.
+
+\paragraph{Interconnectivité ADTool/Glasir} Sans parler d'intégrer totalement ADTool dans Glasir, il semble envisageable de trouver un moyen d'informer l'un des modifications effectuées via l'autre, et vice-versa. Il serait plus agréable pour l'utilisateur de pouvoir éditer et analyser les ADTrees à partir d'une même fenêtre logicielle, sans avoir à changer d'outil sans arrêt. Cette interconnectivité permettrait de se passer de la version \og view mode \fg{} d'ADTool actuellement utilisée dans Glasir. 
+
+\paragraph{Suggestion de défenses} Un exemple d'un nouveau module d'analyse d'arbres qui nous a paru intéressant est celui de donner à Glasir un arbre représentant un système défendu, mais qui dans la réalité ne l'est pas. L'expert pourrait alors demander à Glasir, en lui ayant au préalable indiqué le coût de l'installation de chacune des défenses, de trouver la disposition idéale des défenses contre une attaque compte tenu d'un critère (par exemple le temps nécessaire à l'attaque, le prix de l'attaque), pour un budget donné.
+
+\paragraph{Fonction de recherche dans ADTool} Cette dernière consisterait à pouvoir chercher un mot, ou un expression entière, parmi l'ensemble des labels des n\oe{}uds présents dans l'ADTree courant. Cela pourrait par exemple s'effectuer à l'aide d'un raccourci clavier, tel que le classique {\sc CTRL+F}. Cette fonctionnalité pourrait permettre de vrais gains de temps, surtout dans le cas où l'arbre est de taille conséquente.
