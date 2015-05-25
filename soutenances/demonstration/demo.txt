@@ -1,0 +1,39 @@
+30 min :
+
+annonce du programme de la démonstration
+rappel du contexte avec 2-3 slides : 3 min
+
+nouvelles fonctionnalités d'ADTool : 10 min
+	version originale (fenêtre, grammaire, domains)
+	nouvelle version (grammaire)
+	copier/couper/coller (raccourci, liste déroulante montrer impossibilité quand types différents)
+	undo (raccourci clavier, bouton)
+
+transition : "je vais maintenant presenter le logiciel d'analyse d'ADTrees Glasir qui utilise ADTool pour les afficher"
+
+Glasir : 15 min
+	fonctionnement général : 4
+		bibliothèque de modèles
+		ouvrir un arbre (au format XML, viewmode)
+		ouvrir un second
+		selectionner foregroundInstance
+		enregistrer un projet
+		close un projet
+		ouvrir un projet
+	edit functions  : 4
+		selection 1er param (preciser paramètre résultat)
+		selection 2nd param
+		edition de la fonction (exemple fonction non gérée)
+		nommage du paramètre
+		exécution
+		reexecution sur le nouvel arbre (montrer qu'on ne peut avoir 2 fois le même nom)
+	filter : 4
+		selection du paramètre (limitation de domains, montrer avec domaines discrets)
+		selection de la valeur (erreur de type)
+		execution 
+	optim : 3
+		selection du param
+		execution
+
+conclu : idées améliorations : 2 min
+	reprise de la diapo
