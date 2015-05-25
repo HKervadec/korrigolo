@@ -252,8 +252,13 @@ namespace Glasir
                     this.updateTreeView();
                 }
             }
-            catch
+            catch(Exception m)
             {
+                if(m.Message!=null)
+                {
+                    MessageBox.Show(m.Message);
+                    return;
+                }
                 MessageBox.Show("Invalid filter.");
             }
         }

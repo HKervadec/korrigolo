@@ -93,7 +93,49 @@ namespace Glasir
             XElement elemRoot = fn.Element("node");
             Console.WriteLine("\n");
             listDelete = new List<XElement>();
-            searchAndChange(elemRoot, Max);
+
+            String domainClass = null;
+            foreach (XElement dom in domains)
+            {
+                if ((String)dom.Attribute("id") == DomainParam)
+                {
+                    domainClass = dom.Element("class").Value;
+                }
+            }
+
+            switch (domainClass)
+            {
+                case "lu.uni.adtool.domains.predefined.MinCost":
+                    searchAndChange1(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.MinTimeSeq":
+                    searchAndChange1(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.ReachSeq":
+                    searchAndChange1(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.PowerCons":
+                    searchAndChange1(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.DiffLMH":
+                    searchAndChange2(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.DiffLMHE":
+                    searchAndChange2(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.MinSkill":
+                    searchAndChange2(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.MinTimePar":
+                    searchAndChange2(elemRoot, Max);
+                    break;
+                case "lu.uni.adtool.domains.predefined.ReachPar":
+                    searchAndChange2(elemRoot, Max);
+                    break;
+                default:
+                    throw new Exception("erreur de domain");
+            }
+
             foreach(XElement el in listDelete) {
                 el.Remove();
             }
@@ -107,7 +149,7 @@ namespace Glasir
         /// </summary>
         /// <param name="code"></param>
         /// <param name="m"></param>
-        public void searchAndChange(XElement code, double m)
+        public void searchAndChange1(XElement code, double m)
         {
             Console.WriteLine(code);
             Console.WriteLine("\n");
@@ -212,7 +254,7 @@ namespace Glasir
                                 maxtemp = m + maxtemp;
                                 Console.WriteLine("b");
                                 Console.WriteLine(el);
-                                searchAndChange(el, maxtemp);
+                                searchAndChange1(el, maxtemp);
                             }
                         }
                     }
@@ -223,8 +265,81 @@ namespace Glasir
                         {
                             Console.WriteLine("b");
                             Console.WriteLine(el);
-                            searchAndChange(el, m);
+                            searchAndChange1(el, m);
                         }
+                    }
+                }
+            }
+        }
+
+        public void searchAndChange2(XElement code, double m)
+        {
+            Console.WriteLine(code);
+            Console.WriteLine("\n");
+
+            IEnumerable<XElement> parameters = code.Elements("parameter");
+            string value = null;
+            foreach (XElement par in parameters)
+            {
+                if ((string)par.Attribute("category") == "derived" && (string)par.Attribute("domainId") == DomainParam)
+                {
+                    value = par.Value;
+                }
+            }
+            if (value == null)
+            {
+                foreach (XElement par in parameters)
+                {
+                    if ((string)par.Attribute("category") == "basic" && (string)par.Attribute("domainId") == DomainParam)
+                    {
+                        value = par.Value;
+                    }
+                }
+            }
+
+            if (value == "true") { value = "1"; }
+            if (value == "false") { value = "0"; }
+
+            if (value == "L") { value = "1"; }
+            if (value == "M") { value = "2"; }
+            if (value == "H") { value = "3"; }
+            if (value == "E") { value = "4"; }
+
+            if (value == "Infinity")
+            {
+                listDelete.Add(code);
+                return;
+            }
+
+            value = value.Replace('.', ',');
+
+            if (code.Element("node") == null)
+            {
+                if (Evaluate(m + "-" + value) < 0.0) { listDelete.Add(code); }
+                Console.WriteLine("a");
+                Console.WriteLine(code);
+                return;
+            }
+
+            else
+            {
+
+                if (Evaluate(m + "-" + value) < 0.0)
+                {
+                    listDelete.Add(code);
+                    //code.Remove();
+                    Console.WriteLine("a");
+                    Console.WriteLine(code);
+                    return;
+                }
+                else
+                {
+                    IEnumerable<XElement> subNodes = code.Elements("node");
+                    foreach (XElement el in subNodes)
+                    {
+                        Console.WriteLine("b");
+                        Console.WriteLine(el);
+                        searchAndChange2(el, m);
                     }
                 }
             }
