@@ -3,7 +3,7 @@
 
 Tout au long de l'implémentation de Glasir et des nouvelles fonctionnalités d'ADTool, il a fallu s'assurer du bon fonctionnement du logiciel. Pour cela, nous avons mis en place une méthodologie de test en accord avec les contraintes du projet. La contrainte la plus contraignante était que, Glasir et ADTool étant deux logiciels distincts, nous ne pouvions pas assurer au travers de tests unitaires dans Glasir que les fonctionnalités d'analyse fonctionnaient correctement. En effet, c'était l'affichage correct ou non de l'arbre résultat sous ADTool qui permettait de vérifier l'exactitude de l'analyse. Nous avons donc dû recourir à une méthode différente de celle des tests unitaires.
 
-Le développement de Glasir et l'amélioration d'ADTool ayant été versionnés, nous avions un cadre propice pour le test des fonctionnalités à chaque rendu de version. La méthodologie employée pour tester Glasir a donc été de le faire tester, ainsi que la nouvelle version d'ADTool, par des personnes avec trois profils distincts et complémentaires, que nous allons présenter dans la {\sc sous-section}~\ref{subsec:testeurs}. De plus, nous avons pu tester chaque nouveauté sur des ADTrees relativement conséquents, fournis par les élèves de 5INFO à l'issue de l'un de leurs TP. Ces ADTrees étaient intéressants car ils possédaient des n\oe{}uds des deux types (attaque et défense), et ils étaient dotés de valuations.
+Le développement de Glasir et l'amélioration d'ADTool ayant été versionnés, nous avions un cadre propice pour le test des fonctionnalités à chaque rendu de version. La méthodologie employée pour tester Glasir a donc été de le faire tester, ainsi que la nouvelle version d'ADTool, par des personnes avec trois profils distincts et complémentaires, que nous allons présenter dans la {\sc sous-section}~\ref{subsec:testeurs}. De plus, nous avons pu tester chaque nouveauté sur des ADTrees relativement conséquents, fournis par les élèves de 5INFO à l'issue de l'un de leurs TP. Ces ADTrees étaient intéressants car ils possédaient des n\oe{}uds des deux types (attaque et défense), et ils étaient dotés de plusieurs valuations.
 
 \subsection{Les profils de testeurs}
 \label{subsec:testeurs}
@@ -19,14 +19,14 @@ Les tests de Glasir ont été réalisés de manière plus ou moins continue par 
 \subsection{Rapport de tests}
 \label{subsec:tests}
 
-Voici maintenant les différents retours de tests que nous avons eus sur Glasir et sur ADTool après les rendus des différentes versions : 
+Sont maintenant présentés les différents retours de tests que nous avons eus sur Glasir et sur ADTool après les rendus des différentes versions : 
 \begin{itemize}
 	\item v0.1 avec l'interface de Glasir, l'Éditeur de fonctions et la refonte de la grammaire d'ADTool ;
 	\item v0.2 avec le Filtre dans Glasir et la fonctionnalité de couper/copier/coller dans ADTool ;
 	\item v1.0 avec l'Optimiseur pour Glasir et l'annulation d'une action pour ADTool.
 \end{itemize}
 
-Seront détaillés ici les retours consécutifs aux rendus des différentes versions de Glasir. Ces retours sont répartis selon la nature des éléments qu'ils contiennent.
+Sont détaillés ici les retours consécutifs aux rendus des différentes versions de Glasir. Ces retours sont répartis selon la nature des éléments qu'ils contiennent.
 
 \subsubsection{Retours d'ordre général sur Glasir}
 \label{subsubsec:fonctglob}

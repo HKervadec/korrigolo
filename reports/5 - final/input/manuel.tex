@@ -5,7 +5,7 @@ Bienvenue dans le manuel utilisateur de Glasir, un logiciel d'aide aux experts e
 
 Ce manuel commencera par décrire le fonctionnement général du logiciel (création d'un nouveau projet, ouverture d'un projet existant, etc.), avant d'expliquer comment prendre en main les trois fonctionnalités principales que sont l'Éditeur de fonctions, le Filtre et l'Optimiseur. 
 
-Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez des détails concernant l'utilisation d'ADTool, surtout les nouveautés qui lui ont été ajoutées lors de ce projet.
+Après cela, dans la {\sc sous-section}~\ref{ssec:manuelADTool} vous trouverez des détails concernant l'utilisation d'ADTool, et principalement sur les nouveautés qui lui ont été ajoutées lors de ce projet.
 
 	\begin{figure}[H]
         \centering
@@ -37,7 +37,7 @@ Lorsque vous démarrez Glasir, la fenêtre présentée sur la {\sc Figure}~\ref{
     \end{figure}
 
 \paragraph{Ouvrir un ADTree}
-Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à gauche, dans la barre de menu. Puis, dans le menu déroulant, cliquez sur \emph{Open ADTree File}, comme indiqué sur la {\sc Figure}~\ref{fig:file}. Une boîte de dialogue apparaît : parcourez vos dossiers pour sélectionner l'ADTree que vous souhaitez ouvrir. Notez que seuls les ADTrees au format XML générés par ADTool (consulter {\sc section} 7 du manuel utilisateur d'ADTool~\cite{ADTool_Manual}) peuvent être analysés par Glasir. Une fois l'ADTree sélectionné, cliquez sur le bouton \emph{Open} de la boite de dialogue. ADTool se lance alors pour afficher votre ADTree. Notez qu'au démarrage, cette opération peut prendre quelques secondes. Une fois ADTool lancé, Glasir se présente sous la forme de plusieurs fenêtres, comme indiqué sur la {\sc Figure}~\ref{fig:gladitoule}. Si la fenêtre d'ADTool ne s'affiche pas au bout d'une minute ou qu'un autre programme qu'ADTool se lance, cela signifie que vos fichiers \emph{.jar} ne sont pas associés à Java (ou que vous ne possédez pas Java). Consultez et suivez les étapes du fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir pour obtenir des informations supplémentaires et corriger le problème.
+Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à gauche, dans la barre de menu. Puis, dans le menu déroulant, cliquez sur \emph{Open ADTree File}, comme indiqué sur la {\sc Figure}~\ref{fig:file}. Une boîte de dialogue apparaît : parcourez vos dossiers pour sélectionner l'ADTree que vous souhaitez ouvrir. Notez que seuls les ADTrees au format XML générés par ADTool (consulter {\sc section} 7 du manuel utilisateur d'ADTool~\cite{ADTool_Manual}) peuvent être analysés par Glasir. Il n'est cependant pas possible d'utiliser des arbres réalisés avec une autre version d'ADTool que celle de Glasir. Une fois l'ADTree sélectionné, cliquez sur le bouton \emph{Open} de la boite de dialogue. ADTool se lance alors pour afficher votre ADTree. Notez qu'au démarrage, cette opération peut prendre quelques secondes. Une fois ADTool lancé, Glasir se présente sous la forme de plusieurs fenêtres, comme indiqué sur la {\sc Figure}~\ref{fig:gladitoule}. Si la fenêtre d'ADTool ne s'affiche pas au bout d'une minute ou qu'un autre programme qu'ADTool se lance, cela signifie que vos fichiers \emph{.jar} ne sont pas associés à Java (ou que vous ne possédez pas Java). Consultez et suivez les étapes du fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir pour obtenir des informations supplémentaires et corriger le problème.
 
 	\begin{figure}[H]
         \centering
@@ -59,7 +59,7 @@ Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à 
 
 \paragraph{Aide} Si vous avez des problèmes avec le lancement d'ADTool, vous pouvez cliquer sur le bouton \emph{Help} de la barre de menu pour obtenir des informations supplémentaires. Nous vous invitons aussi à suivre les consignes indiquées dans le fichier \emph{ReadMe.txt} (en anglais) fourni avec Glasir.
 
-\paragraph{Changer d'ADTree courant} Pour pouvoir utiliser les modules de Glasir, vous devez sélectionner un ADTree courant, sur lequel les opérations des modules seront appliquées. Le bloc en bas de la fenêtre principale dresse la liste des ADTrees de votre projet.  Vous avez la possibilité de cocher la case \emph{Show complete path}, en bas, pour voir le chemin complet de chaque ADTree. Cliquez sur un ADTree dans la liste pour qu'il devienne l'ADTree courant. Son nom est alors indiqué à la ligne du dessus, en plus gros. Si aucun ADTree n'est disponible ou sélectionné, le message \og No ADTree selected \fg{} est affiché à la place. Notez que lorsque vous ouvrez un ADTree, ce dernier devient automatiquement l'ADTree courant.
+\paragraph{Changer d'ADTree courant} Pour pouvoir utiliser les modules de Glasir, vous devez sélectionner un ADTree courant, sur lequel les opérations des modules seront appliquées. Le bloc en bas de la fenêtre principale dresse la liste des ADTrees de votre projet.  Vous avez la possibilité de cocher la case \emph{Show complete path}, en bas, pour voir le chemin complet de chaque ADTree. Cliquez sur un ADTree dans la liste pour qu'il devienne l'ADTree courant. Son nom est alors indiqué à la ligne du dessus, en plus gros. Si aucun ADTree n'est disponible ou sélectionné, le message \og No ADTree selected \fg{} est affiché à la place. Notez que lorsqu'un nouvel ADTree est ouvert, ce dernier devient automatiquement l'ADTree courant.
 
 \paragraph{Éditeur de fonctions} Cette fonctionnalité a pour intérêt d'exprimer un compromis entre deux valuations d'un ADTree en en créant une troisième, fonction des deux premières. Par exemple, si vous avez un ADTree qui a comme paramètres \og Minimal cost for the proponent \fg (en euros) et \og Minimal time for the proponent (sequential) \fg (en heures) et que vous estimez qu'une heure \og coûte \fg par comparaison 20 euros, vous pouvez créer un nouveau paramètre de type \og Minimal cost for the proponent \fg exprimant un compromis entre les deux paramètres qui sera égal à coût+20*temps.
 
@@ -75,9 +75,9 @@ Pour ouvrir un ADTree, cliquez sur le bouton \emph{File} situé tout en haut à 
 Pour utiliser l'Éditeur de fonctions, suivez les étapes suivantes : 
 
 \begin{itemize}
-\item Assurez-vous que l'ADTree que vous voulez filtrer est ouvert et désigné comme l'arbre courant ;
+\item Assurez-vous que l'ADTree que vous voulez utiliser est ouvert et désigné comme l'arbre courant ;
 \item Sélectionnez l'onglet \og FunctionEditor \fg{} (voir {\sc figure}~\ref{fig:functEdit}) ;
-\item Sélectionnez les deux paramètres de l'ADTree que vous voulez combiner au moyen des deux ComboBox présentent dans l'onglet ;
+\item Sélectionnez les deux paramètres de l'ADTree que vous voulez combiner au moyen des deux ComboBox présentes dans l'onglet ;
 \item Inscrivez dans la textBox \og Function \fg{} la fonction que vous voulez utiliser pour le calcul du nouveau paramètre. Par exemple, si vous voulez faire \og newParam = firstParam + 2*secondParam\fg , inscrivez \og +2* \fg{} ;
 \item Entrez le nom que vous voulez donner au nouveau paramètre créé dans la TextBox \og Name \fg{} ;
 \item Enfin, cliquez sur le bouton \og Apply\fg{} pour créer le nouveau paramètre.

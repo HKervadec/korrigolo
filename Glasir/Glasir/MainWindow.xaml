@@ -65,10 +65,6 @@
             </MenuItem>
 
             <!-- other -->
-            <MenuItem Header="_Window" >
-                <MenuItem Header="Next Window" IsEnabled="False"/>
-                <MenuItem Header="Last Window" IsEnabled="False"/>
-            </MenuItem>
             <MenuItem Header="_Help" >
                 <MenuItem Header="ADTool doesn't launch" Click="helpADTool"/>
                 <Separator></Separator>
