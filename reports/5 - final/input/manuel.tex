@@ -86,7 +86,25 @@ Pour utiliser l'Éditeur de fonctions, suivez les étapes suivantes :
 S'ouvrira alors un nouvel arbre dans une nouvelle fenêtre d'ADTool, qui sera nommé comme l'arbre initial suivi de \og .functEdit \fg{} . Le nouvel ADTree sera enregistré par défaut dans le répertoire où se trouve le logiciel Glasir, mais rien ne vous empêche par la suite de le déplacer. 
 Si un problème survient, l'exécution sera stoppée et une boite de message apparaîtra pour vous donner les raisons de l'interruption.
 
-\paragraph{Filtre} Cette fonctionnalité sert a élaguer les chemins d'un ADTree qui ne respectent pas une certaine condition. Par exemple, si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'on sait qu'un attaquant potentiel ne peut pas dépenser plus de 2000 euros, le Filtre permettra alors d'élaguer l'ADTree de manière à ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros ou moins.
+\paragraph{Filtre} Cette fonctionnalité sert à élaguer les chemins d'un ADTree qui ne respectent pas une certaine condition. Par exemple, l'ADTree présenté à la {\sc figure}~\ref{fig:arbreOrigine} a comme paramètre \og Minimal cost for the proponent \fg (en euros) : si l'on cherche à identifier les chemins que pourrait emprunter un attaquant potentiel qui ne peut pas dépenser plus de 300 euros, le Filtre permettra alors d'élaguer l'ADTree pour respecter cette condition. L'élagage sera ainsi fait de manière à ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 300 euros ou moins. Ce qui conduira à l'arbre présenté à la {\sc figure}~\ref{fig:arbreFiltre}
+
+ \begin{figure}[H]
+        \centering
+        \hspace*{-2.8cm}
+        \includegraphics[height=0.5\textwidth]{figure/arbreOrigine.png}
+        \caption{ADTree d'origine.}
+        \label{fig:arbreOrigine}
+    \end{figure}
+
+ \begin{figure}[H]
+        \centering
+        \hspace*{-1.2cm}
+        \includegraphics[height=0.5\textwidth]{figure/arbreFiltre.png}
+        \caption{ADTree après filtrage.}
+        \label{fig:arbreFiltre}
+    \end{figure}
+
+L'onglet permettant d'utiliser le filtre dans Glasir est présenté à la {\sc figure}~\ref{fig:filter} :
 
  \begin{figure}[H]
         \centering
@@ -108,7 +126,16 @@ Pour utiliser le Filtre, suivez les étapes suivantes :
 S'ouvrira alors un nouvel arbre, correspondant à l'arbre élagué, dans une nouvelle fenêtre d'ADTool. Il sera nommé comme l'arbre initial, suivi de \og .filter \fg{}. Le nouvel arbre sera enregistré par défaut dans le répertoire où se trouve Glasir, mais rien ne vous empêche de le déplacer par la suite.
 Si un problème survient, l'exécution sera stoppée et une boite de message apparaîtra pour vous donner les raisons de l'interruption.
 
-\paragraph{Optimiseur} Cette fonctionnalité sert a élaguer les chemins d'un ADTree de manière a ne conserver que le(s) meilleur(s) chemin(s) selon un paramètre donné. Par exemple, si un ADTree a comme paramètre \og Minimal cost for the proponent \fg (en euros) et que l'attaque la moins chère coûte 2000 euros, l'Optimiseur permettra alors d'élaguer l'ADTree de manière à ne conserver que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant d'accomplir l'attaque avec 2000 euros seulement.
+\paragraph{Optimiseur} Cette fonctionnalité sert à élaguer les chemins d'un ADTree de manière a ne conserver que le(s) meilleur(s) chemin(s) selon un paramètre donné. Par exemple avec l'arbre de la {\sc figure}~\ref{fig:arbreOrigine}, l'arbre optimisé obtenu selon le paramètre \og Minimal cost for the proponent \fg (en euros) ne conservera que les feuilles de l'arbre qui apparaissent dans au moins un chemin permettant à l'attaquant d'accomplir l'attaque avec 52 euros seulement. Le résultat est l'ADTree de la {\sc figure}~\ref{fig:arbreOptim}
+
+ \begin{figure}[H]
+        \centering
+        \includegraphics[height=0.5\textwidth]{figure/arbreOptimise.png}
+        \caption{ADTree après optimisation.}
+        \label{fig:arbreOptim}
+    \end{figure}
+
+L'onglet permettant d'utiliser l'optimiseur dans Glasir est présenté à la {\sc figure}~\ref{fig:opti} :
 
  \begin{figure}[H]
         \centering

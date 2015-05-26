@@ -5,8 +5,8 @@
     <parameter category="derived" domainId="MinCost2">205.0</parameter>
     <node refinement="disjunctive">
       <label>Empecher son conducteur de venir</label>
-      <parameter category="derived" domainId="MinTimeSeq1">212.0</parameter>
-      <parameter category="derived" domainId="MinCost2">5052.0</parameter>
+      <parameter category="derived" domainId="MinTimeSeq1">62.0</parameter>
+      <parameter category="derived" domainId="MinCost2">452.0</parameter>
       <node refinement="conjunctive">
         <label>Envoyer le conducteur a l'hopital</label>
         <parameter category="derived" domainId="MinTimeSeq1">12.0</parameter>
@@ -25,18 +25,28 @@
       <node refinement="disjunctive">
         <label>L'enfermer chez lui</label>
         <parameter category="basic" domainId="MinTimeSeq1">50.0</parameter>
-        <parameter category="basic" domainId="MinCost2">500.0</parameter>
+        <parameter category="basic" domainId="MinCost2">700.0</parameter>
       </node>
       <node refinement="disjunctive" switchRole="yes">
         <label>Utiliser des conducteurs remplacants</label>
         <parameter category="default" domainId="MinTimeSeq1">Infinity</parameter>
-        <parameter category="derived" domainId="MinTimeSeq1">200.0</parameter>
+        <parameter category="derived" domainId="MinTimeSeq1">50.0</parameter>
         <parameter category="default" domainId="MinCost2">Infinity</parameter>
-        <parameter category="derived" domainId="MinCost2">5000.0</parameter>
+        <parameter category="derived" domainId="MinCost2">400.0</parameter>
         <node refinement="disjunctive" switchRole="yes">
-          <label>Tuer tous les conducteurs de bus</label>
-          <parameter category="basic" domainId="MinTimeSeq1">200.0</parameter>
-          <parameter category="basic" domainId="MinCost2">5000.0</parameter>
+          <label>Empecher de contacter les conducteurs remplacants</label>
+          <parameter category="derived" domainId="MinTimeSeq1">50.0</parameter>
+          <parameter category="derived" domainId="MinCost2">400.0</parameter>
+          <node refinement="disjunctive">
+            <label>Tuer tous les conducteurs de bus</label>
+            <parameter category="basic" domainId="MinTimeSeq1">700.0</parameter>
+            <parameter category="basic" domainId="MinCost2">5000.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Bloquer les communications entre conducteurs</label>
+            <parameter category="basic" domainId="MinTimeSeq1">50.0</parameter>
+            <parameter category="basic" domainId="MinCost2">400.0</parameter>
+          </node>
         </node>
       </node>
     </node>

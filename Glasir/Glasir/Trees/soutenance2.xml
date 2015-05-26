@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>Empecher le bus de circuler</label>
+    <parameter category="derived" domainId="MinTimeSeq1">12.0</parameter>
+    <parameter category="derived" domainId="MinCost2">52.0</parameter>
+    <node refinement="disjunctive">
+      <label>Empecher son conducteur de venir</label>
+      <parameter category="derived" domainId="MinTimeSeq1">12.0</parameter>
+      <parameter category="derived" domainId="MinCost2">52.0</parameter>
+      <node refinement="conjunctive">
+        <label>Envoyer le conducteur a l'hopital</label>
+        <parameter category="derived" domainId="MinTimeSeq1">12.0</parameter>
+        <parameter category="derived" domainId="MinCost2">52.0</parameter>
+        <node refinement="disjunctive">
+          <label>Agresser le conducteur</label>
+          <parameter category="basic" domainId="MinTimeSeq1">2.0</parameter>
+          <parameter category="basic" domainId="MinCost2">2.0</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>Se procurer une arme</label>
+          <parameter category="basic" domainId="MinTimeSeq1">10.0</parameter>
+          <parameter category="basic" domainId="MinCost2">50.0</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>L'enfermer chez lui</label>
+        <parameter category="basic" domainId="MinTimeSeq1">50.0</parameter>
+        <parameter category="basic" domainId="MinCost2">700.0</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Saboter l'essence</label>
+      <parameter category="derived" domainId="MinTimeSeq1">34.0</parameter>
+      <parameter category="derived" domainId="MinCost2">205.0</parameter>
+      <node refinement="disjunctive">
+        <label>Ajouter un produit dans l'essence</label>
+        <parameter category="basic" domainId="MinTimeSeq1">30.0</parameter>
+        <parameter category="basic" domainId="MinCost2">5.0</parameter>
+      </node>
+      <node refinement="disjunctive" switchRole="yes">
+        <label>Mettre une serrure au cache de l'essence</label>
+        <parameter category="default" domainId="MinTimeSeq1">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimeSeq1">4.0</parameter>
+        <parameter category="default" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">200.0</parameter>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Se procurer la cle du cache</label>
+          <parameter category="basic" domainId="MinTimeSeq1">4.0</parameter>
+          <parameter category="basic" domainId="MinCost2">200.0</parameter>
+        </node>
+      </node>
+    </node>
+  </node>
+  <domain id="MinTimeSeq1">
+    <class>lu.uni.adtool.domains.predefined.MinTimeSeq</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinCost2">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>
