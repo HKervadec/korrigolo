@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>Disable public
+transport in Rennes</label>
+    <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+    <parameter category="derived" domainId="MinCost2">1010.0</parameter>
+    <parameter category="derived" domainId="ProbSucc3">0.7100050489850027</parameter>
+    <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+    <node refinement="disjunctive">
+      <label>Terrorist attack</label>
+      <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+      <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+      <parameter category="derived" domainId="ProbSucc3">0.019999999999999997</parameter>
+      <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      <node refinement="disjunctive">
+        <label>Bomb in the headquarter</label>
+        <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="basic" domainId="MinCost2">100.0</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.2</parameter>
+        <parameter category="derived" domainId="ProbSucc3">0.019999999999999997</parameter>
+        <parameter category="basic" domainId="MinTimePar4">200.0</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Secure Headquarter with
+Detector sensor camera
+and guardian</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.9</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        </node>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Computing attack</label>
+      <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+      <parameter category="derived" domainId="MinCost2">1010.0</parameter>
+      <parameter category="derived" domainId="ProbSucc3">0.5451678698715209</parameter>
+      <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      <node refinement="disjunctive">
+        <label>Guess the password</label>
+        <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+        <parameter category="derived" domainId="MinCost2">1010.0</parameter>
+        <parameter category="derived" domainId="ProbSucc3">0.31634375000000003</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        <node refinement="disjunctive">
+          <label>Enter in the database</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+          <parameter category="basic" domainId="MinCost2">10.0</parameter>
+          <parameter category="derived" domainId="MinCost2">1010.0</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+          <parameter category="derived" domainId="ProbSucc3">0.18125000000000002</parameter>
+          <parameter category="basic" domainId="MinTimePar4">50.0</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>Do regular security
+audit</label>
+            <parameter category="default" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+            <parameter category="default" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">1000.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.85</parameter>
+            <parameter category="derived" domainId="ProbSucc3">0.6375</parameter>
+            <parameter category="default" domainId="MinTimePar4">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+            <node refinement="disjunctive" switchRole="yes">
+              <label>Attack before
+finding a vulnerability</label>
+              <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+              <parameter category="basic" domainId="MinCost2">1000.0</parameter>
+              <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+              <parameter category="basic" domainId="MinTimePar4">Infinity</parameter>
+            </node>
+          </node>
+        </node>
+        <node refinement="conjunctive">
+          <label>Phishing attack</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="ProbSucc3">0.165</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          <node refinement="conjunctive">
+            <label>Get the mail list
+of the employees</label>
+            <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+            <parameter category="basic" domainId="MinCost2">0.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">1.0</parameter>
+            <parameter category="basic" domainId="MinTimePar4">3.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Send a fake mail
+to the employees</label>
+            <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+            <parameter category="basic" domainId="MinCost2">3.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">1.0</parameter>
+            <parameter category="basic" domainId="MinTimePar4">1.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Social Engineering</label>
+            <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+            <parameter category="basic" domainId="MinCost2">20.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.66</parameter>
+            <parameter category="basic" domainId="MinTimePar4">20.0</parameter>
+          </node>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>Formation of the employees
+about security risks</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.75</parameter>
+            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          </node>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>Physicals attacks
+on the equipment</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc3">0.07195312500000002</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        <node refinement="disjunctive">
+          <label>Shut down
+the electricity</label>
+          <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="basic" domainId="MinCost2">90.0</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+          <parameter category="derived" domainId="ProbSucc3">0.07500000000000001</parameter>
+          <parameter category="basic" domainId="MinTimePar4">5.0</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>Private generator</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.85</parameter>
+            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          </node>
+        </node>
+        <node refinement="disjunctive">
+          <label>Electronic attack</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="basic" domainId="MinCost2">50.0</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+          <parameter category="basic" domainId="MinTimePar4">10.0</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>Crash server</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="basic" domainId="MinCost2">50.0</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+          <parameter category="basic" domainId="MinTimePar4">10.0</parameter>
+        </node>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Protection of the
+equipement</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc3">0.85</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>Networking attack</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc3">0.2831249999999999</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+        <node refinement="disjunctive">
+          <label>Dump the network</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="ProbSucc3">0.2831249999999999</parameter>
+          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+          <node refinement="disjunctive">
+            <label>ARP Poisoning</label>
+            <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+            <parameter category="basic" domainId="MinCost2">5.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+            <parameter category="basic" domainId="MinTimePar4">11.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>IP Spoofing</label>
+            <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+            <parameter category="basic" domainId="MinCost2">5.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+            <parameter category="basic" domainId="MinTimePar4">11.0</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>DDOS attack</label>
+            <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+            <parameter category="basic" domainId="MinCost2">30.0</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.9</parameter>
+            <parameter category="basic" domainId="MinTimePar4">10.0</parameter>
+          </node>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>Private network
+not accessible by the public
+for main activity</label>
+            <parameter category="default" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="default" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc3">0.8</parameter>
+            <parameter category="derived" domainId="ProbSucc3">0.7000000000000001</parameter>
+            <parameter category="default" domainId="MinTimePar4">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+            <node refinement="disjunctive" switchRole="yes">
+              <label>Acessing the nework
+from the inside</label>
+              <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+              <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+              <parameter category="basic" domainId="MinCost2">Infinity</parameter>
+              <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+              <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
+              <parameter category="derived" domainId="ProbSucc3">0.125</parameter>
+              <parameter category="basic" domainId="MinTimePar4">Infinity</parameter>
+              <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+              <node refinement="disjunctive" switchRole="yes">
+                <label>Login needed
+Verification of the
+past of the employee</label>
+                <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+                <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+                <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+                <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Disable the vehicles</label>
+      <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+      <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+      <parameter category="derived" domainId="ProbSucc3">0.062199999999999984</parameter>
+      <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      <node refinement="disjunctive">
+        <label>Tire puncture</label>
+        <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+        <parameter category="basic" domainId="MinCost2">1.0</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.3</parameter>
+        <parameter category="basic" domainId="MinTimePar4">10.0</parameter>
+      </node>
+      <node refinement="disjunctive">
+        <label>Break the glasses</label>
+        <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+        <parameter category="basic" domainId="MinCost2">1.0</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.46</parameter>
+        <parameter category="basic" domainId="MinTimePar4">20.0</parameter>
+      </node>
+      <node refinement="disjunctive" switchRole="yes">
+        <label>Add Guardian
+and security camera</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.9</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Shut down
+the electricity</label>
+      <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+      <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+      <parameter category="basic" domainId="MinCost2">90.0</parameter>
+      <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+      <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+      <parameter category="derived" domainId="ProbSucc3">0.07500000000000001</parameter>
+      <parameter category="basic" domainId="MinTimePar4">5.0</parameter>
+      <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      <node refinement="disjunctive" switchRole="yes">
+        <label>Private generator</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.85</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Physicals attacks
+on the human resources</label>
+      <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+      <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+      <parameter category="basic" domainId="MinCost2">80.0</parameter>
+      <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+      <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+      <parameter category="derived" domainId="ProbSucc3">0.25</parameter>
+      <parameter category="basic" domainId="MinTimePar4">500.0</parameter>
+      <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      <node refinement="disjunctive" switchRole="yes">
+        <label>Warn personal
+about the risk
+and explain what
+to do in those
+situations</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="basic" domainId="ProbSucc3">0.5</parameter>
+        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
+      </node>
+    </node>
+  </node>
+  <domain id="DiffLMHE1">
+    <class>lu.uni.adtool.domains.predefined.DiffLMHE</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinCost2">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="ProbSucc3">
+    <class>lu.uni.adtool.domains.predefined.ProbSucc</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinTimePar4">
+    <class>lu.uni.adtool.domains.predefined.MinTimePar</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

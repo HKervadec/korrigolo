@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="conjunctive">
+    <label>Disable public transport
+in Rennes</label>
+    <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+    <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+    <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+    <parameter category="derived" domainId="ProbSucc4">0.043754652580994466</parameter>
+    <node refinement="disjunctive">
+      <label>Bloquer le depot
+de bus</label>
+      <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+      <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+      <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+      <parameter category="derived" domainId="ProbSucc4">0.13539864084777833</parameter>
+      <node refinement="conjunctive">
+        <label>Organiser une greve
+des chauffeurs</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.496875</parameter>
+        <node refinement="disjunctive">
+          <label>Avoir un pretexte
+pour une greve</label>
+          <parameter category="derived" domainId="DiffLMHE1">L</parameter>
+          <parameter category="derived" domainId="MinCost2">0.0</parameter>
+          <parameter category="derived" domainId="MinTimePar3">100.0</parameter>
+          <parameter category="derived" domainId="ProbSucc4">1.0</parameter>
+          <node refinement="disjunctive">
+            <label>Connaitre les revendications
+des chauffeurs</label>
+            <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+            <parameter category="basic" domainId="MinCost2">0.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">100.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">1.0</parameter>
+          </node>
+        </node>
+        <node refinement="disjunctive">
+          <label>Avoir l'appui
+des syndicats</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="basic" domainId="MinCost2">10.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">1100.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.5</parameter>
+        </node>
+        <node refinement="conjunctive" switchRole="yes">
+          <label>Avoir des chauffeurs
+heureux</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="derived" domainId="ProbSucc4">0.00625</parameter>
+          <node refinement="disjunctive">
+            <label>Bien les payer</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.5</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Offrir
+plein de vacances</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.25</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Des conditions de
+travail ideales</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="derived" domainId="ProbSucc4">0.05</parameter>
+            <node refinement="disjunctive">
+              <label>Avoir des clients aimables
+et intentionnes</label>
+              <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+              <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+              <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+              <parameter category="basic" domainId="ProbSucc4">0.05</parameter>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>Mettre hors service
+le portail</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.04984374999999999</parameter>
+        <node refinement="disjunctive">
+          <label>Couper l'alimentation
+du portail</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="derived" domainId="ProbSucc4">0.19937499999999997</parameter>
+          <node refinement="disjunctive">
+            <label>Saboter la centrale nucleaire</label>
+            <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+            <parameter category="basic" domainId="MinCost2">100000.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">50.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.1</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Faire exploser une bombe IEM</label>
+            <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+            <parameter category="basic" domainId="MinCost2">1000000.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">10.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.1</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Couper le bon cable</label>
+            <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+            <parameter category="basic" domainId="MinCost2">10.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">31.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+          </node>
+          <node refinement="disjunctive" switchRole="yes">
+            <label>Avoir une alimentation
+de secours</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+          </node>
+        </node>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Avoir plusieurs
+sorties</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+        </node>
+      </node>
+      <node refinement="conjunctive">
+        <label>Provoquer un accident
+a la sortie</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.25</parameter>
+        <node refinement="disjunctive">
+          <label>posseder suffisement
+de vehicules</label>
+          <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+          <parameter category="basic" domainId="MinCost2">100.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">0.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">1.0</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>Avoir un complice</label>
+          <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+          <parameter category="basic" domainId="MinCost2">0.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">0.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">1.0</parameter>
+        </node>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Avoir plusieurs sorties</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+        </node>
+      </node>
+      <node refinement="conjunctive">
+        <label>Faire exploser un bus
+en train de sortir</label>
+        <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+        <parameter category="derived" domainId="MinCost2">101.0</parameter>
+        <parameter category="derived" domainId="MinTimePar3">1000.0</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.7284999999999999</parameter>
+        <node refinement="disjunctive">
+          <label>Avoir des explosifs</label>
+          <parameter category="derived" domainId="DiffLMHE1">H</parameter>
+          <parameter category="derived" domainId="MinCost2">100.0</parameter>
+          <parameter category="derived" domainId="MinTimePar3">1000.0</parameter>
+          <parameter category="derived" domainId="ProbSucc4">0.7749999999999999</parameter>
+          <node refinement="disjunctive">
+            <label>Avoir acces au depot de l'armee</label>
+            <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+            <parameter category="basic" domainId="MinCost2">1000.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">1000.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.1</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>Avoir des connaissances en chimie</label>
+            <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+            <parameter category="basic" domainId="MinCost2">100.0</parameter>
+            <parameter category="basic" domainId="MinTimePar3">1000.0</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+          </node>
+        </node>
+        <node refinement="disjunctive">
+          <label>connaitre le premier bus
+a sortir</label>
+          <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+          <parameter category="basic" domainId="MinCost2">1.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">1.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">1.0</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>aucun bus
+n est deja sorti</label>
+          <parameter category="basic" domainId="DiffLMHE1">L</parameter>
+          <parameter category="basic" domainId="MinCost2">0.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">0.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.94</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive" switchRole="yes">
+        <label>Avoir plusieurs depots</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="basic" domainId="ProbSucc4">0.85</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Bloquer les metros</label>
+      <parameter category="derived" domainId="DiffLMHE1">E</parameter>
+      <parameter category="derived" domainId="MinCost2">1000.0</parameter>
+      <parameter category="derived" domainId="MinTimePar3">1000.0</parameter>
+      <parameter category="derived" domainId="ProbSucc4">0.323154296875</parameter>
+      <node refinement="disjunctive">
+        <label>Couper l'alimentation
+du metro</label>
+        <parameter category="basic" domainId="DiffLMHE1">E</parameter>
+        <parameter category="basic" domainId="MinCost2">1000.0</parameter>
+        <parameter category="basic" domainId="MinTimePar3">1000.0</parameter>
+        <parameter category="basic" domainId="ProbSucc4">0.15</parameter>
+      </node>
+      <node refinement="disjunctive">
+        <label>Saboter les rails</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.15625</parameter>
+        <node refinement="disjunctive">
+          <label>Faire exploser
+les rails</label>
+          <parameter category="basic" domainId="DiffLMHE1">H</parameter>
+          <parameter category="basic" domainId="MinCost2">100.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">50.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.25</parameter>
+        </node>
+        <node refinement="disjunctive">
+          <label>Mettre un objet
+sur les rails</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="basic" domainId="MinCost2">10.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">10.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.5</parameter>
+        </node>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Avoir des voies
+de secours</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+        </node>
+      </node>
+      <node refinement="disjunctive">
+        <label>Pirater le
+systeme automatise</label>
+        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+        <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+        <parameter category="derived" domainId="ProbSucc4">0.05625000000000005</parameter>
+        <node refinement="disjunctive">
+          <label>Acceder aux serveurs
+controlant le systeme</label>
+          <parameter category="basic" domainId="DiffLMHE1">M</parameter>
+          <parameter category="basic" domainId="MinCost2">10.0</parameter>
+          <parameter category="basic" domainId="MinTimePar3">900.0</parameter>
+          <parameter category="basic" domainId="ProbSucc4">0.75</parameter>
+        </node>
+        <node refinement="disjunctive" switchRole="yes">
+          <label>Avoir un serveur securise</label>
+          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+          <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+          <parameter category="derived" domainId="ProbSucc4">0.9249999999999999</parameter>
+          <node refinement="disjunctive">
+            <label>reseau privee</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.9</parameter>
+          </node>
+          <node refinement="disjunctive">
+            <label>mesure anti ddos</label>
+            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
+            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
+            <parameter category="derived" domainId="MinTimePar3">Infinity</parameter>
+            <parameter category="basic" domainId="ProbSucc4">0.25</parameter>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <domain id="DiffLMHE1">
+    <class>lu.uni.adtool.domains.predefined.DiffLMHE</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinCost2">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinTimePar3">
+    <class>lu.uni.adtool.domains.predefined.MinTimePar</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="ProbSucc4">
+    <class>lu.uni.adtool.domains.predefined.ProbSucc</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>
