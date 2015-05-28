@@ -152,7 +152,6 @@ namespace Glasir
                 new XElement("class", domainClass), 
                 new XElement("tool", "ADTool")));
             XElement elemRoot = fn.Element("node");
-            Console.WriteLine("\n");
             searchAndChange(elemRoot);
             XMLFile resultFile = codeXML.createResultFile(1);
             return resultFile;
@@ -180,9 +179,6 @@ namespace Glasir
         /// <param name="swittcccchhhhh"></param>
         public void searchAndChange(XElement code, int swittcccchhhhh=0)
         {
-            //Console.WriteLine(code);
-            //Console.WriteLine("\n");
-
             if (swittcccchhhhh == 1)
             {
                 IEnumerable<XElement> elementsNode = code.Elements("node");
@@ -190,13 +186,9 @@ namespace Glasir
                 {
                     if ((String)el.Attribute("switchRole") == "yes")
                     {
-                        //Console.WriteLine("b");
-                        //Console.WriteLine(el);
                         searchAndChange(el, 0);
                     }
                     else{
-                        //Console.WriteLine("b");
-                        //Console.WriteLine(el);
                         searchAndChange(el, 1);
                     }
                 }
@@ -248,9 +240,6 @@ namespace Glasir
                     double res = Evaluate(c + Function + d);
                     code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
                 }
-                      
-            //Console.WriteLine("a");
-            //Console.WriteLine(code);
             return;
             }
 
@@ -304,16 +293,11 @@ namespace Glasir
                             double res = Evaluate(c + Function + d);
                             code.Element("label").AddAfterSelf(new XElement("parameter", new XAttribute("category", "basic"), new XAttribute("domainId", FunctionName), res.ToString()));
                         }
-
-                        //Console.WriteLine("a");
-                        //Console.WriteLine(code);
                         searchAndChange(el, 1);
                         return;
                     }
                     else
                     {
-                        //Console.WriteLine("b");
-                        //Console.WriteLine(el);
                         searchAndChange(el);
                     }
                 }

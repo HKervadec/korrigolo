@@ -91,7 +91,6 @@ namespace Glasir
             XElement fn = (XElement) codeXML.XmlCode.FirstNode;
             IEnumerable<XElement> domains = fn.Elements("domain");
             XElement elemRoot = fn.Element("node");
-            Console.WriteLine("\n");
             listDelete = new List<XElement>();
 
             String domainClass = null;
@@ -152,9 +151,6 @@ namespace Glasir
         /// <param name="m"></param>
         public void searchAndChange1(XElement code, double m)
         {
-            Console.WriteLine(code);
-            Console.WriteLine("\n");
-
             IEnumerable<XElement> parameters = code.Elements("parameter");
             string value=null;
             foreach (XElement par in parameters)
@@ -198,8 +194,6 @@ namespace Glasir
             if (code.Element("node") == null)
             {
                 if (Evaluate(m + "-" + value) < 0.0) { listDelete.Add(code); } 
-                Console.WriteLine("a");
-                Console.WriteLine(code);
                 return;
             }
 
@@ -208,9 +202,6 @@ namespace Glasir
                 if (Evaluate(m + "-" + value) < 0.0)
                 {
                     listDelete.Add(code);
-                    //code.Remove();
-                    Console.WriteLine("a");
-                    Console.WriteLine(code);
                     return;
                 }
                 else {
@@ -257,8 +248,6 @@ namespace Glasir
                             {
                                 double maxtemp = Evaluate(subVal + " - " + value);
                                 maxtemp = m + maxtemp;
-                                Console.WriteLine("b");
-                                Console.WriteLine(el);
                                 searchAndChange1(el, maxtemp);
                             }
                         }
@@ -268,8 +257,6 @@ namespace Glasir
                         IEnumerable<XElement> subNodes = code.Elements("node");
                         foreach (XElement el in subNodes)
                         {
-                            Console.WriteLine("b");
-                            Console.WriteLine(el);
                             searchAndChange1(el, m);
                         }
                     }
@@ -287,9 +274,6 @@ namespace Glasir
         /// <param name="m"></param>
         public void searchAndChange2(XElement code, double m)
         {
-            Console.WriteLine(code);
-            Console.WriteLine("\n");
-
             IEnumerable<XElement> parameters = code.Elements("parameter");
             string value = null;
             foreach (XElement par in parameters)
@@ -329,8 +313,6 @@ namespace Glasir
             if (code.Element("node") == null)
             {
                 if (Evaluate(m + "-" + value) < 0.0) { listDelete.Add(code); }
-                Console.WriteLine("a");
-                Console.WriteLine(code);
                 return;
             }
 
@@ -340,9 +322,6 @@ namespace Glasir
                 if (Evaluate(m + "-" + value) < 0.0)
                 {
                     listDelete.Add(code);
-                    //code.Remove();
-                    Console.WriteLine("a");
-                    Console.WriteLine(code);
                     return;
                 }
                 else
@@ -350,8 +329,6 @@ namespace Glasir
                     IEnumerable<XElement> subNodes = code.Elements("node");
                     foreach (XElement el in subNodes)
                     {
-                        Console.WriteLine("b");
-                        Console.WriteLine(el);
                         searchAndChange2(el, m);
                     }
                 }

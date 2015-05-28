@@ -216,7 +216,6 @@ namespace Glasir
                     XMLFile file = ADToolInstance.foregroundInstance.file;
                     FunctionEditor functEdit = new FunctionEditor(file, functionName.Text, FunctionFormula.Text, (string)Param1Editor.SelectedItem, (string)Param2Editor.SelectedItem, L1.Text, M1.Text, H1.Text, E1.Text, L2.Text, M2.Text, H2.Text, E2.Text);
                     double test = FunctionEditor.Evaluate("1" + FunctionFormula.Text + "1");
-                    Console.WriteLine("test");
                     XMLFile newfile = functEdit.createResultingFile();
                     Glasir.launchADToolInstance(newfile.FileName);
                     domains = ADToolInstance.foregroundInstance.file.getDomains();
