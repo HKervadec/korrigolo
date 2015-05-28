@@ -19,5 +19,6 @@ You may have to associate .jar file with java. In this case, please follow these
 - Click OK.
 If ADTool launch correctly after those steps, you can close it and then restart Glasir.
 
+Finally, be sure that the ADTrees you want to work with don't have space(s) in their path, and that they have been exported from ADTool to XML with the option "Add derived value" checked. 
 
 When all those steps are done, launch Glasir.exe, and enjoy !

@@ -1,0 +1,69 @@
+/**
+ * Author: Piotr Kordy (piotr.kordy@uni.lu <mailto:piotr.kordy@uni.lu>)
+ * Date:   06/06/2013
+ * Copyright (c) 2013,2012 University of Luxembourg -- Faculty of Science,
+ *     Technology and Communication FSTC
+ * All rights reserved.
+ * Licensed under GNU Affero General Public License 3.0;
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU Affero General Public License as
+ *    published by the Free Software Foundation, either version 3 of the
+ *    License, or (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU Affero General Public License for more details.
+ *
+ *    You should have received a copy of the GNU Affero General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package lu.uni.adtool.ui.texts;
+
+/**
+ * Various tooltip texts
+ * 
+ * @author Piotr Kordy
+ * @author Piot Kordy
+ * @version 
+ */
+public final class ToolTipTexts
+{
+  /**
+   * Texts for toolbar buttons.
+   */
+  public static final String[] TOOLBARLABELS = {"New", "Forward", "Reload", "Stop", "Home", "Print", "Help" };
+
+  /**
+   * Tooltip for creating new file.
+   */
+  public static final String NEW = "Start with a new empty ADTree";
+  
+  /**
+   * Tooltip for undo.
+   */
+  public static final String UNDO = "Undo last action (CTRL+Z)";
+  
+  /**
+   * Tooltip for opening a file.
+   */
+  public static final String OPEN = "Open an existing file";
+  
+  /**
+   * Tooltip for saving an ADTree.
+   */
+  public static final String SAVE = "Save this ADTree";
+  
+  /**
+   * Tooltip for printing a preview.
+   */
+  public static final String PREVIEW = "See a print preview";
+  
+  
+  /**
+   * Constructs a new instance.
+   */
+  private ToolTipTexts()
+  {
+  }
+}

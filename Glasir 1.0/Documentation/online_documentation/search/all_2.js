@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['createresultfile',['createResultFile',['../class_glasir_1_1_x_m_l_file.html#a88500505a0552c4fcb877ce081404a31',1,'Glasir::XMLFile']]],
-  ['createresultingfile',['createResultingFile',['../class_glasir_1_1_filter.html#a9868aa86eee341b3074b3a5ccfbab676',1,'Glasir.Filter.createResultingFile()'],['../class_glasir_1_1_filter.html#af0c885840f6fedd6112907967a311d65',1,'Glasir.Filter.createResultingFile(XMLFile file)'],['../class_glasir_1_1_function_editor.html#a4711bec3ee9c54349a9f24635a04da7b',1,'Glasir.FunctionEditor.createResultingFile()'],['../class_glasir_1_1_function_editor.html#a5ddfb6d1135e3404cc4872201371ff91',1,'Glasir.FunctionEditor.createResultingFile(XMLFile file)'],['../class_glasir_1_1_module.html#a26132d1d37331b72e44e72ce534eb241',1,'Glasir.Module.createResultingFile()'],['../class_glasir_1_1_optimizer.html#afa4e75f485457b8376f14bc0512247d1',1,'Glasir.Optimizer.createResultingFile()'],['../class_glasir_1_1_optimizer.html#ab2b8536cd9190a26bf87754d498dca7d',1,'Glasir.Optimizer.createResultingFile(XMLFile fileName)']]]
-];

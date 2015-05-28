@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ADToolModel.ADTree">
+    <Position X="8" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ADTree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.AddChildEdit">
+    <Position X="10.25" Y="9.5" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.062" Y="11.565" />
+        <Point X="11.062" Y="11.875" />
+        <Point X="9.5" Y="11.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>AddChildEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTool">
+    <Position X="8" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAAAAAAABAAAAAAABIAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ADTool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="historyManager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="adtrees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ADToolModel.ChangeLabelEdit">
+    <Position X="11.75" Y="9.5" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="11.565" />
+        <Point X="12.5" Y="12.187" />
+        <Point X="9.5" Y="12.187" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>ChangeLabelEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.AddDomainEdit">
+    <Position X="13.25" Y="9.5" Width="1.5" />
+    <AssociationLine Name="adt" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.875" Y="11.565" />
+        <Point X="13.875" Y="12.5" />
+        <Point X="9.5" Y="12.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>AddDomainEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adt" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.HistoryManager">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEBAAAAAAAAAEAAAAAAAAAAAAAAQAQAAAAAgA=</HashCode>
+      <FileName>HistoryManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="history" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ADToolModel.UndoExecutor">
+    <Position X="16.5" Y="9.75" Width="1.5" />
+    <AssociationLine Name="queue" Type="ADToolModel.ADTreeNode" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.125" Y="11.497" />
+        <Point X="17.125" Y="12.31" />
+        <Point X="21.688" Y="12.31" />
+        <Point X="21.688" Y="11.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAgAAAhAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UndoExecutor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="queue" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ADToolModel.ADTreeNode" Collapsed="true">
+    <Position X="21" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADToolModel.ADTreeCanvasHandler">
+    <Position X="18.75" Y="10.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>ADTreeCanvasHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADToolModel.AbstractCanvasHandler">
+    <Position X="18.75" Y="9" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="canvas" Type="ADToolModel.ADTreeCanvas" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20.5" Y="9.258" />
+        <Point X="21.75" Y="9.258" />
+        <Point X="21.75" Y="9.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.219" Y="0.135" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="undoExecutor" Type="ADToolModel.UndoExecutor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.75" Y="9.413" />
+        <Point X="17.688" Y="9.413" />
+        <Point X="17.688" Y="9.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractCanvasHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="canvas" />
+      <Property Name="undoExecutor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTreeCanvas" Collapsed="true">
+    <Position X="21" Y="9.75" Width="1.5" />
+    <AssociationLine Name="focusedNode" Type="ADToolModel.ADTreeNode" FixedToPoint="true">
+      <Path>
+        <Point X="21.312" Y="10.312" />
+        <Point X="21.312" Y="11" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.273" Y="0.118" Height="0.182" Width="1.152" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeCanvas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="focusedNode" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="ADToolModel.UndoableEdit">
+    <Position X="12.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>UndoableEdit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ADToolModel.CanvasHandler" Collapsed="true">
+    <Position X="18.75" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CanvasHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

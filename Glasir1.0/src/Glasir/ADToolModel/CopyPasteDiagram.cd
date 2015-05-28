@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ADToolModel.Clipboard">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Clipboard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="content" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ADToolModel.ADTreeTransfertHandler">
+    <Position X="8" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAEAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeTransfertHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTool" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <AssociationLine Name="adtrees" Type="ADToolModel.ADTree" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.688" Y="5.562" />
+        <Point X="10.688" Y="6.406" />
+        <Point X="11.75" Y="6.406" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="transfertHandler" Type="ADToolModel.ADTreeTransfertHandler" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.469" Y="5.562" />
+        <Point X="10.469" Y="6.875" />
+        <Point X="10" Y="6.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.127" Y="-0.265" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAAAAAAABAAAAAAABIAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ADTool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="transfertHandler" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="adtrees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ADToolModel.ADTree">
+    <Position X="11.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ADTree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTreeNode">
+    <Position X="19.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADToolModel.ADTreeTransferHandler">
+    <Position X="15" Y="6" Width="2" />
+    <AssociationLine Name="clonedNode" Type="ADToolModel.ADTreeNode" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16" Y="7.747" />
+        <Point X="16" Y="8.728" />
+        <Point X="20.312" Y="8.728" />
+        <Point X="20.312" Y="8.353" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.152" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAAAAAAABAAAQ=</HashCode>
+      <FileName>ADTreeTransferHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="clonedNode" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ADToolModel.ADTreeCanvas" Collapsed="true">
+    <Position X="19.5" Y="6" Width="1.5" />
+    <AssociationLine Name="focusedNode" Type="ADToolModel.ADTreeNode" FixedFromPoint="true">
+      <Path>
+        <Point X="19.875" Y="6.562" />
+        <Point X="19.875" Y="7.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.256" Y="0.093" Height="0.182" Width="1.152" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ADTreeCanvas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="focusedNode" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ADToolModel.AbstractCanvasHandler">
+    <Position X="17.25" Y="5.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="canvas" Type="ADToolModel.ADTreeCanvas" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19" Y="5.56" />
+        <Point X="20.25" Y="5.56" />
+        <Point X="20.25" Y="6" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.077" Y="0.085" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="transferHandler" Type="ADToolModel.ADTreeTransferHandler" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.25" Y="5.456" />
+        <Point X="15.167" Y="5.456" />
+        <Point X="15.167" Y="6" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.323" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractCanvasHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="canvas" />
+      <Property Name="transferHandler" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ADToolModel.ADTreeCanvasHandler">
+    <Position X="17.25" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>ADTreeCanvasHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ADToolModel.Transferable">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Transferable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ADToolModel.TransfertHandler">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAEAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransfertHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ADToolModel.CanvasHandler" Collapsed="true">
+    <Position X="17.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CanvasHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

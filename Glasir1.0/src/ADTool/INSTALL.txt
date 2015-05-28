@@ -1,0 +1,83 @@
+INSTALLING DEPENDENCIES:
+To compile you have to have installed:
+ - java
+ - maven 
+   You have to setup maven repository:
+   mvn archetype:generate \
+     -DarchetypeGroupId=maven-archetype-quickstart \
+     -DgroupId=lu.uni.adtool
+     -DartifactId=ADTool
+
+ - InfoNode Docking Windows: http://sourceforge.net/projects/infonode/files/
+    - to install download zip form:
+     http://sourceforge.net/projects/infonode/files/InfoNode%20Docking%20Windows/1.6.1/idw-gpl-1.6.1.zip/download
+    - unzip
+    - go to idw-gpl-1.6.1/lib directory
+    - run: 
+       mvn  install:install-file -Dfile=./idw-gpl.jar -DgroupId=net.infonode -DartifactId=idw-gpl -Dpackaging=jar -Dversion=1.6.1
+    To install sources download:
+    http://sourceforge.net/projects/infonode/files/InfoNode%20Docking%20Windows/1.6.1/idw-gpl-1.6.1-src.zip/download
+    and run:
+    mvn install:install-file -Dfile=./idw-gpl-1.6.1-src.zip \
+     -DgroupId=net.infonode -DartifactId=idw-gpl -Dpackaging=jar \
+         -Dversion=1.6.1 -Dclassifier=sources
+
+COMPILING AND OTHER:
+Analyse dependencies:
+  mvn dependency::tree
+
+directory structure:
+http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+
+Lifecycle:
+   validate
+   compile 
+   test
+   package
+   integrate-test - test if it installs to environment properly
+   verify         - test if package is good
+   install        - install to local repository
+   deploy         - copy to remote repository
+
+   So to create jar file run:
+     mvn package
+   The result will be stored in target directory.
+
+Idea project:
+   mvn idea:idea  = idea:project, idea:module, and idea:workspace
+   mvn idea:clean
+
+Quality check:
+   pmd:pmd
+
+Generate eclipse project file:
+  mvn -Declipse.workspace=workspace eclipse:add-maven-repo
+  mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
+
+Vim:
+  vim :ProjectRefresh
+Emacs+eclipse+eclim
+
+GENERATE SOURCE:
+  mvn source:jar
+
+GENERATE JNLP:
+  generate keystore:
+    keytool -genkey -alias adtool -keystore adtool.jks -validity 9999 -dname "CN=Piotr Kordy, OU=Satoss, O=University of Luxembourg,L=Luxembourg,C=LU" -storepass adtoolpass -keypass adtoolpass
+    choose adtoolpass as password
+  copy key to src/main/jnlp/resources
+  Compile:
+    mvn install webstart:jnlp
+  or with dependencies:    
+    mvn install webstart:jnlp-inline
+  export certificate:
+    keytool -export -alias adtool -file adtool.crt -keystore adtool.jks
+
+LICENSE
+  mvn verify -Dyear=2013 -Demail=piotr.kordy@uni.lu
+  mvn license:format -Dyear=2013 -Demail=piotr.kordy@uni.lu
+
+To open tree from command line run:
+ java -jar ADTool-1.4-jar-with-dependencies.jar TreeToOpen.adt
+ or 
+ java -jar ADTool-1.4-jar-with-dependencies.jar TreeToOpen.xml
