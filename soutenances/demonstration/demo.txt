@@ -1,39 +1,40 @@
-30 min :
-
-annonce du programme de la démonstration
-rappel du contexte avec 2-3 slides : 3 min
+faire diapo sommaire :
+	1. Présentation old ADTool + formalisme si besoin
+	2. Présentation new ADTool
+	3. Présentation Glasir
+	4. Pistes d'amélioration (diapo de la soutenance)
 
 nouvelles fonctionnalités d'ADTool : 10 min
+	demander si rappel du contexte nécessaire
 	version originale (fenêtre, grammaire, domains)
 	nouvelle version (grammaire)
-	copier/couper/coller (raccourci, liste déroulante montrer impossibilité quand types différents)
+	copier/couper/coller (raccourci, liste déroulante, montrer impossibilité quand 		types différents)
 	undo (raccourci clavier, bouton)
 
-transition : "je vais maintenant presenter le logiciel d'analyse d'ADTrees Glasir qui utilise ADTool pour les afficher"
+transition : "je vais maintenant présenter le logiciel d'analyse d'ADTrees Glasir qui utilise ADTool pour les afficher"
 
 Glasir : 15 min
 	fonctionnement général : 4
 		bibliothèque de modèles
-		ouvrir un arbre (au format XML, viewmode)
-		ouvrir un second
-		selectionner foregroundInstance
-		enregistrer un projet
-		close un projet
+		ouvrir un arbre dedans (au format XML, viewmode)
+		ouvrir un second arbre
+		sélectionner un arbre dans la liste
+		enregistrer un projet (format glpf)
+		fermer un projet
 		ouvrir un projet
 	edit functions  : 4
-		selection 1er param (preciser paramètre résultat)
-		selection 2nd param
-		edition de la fonction (exemple fonction non gérée)
+		sélection 1er param (préciser paramètre résultat)
+		sélection 2nd param
+		édition de la fonction (exemple fonction non gérée)
 		nommage du paramètre
 		exécution
-		reexecution sur le nouvel arbre (montrer qu'on ne peut avoir 2 fois le même nom)
+		réexecution sur le nouvel arbre (montrer qu'on ne peut avoir 2 fois le 		même nom)
 	filter : 4
-		selection du paramètre (limitation de domains, montrer avec domaines discrets)
-		selection de la valeur (erreur de type)
-		execution 
+		sélection du paramètre (limitation de domains, montrer avec 		domaines discrets)
+		sélection de la valeur (erreur de type)
+		exécution 
 	optim : 3
-		selection du param
-		execution
+		sélection du param
+		exécution
 
-conclu : idées améliorations : 2 min
-	reprise de la diapo
+conclu : idées améliorations (reprise de la diapo de la soutenance)
