@@ -80,7 +80,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
 
         switch (e.getKeyCode()) {
           case KeyEvent.VK_SPACE:
-        	  canvas.saveTree();
             if (node != null) {
               menuNode = node;
               canvas.toggleAboveFold(menuNode);
@@ -94,7 +93,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
       else{
         switch (e.getKeyCode()) {
           case KeyEvent.VK_ENTER:
-        	  canvas.saveTree();
             if (node != null) {
               menuNode = node;
               changeValueActionPerformed();
@@ -113,7 +111,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
             canvas.resetZoom();
             break;
           case KeyEvent.VK_SPACE:
-        	  canvas.saveTree();
             if (node != null) {
               menuNode = node;
               canvas.toggleFold(menuNode);
@@ -215,7 +212,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
     {
       public void actionPerformed(final ActionEvent evt)
       {
-    	canvas.saveTree();
         changeValueActionPerformed();
       }
     });
@@ -229,7 +225,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
     {
       public void actionPerformed(final ActionEvent evt)
       {
-    	  canvas.saveTree();
         if (menuNode != null) {
           canvas.toggleAboveFold(menuNode);
         }
@@ -242,7 +237,6 @@ public class DomainCanvasHandler<Type> extends AbstractCanvasHandler
     {
       public void actionPerformed(final ActionEvent evt)
       {
-    	  canvas.saveTree();
         if (menuNode != null) {
           canvas.toggleFold(menuNode);
         }
