@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><adtree>
+  <node refinement="disjunctive">
+    <label>Empecher un conducteur de venir</label>
+    <parameter category="derived" domainId="MinTimeSeq1">50.0</parameter>
+    <parameter category="derived" domainId="MinCost2">60.0</parameter>
+    <node refinement="conjunctive">
+      <label>Envoyer le conducteur a l'hopital</label>
+      <parameter category="derived" domainId="MinTimeSeq1">50.0</parameter>
+      <parameter category="derived" domainId="MinCost2">70.0</parameter>
+      <node refinement="disjunctive">
+        <label>Se procurer une arme</label>
+        <parameter category="basic" domainId="MinTimeSeq1">30.0</parameter>
+        <parameter category="basic" domainId="MinCost2">50.0</parameter>
+      </node>
+      <node refinement="disjunctive">
+        <label>Agresser le conducteur</label>
+        <parameter category="basic" domainId="MinTimeSeq1">20.0</parameter>
+        <parameter category="basic" domainId="MinCost2">20.0</parameter>
+      </node>
+    </node>
+    <node refinement="disjunctive">
+      <label>Enfermer le conducteur chez lui</label>
+      <parameter category="basic" domainId="MinTimeSeq1">60.0</parameter>
+      <parameter category="basic" domainId="MinCost2">60.0</parameter>
+    </node>
+  </node>
+  <domain id="MinTimeSeq1">
+    <class>lu.uni.adtool.domains.predefined.MinTimeSeq</class>
+    <tool>ADTool</tool>
+  </domain>
+  <domain id="MinCost2">
+    <class>lu.uni.adtool.domains.predefined.MinCost</class>
+    <tool>ADTool</tool>
+  </domain>
+</adtree>

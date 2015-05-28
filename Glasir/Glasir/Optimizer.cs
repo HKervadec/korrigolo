@@ -43,7 +43,7 @@ namespace Glasir
         }
 
         /// <summary>
-        /// Optimize the given tree by the given parameter 
+        /// Optimize the given tree by the given parameter and create the resulting XMLFile
         /// </summary>
         /// <returns></returns>
         public XMLFile createResultingFile()
@@ -52,6 +52,7 @@ namespace Glasir
             XElement fn = (XElement)codeXML.XmlCode.FirstNode;
             XElement elemRoot = fn.Element("node");
             IEnumerable<XElement> listParams = elemRoot.Elements("parameter");
+            //get the value of the given parameter in the root node
             foreach (XElement dom in listParams)
             {
                 if ((String)dom.Attribute("domainId") == domain)
@@ -59,6 +60,7 @@ namespace Glasir
                     max = dom.Value;
                 }
             }
+            //apply the filter to the tree with the given value and parameter
             Filter filt = new Filter(File, domain, max);
             XMLFile newFile = filt.createResultingFile();
             XMLFile resultFile = newFile.createResultFile(3);

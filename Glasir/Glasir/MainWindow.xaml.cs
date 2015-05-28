@@ -200,8 +200,13 @@ namespace Glasir
                     return;
                 }
 
+                //Make sure that the first parameter is continuous
                 String item = (String)Param1Editor.SelectedItem;
-                if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase))
+                if (item.StartsWith("DiffLMH", StringComparison.CurrentCultureIgnoreCase) 
+                    || item.StartsWith("MinSkill", StringComparison.CurrentCultureIgnoreCase) 
+                    || item.StartsWith("ProbSucc", StringComparison.CurrentCultureIgnoreCase)
+                    || item.StartsWith("Reach", StringComparison.CurrentCultureIgnoreCase)
+                    || item.StartsWith("Sat", StringComparison.CurrentCultureIgnoreCase))
                 {
                     MessageBoxResult result = MessageBox.Show("Please select a continuous domain for the result domain");
                 }
@@ -240,6 +245,7 @@ namespace Glasir
                 XMLFile file = ADToolInstance.foregroundInstance.file;
                 Filter filter = new Filter(file, (String)FilterComboBox.SelectedItem, maxFilter.Text);
                 XMLFile newfile = filter.createResultingFile();
+                //if the result is an empty tree, prints a message
                 if (newfile.isEmpty())
                 {
                     MessageBox.Show("No path in the ADTree satisfies the condition.");
@@ -277,6 +283,7 @@ namespace Glasir
                 XMLFile file = ADToolInstance.foregroundInstance.file;
                 Optimizer optim = new Optimizer(file, (String)OptimizeComboBox.SelectedItem);
                 XMLFile newfile = optim.createResultingFile();
+                //if the result is an empty tree, prints a message
                 if (newfile.isEmpty())
                 {
                     MessageBox.Show("No path in the ADTree satisfies the condition.");
@@ -289,8 +296,13 @@ namespace Glasir
                     this.updateTreeView();
                 }
             }
-            catch
+            catch(Exception m)
             {
+                if (m.Message != null)
+                {
+                    MessageBox.Show(m.Message);
+                    return;
+                }
                 MessageBox.Show("Invalid optimizer.");
             }
         }

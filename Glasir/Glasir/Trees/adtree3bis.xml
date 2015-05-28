@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><adtree>
   <node refinement="conjunctive">
     <label>Attaquer la STAR</label>
-    <parameter category="derived" domainId="DiffLMHE1">H</parameter>
-    <parameter category="derived" domainId="MinCost2">120.0</parameter>
-    <parameter category="derived" domainId="ProbSucc3">0.9120722656249999</parameter>
-    <parameter category="derived" domainId="MinTimePar4">3.0</parameter>
     <node refinement="disjunctive">
       <label>Bloquer le metro</label>
-      <parameter category="derived" domainId="DiffLMHE1">M</parameter>
-      <parameter category="derived" domainId="MinCost2">60.0</parameter>
-      <parameter category="derived" domainId="ProbSucc3">1.0</parameter>
-      <parameter category="derived" domainId="MinTimePar4">3.0</parameter>
       <node refinement="disjunctive">
         <label>Mettre les wagons
 hors service</label>
@@ -22,136 +14,82 @@ hors service</label>
       <node refinement="conjunctive">
         <label>Bloquer l'acces
 aux bouches</label>
-        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
-        <parameter category="derived" domainId="ProbSucc3">0.7124999999999999</parameter>
-        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         <node refinement="disjunctive">
           <label>Savonner les escaliers</label>
           <parameter category="basic" domainId="DiffLMHE1">L</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">50.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.75</parameter>
-          <parameter category="derived" domainId="ProbSucc3">0.75</parameter>
           <parameter category="basic" domainId="MinTimePar4">1.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Mettre des tapis
 antiderapants</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
         <node refinement="disjunctive">
           <label>Retirer les boutons
 d'ascenceur</label>
           <parameter category="basic" domainId="DiffLMHE1">L</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">20.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.95</parameter>
-          <parameter category="derived" domainId="ProbSucc3">0.95</parameter>
           <parameter category="basic" domainId="MinTimePar4">1.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Cache en plastique sur
 boutons tactiles</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
         <node refinement="disjunctive">
           <label>Faire fondre les
 marches de l'escalator</label>
           <parameter category="basic" domainId="DiffLMHE1">H</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">2000.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">1.0</parameter>
-          <parameter category="derived" domainId="ProbSucc3">1.0</parameter>
           <parameter category="basic" domainId="MinTimePar4">2.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Revetement en diamant</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
       </node>
       <node refinement="disjunctive">
         <label>Bloquer la voie</label>
-        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
-        <parameter category="derived" domainId="ProbSucc3">1.0</parameter>
-        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         <node refinement="disjunctive">
           <label>Demolir les rails</label>
           <parameter category="basic" domainId="DiffLMHE1">H</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">200.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">1.0</parameter>
-          <parameter category="derived" domainId="ProbSucc3">1.0</parameter>
           <parameter category="basic" domainId="MinTimePar4">4.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Revetement en diamant</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
         <node refinement="disjunctive">
           <label>Faire s'ecrouler
 le tunnel</label>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
-          <parameter category="derived" domainId="ProbSucc3">0.32499999999999996</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive">
             <label>Appeler le Joker</label>
             <parameter category="basic" domainId="DiffLMHE1">H</parameter>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
             <parameter category="basic" domainId="MinCost2">100.0</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.1</parameter>
-            <parameter category="derived" domainId="ProbSucc3">0.1</parameter>
             <parameter category="basic" domainId="MinTimePar4">1.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
             <node refinement="disjunctive" switchRole="yes">
               <label>Appeler Batman</label>
-              <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-              <parameter category="derived" domainId="MinCost2">Infinity</parameter>
               <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-              <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
             </node>
           </node>
           <node refinement="disjunctive">
             <label>Dresser des vers
 de terre geants</label>
             <parameter category="basic" domainId="DiffLMHE1">E</parameter>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
             <parameter category="basic" domainId="MinCost2">6000.0</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.25</parameter>
-            <parameter category="derived" domainId="ProbSucc3">0.25</parameter>
             <parameter category="basic" domainId="MinTimePar4">200.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
             <node refinement="disjunctive" switchRole="yes">
               <label>Appeler les aigles geants
 a la rescousse</label>
-              <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-              <parameter category="derived" domainId="MinCost2">Infinity</parameter>
               <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-              <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
             </node>
           </node>
         </node>
@@ -167,10 +105,6 @@ innondation</label>
     </node>
     <node refinement="disjunctive">
       <label>Bloquer le bus</label>
-      <parameter category="derived" domainId="DiffLMHE1">L</parameter>
-      <parameter category="derived" domainId="MinCost2">0.0</parameter>
-      <parameter category="derived" domainId="ProbSucc3">0.99953125</parameter>
-      <parameter category="derived" domainId="MinTimePar4">0.0</parameter>
       <node refinement="disjunctive">
         <label>Prendre le conducteur
 en otage</label>
@@ -181,48 +115,30 @@ en otage</label>
       </node>
       <node refinement="disjunctive">
         <label>Crever les pneus</label>
-        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
-        <parameter category="derived" domainId="ProbSucc3">0.9749999999999999</parameter>
-        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         <node refinement="disjunctive">
           <label>Mettre des clous
 sur la route</label>
           <parameter category="basic" domainId="DiffLMHE1">L</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">50.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.75</parameter>
-          <parameter category="derived" domainId="ProbSucc3">0.75</parameter>
           <parameter category="basic" domainId="MinTimePar4">2.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Equiper les bus de
 chenilles</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
         <node refinement="disjunctive">
           <label>Taillader
 au couteau</label>
           <parameter category="basic" domainId="DiffLMHE1">M</parameter>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
           <parameter category="basic" domainId="MinCost2">40.0</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.9</parameter>
-          <parameter category="derived" domainId="ProbSucc3">0.9</parameter>
           <parameter category="basic" domainId="MinTimePar4">4.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           <node refinement="disjunctive" switchRole="yes">
             <label>Equiper les bus de
 chenilles</label>
-            <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-            <parameter category="derived" domainId="MinCost2">Infinity</parameter>
             <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-            <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
           </node>
         </node>
       </node>
@@ -239,29 +155,18 @@ la route</label>
 a la groseille sur le
 pare-brise</label>
         <parameter category="basic" domainId="DiffLMHE1">L</parameter>
-        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
         <parameter category="basic" domainId="MinCost2">40.0</parameter>
-        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
         <parameter category="basic" domainId="ProbSucc3">0.75</parameter>
-        <parameter category="derived" domainId="ProbSucc3">0.75</parameter>
         <parameter category="basic" domainId="MinTimePar4">3.0</parameter>
-        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Offrir du cafe et des
 croissants le matin</label>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         </node>
       </node>
     </node>
     <node refinement="disjunctive">
       <label>Attaquer la direction</label>
-      <parameter category="derived" domainId="DiffLMHE1">H</parameter>
-      <parameter category="derived" domainId="MinCost2">60.0</parameter>
-      <parameter category="derived" domainId="ProbSucc3">0.9124999999999999</parameter>
-      <parameter category="derived" domainId="MinTimePar4">2.0</parameter>
       <node refinement="disjunctive">
         <label>Faire une prise d'otage</label>
         <parameter category="basic" domainId="DiffLMHE1">H</parameter>
@@ -273,20 +178,13 @@ croissants le matin</label>
         <label>Distribuer des petits
 fours au somnifere</label>
         <parameter category="basic" domainId="DiffLMHE1">M</parameter>
-        <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
         <parameter category="basic" domainId="MinCost2">30.0</parameter>
-        <parameter category="derived" domainId="MinCost2">Infinity</parameter>
         <parameter category="basic" domainId="ProbSucc3">0.75</parameter>
-        <parameter category="derived" domainId="ProbSucc3">0.75</parameter>
         <parameter category="basic" domainId="MinTimePar4">3.0</parameter>
-        <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         <node refinement="disjunctive" switchRole="yes">
           <label>Avoir un gouteur au
 siege de la STAR</label>
-          <parameter category="derived" domainId="DiffLMHE1">Infinity</parameter>
-          <parameter category="derived" domainId="MinCost2">Infinity</parameter>
           <parameter category="basic" domainId="ProbSucc3">0.0</parameter>
-          <parameter category="derived" domainId="MinTimePar4">Infinity</parameter>
         </node>
       </node>
     </node>

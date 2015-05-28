@@ -103,6 +103,7 @@ namespace Glasir
                 }
             }
 
+            //make sure to call the right propagation algorithm depending on the parameter 
             switch (domainClass)
             {
                 case "lu.uni.adtool.domains.predefined.MinCost":
@@ -144,8 +145,8 @@ namespace Glasir
         }
 
         /// <summary>
-        /// Elague l'arbre original du sous-arbre passé en param, si il ne respecte pas les conditions définies par le filtre 
-        /// Si le noeud en en param respecte les conditions définies par le filtre, procède à un appel récursif sur ses fils
+        /// Cut the given tree from the original tree if it doesn't respect the filter conditions. 
+        /// If the given tree respects the conditions, call recursively the same algorithm on the subtrees of the given tree to make sure that they respect the conditions as-well
         /// </summary>
         /// <param name="code"></param>
         /// <param name="m"></param>
@@ -188,6 +189,10 @@ namespace Glasir
                 return;
             }
 
+            if (value == null)
+            {
+                throw new Exception("Please verify that your ADTree file contains derived values. \nTo do so, make sure that when you are exporting to XML your ADTree with ADTool, the option 'Add derived value' is checked");
+            }
             value = value.Replace('.', ',');
 
             if (code.Element("node") == null)
@@ -272,6 +277,14 @@ namespace Glasir
             }
         }
 
+
+
+
+        /// <summary>
+        /// same that searchAndChange1 method
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="m"></param>
         public void searchAndChange2(XElement code, double m)
         {
             Console.WriteLine(code);
@@ -345,6 +358,11 @@ namespace Glasir
             }
         }
 
+        /// <summary>
+        /// evaluate the mathematical expression in the string parameter and return the result as a double
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
         public static double Evaluate(string expression)
         {
             var loDataTable = new DataTable();

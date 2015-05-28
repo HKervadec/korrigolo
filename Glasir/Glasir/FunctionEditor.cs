@@ -173,8 +173,8 @@ namespace Glasir
         }
 
         /// <summary>
-        /// Change les valuations de la feuille XML qui lui ai passé en param, suivant les conditions définie par la fonction 
-        /// Si le noeud en en param n'est pas une feuille mais un noeud de l'arbre, procède à un appel récursif sur ses fils
+        /// Change the valuations of the given tree following the given formula. 
+        /// If the given tree isn't a leaf but a simple node, call recursively the same algorithm on the subtrees of the given tree to search for leafs
         /// </summary>
         /// <param name="code"></param>
         /// <param name="swittcccchhhhh"></param>
